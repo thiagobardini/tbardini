@@ -1,8 +1,8 @@
 import { ThemeProvider, Box, Stack } from "@mui/material";
 import { theme } from "./Assets/theme";
-import Navbar from "./Layout/Navbar";
-import HeroPage from "./Components/HeroPage";
-import logo from "./Assets/images/logo-hero.png";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./Layout/Navbar/Navbar";
+import Home from "./Pages/Home";
 
 function App() {
   return (
@@ -18,15 +18,9 @@ function App() {
             }}
           >
             <Navbar />
-            <HeroPage
-              title="Boston Residents Can "
-              titleBold="Save Money with Heat Pumps"
-              text1="Heat pumps can help you "
-              textBold="save money"
-              text2=" on your home heating and cooling costs."
-              image={logo}
-              link="https://www.masssave.com/residential/programs-and-services/income-based-offers/income-eligible-programs"
-            />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
           </Stack>
         </Box>
       </ThemeProvider>

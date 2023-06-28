@@ -2,6 +2,7 @@ import { ThemeProvider, Box, Stack } from "@mui/material";
 import { theme } from "./Assets/theme";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Layout/Navbar/Navbar";
+import Nav from "./Layout/Navbar/Nav";
 import Home from "./Pages/Home";
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
               fontSize: "16px",
             }}
           >
-            <Navbar />
+            <Nav />
+            {/* <Navbar /> */}
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>

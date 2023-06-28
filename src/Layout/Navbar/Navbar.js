@@ -16,6 +16,7 @@ import DrawerItem from "./DrawerItem";
 // routes
 import { Link } from "react-router-dom";
 import logo from "../../Assets/images/logo-nav.png";
+import SwipeableEdgeDrawer from "./SwipeableEdgeDrawer";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -35,10 +36,10 @@ const itemList = [
     text: "Projects",
     to: "/projects",
   },
-  {
-    text: "Resume",
-    to: "/resume",
-  },
+  // {
+  //   text: "Resume",
+  //   to: "/resume",
+  // },
   {
     text: "About",
     to: "/about",
@@ -64,7 +65,7 @@ const Navbar = () => {
     >
       <Container>
         <StyledToolbar>
-          <Typography variant="h6" component="h2">
+          <Link to="">
             <Box
               component="img"
               src={logo}
@@ -79,11 +80,13 @@ const Navbar = () => {
                 },
               }}
             />
-          </Typography>
+          </Link>
+
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
             <DrawerItem />
           </Box>
           <ListMenu>
+            <SwipeableEdgeDrawer />
             {itemList.map((item) => {
               const { text } = item;
               return (

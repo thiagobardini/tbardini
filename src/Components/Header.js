@@ -24,7 +24,7 @@ const Header = () => {
     // sizes
     gap: theme.spacing(2),
     paddingTop: theme.spacing(10),
-    backgroundColor: "orange",
+    // backgroundColor: "orange",
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       alignItems: "center",
@@ -73,7 +73,7 @@ const Header = () => {
 
         <Box>
           <Button
-            variant="contained"
+            // variant="contained"
             sx={{
               mr: 2,
               px: 4,
@@ -117,7 +117,7 @@ const Header = () => {
               },
             }}
           >
-            resume
+            Button
           </Button>
         </Box>
       </BoxText>
@@ -135,7 +135,7 @@ const Header = () => {
           },
         })}
       >
-        <HeroImage component="img" src={headerImg} alt="headerImg" />
+        {/* <HeroImage component="img" src={headerImg} alt="headerImg" /> */}
       </Box>
     </CustomBox>
   );

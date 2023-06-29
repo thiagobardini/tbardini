@@ -3,7 +3,7 @@ import { Button, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlices";
 
-const Logout = () => {
+const Logout = ({ text }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -11,9 +11,9 @@ const Logout = () => {
   };
 
   return (
-    <Box>
-      <Button onClick={handleLogout}>Logout</Button>
-    </Box>
+    <Button color="inherit" onClick={handleLogout}>
+      {text}
+    </Button>
   );
 };
 

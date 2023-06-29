@@ -35,7 +35,7 @@ const Puller = styled(Box)(({ theme }) => ({
   left: "calc(50% - 15px)",
 }));
 
-const SwipeableEdgeDrawer = (props) => {
+const SwipeableEdgeDrawer = ({ color }) => {
   const [open, setOpen] = useState(false);
   const [posts, setPosts] = useState(null);
 
@@ -63,23 +63,22 @@ const SwipeableEdgeDrawer = (props) => {
         }}
       />
       <Box>
+        {/* FIXME: Redux */}
         <Button
           component={Link}
           to="/projects"
-          // size="large"
-          sx={{ color: "white", display: "block" }}
+          sx={{
+            color: "white",
+            margin: 0,
+            padding: 0,
+            fontSize: "14px",
+            my: 2,
+            display: "block",
+          }}
           onClick={toggleDrawer(true)}
         >
-          Projects
+          <Typography>Projects</Typography>
         </Button>
-        {/* <Button
-          component={Link}
-          to="/projects"
-          // onClick={handleCloseNavMenu}
-          sx={{ color: "white" }}
-        >
-          Projects
-        </Button> */}
       </Box>
       <SwipeableDrawer
         anchor="bottom"

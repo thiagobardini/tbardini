@@ -70,7 +70,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            TBARDINI
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -104,10 +104,16 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) =>
                 page.text === "Projects" ? (
-                  //   <MenuItem key={page.text} onClick={handleCloseNavMenu}>
-                  <SwipeableEdgeDrawer />
+                  // FIXME: ADDED REDUX
+                  <MenuItem
+                    component={Link}
+                    to={page.to}
+                    key={page.text}
+                    onClick={handleCloseNavMenu}
+                  >
+                    <SwipeableEdgeDrawer color={"black"} />
+                  </MenuItem>
                 ) : (
-                  //   </MenuItem>
                   <MenuItem
                     component={Link}
                     to={page.to}
@@ -140,27 +146,17 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
-              <Button
-                component={Link}
-                to={page.to}
-                key={page.text}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page.text}
-              </Button>
-            ))} */}
-
             {pages.map((page) =>
               page.text === "Projects" ? (
-                <Box
+                <Button
+                  // component={Link}
+                  to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  <SwipeableEdgeDrawer />
-                </Box>
+                  {/* // FIXME: ADDED REDUX */}
+                  <SwipeableEdgeDrawer color="white" />
+                </Button>
               ) : (
                 <Button
                   component={Link}

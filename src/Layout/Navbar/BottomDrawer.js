@@ -35,7 +35,7 @@ const Puller = styled(Box)(({ theme }) => ({
   left: "calc(50% - 15px)",
 }));
 
-const SwipeableEdgeDrawer = ({ color }) => {
+const BottomDrawer = ({ color }) => {
   const [open, setOpen] = useState(false);
   const [posts, setPosts] = useState(null);
 
@@ -155,4 +155,4 @@ const SwipeableEdgeDrawer = ({ color }) => {
   );
 };
 
-export default SwipeableEdgeDrawer;
+export default BottomDrawer;

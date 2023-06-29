@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import SwipeableEdgeDrawer from "./SwipeableEdgeDrawer";
+import BottomDrawer from "./BottomDrawer";
 
 const pages = [
   {
@@ -111,7 +111,7 @@ function ResponsiveAppBar() {
                     key={page.text}
                     onClick={handleCloseNavMenu}
                   >
-                    <SwipeableEdgeDrawer color={"black"} />
+                    <BottomDrawer color="black" />
                   </MenuItem>
                 ) : (
                   <MenuItem
@@ -143,19 +143,19 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            TBARDINI
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) =>
               page.text === "Projects" ? (
                 <Button
-                  // component={Link}
+                  component={Link}
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
                 >
                   {/* // FIXME: ADDED REDUX */}
-                  <SwipeableEdgeDrawer color="white" />
+                  <BottomDrawer color="white" />
                 </Button>
               ) : (
                 <Button
@@ -163,7 +163,7 @@ function ResponsiveAppBar() {
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{ my: 2, color: "white", display: "block", fontSize: 14 }}
                 >
                   {page.text}
                 </Button>

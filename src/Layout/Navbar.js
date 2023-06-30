@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../redux/userSlice";
+import { auth, onAuthStateChanged } from "../Firebase/firebase-config";
+import Logout from "../Features/auth/Logout";
 import { Link } from "react-router-dom";
-import { Box, AppBar } from "@mui/material";
-import Toolbar from "@mui/material/Toolbar";
+import { useLocation } from "react-router-dom";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import BottomDrawer from "./BottomDrawer";
-import { useSelector } from "react-redux";
-import { selectAuth } from "../../redux/authSlices";
-import Logout from "../../Components/auth/Logout";
 
 const pages = [
   {
@@ -26,37 +29,46 @@ const pages = [
     text: "About",
     to: "/about",
   },
-  {
-    text: "Login",
-    to: "/signin",
-  },
 ];
-const settings = ["Profile", "Account", "Logout"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const userAuth = useSelector(selectAuth);
-  const { isLogged } = userAuth;
+  const user = useSelector(selectUser);
+
+  const location = useLocation();
+
+  const dispatch = useDispatch();
+
+  // check at page load if a user is authenticated
+  useEffect(() => {
+    onAuthStateChanged(auth, (userAuth) => {
+      if (userAuth) {
+        // user is logged in, send the user's details to redux, store the current user in the state
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+            photoUrl: userAuth.photoURL,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static">
+    <AppBar position="static" enableColorOnDark>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -77,7 +89,6 @@ function Navbar() {
           >
             TBARDINI
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -175,7 +186,17 @@ function Navbar() {
               )
             )}
           </Box>
-          {!isLogged ? <Logout text="Login" /> : <Logout text="Logout" />}
+          {location.pathname === "/signin" ? (
+            <Logout text="Sign up" to="/signup" />
+          ) : (
+            <>
+              {!user ? (
+                <Logout text="Sign in" to="/signin" />
+              ) : (
+                <Logout text="Logout" />
+              )}
+            </>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

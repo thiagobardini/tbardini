@@ -16,13 +16,13 @@ export const slice = createSlice({
         password: payload.password,
       };
     },
-    logout(state) {
+    logoutTest(state) {
       return { ...state, isLogged: false, email: "", password: "" };
     },
   },
 });
 
-export const { changeUser, logout } = slice.actions;
+export const { changeUser, logoutTest } = slice.actions;
 
 export const selectAuth = (state) => state.authUser;
 

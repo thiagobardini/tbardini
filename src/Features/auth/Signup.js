@@ -1,0 +1,158 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Avatar,
+  Button,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+  Container,
+  CssBaseline,
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "../../Firebase/firebase-config.js";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/userSlice";
+
+export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [profilePic, setProfilePic] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!name) {
+      return alert("Please enter your name");
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userAuth) => {
+          updateProfile(userAuth.user, {
+            displayName: name,
+            photoURL: profilePic,
+          })
+            .then(() => {
+              // Dispatch the user information for persistence in the redux state
+              dispatch(
+                login({
+                  email: userAuth.user.email,
+                  uid: userAuth.user.uid,
+                  displayName: name,
+                  photoUrl: profilePic,
+                })
+              );
+            })
+            .catch((error) => {
+              console.log("Failed to update profile");
+            });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    }
+    // Remove from the fields
+    setEmail("");
+    setPassword("");
+    setName("");
+    setProfilePic("");
+  };
+
+  return (
+    <Container component="main" maxWidth="xs">
+      {/* <CssBaseline /> */}
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          maxWidth: "500px",
+          mminWidth: "250px",
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="given-name"
+                name="Name"
+                required
+                fullWidth
+                id="Name"
+                label="Name"
+                autoFocus
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="profilePic"
+                label="Profile picture URL (optional)"
+                name="profilePic"
+                autoComplete="url"
+                onChange={(e) => setProfilePic(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="new-password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign Up
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Typography
+                color="primary"
+                component={Link}
+                to="/signin"
+                variant="body2"
+              >
+                Already have an account? Sign in
+              </Typography>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
+  );
+}

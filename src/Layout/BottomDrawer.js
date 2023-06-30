@@ -22,12 +22,12 @@ const Root = styled("div")(({ theme }) => ({
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor:
-    theme.palette.mode === "light" ? "var(--bgColor-4)" : grey[800],
+    theme.palette.mode === "dark" ? "var(--bgColor-4)" : grey[800],
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
-  height: 6,
+  height: 10,
   backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
   borderRadius: 3,
   position: "absolute",

@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { selectAuth } from "../../redux/authSlices";
+import { selectAuth } from "../../../redux/authSlices";
 
 const User = () => {
   // const { email } = useSelector((state) => state.auth);

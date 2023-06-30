@@ -1,20 +1,6 @@
 import React from "react";
-import { Box, Button, styled, Typography } from "@mui/material";
+import { Box, Button, styled, Typography, CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
-//img
-import headerImg from "../Assets/images/heroimg.png";
-
-const HeroImage = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: 0,
-  right: 0,
-  height: "100vh",
-  width: "auto",
-  maxHeight: "100%",
-  [theme.breakpoints.down("md")]: {
-    height: "auto",
-  },
-}));
 
 const Header = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
@@ -24,7 +10,6 @@ const Header = () => {
     // sizes
     gap: theme.spacing(2),
     paddingTop: theme.spacing(10),
-    // backgroundColor: "orange",
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       alignItems: "center",
@@ -45,6 +30,7 @@ const Header = () => {
 
   return (
     <CustomBox component="header">
+      <CssBaseline />
       {/*  Box text  */}
       <BoxText component="section">
         <Typography

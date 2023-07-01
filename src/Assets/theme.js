@@ -7,7 +7,7 @@ import { amber, deepOrange, grey } from "@mui/material/colors";
 // https://mui.com/material-ui/customization/default-theme/?expand-path=$.palette
 
 /* The custom colors palette is located in the Index.css file. */
-export const darkTheme = (mode = "dark") =>
+export const theme = (mode = "dark") =>
   createTheme({
     palette: {
       mode: "dark",

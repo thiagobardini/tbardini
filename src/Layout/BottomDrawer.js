@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../Firebase/firebaseConfig";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
@@ -6,13 +8,7 @@ import { Button, Link } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-// import CardProject from "../components/CardProject";
-// import Link from "next/link";
-
-// const getDataAll = async () => {
-//   const res = await fetch(`http://localhost:3000/api/blogdata`);
-//   return res.json();
-// };
+import CardsDrawer from "../Components/CardsDrawer";
 
 const drawerBleeding = 56;
 
@@ -37,20 +33,26 @@ const Puller = styled(Box)(({ theme }) => ({
 
 const BottomDrawer = ({ color }) => {
   const [open, setOpen] = useState(false);
-  const [posts, setPosts] = useState(null);
+  const [projects, setProjects] = useState([]);
+
+  const fetchPost = async () => {
+    await getDocs(collection(db, "projects")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProjects(newData);
+      console.log(projects, newData);
+    });
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const data = await getDataAll();
-  //       setPosts(data);
-  //     };
-
-  //     fetchData();
-  //   }, []);
 
   return (
     <Root>
@@ -77,7 +79,7 @@ const BottomDrawer = ({ color }) => {
           }}
           onClick={toggleDrawer(true)}
         >
-          <Typography>Projects</Typography>
+          <Typography> Projects</Typography>
         </Button>
       </Box>
       <SwipeableDrawer
@@ -111,8 +113,7 @@ const BottomDrawer = ({ color }) => {
             </Button>
           </Box>
           <Typography sx={{ pb: 2, pl: 2, color: "text.secondary" }}>
-            {/* {posts?.data?.length} projects */}
-            projects
+            {projects?.length} projects
           </Typography>
         </StyledBox>
         <StyledBox
@@ -124,31 +125,16 @@ const BottomDrawer = ({ color }) => {
             overflow: "auto",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: "var(--bgColor-3)",
+            backgroundColor: "#8a8a8a",
           }}
         >
-          {/* <div className="text-white ">
-            <div className="px-100 flex justify-center items-center">
-              {posts?.data ? (
-                <Stack
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="flex-start"
-                  spacing={2}
-                  sx={{ flexWrap: "wrap" }}
-                >
-                  {posts.data.map((post, index) => (
-                  <CardProject
-                    cardsBox={posts}
-                    toggleDrawer={toggleDrawer(false)}
-                  />
-                   ))} 
-                </Stack>
-              ) : (
-                "No Post"
-              )}
-            </div>
-          </div> */}
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <CardsDrawer id={project.id} projectCard={project} />
+            ))
+          ) : (
+            <span>No Post</span>
+          )}
         </StyledBox>
       </SwipeableDrawer>
     </Root>

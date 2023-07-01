@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Container, CssBaseline } from "@mui/material";
+import CardsDrawer from "../Components/CardsDrawer";
 
 const Projects = () => {
   return (
@@ -18,6 +19,7 @@ const Projects = () => {
         <Typography component="h1" variant="h5">
           Projects
         </Typography>
+        <CardsDrawer />
       </Box>
     </Container>
   );

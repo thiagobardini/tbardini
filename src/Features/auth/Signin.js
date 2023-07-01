@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
   auth,
-  // createUserWithEmailAndPassword,
-  // updateProfile,
   signInWithEmailAndPassword,
 } from "../../Firebase/firebaseConfig.js";
 import { useDispatch } from "react-redux";

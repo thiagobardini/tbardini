@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider, Box } from "@mui/material";
-import { darkTheme } from "./Assets/theme";
+import { theme } from "./Assets/theme";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Layout/Navbar";
 import Home from "./Pages/Home";
@@ -11,7 +11,7 @@ import Signup from "./Features/auth/Signup";
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Box>
         <Navbar />
         <Routes>

@@ -38,11 +38,11 @@ const firebaseConfig = {
 };
 
 // init firebase app
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 // init services
-const db = getFirestore(app);
-const auth = getAuth(app);
+const db = getFirestore();
+const auth = getAuth();
 
 export {
   db,

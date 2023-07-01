@@ -8,6 +8,7 @@ import {
   Box,
   Typography,
   Container,
+  CssBaseline,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
@@ -65,7 +66,7 @@ export default function SignUp() {
 
   return (
     <Container component="main" maxWidth="xs">
-      {/* <CssBaseline /> */}
+      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,

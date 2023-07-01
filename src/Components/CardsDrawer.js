@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import {
   Card,
@@ -120,9 +120,11 @@ const StyledLink = styled(Link)({
   textDecoration: "none",
 });
 
-const CardsDrawer = ({ projectCard }) => {
+const CardsDrawer = ({ projectCard, toggleDrawer }) => {
   const [showChips, setShowChips] = useState(false);
   console.log(projectCard, "project");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -174,10 +176,23 @@ const CardsDrawer = ({ projectCard }) => {
             </StyledDescription>
           </StyledCardContent>
           <StyledBottomBar>
-            <Button variant="contained" color="primary">
+            <Button
+              component={Link}
+              to={projectCard?.link}
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                navigate("/router-planner");
+                toggleDrawer(true);
+              }}
+            >
               Live
             </Button>
-            <Button variant="outlined" color="primary">
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={() => toggleDrawer(true)}
+            >
               Readme
             </Button>
           </StyledBottomBar>

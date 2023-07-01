@@ -8,6 +8,7 @@ import About from "./Pages/About";
 import Projects from "./Pages/Projects";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
+import RouterPlanner from "./Pages/RouterPlanner";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/router-planner" element={<RouterPlanner />} />
         </Routes>
       </Box>
     </ThemeProvider>

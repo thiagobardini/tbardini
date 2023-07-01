@@ -68,7 +68,7 @@ const BottomDrawer = ({ color }) => {
         {/* FIXME: Redux */}
         <Button
           component={Link}
-          to="/projects"
+          // to="/projects"
           sx={{
             color: "white",
             margin: 0,
@@ -130,7 +130,11 @@ const BottomDrawer = ({ color }) => {
         >
           {projects.length > 0 ? (
             projects.map((project) => (
-              <CardsDrawer id={project.id} projectCard={project} />
+              <CardsDrawer
+                id={project.id}
+                projectCard={project}
+                toggleDrawer={toggleDrawer()}
+              />
             ))
           ) : (
             <span>No Post</span>

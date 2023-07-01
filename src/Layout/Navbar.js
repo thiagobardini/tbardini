@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../redux/userSlice";
-import { auth, onAuthStateChanged } from "../Firebase/firebase-config";
+import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
 import Logout from "../Features/auth/Logout";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";

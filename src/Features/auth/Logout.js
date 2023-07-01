@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { logoutTest } from "../../redux/authSlices";
 import { logout } from "../../redux/userSlice";
-import { auth } from "../../Firebase/firebase-config";
+import { auth } from "../../Firebase/firebaseConfig";
 
 const Logout = ({ text, to }) => {
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import {
   // createUserWithEmailAndPassword,
   // updateProfile,
   signInWithEmailAndPassword,
-} from "../../Firebase/firebase-config.js";
+} from "../../Firebase/firebaseConfig.js";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/userSlice";
 import { Link, useNavigate } from "react-router-dom";

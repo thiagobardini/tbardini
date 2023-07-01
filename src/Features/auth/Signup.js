@@ -14,7 +14,7 @@ import {
   auth,
   createUserWithEmailAndPassword,
   updateProfile,
-} from "../../Firebase/firebase-config.js";
+} from "../../Firebase/firebaseConfig.js";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/userSlice";
 

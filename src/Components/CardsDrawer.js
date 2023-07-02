@@ -139,11 +139,11 @@ const CardsDrawer = ({ projectCard, toggleDrawer }) => {
   };
   return (
     <StyledLink
-      to="/"
+      // to="/"
       onClick={() => window.scrollTo(0, 0)}
       sx={{ textDecoration: "none" }}
     >
-      <Box component="main" maxWidth="xs">
+      <Box>
         <StyledCard
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -178,11 +178,11 @@ const CardsDrawer = ({ projectCard, toggleDrawer }) => {
           <StyledBottomBar>
             <Button
               component={Link}
-              to={projectCard?.link}
+              to="/router-planner"
               variant="contained"
               color="primary"
               onClick={() => {
-                navigate("/router-planner");
+                // navigate("/router-planner");
                 toggleDrawer(true);
               }}
             >

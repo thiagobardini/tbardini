@@ -1,24 +1,28 @@
 import React from "react";
-import { Stack, Container, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline } from "@mui/material";
+import HeadingTop from "../Components/Typography/HeadingTop";
 import User from "../Features/auth/reduxtoolkitexample/User";
-import Logout from "../Features/auth/Logout";
 
-function About() {
+const About = () => {
   return (
-    <Container>
-      <CssBaseline />
-      <Stack
-        my={6}
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4}
-      >
-        <User />
-        <Logout />
-      </Stack>
-    </Container>
+    <Box
+      mb={6}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        minHeight: "calc(100vh - 520px)",
+      }}
+    >
+      <HeadingTop text="About Me" />
+      <Container>
+        <CssBaseline />
+        <Box>
+          <User />
+        </Box>
+      </Container>
+    </Box>
   );
-}
+};
 
 export default About;

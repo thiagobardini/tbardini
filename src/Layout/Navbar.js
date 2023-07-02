@@ -128,7 +128,7 @@ function Navbar() {
                     key={page.text}
                     onClick={handleCloseNavMenu}
                   >
-                    <BottomDrawer color="black" />
+                    <Typography textAlign="center">{page.text}</Typography>
                   </MenuItem>
                 ) : (
                   <MenuItem
@@ -141,6 +141,7 @@ function Navbar() {
                   </MenuItem>
                 )
               )}
+              <BottomDrawer color="black" />
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -167,12 +168,14 @@ function Navbar() {
               page.text === "Projects" ? (
                 <Button
                   component={Link}
+                  color="inherit"
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
                 >
                   {/* // FIXME: ADDED REDUX */}
-                  <BottomDrawer color="white" />
+                  {page.text}
+                  {/* <BottomDrawer color="white" /> */}
                 </Button>
               ) : (
                 <Button
@@ -180,7 +183,8 @@ function Navbar() {
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block", fontSize: 14 }}
+                  color="inherit"
+                  sx={{ my: 2, display: "block", fontSize: 14 }}
                 >
                   {page.text}
                 </Button>

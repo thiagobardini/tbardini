@@ -14,7 +14,7 @@ const RouterPlanner = () => {
       }}
     >
       <HeadingTop text="Route Planner" />
-      <Container component="main" maxWidth="xs">
+      <Container>
         <CssBaseline />
         <Box></Box>
       </Container>

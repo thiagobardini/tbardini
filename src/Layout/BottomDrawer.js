@@ -70,21 +70,21 @@ const BottomDrawer = ({ color }) => {
       />
       <Box>
         {/* FIXME: Redux */}
-        <Button
+        {/* <Button
           component={Link}
-          // to="/projects"
+          to="/projects"
+          size="small"
           sx={{
-            color: "white",
             margin: 0,
             padding: 0,
-            fontSize: "14px",
+
             my: 2,
             display: "block",
           }}
           onClick={toggleDrawer(true)}
         >
-          <Typography> Projects</Typography>
-        </Button>
+          <Typography color="text.primary"> Projects</Typography>
+        </Button> */}
       </Box>
       <SwipeableDrawer
         anchor="bottom"
@@ -116,7 +116,7 @@ const BottomDrawer = ({ color }) => {
               <Puller />
             </Button>
           </Box>
-          <Typography sx={{ pb: 2, pl: 2, color: "text.secondary" }}>
+          <Typography sx={{ pb: 2, pl: 2, color: "#000" }}>
             {projects?.length} projects
           </Typography>
         </StyledBox>

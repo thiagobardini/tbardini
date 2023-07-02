@@ -14,7 +14,7 @@ const Projects = () => {
       }}
     >
       <HeadingTop text="web developer portfolio" />
-      <Container component="main" maxWidth="xs">
+      <Container>
         <CssBaseline />
         <Box></Box>
       </Container>

@@ -1,25 +1,24 @@
 import React from "react";
-import { Box, Typography, Container, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline } from "@mui/material";
+import HeadingTop from "../Components/Typography/HeadingTop";
 
 const Projects = () => {
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          maxWidth: "500px",
-          mminWidth: "250px",
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Projects
-        </Typography>
-      </Box>
-    </Container>
+    <Box
+      mb={6}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        minHeight: "calc(100vh - 520px)",
+      }}
+    >
+      <HeadingTop text="web developer portfolio" />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box></Box>
+      </Container>
+    </Box>
   );
 };
 

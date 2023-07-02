@@ -18,7 +18,11 @@ const Root = styled("div")(({ theme }) => ({
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor:
-    theme.palette.mode === "dark" ? "var(--bgColor-4)" : grey[800],
+    theme.palette.mode === "dark" ? "var(--bgColor-2)" : grey[800],
+}));
+
+const StyledBoxDrawer = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? grey[900] : grey[800],
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
@@ -116,7 +120,7 @@ const BottomDrawer = ({ color }) => {
             {projects?.length} projects
           </Typography>
         </StyledBox>
-        <StyledBox
+        <StyledBoxDrawer
           sx={{
             px: 2,
             pb: 2,
@@ -125,7 +129,6 @@ const BottomDrawer = ({ color }) => {
             overflow: "auto",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: "#8a8a8a",
           }}
         >
           {projects.length > 0 ? (
@@ -139,7 +142,7 @@ const BottomDrawer = ({ color }) => {
           ) : (
             <span>No Post</span>
           )}
-        </StyledBox>
+        </StyledBoxDrawer>
       </SwipeableDrawer>
     </Root>
   );

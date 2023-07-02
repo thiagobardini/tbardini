@@ -1,23 +1,25 @@
 import React from "react";
-import { Stack, Container, CssBaseline, Typography } from "@mui/material";
-import User from "../Features/auth/reduxtoolkitexample/User";
+import { Box, Container, CssBaseline } from "@mui/material";
+import HeadingTop from "../Components/Typography/HeadingTop";
 
-function RouterPlanner() {
+const RouterPlanner = () => {
   return (
-    <Container>
-      <CssBaseline />
-      <Stack
-        my={6}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4}
-      >
-        <Typography variant="h3">Route Planner</Typography>
-        <User />
-      </Stack>
-    </Container>
+    <Box
+      mb={6}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        minHeight: "calc(100vh - 520px)",
+      }}
+    >
+      <HeadingTop text="Route Planner" />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box></Box>
+      </Container>
+    </Box>
   );
-}
+};
 
 export default RouterPlanner;

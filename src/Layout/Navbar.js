@@ -19,6 +19,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 import BottomDrawer from "./BottomDrawer";
+import ToggleThemeMode from "../Components/ToggleThemeMode";
 
 const pages = [
   {
@@ -186,6 +187,7 @@ function Navbar() {
               )
             )}
           </Box>
+          <ToggleThemeMode />
           {location.pathname === "/signin" ? (
             <Logout text="Sign up" to="/signup" />
           ) : (

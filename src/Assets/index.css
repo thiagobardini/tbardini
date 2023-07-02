@@ -20,11 +20,12 @@
   --color-text-10: #D0312D; /* Hero Page */
 
   /* Background colors */
-  --bgColor-1: #caf0fe; /* Background Testimonials, Button */
-  --bgColor-2: #00497a; /* Background /* Navbar, Footer, Button */
-  --bgColor-3: #f9f9f9; /* Background Cards */
-  --bgColor-4: #f7f7ff; /* Background Button */
-  --bgColor-5: #fcfdfe; /* Background */
+  --bgColor-1: #0a0b0b; /* Background HeadingTop*/
+  --bgColor-2: #f7f7ff; /* Background Button */
+  --bgColor-3: #2A2A2A; /* Background /* Navbar, Footer, Button */
+  --bgColor-4: #00497a; /* Background /* Navbar, Footer, Button */
+  --bgColor-5: #f9f9f9; /* Background Cards */
+  --bgColor-6: #fcfdfe; /* Background */
 
   /* Accent colors */
   --accent-1: rgba(0, 0, 0, 0.40); /* image overlay */

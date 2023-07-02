@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { ThemeProvider, Box } from "@mui/material";
-import { theme } from "./Assets/theme";
+import { createCustomTheme } from "./Assets/theme";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Layout/Navbar";
 import Home from "./Pages/Home";
@@ -11,6 +12,19 @@ import Signup from "./Features/auth/Signup";
 import RouterPlanner from "./Pages/RouterPlanner";
 
 function App() {
+  const [mode, setMode] = useState("dark");
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
+  useMemo(() => {
+    if (darkMode) {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  }, [darkMode]);
+
+  const theme = useMemo(() => createCustomTheme(mode), [mode]);
+
   return (
     <ThemeProvider theme={theme}>
       <Box>
@@ -18,7 +32,6 @@ function App() {
         <Routes>
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />

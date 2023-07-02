@@ -1,9 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Switch, Box, IconButton } from "@mui/material";
+import { Switch, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { asyncToggleTheme } from "../redux/themeSlice";
 
 export default function ToggleThemeMode() {

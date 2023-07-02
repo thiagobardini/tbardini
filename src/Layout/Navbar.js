@@ -23,8 +23,8 @@ import ToggleThemeMode from "../Components/ToggleThemeMode";
 
 const pages = [
   {
-    text: "Projects",
-    to: "/projects",
+    text: "Portfolio",
+    to: "/portfolio",
   },
   {
     text: "About",
@@ -120,7 +120,7 @@ function Navbar() {
               }}
             >
               {pages.map((page) =>
-                page.text === "Projects" ? (
+                page.text === "Portfolio" ? (
                   // FIXME: ADDED REDUX
                   <MenuItem
                     component={Link}
@@ -165,7 +165,7 @@ function Navbar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) =>
-              page.text === "Projects" ? (
+              page.text === "Portfolio" ? (
                 <Button
                   component={Link}
                   color="inherit"
@@ -173,9 +173,7 @@ function Navbar() {
                   key={page.text}
                   onClick={handleCloseNavMenu}
                 >
-                  {/* // FIXME: ADDED REDUX */}
                   {page.text}
-                  {/* <BottomDrawer color="white" /> */}
                 </Button>
               ) : (
                 <Button
@@ -184,7 +182,6 @@ function Navbar() {
                   key={page.text}
                   onClick={handleCloseNavMenu}
                   color="inherit"
-                  sx={{ my: 2, display: "block", fontSize: 14 }}
                 >
                   {page.text}
                 </Button>

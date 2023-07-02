@@ -60,7 +60,7 @@ const Header = () => {
         <Box>
           <Button
             component={Link}
-            to="/projects"
+            to="/portfolio"
             sx={{
               mr: 2,
               px: 4,

@@ -13,7 +13,7 @@ const Projects = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="web developer portfolio" />
+      <HeadingTop text="portfolio" />
       <Container>
         <CssBaseline />
         <Box></Box>

@@ -53,7 +53,7 @@ export default function SignIn() {
   };
 
   return (
-    <Container>
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{

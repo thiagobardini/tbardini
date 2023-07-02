@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import {
   Card,
@@ -47,10 +47,11 @@ const StyledDescription = styled(Typography)({
 });
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  width: 500,
+  width: 380,
   height: 330.117,
-  margin: 10,
-  padding: 2.2,
+  marginTop: 10,
+  // margin: 10,
+  // padding: 2.2,
   border: `1px solid ${theme.palette.grey[300]}`,
   position: "relative",
   overflow: "hidden",
@@ -124,8 +125,6 @@ const CardsDrawer = ({ projectCard, toggleDrawer }) => {
   const [showChips, setShowChips] = useState(false);
   console.log(projectCard, "project");
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -138,67 +137,60 @@ const CardsDrawer = ({ projectCard, toggleDrawer }) => {
     setShowChips(false);
   };
   return (
-    <StyledLink
-      // to="/"
-      onClick={() => window.scrollTo(0, 0)}
-      sx={{ textDecoration: "none" }}
-    >
-      <Box>
-        <StyledCard
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <StyledTopBar>
-            <StyledCircle color={red[500]} />
-            <StyledCircle color={amber[500]} />
-            <StyledCircle color={green[500]} />
-            <StyledTitle variant="subtitle1">{projectCard?.title}</StyledTitle>
-          </StyledTopBar>
-          <StyledTags showChips={showChips}>
-            {projectCard?.techs.map((tag) => (
-              <StyledChip color="primary" label={tag} />
-            ))}
-            <StyledChip color="primary" label="MORE .." />
-          </StyledTags>
-          <StyledCardHeader title={projectCard?.title} />
-          <StyledCardContent>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Box
-                component="img"
-                alt="logo"
-                src={projectCard?.img}
-                sx={{ height: "100px" }}
-              />
-            </Box>
-            {/* <StyledEmphasis>Article</StyledEmphasis> */}
-            <StyledDescription sx={{ textDecoration: "none" }}>
-              <span className="blue">{projectCard?.description}</span>
-            </StyledDescription>
-          </StyledCardContent>
-          <StyledBottomBar>
-            <Button
-              component={Link}
-              to="/router-planner"
-              variant="contained"
-              color="primary"
-              onClick={() => {
-                // navigate("/router-planner");
-                toggleDrawer(true);
-              }}
-            >
-              Live
-            </Button>
-            <Button
-              variant="outlined"
-              color="primary"
-              onClick={() => toggleDrawer(true)}
-            >
-              Readme
-            </Button>
-          </StyledBottomBar>
-        </StyledCard>
-      </Box>
-    </StyledLink>
+    <Box>
+      <StyledCard
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <StyledTopBar>
+          <StyledCircle color={red[500]} />
+          <StyledCircle color={amber[500]} />
+          <StyledCircle color={green[500]} />
+          <StyledTitle variant="subtitle1">{projectCard?.title}</StyledTitle>
+        </StyledTopBar>
+        <StyledTags showChips={showChips}>
+          {projectCard?.techs.map((tag) => (
+            <StyledChip color="primary" label={tag} />
+          ))}
+          {/* <StyledChip color="primary" label="MORE .." /> */}
+        </StyledTags>
+        {/* <StyledCardHeader title={projectCard?.title} /> */}
+        <StyledCardContent sx={{ pt: 1 }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              component="img"
+              alt="logo"
+              src={projectCard?.img}
+              sx={{ height: "140px", pt: 4, pb: 1 }}
+            />
+          </Box>
+          {/* <StyledEmphasis>Article</StyledEmphasis> */}
+          <StyledDescription sx={{ textDecoration: "none" }}>
+            <span className="blue">{projectCard?.description}</span>
+          </StyledDescription>
+        </StyledCardContent>
+        <StyledBottomBar>
+          <Button
+            component={Link}
+            to="/router-planner"
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              toggleDrawer(true);
+            }}
+          >
+            Live
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => toggleDrawer(true)}
+          >
+            Readme
+          </Button>
+        </StyledBottomBar>
+      </StyledCard>
+    </Box>
   );
 };
 

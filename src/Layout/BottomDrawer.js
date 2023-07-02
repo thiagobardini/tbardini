@@ -4,7 +4,7 @@ import { db } from "../Firebase/firebaseConfig";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
-import { Button, Link } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -68,24 +68,7 @@ const BottomDrawer = ({ color }) => {
           },
         }}
       />
-      <Box>
-        {/* FIXME: Redux */}
-        {/* <Button
-          component={Link}
-          to="/projects"
-          size="small"
-          sx={{
-            margin: 0,
-            padding: 0,
-
-            my: 2,
-            display: "block",
-          }}
-          onClick={toggleDrawer(true)}
-        >
-          <Typography color="text.primary"> Projects</Typography>
-        </Button> */}
-      </Box>
+      <Box></Box>
       <SwipeableDrawer
         anchor="bottom"
         open={open}
@@ -122,26 +105,28 @@ const BottomDrawer = ({ color }) => {
         </StyledBox>
         <StyledBoxDrawer
           sx={{
-            px: 2,
-            pb: 2,
-            pt: 2,
+            // px: 2,
+            // pb: 2,
+            // pt: 2,
             height: "100%",
             overflow: "auto",
             display: "flex",
             flexDirection: "column",
           }}
         >
-          {projects.length > 0 ? (
-            projects.map((project) => (
-              <CardsDrawer
-                id={project.id}
-                projectCard={project}
-                toggleDrawer={toggleDrawer()}
-              />
-            ))
-          ) : (
-            <span>No Post</span>
-          )}
+          <Container component="main" maxWidth="xs">
+            {projects.length > 0 ? (
+              projects.map((project) => (
+                <CardsDrawer
+                  id={project.id}
+                  projectCard={project}
+                  toggleDrawer={toggleDrawer()}
+                />
+              ))
+            ) : (
+              <span>No Post</span>
+            )}
+          </Container>
         </StyledBoxDrawer>
       </SwipeableDrawer>
     </Root>

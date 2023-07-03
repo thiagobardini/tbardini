@@ -45,7 +45,7 @@ const Header = () => {
         </Typography>
 
         <Typography
-          variant="p"
+          variant="h6"
           component="p"
           sx={{
             py: 3,

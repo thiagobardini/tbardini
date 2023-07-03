@@ -4,3 +4,6 @@ https://www.freecodecamp.org/news/react-firebase-authentication-and-crud-operati
 https://blog.gmagnenat.co/user-authentication-and-persistence-firebase-9-react-redux-toolkit
 # updadte user profile firebase
 https://firebase.google.com/docs/auth/web/manage-users
+
+# Text Animation
+https://www.npmjs.com/package/react-type-animation

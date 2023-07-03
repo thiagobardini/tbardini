@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import {
   Card,
-  CardHeader,
   CardContent,
   Box,
   Typography,
@@ -43,7 +42,7 @@ const StyledTitle = styled(Typography)({
 const StyledDescription = styled(Typography)({
   flexGrow: 1,
   textAlign: "center",
-  color: "#fff",
+  color: "#2A2A2A",
 });
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -56,15 +55,10 @@ const StyledCard = styled(Card)(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
   transition: "box-shadow 0.3s ease",
+  backgroundColor: "#fff",
   "&:hover": {
     boxShadow: `0 4px 12px 0 ${theme.palette.grey[300]}`,
   },
-}));
-
-const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
-  textAlign: "center",
-  marginTop: "15px",
-  paddingBottom: "0px",
 }));
 
 const StyledCardContent = styled(CardContent)({
@@ -111,12 +105,6 @@ const StyledBottomBar = styled("div")(({ theme }) => ({
   gap: 5,
 }));
 
-const StyledEmphasis = styled("em")({
-  display: "block",
-  marginTop: "auto",
-  color: "rgb(138, 138, 138)",
-});
-
 const CardsPortfolio = ({
   id,
   title,
@@ -128,7 +116,6 @@ const CardsPortfolio = ({
   github,
 }) => {
   const [showChips, setShowChips] = useState(false);
-  // console.log(projectCard, "project");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,7 +129,7 @@ const CardsPortfolio = ({
     setShowChips(false);
   };
   return (
-    <Box>
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
       <StyledCard
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -157,19 +144,20 @@ const CardsPortfolio = ({
           {techs.map((tag) => (
             <StyledChip color="primary" label={tag} />
           ))}
-          {/* <StyledChip color="primary" label="MORE .." /> */}
         </StyledTags>
-        {/* <StyledCardHeader title={projectCard?.title} /> */}
         <StyledCardContent sx={{ pt: 1 }}>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
               component="img"
               alt="logo"
               src={img}
-              sx={{ height: "140px", pt: 4, pb: 1 }}
+              sx={{
+                height: "140px",
+                pt: 4,
+                pb: 1,
+              }}
             />
           </Box>
-          {/* <StyledEmphasis>Article</StyledEmphasis> */}
           <StyledDescription sx={{ textDecoration: "none" }}>
             <span className="blue">{description}</span>
           </StyledDescription>

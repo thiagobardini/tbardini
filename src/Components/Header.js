@@ -53,7 +53,7 @@ const Header = () => {
             color: "text.primary",
           }}
         >
-          I am a programmer turned problem-solver, bringing creativity and
+          I'm a software engineer turned problem-solver, bringing creativity and
           design thinking to every line of code.
         </Typography>
 

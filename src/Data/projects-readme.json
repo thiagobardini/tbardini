@@ -1,0 +1,109 @@
+{
+  "all-projects": {
+    "id1": {
+      "data": {
+        "conclusion": "This portfolio project demonstrates a Google Maps route planner built with Next.js, Material-UI, and JavaScript. Users can input addresses, view them on interactive maps, and sort them for efficient route planning. The application provides a user-friendly interface for a seamless experience.",
+        "functionality": [
+          "Search Bar: Input addresses to locate them on the map",
+          "Map Display: Show inputted addresses on the map.",
+          "Address Table: Display addresses in descending order based on proximity.",
+          "Route Sorting: Sort addresses by geolocation for efficient route planning.",
+          "Route Visualization: Display the selected route on an interactive map."
+        ],
+        "overview": "This project showcases a Google Maps route planner application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning. The application features a search bar, address table using DataGrid, and interactive maps.",
+        "projectIdea": "Google Maps Route Planner",
+        "projectStructure": [
+          "SearchBar.js: Render the search bar and handle address search.",
+          "MapDisplay.js: Display the map and update location based on user input."
+        ],
+        "technologiesUsed": [
+          "Next.js: A React framework for server-side rendering and routing.",
+          "Material-UI v5",
+          "JavaScript",
+          "Google Maps API"
+        ]
+      },
+      "des": "This project showcases a Google Maps route planner application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning.",
+      "img": "https://miro.medium.com/v2/resize:fit:975/0*iReGwQyEHhyn1jsD.png",
+      "link": {
+        "link": "/google-map"
+      },
+      "readme": {
+        "link": "/google-map/readme"
+      },
+      "rel": "",
+      "target": "",
+      "title": "Google Maps Route Planner"
+    },
+    "id2": {
+      "data": {
+        "conclusion": "This portfolio project demonstrates a Google Maps route planner built with Next.js, Material-UI, and JavaScript. Users can input addresses, view them on interactive maps, and sort them for efficient route planning. The application provides a user-friendly interface for a seamless experience.",
+        "functionality": [
+          "Search Bar: Input addresses to locate them on the map",
+          "Map Display: Show inputted addresses on the map.",
+          "Address Table: Display addresses in descending order based on proximity.",
+          "Route Sorting: Sort addresses by geolocation for efficient route planning.",
+          "Route Visualization: Display the selected route on an interactive map."
+        ],
+        "overview": "This project showcases a Google Maps route planner application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning. The application features a search bar, address table using DataGrid, and interactive maps.",
+        "projectIdea": "Google Maps Route Planner",
+        "projectStructure": [
+          "SearchBar.js: Render the search bar and handle address search.",
+          "MapDisplay.js: Display the map and update location based on user input."
+        ],
+        "technologiesUsed": [
+          "Next.js: A React framework for server-side rendering and routing.",
+          "Material-UI v5",
+          "JavaScript",
+          "Google Maps API"
+        ]
+      },
+      "des": "🌇 Front End Developer collaborating on a project for government transparency and occupational resources for Boston residents, using React, ES6, Redux, and Material UI to develop and enhance web app functionalities and user interface.",
+      "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+      "link": {
+        "link": "https://bhpa.vercel.app/public"
+      },
+      "readme": {
+        "link": "/google-map/readme"
+      },
+      "rel": "noopener noreferrer",
+      "target": "_blank",
+      "title": "Boston Heat Pump Accelerator (BHPA)"
+    },
+    "id3": {
+      "data": {
+        "conclusion": "This portfolio project demonstrates a Google Maps route planner built with Next.js, Material-UI, and JavaScript. Users can input addresses, view them on interactive maps, and sort them for efficient route planning. The application provides a user-friendly interface for a seamless experience.",
+        "functionality": [
+          "Search Bar: Input addresses to locate them on the map",
+          "Map Display: Show inputted addresses on the map.",
+          "Address Table: Display addresses in descending order based on proximity.",
+          "Route Sorting: Sort addresses by geolocation for efficient route planning.",
+          "Route Visualization: Display the selected route on an interactive map."
+        ],
+        "overview": "This project showcases a Google Maps route planner application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning. The application features a search bar, address table using DataGrid, and interactive maps.",
+        "projectIdea": "Google Maps Route Planner",
+        "projectStructure": [
+          "SearchBar.js: Render the search bar and handle address search.",
+          "MapDisplay.js: Display the map and update location based on user input."
+        ],
+        "technologiesUsed": [
+          "Next.js: A React framework for server-side rendering and routing.",
+          "Material-UI v5",
+          "JavaScript",
+          "Google Maps API"
+        ]
+      },
+      "des": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API. Built with JavaScript, React and Firebase.",
+      "img": "https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
+      "link": {
+        "link": "https://mini-market-tbardini.vercel.app/"
+      },
+      "readme": {
+        "link": "https://github.com/thiagobardini/mini-market-tbardini#readme"
+      },
+      "rel": "noopener noreferrer",
+      "target": "_blank",
+      "title": "Mini Market"
+    }
+  }
+}

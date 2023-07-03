@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { red, amber, green } from "@mui/material/colors";
 
-const StyledTopBar = styled("div")(({ theme }) => ({
+const StyledTopBar = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -50,8 +50,8 @@ const StyledCard = styled(Card)(({ theme }) => ({
   width: 380,
   height: 330.117,
   marginTop: 10,
-  // margin: 10,
-  // padding: 2.2,
+  margin: 10,
+  padding: 2.2,
   border: `1px solid ${theme.palette.grey[300]}`,
   position: "relative",
   overflow: "hidden",
@@ -117,9 +117,18 @@ const StyledEmphasis = styled("em")({
   color: "rgb(138, 138, 138)",
 });
 
-const CardsDrawer = ({ projectCard, toggleDrawer }) => {
+const CardsPortfolio = ({
+  id,
+  title,
+  description,
+  img,
+  techs,
+  live,
+  readme,
+  github,
+}) => {
   const [showChips, setShowChips] = useState(false);
-  console.log(projectCard, "project");
+  // console.log(projectCard, "project");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,10 +151,10 @@ const CardsDrawer = ({ projectCard, toggleDrawer }) => {
           <StyledCircle color={red[500]} />
           <StyledCircle color={amber[500]} />
           <StyledCircle color={green[500]} />
-          <StyledTitle variant="subtitle1">{projectCard?.title}</StyledTitle>
+          <StyledTitle variant="subtitle1">{title}</StyledTitle>
         </StyledTopBar>
         <StyledTags showChips={showChips}>
-          {projectCard?.techs.map((tag) => (
+          {techs.map((tag) => (
             <StyledChip color="primary" label={tag} />
           ))}
           {/* <StyledChip color="primary" label="MORE .." /> */}
@@ -156,38 +165,51 @@ const CardsDrawer = ({ projectCard, toggleDrawer }) => {
             <Box
               component="img"
               alt="logo"
-              src={projectCard?.img}
+              src={img}
               sx={{ height: "140px", pt: 4, pb: 1 }}
             />
           </Box>
           {/* <StyledEmphasis>Article</StyledEmphasis> */}
           <StyledDescription sx={{ textDecoration: "none" }}>
-            <span className="blue">{projectCard?.description}</span>
+            <span className="blue">{description}</span>
           </StyledDescription>
         </StyledCardContent>
         <StyledBottomBar>
           <Button
             component={Link}
-            to="/router-planner"
+            to={live}
             variant="contained"
             color="primary"
-            onClick={() => {
-              toggleDrawer(true);
-            }}
+            target={github ? "_blank" : undefined}
+            rel={github ? "noopener noreferrer" : undefined}
           >
             Live
           </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => toggleDrawer(true)}
-          >
-            Readme
-          </Button>
+          {github === "" ? (
+            <Button
+              component={Link}
+              to={readme}
+              variant="outlined"
+              color="primary"
+            >
+              Readme
+            </Button>
+          ) : (
+            <Button
+              component={Link}
+              to={github}
+              variant="outlined"
+              color="primary"
+              target={github ? "_blank" : undefined}
+              rel={github ? "noopener noreferrer" : undefined}
+            >
+              Github
+            </Button>
+          )}
         </StyledBottomBar>
       </StyledCard>
     </Box>
   );
 };
 
-export default CardsDrawer;
+export default CardsPortfolio;

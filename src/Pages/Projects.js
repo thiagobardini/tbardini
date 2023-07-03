@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, CssBaseline, Grid } from "@mui/material";
+import { Box, Container, CssBaseline, Grid, Typography } from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
 import CardsPortfolio from "../Components/CardsPortfolio";
 import projectsCards from "../Data/projectsCards.json";
@@ -17,7 +17,10 @@ const Projects = () => {
       <HeadingTop text="portfolio" />
       <Container>
         <CssBaseline />
-        <Grid container spacing={2} justifyContent="center">
+        <Typography color="text.primary" my={2} textAlign="center" variant="h5">
+          Check out my latest web software development portfolio projects.
+        </Typography>
+        <Grid container spacing={6} justifyContent="center">
           {projectsCards.map((card) => (
             <Grid item xs={12} sm={6} md={4} key={card.id}>
               <CardsPortfolio

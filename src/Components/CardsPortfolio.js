@@ -106,7 +106,7 @@ const StyledBottomBar = styled("div")(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   height: 50,
-  backgroundColor: "#f5f5f5",
+  backgroundColor: "#ddd",
   zIndex: 1,
   gap: 5,
 }));

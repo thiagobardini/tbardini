@@ -17,8 +17,15 @@ export const createCustomTheme = (mode) =>
       ...(mode === "light"
         ? {
             // palette values for light mode
-            primary: amber,
+            primary: { main: "#1565c0" },
+            secondary: {
+              main: grey[900],
+            },
             divider: amber[200],
+            background: {
+              default: "#fcfdfe",
+              paper: "#2A2A2A",
+            },
             text: {
               primary: grey[900],
               secondary: grey[800],

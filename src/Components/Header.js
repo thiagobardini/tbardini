@@ -38,7 +38,7 @@ const Header = () => {
           component="h1"
           sx={{
             fontWeight: 700,
-            color: "#fff",
+            color: "text.primary",
           }}
         >
           Hey, I'm Thiago
@@ -50,7 +50,7 @@ const Header = () => {
           sx={{
             py: 3,
             lineHeight: 1.6,
-            color: "#fff",
+            color: "text.primary",
           }}
         >
           I am a programmer turned problem-solver, bringing creativity and
@@ -91,9 +91,9 @@ const Header = () => {
               fontSize: "0.9rem",
               textTransform: "capitalize",
               borderRadius: 0,
-              color: "#fff",
+              color: "text.primary",
               backgroundColor: "transparent",
-              borderColor: "#fff",
+              borderColor: "text.primary",
               "&&:hover": {
                 color: "#343a55",
                 borderColor: "#343a55",

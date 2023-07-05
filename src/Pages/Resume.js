@@ -1,6 +1,8 @@
 import React from "react";
-import { Box, Container, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline, Button, Stack } from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
+import resume from "../Assets/images/resume.jpg";
+import { Link } from "react-router-dom";
 
 const Resume = () => {
   return (
@@ -13,10 +15,42 @@ const Resume = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="resume" />
+      <HeadingTop text="Resume" />
       <Container>
         <CssBaseline />
-        <Box></Box>
+        <Stack
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+        >
+          <Button
+            variant="contained"
+            component={Link}
+            to="https://drive.google.com/file/d/1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY/view?usp=sharing"
+            target="_blank"
+            size="small"
+          >
+            Dowload Resume
+          </Button>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              component="img"
+              alt="logo"
+              src={resume}
+              sx={{
+                maxWidth: "850px",
+                minWidth: "350px",
+                width: "100%",
+              }}
+            />
+          </Box>
+        </Stack>
       </Container>
     </Box>
   );

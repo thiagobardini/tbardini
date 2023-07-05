@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { amber, deepOrange, grey } from "@mui/material/colors";
+import { amber, grey } from "@mui/material/colors";
 
 // Ref: https://mui.com/material-ui/customization/dark-mode/
 // Pallete:
@@ -17,13 +17,17 @@ export const createCustomTheme = (mode) =>
       ...(mode === "light"
         ? {
             // palette values for light mode
-            primary: { main: "#1565c0" },
+            // primary: { main: "#1565c0" },
+            primary: { main: "#AADCEC" },
             secondary: {
               main: grey[900],
             },
             divider: amber[200],
             background: {
-              default: "#fcfdfe",
+              // default: "#fcfdfe",
+              default: "#F4F9FC",
+              // default: "#ebecf0",
+
               paper: "#2A2A2A",
             },
             text: {
@@ -33,14 +37,16 @@ export const createCustomTheme = (mode) =>
           }
         : {
             // palette values for dark mode
-            primary: { main: "#1565c0" },
+            // primary: { main: "#1565c0" },
+            primary: { main: "#AADCEC" },
             // primary: { main: "#2A2A2A" },
             // divider: deepOrange[700],
             // secondary: { main: "#0a0b0b" },
             // secondary: { main: "#2A2A2A" },
             secondary: { main: grey[900] },
             background: {
-              default: "var(--bgColor-1)",
+              // default: "var(--bgColor-1)",
+              default: "#14303f;",
               paper: "var(--bgColor-1)",
             },
             text: {

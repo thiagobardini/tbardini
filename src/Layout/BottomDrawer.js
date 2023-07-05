@@ -9,6 +9,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import CardsDrawer from "../Components/CardsDrawer";
+import projectsCards from "../Data/projectsCards";
+import CardsPortfolio from "../Components/CardsPortfolio";
 
 const drawerBleeding = 56;
 
@@ -82,6 +84,7 @@ const BottomDrawer = ({ color }) => {
       >
         <StyledBox
           sx={{
+            height: "56px",
             position: "absolute",
             top: -drawerBleeding,
             borderTopLeftRadius: 8,
@@ -94,8 +97,17 @@ const BottomDrawer = ({ color }) => {
           <Box sx={{ textTransform: "visible", textAlign: "center" }}>
             <Button
               onClick={toggleDrawer(!open)}
-              sx={{ pointerEvents: "visible", visibility: "none" }}
+              sx={{
+                pointerEvents: "visible",
+                visibility: "none",
+                height: "65px",
+                // position: !open ? "absolute" : "relative",
+                position: "absolute",
+                textTransform: "none",
+              }}
             >
+              <Typography color="#000">{!open ? "open" : "close"}</Typography>
+
               <Puller />
             </Button>
           </Box>
@@ -105,10 +117,6 @@ const BottomDrawer = ({ color }) => {
         </StyledBox>
         <StyledBoxDrawer
           sx={{
-            // px: 2,
-            // pb: 2,
-            // pt: 2,
-            height: "100%",
             overflow: "auto",
             display: "flex",
             flexDirection: "column",
@@ -126,6 +134,19 @@ const BottomDrawer = ({ color }) => {
             ) : (
               <span>No Post</span>
             )}
+
+            {projectsCards.map((card) => (
+              <CardsPortfolio
+                id={card.id}
+                title={card.title}
+                description={card.description}
+                img={card.img}
+                techs={card.techs}
+                readme={card.readme}
+                live={card.live}
+                github={card.github}
+              />
+            ))}
           </Container>
         </StyledBoxDrawer>
       </SwipeableDrawer>

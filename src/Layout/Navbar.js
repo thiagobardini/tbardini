@@ -27,8 +27,16 @@ const pages = [
     to: "/portfolio",
   },
   {
+    text: "Resume",
+    to: "/resume",
+  },
+  {
     text: "About",
     to: "/about",
+  },
+  {
+    text: "Contact",
+    to: "/contact",
   },
 ];
 
@@ -90,6 +98,7 @@ function Navbar() {
           >
             TBARDINI
           </Typography>
+          {/* Mobile view */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -117,11 +126,11 @@ function Navbar() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
+                textTransform: "none",
               }}
             >
               {pages.map((page) =>
                 page.text === "Portfolio" ? (
-                  // FIXME: ADDED REDUX
                   <MenuItem
                     component={Link}
                     to={page.to}
@@ -144,26 +153,30 @@ function Navbar() {
               <BottomDrawer color="black" />
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component={Link}
-            to=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            TBARDINI
-          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            <Typography
+              variant="h5"
+              noWrap
+              component={Link}
+              to=""
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              TBARDINI
+            </Typography>
+          </Box>
+          {/* Desktop view */}
+          {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}> */}
+          <Box>
             {pages.map((page) =>
               page.text === "Portfolio" ? (
                 <Button
@@ -172,6 +185,7 @@ function Navbar() {
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
+                  sx={{ textTransform: "none" }}
                 >
                   {page.text}
                 </Button>
@@ -182,6 +196,7 @@ function Navbar() {
                   key={page.text}
                   onClick={handleCloseNavMenu}
                   color="inherit"
+                  sx={{ textTransform: "none" }}
                 >
                   {page.text}
                 </Button>

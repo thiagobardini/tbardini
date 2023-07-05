@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
-import { ThemeProvider, Box } from "@mui/material";
+import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { createCustomTheme } from "./Assets/theme";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Layout/Navbar";
@@ -10,6 +10,8 @@ import Projects from "./Pages/Projects";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
 import RouterPlanner from "./Pages/RouterPlanner";
+import Contact from "./Pages/Contact";
+import Resume from "./Pages/Resume";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -25,15 +27,31 @@ function App() {
 
   const theme = useMemo(() => createCustomTheme(mode), [mode]);
 
+  const backgroundImage =
+    theme.palette.mode === "dark"
+      ? "url(https://lynnandtonic.com/assets/images/bg-grain-dark.png)"
+      : "url(https://lynnandtonic.com/assets/images/bg-grain.png)";
+
   return (
     <ThemeProvider theme={theme}>
-      <Box>
+      <CssBaseline />
+      <Box
+        sx={{
+          backgroundImage: backgroundImage,
+          backgroundSize: "350px auto",
+          minHeight: "100vh",
+        }}
+      >
         <Navbar />
         <Routes>
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Home />} />
+
+          <Route index element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+
           <Route path="/portfolio" element={<Projects />} />
           <Route path="/router-planner" element={<RouterPlanner />} />
         </Routes>

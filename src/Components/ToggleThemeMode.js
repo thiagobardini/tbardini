@@ -1,13 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Switch, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useTheme } from "@mui/material/styles";
 import { asyncToggleTheme } from "../redux/themeSlice";
 
 export default function ToggleThemeMode() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
-  const theme = useTheme();
 
   console.log(darkMode, "theme.palette.mode");
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({

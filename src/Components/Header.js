@@ -1,10 +1,13 @@
 import React from "react";
 import { Box, Button, styled, Typography, CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
+import CardsPortfolio from "./CardsPortfolio";
+import projectsCards from "../Data/projectsCards.json";
 
 const Header = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
-    minHeight: "80vh",
+    minHeight: "60vh",
     display: "flex",
     justifyContent: "center",
     // sizes
@@ -41,7 +44,14 @@ const Header = () => {
             color: "text.primary",
           }}
         >
-          Hey, I'm Thiago
+          {/* Hey, I'm Thiago */}
+          <TypeAnimation
+            sequence={["Hey, I'm Thiago"]}
+            wrapper="span"
+            speed={50}
+            repeat={1}
+            cursor={false}
+          />
         </Typography>
 
         <Typography
@@ -53,10 +63,16 @@ const Header = () => {
             color: "text.primary",
           }}
         >
-          I'm a software engineer turned problem-solver, bringing creativity and
-          design thinking to every line of code.
+          <TypeAnimation
+            sequence={[
+              1200,
+              "I'm a software engineer turned problem-solver, bringing creativity and design thinking to every line of code.",
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={1}
+          />
         </Typography>
-
         <Box>
           <Button
             component={Link}
@@ -79,7 +95,7 @@ const Header = () => {
               },
             }}
           >
-            projects
+            portfolio
           </Button>
           <Button
             component={Link}

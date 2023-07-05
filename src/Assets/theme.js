@@ -20,7 +20,7 @@ export const createCustomTheme = (mode) =>
             // primary: { main: "#1565c0" },
             primary: { main: "#AADCEC" },
             secondary: {
-              main: grey[900],
+              main: "#2A2A2A",
             },
             divider: amber[200],
             background: {
@@ -39,14 +39,15 @@ export const createCustomTheme = (mode) =>
             // palette values for dark mode
             // primary: { main: "#1565c0" },
             primary: { main: "#AADCEC" },
+            secondary: { main: "#f7f7ff" },
             // primary: { main: "#2A2A2A" },
             // divider: deepOrange[700],
             // secondary: { main: "#0a0b0b" },
             // secondary: { main: "#2A2A2A" },
-            secondary: { main: grey[900] },
+            // secondary: { main: grey[900] },
             background: {
               // default: "var(--bgColor-1)",
-              default: "#14303f;",
+              default: "#14192d",
               paper: "var(--bgColor-1)",
             },
             text: {

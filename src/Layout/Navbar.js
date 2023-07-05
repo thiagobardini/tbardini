@@ -14,12 +14,14 @@ import {
   Container,
   Button,
   MenuItem,
+  Stack,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 import BottomDrawer from "./BottomDrawer";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
+import iconLogo from "../Assets/images/nav-logo.png";
 
 const pages = [
   {
@@ -80,7 +82,18 @@ function Navbar() {
     <AppBar position="static" enableColorOnDark>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          <Box
+            component="img"
+            alt="logo"
+            src={iconLogo}
+            sx={{
+              height: "35px",
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+            }}
+          />
+
           <Typography
             variant="h6"
             noWrap
@@ -128,6 +141,7 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
                 textTransform: "none",
               }}
+              color="text.primary"
             >
               {pages.map((page) =>
                 page.text === "Portfolio" ? (
@@ -150,11 +164,28 @@ function Navbar() {
                   </MenuItem>
                 )
               )}
-              <BottomDrawer color="black" />
+              {/* <BottomDrawer color="black" /> */}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+            <Box
+              component="img"
+              alt="logo"
+              src={iconLogo}
+              sx={{
+                height: "35px",
+                display: { xs: "flex", md: "none" },
+                mr: 1,
+              }}
+            />
             <Typography
               variant="h5"
               noWrap
@@ -173,10 +204,9 @@ function Navbar() {
             >
               TBARDINI
             </Typography>
-          </Box>
+          </Stack>
           {/* Desktop view */}
-          {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}> */}
-          <Box>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map((page) =>
               page.text === "Portfolio" ? (
                 <Button

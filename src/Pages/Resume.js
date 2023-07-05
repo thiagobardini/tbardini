@@ -13,7 +13,7 @@ const Resume = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="contact" />
+      <HeadingTop text="resume" />
       <Container>
         <CssBaseline />
         <Box></Box>

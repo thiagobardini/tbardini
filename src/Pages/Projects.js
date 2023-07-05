@@ -73,6 +73,7 @@ const Projects = () => {
               variant={
                 selectedKeyword === "show all" ? "contained" : "outlined"
               }
+              color="secondary"
               onClick={() => handleKeywordChange("show all")}
               size="small"
             >
@@ -81,6 +82,7 @@ const Projects = () => {
             {getAllKeywords().map((keyword, index) => (
               <Button
                 key={keyword}
+                color="secondary"
                 variant={selectedKeyword === keyword ? "contained" : "outlined"}
                 onClick={() => handleKeywordChange(keyword)}
                 sx={{

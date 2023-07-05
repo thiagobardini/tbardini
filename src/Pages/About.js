@@ -14,7 +14,7 @@ const About = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="About Me" />
+      <HeadingTop text="about me" />
       <Container>
         <CssBaseline />
         <Box>

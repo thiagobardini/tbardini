@@ -8,7 +8,7 @@ const TitleContainer = styled(Box)({
 
 function HeadingTop({ text }) {
   return (
-    <TitleContainer mb={2} sx={{ bgcolor: "secondary.main" }}>
+    <TitleContainer mb={2} sx={{ bgcolor: "var(--bgColor-1)" }}>
       <Typography
         variant="h3"
         sx={{

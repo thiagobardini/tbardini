@@ -142,7 +142,7 @@ const CardsPortfolio = ({
         </StyledTopBar>
         <StyledTags showChips={showChips}>
           {techs.map((tag) => (
-            <StyledChip color="primary" label={tag} />
+            <StyledChip color="secondary" label={tag} />
           ))}
         </StyledTags>
         <StyledCardContent sx={{ pt: 1 }}>
@@ -167,7 +167,7 @@ const CardsPortfolio = ({
             component={Link}
             to={live}
             variant="contained"
-            color="primary"
+            color="secondary"
             target={github ? "_blank" : undefined}
             rel={github ? "noopener noreferrer" : undefined}
           >
@@ -178,7 +178,7 @@ const CardsPortfolio = ({
               component={Link}
               to={readme}
               variant="outlined"
-              color="primary"
+              color="secondary"
             >
               Readme
             </Button>
@@ -187,7 +187,7 @@ const CardsPortfolio = ({
               component={Link}
               to={github}
               variant="outlined"
-              color="primary"
+              color="secondary"
               target={github ? "_blank" : undefined}
               rel={github ? "noopener noreferrer" : undefined}
             >

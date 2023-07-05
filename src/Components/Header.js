@@ -2,8 +2,6 @@ import React from "react";
 import { Box, Button, styled, Typography, CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-import CardsPortfolio from "./CardsPortfolio";
-import projectsCards from "../Data/projectsCards.json";
 
 const Header = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
@@ -77,22 +75,13 @@ const Header = () => {
           <Button
             component={Link}
             to="/portfolio"
+            variant="contained"
+            color="secondary"
             sx={{
+              textTransform: "capitalize",
               mr: 2,
               px: 4,
               py: 1,
-              fontSize: "0.9rem",
-              textTransform: "capitalize",
-              borderRadius: 0,
-              borderColor: "#14192d",
-              color: "#fff",
-              backgroundColor: "#14192d",
-              "&&:hover": {
-                backgroundColor: "#343a55",
-              },
-              "&&:focus": {
-                backgroundColor: "#343a55",
-              },
             }}
           >
             portfolio
@@ -101,23 +90,11 @@ const Header = () => {
             component={Link}
             to={"/about"}
             variant="outlined"
+            color="secondary"
             sx={{
+              textTransform: "capitalize",
               px: 4,
               py: 1,
-              fontSize: "0.9rem",
-              textTransform: "capitalize",
-              borderRadius: 0,
-              color: "text.primary",
-              backgroundColor: "transparent",
-              borderColor: "text.primary",
-              "&&:hover": {
-                color: "#343a55",
-                borderColor: "#343a55",
-              },
-              "&&:focus": {
-                color: "#343a55",
-                borderColor: "#343a55",
-              },
             }}
           >
             About me

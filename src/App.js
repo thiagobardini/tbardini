@@ -27,21 +27,10 @@ function App() {
 
   const theme = useMemo(() => createCustomTheme(mode), [mode]);
 
-  const backgroundImage =
-    theme.palette.mode === "dark"
-      ? "url(https://lynnandtonic.com/assets/images/bg-grain-dark.png)"
-      : "url(https://lynnandtonic.com/assets/images/bg-grain.png)";
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box
-        sx={{
-          backgroundImage: backgroundImage,
-          backgroundSize: "350px auto",
-          minHeight: "100vh",
-        }}
-      >
+      <Box>
         <Navbar />
         <Routes>
           <Route path="/signin" element={<Signin />} />

@@ -46,8 +46,8 @@ export const createCustomTheme = (mode) =>
             // secondary: { main: "#2A2A2A" },
             // secondary: { main: grey[900] },
             background: {
-              // default: "var(--bgColor-1)",
-              default: "#14192d",
+              default: "var(--bgColor-1)",
+              // default: "#14192d",
               paper: "var(--bgColor-1)",
             },
             text: {

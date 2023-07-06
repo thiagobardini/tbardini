@@ -18,8 +18,6 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Adb";
-import BottomDrawer from "./BottomDrawer";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import iconLogo from "../Assets/images/nav-logo.png";
 
@@ -79,7 +77,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" enableColorOnDark>
+    <AppBar position="static" enableColorOnDark sx={{ zIndex: 2 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}

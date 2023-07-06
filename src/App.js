@@ -31,7 +31,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box>
-        <Navbar />
+        <Box sx={{ zIndex: 9999 }}>
+          <Navbar />
+        </Box>
         <Routes>
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />

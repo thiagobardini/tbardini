@@ -93,6 +93,7 @@ function Navbar() {
               display: { xs: "none", md: "flex" },
               alignItems: "center",
               textDecoration: "none",
+              color: "inherit",
               mr: 2,
             }}
           >
@@ -199,6 +200,7 @@ function Navbar() {
                 display: { xs: "flex", md: "none" },
                 alignItems: "center",
                 textDecoration: "none",
+                color: "inherit",
                 mr: 2,
               }}
             >

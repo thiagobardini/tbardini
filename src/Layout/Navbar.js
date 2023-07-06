@@ -16,6 +16,8 @@ import {
   MenuItem,
   Stack,
 } from "@mui/material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
@@ -30,14 +32,14 @@ const pages = [
     text: "Resume",
     to: "/resume",
   },
-  {
-    text: "About",
-    to: "/about",
-  },
-  {
-    text: "Contact",
-    to: "/contact",
-  },
+  // {
+  //   text: "About",
+  //   to: "/about",
+  // },
+  // {
+  //   text: "Contact",
+  //   to: "/contact",
+  // },
 ];
 
 function Navbar() {
@@ -80,7 +82,6 @@ function Navbar() {
     <AppBar position="static" enableColorOnDark sx={{ zIndex: 2 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Box
             component="img"
             alt="logo"
@@ -139,30 +140,41 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
                 textTransform: "none",
               }}
-              color="text.primary"
             >
-              {pages.map((page) =>
-                page.text === "Portfolio" ? (
-                  <MenuItem
+              {pages.map((page) => (
+                <MenuItem
+                  component={Link}
+                  to={page.to}
+                  key={page.text}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography color="#f7f7f7" textAlign="center">
+                    {page.text}
+                  </Typography>
+                </MenuItem>
+              ))}
+              <MenuItem>
+                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                  <IconButton
                     component={Link}
-                    to={page.to}
-                    key={page.text}
-                    onClick={handleCloseNavMenu}
+                    color="#f7f7f7"
+                    to={"https://www.linkedin.com/in/thiagobardini/"}
+                    target="_blank"
+                    mr={1}
                   >
-                    <Typography textAlign="center">{page.text}</Typography>
-                  </MenuItem>
-                ) : (
-                  <MenuItem
+                    <LinkedInIcon />
+                  </IconButton>
+                  <IconButton
                     component={Link}
-                    to={page.to}
-                    key={page.text}
-                    onClick={handleCloseNavMenu}
+                    color="inherit"
+                    to={"https://github.com/thiagobardini"}
+                    target="_blank"
+                    color="#f7f7f7"
                   >
-                    <Typography textAlign="center">{page.text}</Typography>
-                  </MenuItem>
-                )
-              )}
-              {/* <BottomDrawer color="black" /> */}
+                    <GitHubIcon />
+                  </IconButton>
+                </Box>
+              </MenuItem>
             </Menu>
           </Box>
           <Stack
@@ -173,7 +185,6 @@ function Navbar() {
               flexGrow: 1,
             }}
           >
-            {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
             <Box
               component="img"
               alt="logo"
@@ -231,18 +242,39 @@ function Navbar() {
               )
             )}
           </Box>
-          <ToggleThemeMode />
-          {location.pathname === "/signin" ? (
+
+          {/* {location.pathname === "/signin" ? (
             <Logout text="Sign up" to="/signup" />
-          ) : (
-            <>
+            ) : (
+              <>
               {!user ? (
                 <Logout text="Sign in" to="/signin" />
-              ) : (
-                <Logout text="Logout" />
-              )}
-            </>
-          )}
+                ) : (
+                  <Logout text="Logout" />
+                  )}
+                  </>
+                )} */}
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Box
+              component={Link}
+              color="inherit"
+              to={"https://www.linkedin.com/in/thiagobardini/"}
+              target="_blank"
+              mr={1}
+            >
+              <LinkedInIcon />
+            </Box>
+            <Box
+              component={Link}
+              color="inherit"
+              to={"https://github.com/thiagobardini"}
+              target="_blank"
+              mr={1}
+            >
+              <GitHubIcon />
+            </Box>
+          </Box>
+          <ToggleThemeMode />
         </Toolbar>
       </Container>
     </AppBar>

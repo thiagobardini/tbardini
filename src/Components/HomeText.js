@@ -73,7 +73,7 @@ const HomeText = () => {
         </Button>
         <Button
           component={Link}
-          to={"/about"}
+          to={"/resume"}
           variant="outlined"
           color="secondary"
           sx={{

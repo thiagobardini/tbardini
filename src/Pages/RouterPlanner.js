@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline, Typography } from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
 
 const RouterPlanner = () => {
@@ -16,7 +16,9 @@ const RouterPlanner = () => {
       <HeadingTop text="Route Planner" />
       <Container>
         <CssBaseline />
-        <Box>App will be availble soon!</Box>
+        <Typography textAlign="center">
+          Great news! The app will be available very soon!
+        </Typography>
       </Container>
     </Box>
   );

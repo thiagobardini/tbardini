@@ -38,7 +38,7 @@ export const createCustomTheme = (mode) =>
         : {
             // palette values for dark mode
             // primary: { main: "#1565c0" },
-            primary: { main: "#AADCEC" },
+            primary: { main: "#2A2A2A" },
             secondary: { main: "#f7f7ff" },
             // primary: { main: "#2A2A2A" },
             // divider: deepOrange[700],
@@ -51,7 +51,8 @@ export const createCustomTheme = (mode) =>
               paper: "var(--bgColor-1)",
             },
             text: {
-              primary: "#f7f7f7", // --color-text-1
+              primary: "#f7f7f7",
+
               secondary: grey[500],
             },
           }),

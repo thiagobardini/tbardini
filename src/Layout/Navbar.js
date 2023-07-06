@@ -22,6 +22,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import iconLogo from "../Assets/images/nav-logo.png";
+import iconLogoLight from "../Assets/images/nav-logo-light.png";
 
 const pages = [
   {
@@ -48,6 +49,8 @@ function Navbar() {
   const user = useSelector(selectUser);
 
   const location = useLocation();
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
 
@@ -80,36 +83,41 @@ function Navbar() {
 
   return (
     <AppBar position="static" enableColorOnDark sx={{ zIndex: 2 }}>
+      {/* <AppBar position="static" sx={{ zIndex: 2 }}> */}
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
-            component="img"
-            alt="logo"
-            src={iconLogo}
-            sx={{
-              height: "35px",
-              display: { xs: "none", md: "flex" },
-              mr: 1,
-            }}
-          />
-
-          <Typography
-            variant="h6"
-            noWrap
             component={Link}
             to="/"
             sx={{
-              mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
+              alignItems: "center",
               textDecoration: "none",
+              color: "inherit",
+              mr: 2,
             }}
           >
-            TBARDINI
-          </Typography>
+            <Box
+              component="img"
+              alt="logo"
+              src={!darkMode ? iconLogo : iconLogoLight}
+              sx={{
+                height: "35px",
+                mr: 1,
+              }}
+            />
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+              }}
+            >
+              TBARDINI
+            </Typography>
+          </Box>
           {/* Mobile view */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -186,33 +194,37 @@ function Navbar() {
             }}
           >
             <Box
-              component="img"
-              alt="logo"
-              src={iconLogo}
-              sx={{
-                height: "35px",
-                display: { xs: "flex", md: "none" },
-                mr: 1,
-              }}
-            />
-            <Typography
-              variant="h5"
-              noWrap
               component={Link}
-              to=""
+              to="/"
               sx={{
-                mr: 2,
                 display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
+                alignItems: "center",
                 textDecoration: "none",
+                color: "inherit",
+                mr: 2,
               }}
             >
-              TBARDINI
-            </Typography>
+              <Box
+                component="img"
+                alt="logo"
+                src={!darkMode ? iconLogo : iconLogoLight}
+                sx={{
+                  height: "35px",
+                  mr: 1,
+                }}
+              />
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                }}
+              >
+                TBARDINI
+              </Typography>
+            </Box>
           </Stack>
           {/* Desktop view */}
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

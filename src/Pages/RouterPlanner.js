@@ -16,7 +16,7 @@ const RouterPlanner = () => {
       <HeadingTop text="Route Planner" />
       <Container>
         <CssBaseline />
-        <Box></Box>
+        <Box>App will be availble soon!</Box>
       </Container>
     </Box>
   );

@@ -24,19 +24,6 @@ const Resume = () => {
           alignItems="center"
           spacing={2}
         >
-          <Button
-            variant="outlined"
-            component={Link}
-            color="secondary"
-            to="https://drive.google.com/file/d/1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY/view?usp=sharing"
-            target="_blank"
-            size="small"
-            sx={{
-              textTransform: "capitalize",
-            }}
-          >
-            Dowload Resume
-          </Button>
           <Box
             sx={{
               display: "flex",
@@ -54,6 +41,19 @@ const Resume = () => {
               }}
             />
           </Box>
+          <Button
+            variant="outlined"
+            component={Link}
+            color="secondary"
+            to="https://drive.google.com/file/d/1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY/view?usp=sharing"
+            target="_blank"
+            size="small"
+            sx={{
+              textTransform: "capitalize",
+            }}
+          >
+            Dowload Resume
+          </Button>
         </Stack>
       </Container>
     </Box>

@@ -46,17 +46,17 @@ const Projects = () => {
         justifyContent: "flex-start",
       }}
     >
-      <HeadingTop text="portfolio" />
+      <HeadingTop text='portfolio' />
       <Container>
         <CssBaseline />
-        <Typography color="text.primary" my={2} textAlign="center" variant="h5">
+        <Typography color='text.primary' my={2} textAlign='center' variant='h5'>
           Check out my latest web software development portfolio projects.
         </Typography>
         <Grid
           container
           // spacing={2}
-          justifyContent="center"
-          alignItems="center"
+          justifyContent='center'
+          alignItems='center'
           xs={12}
         >
           <Grid
@@ -73,16 +73,16 @@ const Projects = () => {
               variant={
                 selectedKeyword === "show all" ? "contained" : "outlined"
               }
-              color="secondary"
+              color='secondary'
               onClick={() => handleKeywordChange("show all")}
-              size="small"
+              size='small'
             >
               Show All
             </Button>
             {getAllKeywords().map((keyword, index) => (
               <Button
                 key={keyword}
-                color="secondary"
+                color='secondary'
                 variant={selectedKeyword === keyword ? "contained" : "outlined"}
                 onClick={() => handleKeywordChange(keyword)}
                 sx={{
@@ -90,7 +90,7 @@ const Projects = () => {
                   mr: 1,
                   display: "inline-block",
                 }}
-                size="small"
+                size='small'
               >
                 {keyword}
               </Button>
@@ -98,9 +98,9 @@ const Projects = () => {
           </Grid>
           <Grid item xs={12}>
             <Typography
-              variant="subtitle1"
+              variant='subtitle1'
               gutterBottom
-              textAlign="center"
+              textAlign='center'
               sx={{ color: "rgb(138, 138, 138)" }}
             >
               {selectedKeyword === "show all" ? (

@@ -1,32 +1,72 @@
 [
-    {
-      "id": "2",
-      "title": "Mini Market",
-      "description":"🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
-      "img":"https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
-      "techs":["React","Firebase Realtime Database", "Stripe API", "CSS", "JavaScript", "React Router"],
-      "live": "https://mini-market-tbardini.vercel.app/",
-      "readme": "",
-      "github": "https://github.com/thiagobardini/mini-market-tbardini"
-    },
-    {
-      "id": "3",
-      "title": "Boston Heat Pump Accelerator",
-      "description":"Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
-      "img":"https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
-      "techs":["React", "RTK Query", "Redux Toolkit", "Material UI", "JavaScript", "React Router"],
-      "live": "https://bhpa.vercel.app/public",
-      "readme": "",
-      "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main/frontend"
-    },
-    {
-      "id": "4",
-      "title": "Trip Route",
-      "description":"This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
-      "img":"https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
-      "techs":["React", "Google Maps API", "Firebase Auth", "Firebase Firestore", "Redux Toolkit", "Material UI", "JavaScript", "React Router"],
-      "live": "/portfolio/router-planner",
-      "readme": "/portfolio/router-planner/readme",
-      "github": ""
-    }
+  {
+    "id": "1",
+    "title": "Mini Market",
+    "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
+    "img": "https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
+    "techs": [
+      "React",
+      "Firebase Realtime Database",
+      "Stripe API",
+      "CSS",
+      "JavaScript",
+      "React Router"
+    ],
+    "live": "https://mini-market-tbardini.vercel.app/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/mini-market-tbardini"
+  },
+  {
+    "id": "2",
+    "title": "Boston Heat Pump Accelerator",
+    "description": "Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
+    "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "techs": [
+      "React",
+      "RTK Query",
+      "Redux Toolkit",
+      "Material UI",
+      "JavaScript",
+      "React Router"
+    ],
+    "live": "https://bhpa.vercel.app/public",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main/frontend"
+  },
+  {
+    "id": "3",
+    "title": "Weather App - °C & °F",
+    "description": "Weather App - °C & °F: I created this project to assist me in my daily life while living here in the United States. I often find myself doing calculations and wondering about the conversion between °F and °C. That's why I developed this app.",
+    "img": "https://www.noaa.gov/sites/default/files/styles/square_width_650/public/2021-02/FocusArea__Weather-02.jpg",
+    "techs": [
+      "Next.js",
+      "TypeScript",
+      "Open Weather API",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Next Router"
+    ],
+    "live": "https://tbardini-next-ts.vercel.app/weather-app",
+    "readme": "",
+    "github": "https://tbardini-next-ts.vercel.app"
+  },
+  {
+    "id": "4",
+    "title": "Trip Route",
+    "description": "This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
+    "img": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
+    "techs": [
+      "React",
+      "Google Maps API",
+      "Firebase Auth",
+      "Firebase Firestore",
+      "Redux Toolkit",
+      "Material UI",
+      "JavaScript",
+      "React Router"
+    ],
+    "live": "/portfolio/trip-route",
+    "readme": "/portfolio/trip-route/readme",
+    "github": ""
+  }
 ]

@@ -29,7 +29,7 @@ const RouterPlannerReadme = () => {
   const data = [
     {
       projectIdea: "Google Maps Route Planner",
-      live: "/portfolio/router-planner",
+      live: "/portfolio/trip-route",
       overview:
         "This project showcases a Google Maps route planner application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning. The application features a search bar, address table using DataGrid, and interactive maps.",
       technologiesUsed: [

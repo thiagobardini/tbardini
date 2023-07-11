@@ -36,18 +36,19 @@ function App() {
           <Navbar />
         </Box>
         <Routes>
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
 
           <Route index element={<Home />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path='/resume' element={<Resume />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
 
-          <Route path="/portfolio" element={<Projects />} />
-          <Route path="/portfolio/router-planner" element={<RouterPlanner />} />
+          <Route path='/portfolio' element={<Projects />} />
+          <Route path='/portfolio' element={<Projects />} />
+          <Route path='/portfolio/trip-route' element={<RouterPlanner />} />
           <Route
-            path="/portfolio/router-planner/readme"
+            path='/portfolio/trip-route/readme'
             element={<RouterPlannerReadme />}
           />
         </Routes>

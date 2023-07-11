@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container, CssBaseline, Typography } from "@mui/material";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
-import CardsDrawer from "../../../Components/CardsDrawer";
+import BottomDrawer from "../../../Layout/BottomDrawer";
 
 const RouterPlanner = () => {
   return (
@@ -14,15 +14,15 @@ const RouterPlanner = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="Route Planner" />
+      <HeadingTop text='Trip Route' />
       <Container>
         <CssBaseline />
-        <Typography textAlign="center">
-          Great news! The Router Planner app documentation will be available
-          very soon!
+        <Typography textAlign='center'>
+          Great news! The Trip Route app documentation will be available very
+          soon!
         </Typography>
       </Container>
-      <CardsDrawer />
+      <BottomDrawer />
     </Box>
   );
 };

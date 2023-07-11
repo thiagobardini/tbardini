@@ -8,9 +8,7 @@ import { Button, Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import CardsDrawer from "../Components/CardsDrawer";
-import projectsCards from "../Data/projectsCards";
-import CardsPortfolio from "../Components/CardsPortfolio";
+import RouterPlannerReadme from "../Pages/projects/RouterPlanner/RouterPlannerReadme";
 
 const drawerBleeding = 56;
 
@@ -25,6 +23,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 const StyledBoxDrawer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? grey[900] : grey[800],
+  color: "#f7f7f7",
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
@@ -72,7 +71,7 @@ const BottomDrawer = ({ color }) => {
       />
       <Box></Box>
       <SwipeableDrawer
-        anchor="bottom"
+        anchor='bottom'
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
@@ -102,18 +101,20 @@ const BottomDrawer = ({ color }) => {
                 visibility: "none",
                 height: "65px",
                 // position: !open ? "absolute" : "relative",
-                position: "absolute",
+                position: "relative",
                 textTransform: "none",
               }}
             >
-              <Typography color="#000">{!open ? "open" : "close"}</Typography>
+              <Typography color='#000'>
+                {!open ? "open docs" : "close docs"}
+              </Typography>
 
               <Puller />
             </Button>
           </Box>
-          <Typography sx={{ pb: 2, pl: 2, color: "#000" }}>
+          {/* <Typography sx={{ pb: 2, pl: 2, color: "#000" }}>
             {projects?.length} projects
-          </Typography>
+          </Typography> */}
         </StyledBox>
         <StyledBoxDrawer
           sx={{
@@ -122,32 +123,7 @@ const BottomDrawer = ({ color }) => {
             flexDirection: "column",
           }}
         >
-          <Container component="main" maxWidth="xs">
-            {projects.length > 0 ? (
-              projects.map((project) => (
-                <CardsDrawer
-                  id={project.id}
-                  projectCard={project}
-                  toggleDrawer={toggleDrawer()}
-                />
-              ))
-            ) : (
-              <span>No Post</span>
-            )}
-
-            {projectsCards.map((card) => (
-              <CardsPortfolio
-                id={card.id}
-                title={card.title}
-                description={card.description}
-                img={card.img}
-                techs={card.techs}
-                readme={card.readme}
-                live={card.live}
-                github={card.github}
-              />
-            ))}
-          </Container>
+          <RouterPlannerReadme />
         </StyledBoxDrawer>
       </SwipeableDrawer>
     </Root>

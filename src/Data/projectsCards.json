@@ -36,7 +36,7 @@
   {
     "id": "3",
     "title": "Weather App - °C & °F",
-    "description": "Weather App - °C & °F: I created this project to assist me in my daily life while living here in the United States. I often find myself doing calculations and wondering about the conversion between °F and °C. That's why I developed this app.",
+    "description": "Weather App - °C & °F: Created to aid my daily life while residing in the United States, this app eliminates the need for manual calculations and provides instant conversion between °F and °C.",
     "img": "https://www.noaa.gov/sites/default/files/styles/square_width_650/public/2021-02/FocusArea__Weather-02.jpg",
     "techs": [
       "Next.js",

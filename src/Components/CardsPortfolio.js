@@ -131,7 +131,7 @@ const CardsPortfolio = ({
     setShowChips(false);
   };
   return (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
+    <Box key={id} sx={{ display: "flex", justifyContent: "center" }}>
       <StyledCard
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -140,18 +140,18 @@ const CardsPortfolio = ({
           <StyledCircle color={red[500]} />
           <StyledCircle color={amber[500]} />
           <StyledCircle color={green[500]} />
-          <StyledTitle variant="subtitle1">{title}</StyledTitle>
+          <StyledTitle variant='subtitle1'>{title}</StyledTitle>
         </StyledTopBar>
         <StyledTags showChips={showChips}>
           {techs.map((tag) => (
-            <StyledChip color="secondary" label={tag} />
+            <StyledChip color='secondary' label={tag} />
           ))}
         </StyledTags>
         <StyledCardContent sx={{ pt: 1 }}>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
-              component="img"
-              alt="logo"
+              component='img'
+              alt='logo'
               src={img}
               sx={{
                 height: "140px",
@@ -161,15 +161,15 @@ const CardsPortfolio = ({
             />
           </Box>
           <StyledDescription sx={{ textDecoration: "none" }}>
-            <span className="blue">{description}</span>
+            <span className='blue'>{description}</span>
           </StyledDescription>
         </StyledCardContent>
         <StyledBottomBar>
           <Button
             component={Link}
             to={live}
-            variant="contained"
-            color="secondary"
+            variant='contained'
+            color='secondary'
             target={github ? "_blank" : undefined}
             rel={github ? "noopener noreferrer" : undefined}
             onClick={() => window.scrollTo(0, 0)}
@@ -180,8 +180,8 @@ const CardsPortfolio = ({
             <Button
               component={Link}
               to={readme}
-              variant="outlined"
-              color="secondary"
+              variant='outlined'
+              color={darkMode ? "primary" : "secondary"}
               onClick={() => window.scrollTo(0, 0)}
             >
               Readme
@@ -190,7 +190,7 @@ const CardsPortfolio = ({
             <Button
               component={Link}
               to={github}
-              variant="outlined"
+              variant='outlined'
               color={darkMode ? "primary" : "secondary"}
               target={github ? "_blank" : undefined}
               rel={github ? "noopener noreferrer" : undefined}

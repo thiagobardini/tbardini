@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase/firebaseConfig";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
-import { Button, Container } from "@mui/material";
+import { Button, theme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -16,20 +17,15 @@ const Root = styled("div")(({ theme }) => ({
   height: "100%",
 }));
 
-const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === "dark" ? "var(--bgColor-2)" : grey[800],
-}));
+const StyledBox = styled(Box)(({ theme }) => ({}));
 
 const StyledBoxDrawer = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? grey[900] : grey[800],
   color: "#f7f7f7",
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
   height: 10,
-  backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
   borderRadius: 3,
   position: "absolute",
   top: 8,
@@ -39,6 +35,8 @@ const Puller = styled(Box)(({ theme }) => ({
 const BottomDrawer = ({ color }) => {
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const fetchPost = async () => {
     await getDocs(collection(db, "projects")).then((querySnapshot) => {
@@ -69,7 +67,6 @@ const BottomDrawer = ({ color }) => {
           },
         }}
       />
-      <Box></Box>
       <SwipeableDrawer
         anchor='bottom'
         open={open}
@@ -81,7 +78,7 @@ const BottomDrawer = ({ color }) => {
           keepMounted: true,
         }}
       >
-        <StyledBox
+        <Box
           sx={{
             height: "56px",
             position: "absolute",
@@ -91,6 +88,7 @@ const BottomDrawer = ({ color }) => {
             visibility: "visible",
             right: 0,
             left: 0,
+            background: darkMode ? "#f7f7f7" : "#2A2A2A",
           }}
         >
           <Box sx={{ textTransform: "visible", textAlign: "center" }}>
@@ -100,30 +98,28 @@ const BottomDrawer = ({ color }) => {
                 pointerEvents: "visible",
                 visibility: "none",
                 height: "65px",
-                // position: !open ? "absolute" : "relative",
                 position: "relative",
                 textTransform: "none",
+                color: darkMode ? "#2A2A2A" : "#f7f7f7",
               }}
             >
-              <Typography color='#000'>
+              <Typography color={darkMode ? "#2A2A2A" : "#f7f7f7"}>
                 {!open ? "open docs" : "close docs"}
               </Typography>
 
-              <Puller />
+              <Puller sx={{ background: darkMode ? "#2A2A2A" : "#f7f7f7" }} />
             </Button>
           </Box>
-          {/* <Typography sx={{ pb: 2, pl: 2, color: "#000" }}>
-            {projects?.length} projects
-          </Typography> */}
-        </StyledBox>
+        </Box>
         <StyledBoxDrawer
           sx={{
             overflow: "auto",
             display: "flex",
             flexDirection: "column",
+            backgroundColor: darkMode ? grey[900] : grey[800],
           }}
         >
-          <RouterPlannerReadme />
+          <RouterPlannerReadme displayNone='true' />
         </StyledBoxDrawer>
       </SwipeableDrawer>
     </Root>

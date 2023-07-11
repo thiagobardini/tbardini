@@ -25,7 +25,7 @@ const ListItem = styled("li")(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-const RouterPlannerReadme = () => {
+const RouterPlannerReadme = ({ displayNone }) => {
   const data = [
     {
       projectIdea: "Google Maps Route Planner",
@@ -63,7 +63,7 @@ const RouterPlannerReadme = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="Route Planner - Docs" />
+      <HeadingTop text='Route Planner - Docs' />
       <Container>
         <CssBaseline />
         <DocumentationContainer mb={6}>
@@ -74,22 +74,23 @@ const RouterPlannerReadme = () => {
                   <Button
                     to={item.live}
                     component={Link}
-                    variant="contained"
-                    color="secondary"
+                    variant='contained'
+                    color='secondary'
                     sx={{
                       textTransform: "capitalize",
                       mr: 2,
                       px: 4,
                       py: 1,
+                      display: displayNone && "none",
                     }}
                   >
                     <Typography>Visit the Project</Typography>
                   </Button>
-                  <Typography variant="h4" mt={2}>
+                  <Typography variant='h4' mt={2}>
                     Overview
                   </Typography>
-                  <Typography variant="body1">{item.overview}</Typography>
-                  <Typography variant="h4" mt={2}>
+                  <Typography variant='body1'>{item.overview}</Typography>
+                  <Typography variant='h4' mt={2}>
                     Technologies Used
                   </Typography>
 
@@ -99,30 +100,30 @@ const RouterPlannerReadme = () => {
                     ))}
                   </List>
 
-                  <Typography variant="h4" mt={2}>
+                  <Typography variant='h4' mt={2}>
                     Functionality
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant='body1'>
                     <List>
                       {item.functionality.map((func, index) => (
                         <ListItem key={index}>{func}</ListItem>
                       ))}
                     </List>
                   </Typography>
-                  <Typography variant="h4" mt={2}>
+                  <Typography variant='h4' mt={2}>
                     Project Structure
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant='body1'>
                     <List>
                       {item.projectStructure.map((struct, index) => (
                         <ListItem key={index}>{struct}</ListItem>
                       ))}
                     </List>
                   </Typography>
-                  <Typography variant="h4" mt={2}>
+                  <Typography variant='h4' mt={2}>
                     Conclusion
                   </Typography>
-                  <Typography variant="body1">{item.conclusion}</Typography>
+                  <Typography variant='body1'>{item.conclusion}</Typography>
                 </Box>
               </Container>
             </Box>

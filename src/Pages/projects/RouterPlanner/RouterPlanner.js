@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, CssBaseline, Typography } from "@mui/material";
-import HeadingTop from "../Components/Typography/HeadingTop";
+import HeadingTop from "../../../Components/Typography/HeadingTop";
+import CardsDrawer from "../../../Components/CardsDrawer";
 
 const RouterPlanner = () => {
   return (
@@ -17,9 +18,11 @@ const RouterPlanner = () => {
       <Container>
         <CssBaseline />
         <Typography textAlign="center">
-          Great news! The app will be available very soon!
+          Great news! The Router Planner app documentation will be available
+          very soon!
         </Typography>
       </Container>
+      <CardsDrawer />
     </Box>
   );
 };

@@ -1,15 +1,5 @@
 [
     {
-      "id": "1",
-      "title": "Google Maps Route Planner",
-      "description":"This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
-      "img":"https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
-      "techs":["React", "Google Maps API", "Firebase Auth", "Firebase Firestore", "Redux Toolkit", "Material UI", "JavaScript", "React Router"],
-      "live": "/router-planner",
-      "readme": "/router-planner/readme.md",
-      "github": ""
-    },
-    {
       "id": "2",
       "title": "Mini Market",
       "description":"🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
@@ -28,5 +18,15 @@
       "live": "https://bhpa.vercel.app/public",
       "readme": "",
       "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main/frontend"
+    },
+    {
+      "id": "4",
+      "title": "Trip Route",
+      "description":"This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
+      "img":"https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
+      "techs":["React", "Google Maps API", "Firebase Auth", "Firebase Firestore", "Redux Toolkit", "Material UI", "JavaScript", "React Router"],
+      "live": "/portfolio/router-planner",
+      "readme": "/portfolio/router-planner/readme",
+      "github": ""
     }
 ]

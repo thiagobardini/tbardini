@@ -9,7 +9,8 @@ import About from "./Pages/About";
 import Projects from "./Pages/Projects";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
-import RouterPlanner from "./Pages/RouterPlanner";
+import RouterPlanner from "./Pages/projects/RouterPlanner/RouterPlanner";
+import RouterPlannerReadme from "./Pages/projects/RouterPlanner/RouterPlannerReadme";
 import Contact from "./Pages/Contact";
 import Resume from "./Pages/Resume";
 
@@ -44,7 +45,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/portfolio" element={<Projects />} />
-          <Route path="/router-planner" element={<RouterPlanner />} />
+          <Route path="/portfolio/router-planner" element={<RouterPlanner />} />
+          <Route
+            path="/portfolio/router-planner/readme"
+            element={<RouterPlannerReadme />}
+          />
         </Routes>
       </Box>
     </ThemeProvider>

@@ -9,6 +9,7 @@ import {
   Chip,
   Button,
 } from "@mui/material";
+import { useSelector } from "react-redux";
 import { red, amber, green } from "@mui/material/colors";
 
 const StyledTopBar = styled(Box)(({ theme }) => ({
@@ -120,6 +121,7 @@ const CardsPortfolio = ({
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleMouseEnter = () => {
     setShowChips(true);
@@ -170,6 +172,7 @@ const CardsPortfolio = ({
             color="secondary"
             target={github ? "_blank" : undefined}
             rel={github ? "noopener noreferrer" : undefined}
+            onClick={() => window.scrollTo(0, 0)}
           >
             Live
           </Button>
@@ -179,6 +182,7 @@ const CardsPortfolio = ({
               to={readme}
               variant="outlined"
               color="secondary"
+              onClick={() => window.scrollTo(0, 0)}
             >
               Readme
             </Button>
@@ -187,9 +191,10 @@ const CardsPortfolio = ({
               component={Link}
               to={github}
               variant="outlined"
-              color="secondary"
+              color={darkMode ? "primary" : "secondary"}
               target={github ? "_blank" : undefined}
               rel={github ? "noopener noreferrer" : undefined}
+              onClick={() => window.scrollTo(0, 0)}
             >
               Github
             </Button>

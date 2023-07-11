@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { Box, styled, Typography, Button } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
@@ -16,6 +16,10 @@ const CustomBox = styled(Box)(({ theme }) => ({
 }));
 
 const HomeText = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <CustomBox component="section">
       <Typography
@@ -68,6 +72,7 @@ const HomeText = () => {
             py: 1,
             pointerEvents: "auto",
           }}
+          onClick={() => window.scrollTo(0, 0)}
         >
           portfolio
         </Button>
@@ -82,6 +87,7 @@ const HomeText = () => {
             py: 1,
             pointerEvents: "auto",
           }}
+          onClick={() => window.scrollTo(0, 0)}
         >
           Resume
         </Button>

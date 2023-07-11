@@ -115,7 +115,7 @@ function Navbar() {
                 letterSpacing: ".3rem",
               }}
             >
-              TRIP ROUTE
+              TBARDINI
             </Typography>
           </Box>
           {/* Mobile view */}
@@ -222,7 +222,7 @@ function Navbar() {
                   letterSpacing: ".3rem",
                 }}
               >
-                TRIP ROUTE
+                TBARDINI
               </Typography>
             </Box>
           </Stack>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Box, styled, Typography, Button } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   minHeight: "100vh",
@@ -20,19 +21,23 @@ const HomeText = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   return (
-    <CustomBox component="section">
+    <CustomBox component='section'>
       <Typography
-        variant="h2"
-        component="h1"
+        variant='h2'
+        component='h1'
         sx={{
-          fontWeight: 700,
+          textShadow: "2px 2px 4px rgba(247, 247, 247, 0.5)",
           color: "text.primary",
+          fontWeight: 900,
+          position: "relative",
         }}
       >
         <TypeAnimation
           sequence={["Hey, I'm Thiago"]}
-          wrapper="span"
+          wrapper='span'
           speed={50}
           repeat={1}
           cursor={false}
@@ -40,12 +45,12 @@ const HomeText = () => {
       </Typography>
 
       <Typography
-        variant="h5"
-        component="p"
+        variant='h5'
+        component='p'
         sx={{
           py: 3,
           lineHeight: 1.6,
-          color: "text.primary",
+          color: "#fff",
           width: { xs: "100%", md: "60%" },
         }}
       >
@@ -54,18 +59,22 @@ const HomeText = () => {
             1200,
             "I'm a software engineer turned problem-solver, bringing creativity and design thinking to every line of code.",
           ]}
-          wrapper="span"
+          wrapper='span'
           speed={50}
           repeat={1}
+          style={{
+            background: "rgba(0, 0, 0, 0.5)",
+          }}
         />
       </Typography>
       <Box>
         <Button
           component={Link}
-          to="/portfolio"
-          variant="contained"
-          color="secondary"
+          to='/portfolio'
+          variant='contained'
           sx={{
+            color: "#f7f7f7",
+            backgroundColor: "#2A2A2A",
             textTransform: "capitalize",
             mr: 2,
             px: 4,
@@ -79,13 +88,15 @@ const HomeText = () => {
         <Button
           component={Link}
           to={"/resume"}
-          variant="outlined"
-          color="secondary"
+          variant='outlined'
           sx={{
+            color: "#2A2A2A",
+            backgroundColor: "#f7f7f7",
             textTransform: "capitalize",
             px: 4,
             py: 1,
             pointerEvents: "auto",
+            backgroundColor: "#fff",
           }}
           onClick={() => window.scrollTo(0, 0)}
         >

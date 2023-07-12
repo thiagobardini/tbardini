@@ -5,6 +5,7 @@ import { Sky, OrbitControls, Lightformer } from "@react-three/drei";
 import { Model } from "./Model";
 import HomeText from "../HomeText";
 import { DarkCanvas } from "./DarkCanvas";
+import { LightCanvas } from "./LightCanvas";
 
 const CanvasComponent = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -17,23 +18,15 @@ const CanvasComponent = () => {
     });
     return (
       <group ref={modelRef}>
-        <Model />
+        <LightCanvas />
       </group>
     );
   };
+
   const ModelContainerDark = () => {
     const modelRef = useRef();
     const cameraRef = useRef();
-    // const zoomSpeed = 0.001;
-    // const scrollSpeed = 0.2;
-
     useFrame(({ camera }) => {
-      // Mover a câmera para baixo
-      // camera.position.y -= scrollSpeed;
-      // Ajustar o campo de visão (zoom)
-      // const zoom = Math.max(1, camera.position.y * zoomSpeed);
-      // cameraRef.current.zoom = zoom;
-      // cameraRef.current.updateProjectionMatrix();
       modelRef.current.rotation.y += 0.001;
     });
 
@@ -41,7 +34,7 @@ const CanvasComponent = () => {
       <>
         <perspectiveCamera
           ref={cameraRef}
-          position={[0, 0, 5]} // Ajuste a posição inicial da câmera conforme necessário
+          position={[0, 0, 5]} // Adjust camera start position as needed
         />
         <group ref={modelRef}>
           <DarkCanvas />
@@ -50,24 +43,21 @@ const CanvasComponent = () => {
     );
   };
 
-  // const ambientLightIntensity = 4;
-
   return (
-    <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+    <div
+      style={{
+        position: "relative",
+        width: "100vw",
+        height: "calc(100vh - 64px)",
+      }}
+    >
       {!darkMode ? (
         <Canvas>
-          {/* <Sky azimuth={1} inclination={0.6} distance={1000} /> */}
-          {/* <ambientLight intensity={ambientLightIntensity} color="#000000" /> */}
-          <pointLight position={[0, 0, 1]} />
-
+          <pointLight position={[5, 5, 5]} />
           <Suspense fallback={null}>
             <ModelContainerLight />
           </Suspense>
-          <OrbitControls
-            enablePan={true}
-            enableZoom={true}
-            enableRotate={true}
-          />
+          <OrbitControls enablePan={false} enableZoom={false} />
         </Canvas>
       ) : (
         <Canvas>

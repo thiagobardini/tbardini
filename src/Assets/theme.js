@@ -19,9 +19,7 @@ export const createCustomTheme = (mode) =>
             // palette values for light mode
             // primary: { main: "#1565c0" },
             primary: { main: "#AADCEC" },
-            secondary: {
-              main: "#2A2A2A",
-            },
+            secondary: { main: "#2A2A2A" },
             divider: amber[200],
             background: {
               // default: "#fcfdfe",

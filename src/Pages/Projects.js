@@ -26,13 +26,23 @@ const Projects = () => {
 
   const getFilterPhrase = () => {
     if (selectedKeyword === "show all") {
-      return "Showing all projects. Use the filter to list them by skill or technology.";
+      return (
+        <span>
+          Showing all projects. Use the filter to list them by skill or
+          technology.
+        </span>
+      );
     } else {
       const filteredProjects = projectsCards.filter((card) =>
         card.techs.includes(selectedKeyword)
       );
-      const formattedKeyword = `*${selectedKeyword}*`;
-      const phrase = `Showing ${filteredProjects.length} projects filtered by ${formattedKeyword}.`;
+      const formattedKeyword = <strong>{selectedKeyword}</strong>;
+      const phrase = (
+        <span>
+          Showing <strong>{filteredProjects.length}</strong> projects filtered
+          by {formattedKeyword}.
+        </span>
+      );
       return phrase;
     }
   };
@@ -106,10 +116,7 @@ const Projects = () => {
               {selectedKeyword === "show all" ? (
                 "Showing all projects. Use the filter to list them by skill or technology."
               ) : (
-                <span>
-                  Showing <strong>{projectsCards.length}</strong> projects
-                  filtered by <strong>{selectedKeyword}</strong>.
-                </span>
+                <span>{getFilterPhrase()}</span>
               )}
             </Typography>
           </Grid>

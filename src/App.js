@@ -13,6 +13,7 @@ import RouterPlanner from "./Pages/projects/RouterPlanner/RouterPlanner";
 import RouterPlannerReadme from "./Pages/projects/RouterPlanner/RouterPlannerReadme";
 import Contact from "./Pages/Contact";
 import Resume from "./Pages/Resume";
+import MyPortfolioReadme from "./Pages/projects/MyPortfolioReadme/MyPortfolioReadme";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -50,6 +51,10 @@ function App() {
           <Route
             path='/portfolio/trip-route/readme'
             element={<RouterPlannerReadme />}
+          />
+          <Route
+            path='/portfolio/my-portfolio-readme'
+            element={<MyPortfolioReadme />}
           />
         </Routes>
       </Box>

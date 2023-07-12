@@ -8,7 +8,7 @@
       "React",
       "Firebase Realtime Database",
       "Stripe API",
-      "CSS",
+      "SASS",
       "JavaScript",
       "React Router"
     ],
@@ -27,7 +27,8 @@
       "Redux Toolkit",
       "Material UI",
       "JavaScript",
-      "React Router"
+      "React Router",
+      "SASS"
     ],
     "live": "https://bhpa.vercel.app/public",
     "readme": "",
@@ -40,11 +41,13 @@
     "img": "https://www.noaa.gov/sites/default/files/styles/square_width_650/public/2021-02/FocusArea__Weather-02.jpg",
     "techs": [
       "Next.js",
+      "React",
       "TypeScript",
       "Open Weather API",
       "Redux Toolkit",
       "Tailwind CSS",
-      "Next Router"
+      "Next Router",
+      "Firebase Auth"
     ],
     "live": "https://tbardini-next-ts.vercel.app/weather-app",
     "readme": "",
@@ -67,6 +70,25 @@
     ],
     "live": "/portfolio/trip-route",
     "readme": "/portfolio/trip-route/readme",
+    "github": ""
+  },
+  {
+    "id": "5",
+    "title": "My Portfolio",
+    "description": "This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
+    "img": "https://i.imgur.com/YN7jUwD.png",
+    "techs": [
+      "React",
+      "Firebase Auth",
+      "Firebase Firestore",
+      "Redux Toolkit",
+      "Material UI",
+      "JavaScript",
+      "React Router",
+      "React-three-fiber"
+    ],
+    "live": "",
+    "readme": "/portfolio/my-portfolio-readme",
     "github": ""
   }
 ]

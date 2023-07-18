@@ -21,8 +21,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
-import iconLogo from "../Assets/images/nav-logo.png";
-import iconLogoLight from "../Assets/images/nav-logo-light.png";
+import iconLogo from "../Assets/images/shirt-logo-small.png";
 
 const pages = [
   {
@@ -82,13 +81,12 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" enableColorOnDark sx={{ zIndex: 2 }}>
-      {/* <AppBar position="static" sx={{ zIndex: 2 }}> */}
-      <Container maxWidth="xl">
+    <AppBar position='static' enableColorOnDark sx={{ zIndex: 2, py: 1 }}>
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Box
             component={Link}
-            to="/"
+            to='/'
             sx={{
               display: { xs: "none", md: "flex" },
               alignItems: "center",
@@ -98,40 +96,30 @@ function Navbar() {
             }}
           >
             <Box
-              component="img"
-              alt="logo"
-              src={!darkMode ? iconLogo : iconLogoLight}
+              component='img'
+              alt='logo'
+              src={iconLogo}
               sx={{
-                height: "35px",
+                height: "80px",
                 mr: 1,
               }}
             />
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-              }}
-            >
-              TBARDINI
-            </Typography>
           </Box>
           {/* Mobile view */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              sx={{ position: "absolute", top: { xs: "30px", md: "15px" } }}
+              size='large'
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color='inherit'
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
@@ -156,7 +144,7 @@ function Navbar() {
                   key={page.text}
                   onClick={handleCloseNavMenu}
                 >
-                  <Typography color="#f7f7f7" textAlign="center">
+                  <Typography color='#f7f7f7' textAlign='center'>
                     {page.text}
                   </Typography>
                 </MenuItem>
@@ -165,19 +153,18 @@ function Navbar() {
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                   <IconButton
                     component={Link}
-                    color="#f7f7f7"
+                    color='#f7f7f7'
                     to={"https://www.linkedin.com/in/thiagobardini/"}
-                    target="_blank"
+                    target='_blank'
                     mr={1}
                   >
                     <LinkedInIcon />
                   </IconButton>
                   <IconButton
                     component={Link}
-                    color="inherit"
                     to={"https://github.com/thiagobardini"}
-                    target="_blank"
-                    color="#f7f7f7"
+                    target='_blank'
+                    color='#f7f7f7'
                   >
                     <GitHubIcon />
                   </IconButton>
@@ -186,16 +173,16 @@ function Navbar() {
             </Menu>
           </Box>
           <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
+            direction='row'
+            justifyContent='center'
+            alignItems='center'
             sx={{
               flexGrow: 1,
             }}
           >
             <Box
               component={Link}
-              to="/"
+              to='/'
               sx={{
                 display: { xs: "flex", md: "none" },
                 alignItems: "center",
@@ -205,34 +192,28 @@ function Navbar() {
               }}
             >
               <Box
-                component="img"
-                alt="logo"
-                src={!darkMode ? iconLogo : iconLogoLight}
+                component='img'
+                alt='logo'
+                src={iconLogo}
                 sx={{
-                  height: "35px",
+                  height: "80px",
                   mr: 1,
                 }}
               />
-              <Typography
-                variant="h6"
-                noWrap
-                sx={{
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                }}
-              >
-                TBARDINI
-              </Typography>
             </Box>
           </Stack>
           {/* Desktop view */}
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mt: { xs: "30px", md: "15px" },
+            }}
+          >
             {pages.map((page) =>
               page.text === "Portfolio" ? (
                 <Button
                   component={Link}
-                  color="inherit"
+                  color='inherit'
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
@@ -246,7 +227,7 @@ function Navbar() {
                   to={page.to}
                   key={page.text}
                   onClick={handleCloseNavMenu}
-                  color="inherit"
+                  color='inherit'
                   sx={{ textTransform: "none" }}
                 >
                   {page.text}
@@ -266,27 +247,34 @@ function Navbar() {
                   )}
                   </>
                 )} */}
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "inline-block" },
+              mt: { xs: "30px", md: "15px" },
+            }}
+          >
             <Box
               component={Link}
-              color="inherit"
+              color='inherit'
               to={"https://www.linkedin.com/in/thiagobardini/"}
-              target="_blank"
+              target='_blank'
               mr={1}
             >
               <LinkedInIcon />
             </Box>
             <Box
               component={Link}
-              color="inherit"
+              color='inherit'
               to={"https://github.com/thiagobardini"}
-              target="_blank"
+              target='_blank'
               mr={1}
             >
               <GitHubIcon />
             </Box>
           </Box>
-          <ToggleThemeMode />
+          <Box sx={{ mt: { xs: "30px", md: "15px" } }}>
+            <ToggleThemeMode />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

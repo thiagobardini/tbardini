@@ -87,8 +87,8 @@
       "React Router",
       "React-three-fiber"
     ],
-    "live": "",
-    "readme": "/portfolio/my-portfolio-readme",
-    "github": ""
+    "live": "/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/tbardiniCom"
   }
 ]

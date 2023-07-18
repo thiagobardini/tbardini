@@ -18,8 +18,7 @@ const RouterPlanner = () => {
       <Container>
         <CssBaseline />
         <Typography textAlign='center'>
-          Great news! The Trip Route app documentation will be available very
-          soon!
+          Great news! The Trip Route app will be available very soon!
         </Typography>
       </Container>
       <BottomDrawer />

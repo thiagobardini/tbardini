@@ -27,21 +27,21 @@ import logoDark from "../Assets/images/logoDark.png";
 
 const pages = [
   {
-    text: "Portfolio",
+    text: "portfolio",
     to: "/portfolio",
   },
   {
-    text: "Resume",
+    text: "resume",
     to: "/resume",
   },
   // {
   //   text: "About",
   //   to: "/about",
   // },
-  // {
-  //   text: "Contact",
-  //   to: "/contact",
-  // },
+  {
+    text: "contact",
+    to: "/contact",
+  },
 ];
 
 function Navbar() {
@@ -233,7 +233,11 @@ function Navbar() {
                   key={page.text}
                   onClick={handleCloseNavMenu}
                   color="inherit"
-                  sx={{ textTransform: "none" }}
+                  sx={{
+                    textTransform: "none",
+                    fontWeight: "500",
+                    fontSize: "1.1rem",
+                  }}
                 >
                   {page.text}
                 </Button>
@@ -262,7 +266,7 @@ function Navbar() {
               color="inherit"
               to={"https://www.linkedin.com/in/thiagobardini/"}
               target="_blank"
-              mr={1}
+              m={1}
             >
               <LinkedInIcon />
             </Box>
@@ -271,7 +275,7 @@ function Navbar() {
               color="inherit"
               to={"https://github.com/thiagobardini"}
               target="_blank"
-              mr={1}
+              m={1}
             >
               <GitHubIcon />
             </Box>

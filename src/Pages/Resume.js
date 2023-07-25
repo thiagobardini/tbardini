@@ -3,8 +3,19 @@ import { Box, Container, CssBaseline, Button, Stack } from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
 import resume from "../Assets/images/resume.jpg";
 import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 
 const Resume = () => {
+  const textTitle = (
+    <TypeAnimation
+      sequence={["resume"]}
+      wrapper="span"
+      speed={50}
+      repeat={1}
+      cursor={false}
+    />
+  );
+
   return (
     <Box
       mb={6}
@@ -15,7 +26,7 @@ const Resume = () => {
         minHeight: "calc(100vh - 520px)",
       }}
     >
-      <HeadingTop text="Resume" />
+      <HeadingTop text={textTitle} />
       <Container>
         <CssBaseline />
         <Stack

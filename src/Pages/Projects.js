@@ -10,6 +10,7 @@ import {
 import HeadingTop from "../Components/Typography/HeadingTop";
 import CardsPortfolio from "../Components/CardsPortfolio";
 import projectsCards from "../Data/projectsCards.json";
+import { TypeAnimation } from "react-type-animation";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
@@ -47,6 +48,16 @@ const Projects = () => {
     }
   };
 
+  const textTitle = (
+    <TypeAnimation
+      sequence={["portfolio"]}
+      wrapper="span"
+      speed={50}
+      repeat={1}
+      cursor={false}
+    />
+  );
+
   return (
     <Box
       mb={6}
@@ -56,17 +67,17 @@ const Projects = () => {
         justifyContent: "flex-start",
       }}
     >
-      <HeadingTop text='portfolio' />
+      <HeadingTop text={textTitle} />
       <Container>
         <CssBaseline />
-        <Typography color='text.primary' my={2} textAlign='center' variant='h5'>
+        <Typography color="text.primary" my={2} textAlign="center" variant="h5">
           Check out my latest web software development portfolio projects.
         </Typography>
         <Grid
           container
           // spacing={2}
-          justifyContent='center'
-          alignItems='center'
+          justifyContent="center"
+          alignItems="center"
           xs={12}
         >
           <Grid
@@ -83,16 +94,16 @@ const Projects = () => {
               variant={
                 selectedKeyword === "show all" ? "contained" : "outlined"
               }
-              color='secondary'
+              color="secondary"
               onClick={() => handleKeywordChange("show all")}
-              size='small'
+              size="small"
             >
               Show All
             </Button>
             {getAllKeywords().map((keyword, index) => (
               <Button
                 key={keyword}
-                color='secondary'
+                color="secondary"
                 variant={selectedKeyword === keyword ? "contained" : "outlined"}
                 onClick={() => handleKeywordChange(keyword)}
                 sx={{
@@ -100,7 +111,7 @@ const Projects = () => {
                   mr: 1,
                   display: "inline-block",
                 }}
-                size='small'
+                size="small"
               >
                 {keyword}
               </Button>
@@ -108,9 +119,9 @@ const Projects = () => {
           </Grid>
           <Grid item xs={12}>
             <Typography
-              variant='subtitle1'
+              variant="subtitle1"
               gutterBottom
-              textAlign='center'
+              textAlign="center"
               sx={{ color: "rgb(138, 138, 138)" }}
             >
               {selectedKeyword === "show all" ? (

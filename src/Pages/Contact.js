@@ -1,22 +1,119 @@
 import React from "react";
-import { Box, Container, CssBaseline } from "@mui/material";
+import { keyframes } from "@emotion/react";
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Typography,
+  Divider,
+  Link,
+} from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
+import { TypeAnimation } from "react-type-animation";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
 
+const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
 const Contact = () => {
+  const textTitle = (
+    <TypeAnimation
+      sequence={["contact", 1000, "let’s work together!", 1000]} // adjust sequence timing here
+      wrapper="span"
+      speed={50}
+      repeat={0}
+      cursor={false}
+      style={{ textDecoration: "none" }}
+    />
+  );
   return (
     <Box
       mb={6}
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         minHeight: "calc(100vh - 520px)",
+        alignItems: "center",
       }}
     >
-      <HeadingTop text="contact" />
+      <Box sx={{ minHeight: "140px" }}>
+        <HeadingTop text={textTitle} />{" "}
+      </Box>
+      {/* add textDecoration: "none" here */}
       <Container>
         <CssBaseline />
-        <Box></Box>
+        <Box sx={{ p: 3, textAlign: "center" }}>
+          <Typography
+            variant="h5"
+            gutterBottom
+            sx={{
+              color: (theme) => theme.palette.text.primary,
+            }}
+          >
+            Looking forward to connecting and collaborating with you. Feel free
+            to reach out!
+          </Typography>
+
+          <Divider
+            sx={{ width: { xs: "100%", md: "50%" }, my: 6, mx: "auto" }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              justifyContent: "center",
+              gap: 3,
+            }}
+          >
+            <Link
+              href="tel:978-648-7075"
+              color="inherit"
+              underline="none"
+              target="_blank"
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <PhoneIcon />
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  sx={{
+                    color: (theme) => theme.palette.text.primary,
+                    animation: `${fadeIn} 2s`,
+                  }}
+                >
+                  978-648-7075
+                </Typography>
+              </Box>
+            </Link>
+            <Link
+              href="mailto:thiagobardini@icloud.com"
+              color="inherit"
+              underline="none"
+              target="_blank"
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <EmailIcon />
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  sx={{
+                    color: (theme) => theme.palette.text.primary,
+                    animation: `${fadeIn} 2s`,
+                  }}
+                >
+                  thiagobardini@icloud.com
+                </Typography>
+              </Box>
+            </Link>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

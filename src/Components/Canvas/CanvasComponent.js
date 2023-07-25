@@ -48,12 +48,12 @@ const CanvasComponent = () => {
       style={{
         position: "relative",
         width: "100vw",
-        height: "calc(100vh - 64px)",
+        height: "calc(100vh - 80px)",
       }}
     >
       {!darkMode ? (
         <Canvas>
-          <pointLight position={[5, 5, 5]} />
+          <pointLight position={[5, 5, 5]} intensity={0.5} />
           <Suspense fallback={null}>
             <ModelContainerLight />
           </Suspense>

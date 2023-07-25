@@ -1,30 +1,33 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Typography, styled, useTheme } from "@mui/material";
 
 const TitleContainer = styled(Box)({
-  padding: "2em 0",
-  textAlign: "center",
-  textShadow: "1px 1px 1px var(--color-text-5)",
+    padding: "2em 0",
+    textAlign: "center",
 });
 
 function HeadingTop({ text }) {
-  return (
-    <TitleContainer mb={2} sx={{ bgcolor: "var(--bgColor-3)" }}>
-      <Typography
-        variant="h3"
-        sx={{
-          display: "block",
-          width: "100%",
-          letterSpacing: "-.03em",
-          textAlign: "center",
-          fontWeight: "600",
-          color: "var(--color-text-1)",
-          textShadow: "1px 1px 1px var(--color-text-5)",
-        }}
-      >
-        {text}
-      </Typography>
-    </TitleContainer>
-  );
+    const theme = useTheme();
+    const bgColor = theme.palette.mode === "light" ? theme.palette.background.default : theme.palette.background.paper;
+    const textColor = theme.palette.mode === "light" ? theme.palette.primary.main : theme.palette.text.primary;
+
+    return (
+        <TitleContainer mb={2} sx={{ bgcolor: bgColor }}>
+            <Typography
+                variant="h3"
+                sx={{
+                    display: "block",
+                    width: "100%",
+                    letterSpacing: "-.03em",
+                    textAlign: "center",
+                    fontWeight: "600",
+                    color: textColor,
+                    textShadow: "1px 1px 1px rgba(0, 0, 0, 0.3)",
+                }}
+            >
+                {text}
+            </Typography>
+        </TitleContainer>
+    );
 }
 
 export default HeadingTop;

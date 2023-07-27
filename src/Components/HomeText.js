@@ -95,7 +95,7 @@ const HomeText = () => {
             color: "#eeeeee",
             backgroundColor: darkMode
               ? theme.palette.primary.main
-              : theme.palette.secondary.main,
+              : theme.palette.primaryDark.main,
             textTransform: "capitalize",
             mr: 2,
             px: 4,

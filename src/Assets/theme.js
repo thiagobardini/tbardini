@@ -16,6 +16,7 @@ export const createCustomTheme = (mode) =>
         ? {
             primary: { main: "#22313f" },
             secondary: { main: "#0092ca" },
+            primaryDark: { main: "#1270AF" },
             background: {
               default: "#eeeeee",
               paper: "#eeeeee",

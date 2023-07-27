@@ -5,6 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 import HomeText from "../HomeText";
 import { DarkCanvas } from "./DarkCanvas";
 import { LightCanvas } from "./LightCanvas";
+import { Box } from "@mui/material";
 
 const CanvasComponent = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -43,11 +44,11 @@ const CanvasComponent = () => {
   };
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         position: "relative",
         width: "100vw",
-        height: "calc(100vh - 116px)",
+        height: "calc(100vh - 124px)",
       }}
     >
       {!darkMode ? (
@@ -81,7 +82,7 @@ const CanvasComponent = () => {
       >
         <HomeText />
       </div>
-    </div>
+    </Box>
   );
 };
 

@@ -74,7 +74,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ zIndex: 2, py: 1 }}>
+    <AppBar position="static" sx={{ zIndex: 2, py: "2px" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
@@ -94,7 +94,7 @@ function Navbar() {
               alt="logo"
               src={logoNav}
               sx={{
-                height: "100px",
+                height: "120px",
               }}
             />
           </Box>
@@ -130,7 +130,7 @@ function Navbar() {
                 alt="logo"
                 src={logoNav}
                 sx={{
-                  height: "100px",
+                  height: "120px",
                 }}
               />
             </Box>

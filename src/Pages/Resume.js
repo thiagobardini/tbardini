@@ -28,14 +28,9 @@ const Resume = () => {
       }}
     >
       <HeadingTop text={textTitle} />
-      <Container>
+      <Container sx={{ pt: 2 }}>
         <CssBaseline />
-        <Stack
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          spacing={2}
-        >
+        <Stack direction="column" justifyContent="center" alignItems="center">
           <Box
             sx={{
               display: "flex",

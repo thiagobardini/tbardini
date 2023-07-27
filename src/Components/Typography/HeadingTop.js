@@ -1,23 +1,20 @@
 import { Box, Typography, styled, useTheme } from "@mui/material";
 
 const TitleContainer = styled(Box)({
-  padding: "2em 0",
+  padding: "1.5em 0",
   textAlign: "center",
 });
 
 function HeadingTop({ text }) {
   const theme = useTheme();
-  const bgColor =
-    theme.palette.mode === "light"
-      ? theme.palette.background.default
-      : theme.palette.background.paper;
+
   const textColor =
     theme.palette.mode === "light"
       ? theme.palette.primary.main
       : theme.palette.text.primary;
 
   return (
-    <TitleContainer mb={2} sx={{ bgcolor: bgColor }}>
+    <TitleContainer>
       <Typography
         variant="h2"
         sx={{

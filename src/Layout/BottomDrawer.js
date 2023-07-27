@@ -5,7 +5,7 @@ import { db } from "../Firebase/firebaseConfig";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
-import { Button, theme } from "@mui/material";
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -13,11 +13,9 @@ import RouterPlannerReadme from "../Pages/projects/RouterPlanner/RouterPlannerRe
 
 const drawerBleeding = 56;
 
-const Root = styled("div")(({ theme }) => ({
+const Root = styled(Box)(({ theme }) => ({
   height: "100%",
 }));
-
-const StyledBox = styled(Box)(({ theme }) => ({}));
 
 const StyledBoxDrawer = styled(Box)(({ theme }) => ({
   color: "#f7f7f7",
@@ -68,7 +66,7 @@ const BottomDrawer = ({ color }) => {
         }}
       />
       <SwipeableDrawer
-        anchor='bottom'
+        anchor="bottom"
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
@@ -119,7 +117,7 @@ const BottomDrawer = ({ color }) => {
             backgroundColor: darkMode ? grey[900] : grey[800],
           }}
         >
-          <RouterPlannerReadme displayNone='true' />
+          <RouterPlannerReadme displayNone="true" />
         </StyledBoxDrawer>
       </SwipeableDrawer>
     </Root>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../redux/userSlice";
 import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
@@ -9,21 +9,16 @@ import {
   Box,
   AppBar,
   Toolbar,
-  Typography,
-  Menu,
   Container,
   Button,
-  MenuItem,
   Stack,
   useTheme,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
-import logoLight from "../Assets/images/logoLight.png";
-import logoDark from "../Assets/images/logoDark.png";
+import logoNav from "../Assets/images/logoNav.png";
+import HamburgerMenu from "./HamburgerMenu";
 
 const pages = [
   {
@@ -45,14 +40,11 @@ const pages = [
 ];
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [isOpen, setOpen] = useState(false);
 
   const user = useSelector(selectUser);
 
   const location = useLocation();
-
-  const theme = useTheme();
-  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
 
@@ -75,16 +67,12 @@ function Navbar() {
     });
   }, []);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const toggleHamburger = () => {
+    setOpen(!isOpen);
   };
 
   return (
-    <AppBar position="static" enableColorOnDark sx={{ zIndex: 2, py: 1 }}>
+    <AppBar position="static" sx={{ zIndex: 2, py: 1 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
@@ -92,6 +80,7 @@ function Navbar() {
             to="/"
             sx={{
               display: { xs: "none", md: "flex" },
+              justifyContent: "center",
               alignItems: "center",
               textDecoration: "none",
               color: "inherit",
@@ -101,85 +90,23 @@ function Navbar() {
             <Box
               component="img"
               alt="logo"
-              src={logoLight}
+              src={logoNav}
               sx={{
-                height: "50px",
-                mr: 1,
+                height: "100px",
               }}
             />
           </Box>
           {/* Mobile view */}
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-                textTransform: "none",
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem
-                  component={Link}
-                  to={page.to}
-                  key={page.text}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography
-                    color={darkMode ? "#eeeeee" : theme.palette.primary.main}
-                    textAlign="center"
-                  >
-                    {page.text}
-                  </Typography>
-                </MenuItem>
-              ))}
-              <MenuItem>
-                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                  <IconButton
-                    component={Link}
-                    // color="#f7f7f7"
-                    to={"https://www.linkedin.com/in/thiagobardini/"}
-                    target="_blank"
-                    mr={1}
-                  >
-                    <LinkedInIcon />
-                  </IconButton>
-                  <IconButton
-                    component={Link}
-                    to={"https://github.com/thiagobardini"}
-                    target="_blank"
-                    // color="#f7f7f7"
-                  >
-                    <GitHubIcon />
-                  </IconButton>
-                </Box>
-              </MenuItem>
-            </Menu>
+          <Box
+            onClick={toggleHamburger}
+            sx={{ display: { xs: "flex", md: "none" }, zIndex: 9999 }}
+          >
+            <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
           </Box>
+
           <Stack
             direction="row"
-            justifyContent="center" // This will center the logo
+            justifyContent="center"
             alignItems="center"
             sx={{
               flexGrow: 1,
@@ -199,10 +126,9 @@ function Navbar() {
               <Box
                 component="img"
                 alt="logo"
-                src={logoLight}
+                src={logoNav}
                 sx={{
-                  height: "50px",
-                  mr: 1,
+                  height: "100px",
                 }}
               />
             </Box>
@@ -221,7 +147,6 @@ function Navbar() {
                   color="inherit"
                   to={page.to}
                   key={page.text}
-                  onClick={handleCloseNavMenu}
                   sx={{ textTransform: "none" }}
                 >
                   {page.text}
@@ -231,7 +156,6 @@ function Navbar() {
                   component={Link}
                   to={page.to}
                   key={page.text}
-                  onClick={handleCloseNavMenu}
                   color="inherit"
                   sx={{
                     textTransform: "none",

@@ -1,13 +1,13 @@
 import React from "react";
-import HomeText from "../Components/HomeText";
 import CanvasComponent from "../Components/Canvas/CanvasComponent";
+import { Box } from "@mui/material";
 
 const Home = () => {
   return (
-    <>
-      {/* <HomeText /> */}
+    <Box sx={{ position: "relative" }}>
+      {/* // <Box> */}
       <CanvasComponent />
-    </>
+    </Box>
   );
 };
 

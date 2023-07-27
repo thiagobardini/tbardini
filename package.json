@@ -3,6 +3,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mediapipe/tasks-vision": "^0.10.2",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.15",
     "@react-three/drei": "^9.78.1",
@@ -14,6 +15,7 @@
     "@types/three": "^0.152.1",
     "dotenv": "^16.3.1",
     "firebase": "^9.23.0",
+    "hamburger-react": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",

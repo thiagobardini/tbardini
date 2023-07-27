@@ -1,8 +1,7 @@
 import React, { Suspense, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sky, OrbitControls, Lightformer } from "@react-three/drei";
-import { Model } from "./Model";
+import { OrbitControls } from "@react-three/drei";
 import HomeText from "../HomeText";
 import { DarkCanvas } from "./DarkCanvas";
 import { LightCanvas } from "./LightCanvas";
@@ -48,7 +47,7 @@ const CanvasComponent = () => {
       style={{
         position: "relative",
         width: "100vw",
-        height: "calc(100vh - 80px)",
+        height: "calc(100vh - 116px)",
       }}
     >
       {!darkMode ? (

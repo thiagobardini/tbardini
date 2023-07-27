@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-import { amber, grey } from "@mui/material/colors";
 
 // Ref: https://mui.com/material-ui/customization/dark-mode/
 // Pallete:

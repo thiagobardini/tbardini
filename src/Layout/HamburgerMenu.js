@@ -1,6 +1,6 @@
 import React from "react";
 import Hamburger from "hamburger-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import navLogo from "../Assets/images/logoNav.png";
 import {
   Drawer,
@@ -47,7 +47,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         }}
       >
         <Box
-          component={Link}
+          component={NavLink}
           to="/"
           sx={{
             display: { xs: "flex", md: "none" },
@@ -69,7 +69,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         <List>
           {pages.map((page) => (
             <ListItem
-              component={Link}
+              component={NavLink}
               to={page.to}
               key={page.text}
               sx={{
@@ -78,6 +78,34 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
                 width: "100%",
                 py: 2,
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
+                textTransform: "none",
+                fontWeight: "500",
+                fontSize: "1.4rem",
+                textDecoration: "none",
+                position: "relative",
+                mr: 2,
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  width: "30%",
+                  height: "6px",
+                  bottom: "10px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  backgroundColor: "#1270AF",
+                  visibility: "hidden",
+                  transition: "all 0.5s ease-in-out",
+                },
+                "&.active::after": {
+                  visibility: "visible",
+                  width: "170px",
+                },
+              }}
+              isActive={(match) => {
+                if (!match) {
+                  return false;
+                }
+                return true;
               }}
             >
               <Typography variant="h3">{page.text}</Typography>
@@ -93,7 +121,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           }}
         >
           <IconButton
-            component={Link}
+            component={NavLink}
             to={"https://www.linkedin.com/in/thiagobardini/"}
             target="_blank"
             color="inherit"
@@ -104,7 +132,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             <LinkedInIcon sx={{ fontSize: "3rem" }} />
           </IconButton>
           <IconButton
-            component={Link}
+            component={NavLink}
             to={"https://github.com/thiagobardini"}
             target="_blank"
             color="inherit"

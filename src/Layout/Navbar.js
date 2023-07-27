@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../redux/userSlice";
 import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
 import Logout from "../Features/auth/Logout";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import {
   Box,
@@ -41,6 +41,8 @@ const pages = [
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
+
+  const theme = useTheme();
 
   const user = useSelector(selectUser);
 
@@ -140,33 +142,50 @@ function Navbar() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) =>
-              page.text === "Portfolio" ? (
-                <Button
-                  component={Link}
-                  color="inherit"
-                  to={page.to}
-                  key={page.text}
-                  sx={{ textTransform: "none" }}
-                >
-                  {page.text}
-                </Button>
-              ) : (
-                <Button
-                  component={Link}
-                  to={page.to}
-                  key={page.text}
-                  color="inherit"
-                  sx={{
-                    textTransform: "none",
-                    fontWeight: "500",
-                    fontSize: "1.1rem",
-                  }}
-                >
-                  {page.text}
-                </Button>
-              )
-            )}
+            {pages.map((page) => (
+              <Button
+                component={NavLink}
+                to={page.to}
+                key={page.text}
+                color="inherit"
+                sx={{
+                  textTransform: "none",
+                  fontWeight: "500",
+                  fontSize: "1.4rem",
+                  textDecoration: "none",
+                  position: "relative",
+                  mr: 2,
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    width: "60%",
+                    height: "4px",
+                    bottom: "6px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    backgroundColor: "#1270AF",
+                    visibility: "hidden",
+                    transition: "all 0.2s ease-in-out",
+                  },
+                  "&:hover::after": {
+                    visibility: "visible",
+                    width: "80%",
+                  },
+                  "&.active::after": {
+                    visibility: "visible",
+                    width: "60px",
+                  },
+                }}
+                isActive={(match) => {
+                  if (!match) {
+                    return false;
+                  }
+                  return true;
+                }}
+              >
+                {page.text}
+              </Button>
+            ))}
           </Box>
 
           {/* {location.pathname === "/signin" ? (

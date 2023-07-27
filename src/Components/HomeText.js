@@ -92,7 +92,7 @@ const HomeText = () => {
           to="/portfolio"
           variant="contained"
           sx={{
-            color: darkMode ? "#eeeeee" : theme.palette.primary.main,
+            color: "#eeeeee",
             backgroundColor: darkMode
               ? theme.palette.primary.main
               : theme.palette.secondary.main,
@@ -105,7 +105,6 @@ const HomeText = () => {
               backgroundColor: darkMode
                 ? lighten(theme.palette.primary.main, 0.1)
                 : darken(theme.palette.secondary.main, 0.1),
-              color: "#eeeeee",
             },
           }}
           onClick={() => window.scrollTo(0, 0)}

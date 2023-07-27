@@ -57,6 +57,7 @@ const Resume = () => {
             size="small"
             sx={{
               textTransform: "capitalize",
+              mt: 2,
             }}
           >
             Dowload Resume

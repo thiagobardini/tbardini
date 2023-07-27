@@ -12,6 +12,7 @@ import HeadingTop from "../Components/Typography/HeadingTop";
 import { TypeAnimation } from "react-type-animation";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const fadeIn = keyframes`
 from {
@@ -38,8 +39,8 @@ const Contact = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        minHeight: "calc(100vh - 520px)",
+        justifyContent: "flex-start",
+        minHeight: "100vh",
         alignItems: "center",
       }}
     >
@@ -109,6 +110,26 @@ const Contact = () => {
                   }}
                 >
                   thiagobardini@icloud.com
+                </Typography>
+              </Box>
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/thiagobardini/"
+              color="inherit"
+              underline="none"
+              target="_blank"
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <LinkedInIcon sx={{ fontSize: "2rem" }} />
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  sx={{
+                    color: (theme) => theme.palette.text.primary,
+                    animation: `${fadeIn} 2s`,
+                  }}
+                >
+                  thiagobardini
                 </Typography>
               </Box>
             </Link>

@@ -5,7 +5,6 @@ import { Box } from "@mui/material";
 const Home = () => {
   return (
     <Box sx={{ position: "relative" }}>
-      {/* // <Box> */}
       <CanvasComponent />
     </Box>
   );

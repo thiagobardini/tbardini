@@ -23,7 +23,8 @@ const Resume = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        minHeight: "calc(100vh - 520px)",
+        minHeight: "100vh",
+        alignItems: "center",
       }}
     >
       <HeadingTop text={textTitle} />

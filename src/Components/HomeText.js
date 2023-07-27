@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { lighten, darken } from "@mui/system";
 
 const CustomBox = styled(Box)(({ theme }) => ({
-  // minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",

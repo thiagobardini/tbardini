@@ -14,6 +14,7 @@ import RouterPlannerReadme from "./Pages/projects/RouterPlanner/RouterPlannerRea
 import Contact from "./Pages/Contact";
 import Resume from "./Pages/Resume";
 import MyPortfolioReadme from "./Pages/projects/MyPortfolioReadme/MyPortfolioReadme";
+import HireMe from "./Components/HireMe";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -35,25 +36,26 @@ function App() {
       <Box>
         <Box sx={{ zIndex: 9999 }}>
           <Navbar />
+          <HireMe />
         </Box>
         <Routes>
-          <Route path='/signin' element={<Signin />} />
-          <Route path='/signup' element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
 
           <Route index element={<Home />} />
-          <Route path='/resume' element={<Resume />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-          <Route path='/portfolio' element={<Projects />} />
-          <Route path='/portfolio' element={<Projects />} />
-          <Route path='/portfolio/trip-route' element={<RouterPlanner />} />
+          <Route path="/portfolio" element={<Projects />} />
+          <Route path="/portfolio" element={<Projects />} />
+          <Route path="/portfolio/trip-route" element={<RouterPlanner />} />
           <Route
-            path='/portfolio/trip-route/readme'
+            path="/portfolio/trip-route/readme"
             element={<RouterPlannerReadme />}
           />
           <Route
-            path='/portfolio/my-portfolio-readme'
+            path="/portfolio/my-portfolio-readme"
             element={<MyPortfolioReadme />}
           />
         </Routes>

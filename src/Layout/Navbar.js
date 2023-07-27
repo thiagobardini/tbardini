@@ -159,8 +159,8 @@ function Navbar() {
                     content: '""',
                     position: "absolute",
                     width: "60%",
-                    height: "4px",
-                    bottom: "6px",
+                    height: "5px",
+                    bottom: "4px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     backgroundColor: "#1270AF",
@@ -169,11 +169,11 @@ function Navbar() {
                   },
                   "&:hover::after": {
                     visibility: "visible",
-                    width: "80%",
+                    width: "90%",
                   },
                   "&.active::after": {
                     visibility: "visible",
-                    width: "60px",
+                    width: "90%",
                   },
                 }}
                 isActive={(match) => {

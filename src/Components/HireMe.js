@@ -6,11 +6,15 @@ import {
   Avatar,
   Badge,
 } from "@mui/material";
+
 import { Link } from "react-router-dom";
 import myself from "../Assets/images/myself.jpeg";
-import { TypeAnimation } from "react-type-animation";
+import { useLocation } from "react-router-dom";
 
 const HireMe = () => {
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
+
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       backgroundColor: "#44b700",
@@ -39,54 +43,73 @@ const HireMe = () => {
       },
     },
   }));
+
   const StickyButton = styled(Button)({
     position: "fixed",
-    top: 90, // adjust this value based on your navbar's height
-    right: 10, // adjust this value based on your preference
+    // top: 124, // adjust this value based on your preference
+    right: 0, // adjust this value based on your preference
+    bottom: 0, // adjust this value based on your preference
+    pointerEvents: "auto",
+    borderRadius: 0,
   });
 
   return (
-    <StickyButton
-      component={Link}
-      to="/contact"
-      variant="text"
-      sx={{
-        pt: 6,
-        pointerEvents: "auto",
-        color: "#eeeeee",
-      }}
-      onClick={() => window.scrollTo(0, 0)}
-      startIcon={
-        <Stack direction="row" spacing={2}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={myself} />
-          </StyledBadge>
-        </Stack>
-      }
-    >
-      <Typography
-        variant="h6"
+    !isContactPage && (
+      <StickyButton
+        component={Link}
+        to="/contact"
+        variant="contained"
         sx={{
-          letterSpacing: "0.08em",
-          color: "#1270AF",
-          borderRadius: "5px",
-          fontWeight: "900",
-          textShadow:
-            "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
+          pointerEvents: "auto",
+          color: "#eeeeee",
+          zIndex: "999999",
+          background: "#ccc",
         }}
+        size="small"
+        onClick={() => window.scrollTo(0, 0)}
+        startIcon={
+          <Stack
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="flex-end"
+            spacing={0}
+          >
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              variant="dot"
+            >
+              <Avatar
+                alt="Thiago Bardini"
+                src={myself}
+                sx={{ width: 30, height: 30 }}
+              />
+            </StyledBadge>
+          </Stack>
+        }
       >
-        <TypeAnimation
+        <Typography
+          variant="body1"
+          sx={{
+            letterSpacing: "0.08em",
+            // color: darkMode ? "text.primary" : "#1270AF",
+            color: "#1270AF",
+            borderRadius: "5px",
+            fontWeight: "900",
+            // textShadow:
+            //   "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
+          }}
+        >
+          {/* <TypeAnimation
           sequence={[1200, "HIRE ME!"]}
           wrapper="span"
           speed={50}
           repeat={1}
-        />
-      </Typography>
-    </StickyButton>
+        /> */}
+          HIRE ME!
+        </Typography>
+      </StickyButton>
+    )
   );
 };
 

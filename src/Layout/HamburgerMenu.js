@@ -43,6 +43,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: "100%",
+            height: "100%",
           },
         }}
       >

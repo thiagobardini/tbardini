@@ -15,6 +15,7 @@ import Contact from "./Pages/Contact";
 import Resume from "./Pages/Resume";
 import MyPortfolioReadme from "./Pages/projects/MyPortfolioReadme/MyPortfolioReadme";
 import HireMe from "./Components/HireMe";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -38,6 +39,7 @@ function App() {
           <Navbar />
           <HireMe />
         </Box>
+        <ScrollToTop />
         <Routes>
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />

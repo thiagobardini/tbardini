@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ToggleThemeMode from "../Components/ToggleThemeMode";
 
 const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();
@@ -162,6 +163,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             <GitHubIcon sx={{ fontSize: "3rem" }} />
           </IconButton>
         </Box>
+        <ToggleThemeMode />
       </Drawer>
     </Box>
   );

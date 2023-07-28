@@ -205,7 +205,7 @@ to {
                 left: "-12px",
                 top: "0px",
                 borderRadius: "50%",
-                backgroundColor: darkMode ? "#0092ca" : "#22313f",
+                backgroundColor: darkMode ? "#0092ca" : "#1270AF",
                 height: "70px",
                 width: "70px",
                 justifyContent: "center",

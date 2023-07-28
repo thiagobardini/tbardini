@@ -6,6 +6,7 @@ import HomeText from "../HomeText";
 import { DarkCanvas } from "./DarkCanvas";
 import { LightCanvas } from "./LightCanvas";
 import { Box } from "@mui/material";
+import { keyframes } from "@emotion/react";
 
 const CanvasComponent = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -43,12 +44,21 @@ const CanvasComponent = () => {
     );
   };
 
+  const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  `;
   return (
     <Box
       sx={{
         position: "relative",
         width: "100vw",
         height: "calc(100vh - 124px)",
+        animation: `${fadeIn} 2s`,
       }}
     >
       {!darkMode ? (

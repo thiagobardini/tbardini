@@ -37,15 +37,14 @@ function Navbar() {
   const location = useLocation();
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     function onScroll() {
       let currentScrollPos = window.pageYOffset;
-      if (currentScrollPos < 50) {
-        setIsNavVisible(true);
-      } else if (oldScrollPos > currentScrollPos) {
-        setIsNavVisible("partial");
-      } else {
-        setIsNavVisible(false);
+      if (currentScrollPos > oldScrollPos && currentScrollPos > 50) {
+        setIsNavVisible(false); // Esconde elementos selecionados
+      } else if (currentScrollPos < 50) {
+        setIsNavVisible(true); // Mostra todo o menu
       }
       setOldScrollPos(currentScrollPos);
     }
@@ -85,10 +84,11 @@ function Navbar() {
         top: 0,
         left: 0,
         right: 0,
-        transform: isNavVisible ? "translateY(0)" : "translateY(-100%)",
+        // transform: isNavVisible ? "translateY(0)" : "translateY(-100%)",
         transition: "transform 200ms linear",
-        backgroundColor: isNavVisible ? "transparent" : "background.paper",
-        boxShadow: isNavVisible ? "none" : "4px",
+        backgroundColor: !isNavVisible && "transparent",
+        boxShadow: !isNavVisible && "none",
+        backgroundImage: !isNavVisible && "none",
       }}
     >
       <Container maxWidth="xl">
@@ -117,13 +117,14 @@ function Navbar() {
             </Box>
           )}
           {/* Mobile view */}
-          <Box
-            onClick={toggleHamburger}
-            sx={{ display: { xs: "flex", md: "none" }, zIndex: 9999 }}
-          >
-            <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
-          </Box>
-
+          {isNavVisible === true && (
+            <Box
+              onClick={toggleHamburger}
+              sx={{ display: { xs: "flex", md: "none" }, zIndex: 9999 }}
+            >
+              <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
+            </Box>
+          )}
           {/* Only show logo if isNavVisible is true */}
           {isNavVisible === true && (
             <Stack
@@ -158,12 +159,27 @@ function Navbar() {
           )}
 
           {/* Desktop view */}
-          {/* Only show pages and icons if isNavVisible is true */}
-          {isNavVisible !== "true" && (
-            <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {isNavVisible !== true && (
+            <Box
+              sx={{
+                display: "flex",
+                mt: 1,
+                position: "absolute",
+                left: "-12px",
+                top: "0px",
+                borderRadius: "50%",
+                backgroundColor: "#22313f",
+                height: "70px",
+                width: "70px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
             </Box>
           )}
+
+          {/* Only show pages and icons if isNavVisible is true */}
           {isNavVisible === true && (
             <>
               <Box
@@ -244,9 +260,7 @@ function Navbar() {
             </>
           )}
 
-          <Box>
-            <ToggleThemeMode />
-          </Box>
+          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
         </Toolbar>
       </Container>
     </AppBar>

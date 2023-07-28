@@ -92,7 +92,7 @@ const HireMe = () => {
         <Typography
           variant="body1"
           sx={{
-            pr: { xs: 1, md: 0 },
+            pr: { xs: 2, md: 0 },
             letterSpacing: "0.08em",
             color: "#1270AF",
             borderRadius: "5px",

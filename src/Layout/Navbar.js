@@ -4,13 +4,21 @@ import { login, logout, selectUser } from "../redux/userSlice";
 import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
 import Logout from "../Features/auth/Logout";
 import { Link, NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { Box, AppBar, Toolbar, Container, Button, Stack } from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Container,
+  Button,
+  Stack,
+  useTheme,
+} from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import logoNav from "../Assets/images/logoNav.png";
 import HamburgerMenu from "./HamburgerMenu";
+import { keyframes } from "@emotion/react";
 
 const pages = [
   {
@@ -33,9 +41,10 @@ function Navbar() {
   const [oldScrollPos, setOldScrollPos] = useState(0);
   const [showHamburger, setShowHamburger] = useState(false);
 
-  const user = useSelector(selectUser);
+  const theme = useTheme();
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
-  const location = useLocation();
+  const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -91,6 +100,15 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
+
   return (
     <AppBar
       position="fixed"
@@ -104,6 +122,7 @@ function Navbar() {
         backgroundImage: !isNavVisible && "none",
         transition:
           "background-color 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
+        animation: `${fadeIn} 2s`,
       }}
     >
       <Container maxWidth="xl">
@@ -186,7 +205,7 @@ function Navbar() {
                 left: "-12px",
                 top: "0px",
                 borderRadius: "50%",
-                backgroundColor: "#0092ca",
+                backgroundColor: darkMode ? "#0092ca" : "#22313f",
                 height: "70px",
                 width: "70px",
                 justifyContent: "center",
@@ -194,6 +213,7 @@ function Navbar() {
                 opacity: isNavVisible ? 0 : 1,
                 visibility: isNavVisible ? "hidden" : "visible",
                 transition: "opacity 2000ms linear, visibility 2000ms linear",
+                animation: `${fadeIn} 2s`,
               }}
             >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />

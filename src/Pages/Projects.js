@@ -11,6 +11,7 @@ import HeadingTop from "../Components/Typography/HeadingTop";
 import CardsPortfolio from "../Components/CardsPortfolio";
 import projectsCards from "../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
+import { keyframes } from "@emotion/react";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
@@ -57,6 +58,15 @@ const Projects = () => {
       cursor={false}
     />
   );
+
+  const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  `;
 
   return (
     <Box
@@ -144,7 +154,7 @@ const Projects = () => {
                 }
               })
               .map((card) => (
-                <Box key={card.id}>
+                <Box key={card.id} sx={{ animation: `${fadeIn} 2s` }}>
                   <CardsPortfolio
                     id={card.id}
                     title={card.title}

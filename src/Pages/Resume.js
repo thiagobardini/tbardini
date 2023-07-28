@@ -4,6 +4,7 @@ import HeadingTop from "../Components/Typography/HeadingTop";
 import resume from "../Assets/images/resume.jpg";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
+import { keyframes } from "@emotion/react";
 
 const Resume = () => {
   const textTitle = (
@@ -15,6 +16,15 @@ const Resume = () => {
       cursor={false}
     />
   );
+
+  const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
 
   return (
     <Box
@@ -45,6 +55,7 @@ const Resume = () => {
                 maxWidth: "850px",
                 minWidth: "350px",
                 width: "100%",
+                animation: `${fadeIn} 2s`,
               }}
             />
           </Box>

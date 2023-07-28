@@ -30,7 +30,7 @@ to {
 const Contact = () => {
   const textTitle = (
     <TypeAnimation
-      sequence={["contact", 1000, "let’s work together!", 1000]} // adjust sequence timing here
+      sequence={["contact", 1000, "let’s work together!", 1000]}
       wrapper="span"
       speed={50}
       repeat={0}

@@ -39,7 +39,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         }}
         sx={{
           backgroundColor: theme.palette.background.paper,
-          display: { xs: "block", md: "none" },
+          display: "block",
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: "100%",
@@ -70,7 +70,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             component={NavLink}
             to="/"
             sx={{
-              display: { xs: "flex", md: "none" },
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               textDecoration: "none",
@@ -91,6 +91,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           {pages.map((page) => (
             <ListItem
               component={NavLink}
+              onClick={() => setOpen(false)}
               to={page.to}
               key={page.text}
               sx={{

@@ -58,8 +58,8 @@ const HireMe = () => {
   return (
     !isContactPage && (
       <StickyButton
-        component={Link}
-        to="/contact"
+        component="a"
+        href="mailto:thiagobardini@icloud.com?subject=🤘 Hi Thiago, I'd like to hire you"
         variant="text"
         sx={{
           pointerEvents: "auto",
@@ -68,7 +68,6 @@ const HireMe = () => {
           background: "rgba(204, 204, 204, 0.8)",
         }}
         size="small"
-        onClick={() => window.scrollTo(0, 0)}
         startIcon={
           <Stack
             direction="row"
@@ -93,6 +92,7 @@ const HireMe = () => {
         <Typography
           variant="body1"
           sx={{
+            pr: { xs: 1, md: 0 },
             letterSpacing: "0.08em",
             color: "#1270AF",
             borderRadius: "5px",

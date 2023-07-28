@@ -92,7 +92,6 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           {pages.map((page) => (
             <ListItem
               component={NavLink}
-              onClick={() => setOpen(false)}
               to={page.to}
               key={page.text}
               sx={{

@@ -7,7 +7,6 @@ export default function ToggleThemeMode() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
-  console.log(darkMode, "theme.palette.mode");
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,

@@ -31,6 +31,7 @@ function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [oldScrollPos, setOldScrollPos] = useState(0);
+  const [showHamburger, setShowHamburger] = useState(false);
 
   const user = useSelector(selectUser);
 
@@ -39,15 +40,15 @@ function Navbar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    function onScroll() {
+    const onScroll = () => {
       let currentScrollPos = window.pageYOffset;
       if (currentScrollPos > oldScrollPos && currentScrollPos > 50) {
-        setIsNavVisible(false); // Esconde elementos selecionados
-      } else if (currentScrollPos < 50) {
-        setIsNavVisible(true); // Mostra todo o menu
+        setTimeout(() => setIsNavVisible(false), 10); // Esconde elementos selecionados
+      } else if (currentScrollPos < 200) {
+        setTimeout(() => setIsNavVisible(true), 10); // Mostra todo o menu
       }
       setOldScrollPos(currentScrollPos);
-    }
+    };
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -76,6 +77,20 @@ function Navbar() {
     setOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const onScroll = () => {
+      let currentScrollPos = window.pageYOffset;
+      if (currentScrollPos > 200) {
+        setShowHamburger(true);
+      } else {
+        setShowHamburger(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <AppBar
       position="fixed"
@@ -84,11 +99,11 @@ function Navbar() {
         top: 0,
         left: 0,
         right: 0,
-        // transform: isNavVisible ? "translateY(0)" : "translateY(-100%)",
-        transition: "transform 200ms linear",
         backgroundColor: !isNavVisible && "transparent",
         boxShadow: !isNavVisible && "none",
         backgroundImage: !isNavVisible && "none",
+        transition:
+          "background-color 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
       }}
     >
       <Container maxWidth="xl">
@@ -104,6 +119,9 @@ function Navbar() {
                 textDecoration: "none",
                 color: "inherit",
                 mr: 2,
+                opacity: !isNavVisible ? 0 : 1,
+                visibility: !isNavVisible ? "hidden" : "visible",
+                transition: "opacity 2000ms linear, visibility 2000ms linear",
               }}
             >
               <Box
@@ -159,7 +177,7 @@ function Navbar() {
           )}
 
           {/* Desktop view */}
-          {isNavVisible !== true && (
+          {showHamburger && (
             <Box
               sx={{
                 display: "flex",
@@ -168,11 +186,14 @@ function Navbar() {
                 left: "-12px",
                 top: "0px",
                 borderRadius: "50%",
-                backgroundColor: "#22313f",
+                backgroundColor: "#0092ca",
                 height: "70px",
                 width: "70px",
                 justifyContent: "center",
                 alignItems: "center",
+                opacity: isNavVisible ? 0 : 1,
+                visibility: isNavVisible ? "hidden" : "visible",
+                transition: "opacity 2000ms linear, visibility 2000ms linear",
               }}
             >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />

@@ -46,11 +46,13 @@ const HireMe = () => {
 
   const StickyButton = styled(Button)({
     position: "fixed",
-    // top: 124, // adjust this value based on your preference
-    right: 0, // adjust this value based on your preference
-    bottom: 0, // adjust this value based on your preference
+    right: 0,
+    bottom: 0,
     pointerEvents: "auto",
     borderRadius: 0,
+    "&:hover": {
+      backgroundColor: "#ccc",
+    },
   });
 
   return (
@@ -58,12 +60,12 @@ const HireMe = () => {
       <StickyButton
         component={Link}
         to="/contact"
-        variant="contained"
+        variant="text"
         sx={{
           pointerEvents: "auto",
           color: "#eeeeee",
           zIndex: "999999",
-          background: "#ccc",
+          background: "rgba(204, 204, 204, 0.8)",
         }}
         size="small"
         onClick={() => window.scrollTo(0, 0)}
@@ -92,21 +94,19 @@ const HireMe = () => {
           variant="body1"
           sx={{
             letterSpacing: "0.08em",
-            // color: darkMode ? "text.primary" : "#1270AF",
             color: "#1270AF",
             borderRadius: "5px",
-            fontWeight: "900",
-            // textShadow:
-            //   "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
+            fontWeight: "700",
+            transition: "all 0.3s ease-in-out",
+            "&:hover": {
+              color: "#0092ca",
+              textShadow:
+                "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
+              fontWeight: "900",
+            },
           }}
         >
-          {/* <TypeAnimation
-          sequence={[1200, "HIRE ME!"]}
-          wrapper="span"
-          speed={50}
-          repeat={1}
-        /> */}
-          HIRE ME!
+          hire me!
         </Typography>
       </StickyButton>
     )

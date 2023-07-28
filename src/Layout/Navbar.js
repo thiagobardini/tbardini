@@ -41,6 +41,8 @@ const pages = [
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [oldScrollPos, setOldScrollPos] = useState(0);
 
   const theme = useTheme();
 
@@ -49,6 +51,16 @@ function Navbar() {
   const location = useLocation();
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    function onScroll() {
+      let currentScrollPos = window.pageYOffset;
+      setIsNavVisible(oldScrollPos > currentScrollPos || currentScrollPos < 50);
+      setOldScrollPos(currentScrollPos);
+    }
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [oldScrollPos]);
 
   // check at page load if a user is authenticated
   useEffect(() => {
@@ -74,7 +86,18 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ zIndex: 2, py: "2px" }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        zIndex: 9999,
+        py: "2px",
+        top: 0,
+        left: 0,
+        right: 0,
+        transform: isNavVisible ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 200ms linear",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box

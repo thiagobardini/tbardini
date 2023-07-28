@@ -149,7 +149,7 @@ const Contact = () => {
               </Box>
             </Link>
             <Link
-              href="mailto:thiagobardini@icloud.com"
+              href="mailto:thiagobardini@icloud.com?subject=🤘 Hi Thiago, I'd like to hire you"
               color="inherit"
               underline="none"
               target="_blank"

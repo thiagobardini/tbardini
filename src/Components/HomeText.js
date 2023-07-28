@@ -12,8 +12,9 @@ const CustomBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   textAlign: "center",
   padding: theme.spacing(2),
-  marginTop: "-100px",
+  top: "50px", // this should be equal to the height of your navbar
   position: "absolute",
+  zIndex: 1, //
 }));
 
 const HomeText = () => {

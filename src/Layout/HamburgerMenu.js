@@ -48,24 +48,44 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         }}
       >
         <Box
-          component={NavLink}
-          to="/"
           sx={{
-            display: { xs: "flex", md: "none" },
-            alignItems: "center",
+            position: "relative",
+            display: "flex",
             justifyContent: "center",
-            textDecoration: "none",
-            my: 2,
           }}
         >
           <Box
-            component="img"
-            alt="logo"
-            src={navLogo}
+            color={
+              !isOpen
+                ? "#eeeeee"
+                : isOpen && theme.palette.mode === "light"
+                ? "#22313f"
+                : "#eeeeee"
+            }
+            sx={{ position: "absolute", left: 0, pt: 5, pl: 3 }}
+          >
+            <Hamburger toggled={isOpen} toggle={setOpen} />
+          </Box>
+          <Box
+            component={NavLink}
+            to="/"
             sx={{
-              height: "150px",
+              display: { xs: "flex", md: "none" },
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
+              my: 2,
             }}
-          />
+          >
+            <Box
+              component="img"
+              alt="logo"
+              src={navLogo}
+              sx={{
+                height: "150px",
+              }}
+            />
+          </Box>
         </Box>
         <List>
           {pages.map((page) => (

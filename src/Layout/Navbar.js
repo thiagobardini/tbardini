@@ -89,7 +89,7 @@ function Navbar() {
     <AppBar
       position="fixed"
       sx={{
-        zIndex: 9999,
+        // zIndex: 9999,
         py: "2px",
         top: 0,
         left: 0,

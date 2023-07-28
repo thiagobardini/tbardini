@@ -64,7 +64,7 @@ const HireMe = () => {
         sx={{
           pointerEvents: "auto",
           color: "#eeeeee",
-          zIndex: "999999",
+          zIndex: "1200",
           background: "rgba(204, 204, 204, 0.8)",
         }}
         size="small"

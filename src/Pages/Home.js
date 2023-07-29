@@ -19,7 +19,7 @@ to {
         sx={{
           position: "relative",
           animation: `${fadeIn} 2s`,
-          padding: "70px",
+          padding: "60px",
         }}
       >
         <Box
@@ -39,6 +39,7 @@ to {
         </Box>
         <Box
           sx={{
+            pt: 2,
             position: "absolute",
             right: 0,
             width: { xs: "100%", sm: "70%", md: "50%" },

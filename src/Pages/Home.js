@@ -41,7 +41,7 @@ to {
           position: "absolute",
           right: 0,
           width: { xs: "100%", sm: "70%", md: "50%" },
-          height: "calc(100vh - 124px)",
+          height: "calc(100vh - 184px)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

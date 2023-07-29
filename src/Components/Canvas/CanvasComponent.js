@@ -61,7 +61,6 @@ const CanvasComponent = () => {
         animation: `${fadeIn} 2s`,
         // backgroundColor: "#1B1917",
         // borderRadius: "20px",
-        mx: 2,
       }}
     >
       {!darkMode ? (

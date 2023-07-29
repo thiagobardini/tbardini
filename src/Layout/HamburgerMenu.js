@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hamburger from "hamburger-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import navLogo from "../Assets/images/logoNav.png";
 import {
   Drawer,
@@ -17,6 +17,12 @@ import ToggleThemeMode from "../Components/ToggleThemeMode";
 
 const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
 
   return (
     <Box>
@@ -89,7 +95,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           </Box>
         </Box>
         <List>
-          {pages.map((page) => (
+          {pages.map((page, index) => (
             <ListItem
               component={NavLink}
               to={page.to}
@@ -143,8 +149,8 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           }}
         >
           <IconButton
-            component={NavLink}
-            to={"https://www.linkedin.com/in/thiagobardini/"}
+            component="a"
+            href={"https://www.linkedin.com/in/thiagobardini/"}
             target="_blank"
             color="inherit"
             sx={{
@@ -154,8 +160,8 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             <LinkedInIcon sx={{ fontSize: "3rem" }} />
           </IconButton>
           <IconButton
-            component={NavLink}
-            to={"https://github.com/thiagobardini"}
+            component="a"
+            href={"https://github.com/thiagobardini"}
             target="_blank"
             color="inherit"
           >

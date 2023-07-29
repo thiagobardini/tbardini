@@ -32,16 +32,6 @@ const HireMe = () => {
         content: '""',
       },
     },
-    "@keyframes ripple": {
-      "0%": {
-        transform: "scale(.8)",
-        opacity: 1,
-      },
-      "100%": {
-        transform: "scale(2.4)",
-        opacity: 0,
-      },
-    },
   }));
 
   const StickyButton = styled(Button)({
@@ -96,13 +86,14 @@ const HireMe = () => {
             letterSpacing: "0.08em",
             color: "#1270AF",
             borderRadius: "5px",
-            fontWeight: "700",
+            fontWeight: "800",
             transition: "all 0.3s ease-in-out",
+            textTransform: "lowercase",
             "&:hover": {
               color: "#0092ca",
               textShadow:
                 "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
-              fontWeight: "900",
+              fontWeight: "800",
             },
           }}
         >

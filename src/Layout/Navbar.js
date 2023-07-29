@@ -117,7 +117,8 @@ to {
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: !isNavVisible && "transparent",
+        backgroundColor: "#22313f",
+        // backgroundColor: !isNavVisible && "transparent",
         boxShadow: !isNavVisible && "none",
         backgroundImage: !isNavVisible && "none",
         transition:
@@ -136,7 +137,6 @@ to {
                 justifyContent: "center",
                 alignItems: "center",
                 textDecoration: "none",
-                color: "inherit",
                 mr: 2,
                 opacity: !isNavVisible ? 0 : 1,
                 visibility: !isNavVisible ? "hidden" : "visible",
@@ -178,8 +178,8 @@ to {
                 sx={{
                   display: { xs: "flex", md: "none" },
                   alignItems: "center",
+                  justifyContent: "center",
                   textDecoration: "none",
-                  color: "inherit",
                   mr: 2,
                 }}
               >
@@ -233,8 +233,8 @@ to {
                     component={NavLink}
                     to={page.to}
                     key={page.text}
-                    color="inherit"
                     sx={{
+                      color: "#eeeeee",
                       textTransform: "none",
                       fontWeight: "500",
                       fontSize: "1.4rem",
@@ -281,7 +281,7 @@ to {
               >
                 <Box
                   component={Link}
-                  color="inherit"
+                  color="#eeeeee"
                   to={"https://www.linkedin.com/in/thiagobardini/"}
                   target="_blank"
                   m={1}
@@ -290,7 +290,7 @@ to {
                 </Box>
                 <Box
                   component={Link}
-                  color="inherit"
+                  color="#eeeeee"
                   to={"https://github.com/thiagobardini"}
                   target="_blank"
                   m={1}

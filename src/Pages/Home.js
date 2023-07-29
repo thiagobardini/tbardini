@@ -14,13 +14,19 @@ to {
 `;
 
   return (
-    <Box sx={{ position: "relative", animation: `${fadeIn} 2s` }}>
+    <Box
+      sx={{
+        position: "relative",
+        animation: `${fadeIn} 2s`,
+        paddingTop: "124px",
+      }}
+    >
       <Box
         sx={{
           position: "absolute",
           top: 0,
           left: 0,
-          width: { xs: "100%", md: "50%" },
+          width: { xs: "100%", sm: "50%" },
           height: "calc(100vh - 124px)",
           display: "flex",
           justifyContent: "center",
@@ -34,12 +40,12 @@ to {
         sx={{
           position: "absolute",
           right: 0,
-          width: { xs: "100%", md: "50%" },
-          // width: "50%",
-          height: "calc(100vh - 124px)",
+          width: { xs: "100%", sm: "70%", md: "50%" },
+          height: "100%",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center",
+          // alignItems: "center",
 
           // pointerEvents: "none",
         }}

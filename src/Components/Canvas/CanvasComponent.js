@@ -56,11 +56,9 @@ const CanvasComponent = () => {
     <Box
       sx={{
         position: "relative",
-        width: { xs: "100vw", md: "100vw" },
+        width: "100vw",
         height: "calc(100vh - 124px)",
         animation: `${fadeIn} 2s`,
-        // backgroundColor: "#1B1917",
-        // borderRadius: "20px",
       }}
     >
       {!darkMode ? (

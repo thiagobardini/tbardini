@@ -97,7 +97,7 @@ const BottomDrawer = ({ color }) => {
                 visibility: "none",
                 height: "65px",
                 position: "relative",
-                textTransform: "none",
+                textTransform: "lowercase",
                 color: darkMode ? "#2A2A2A" : "#f7f7f7",
               }}
             >

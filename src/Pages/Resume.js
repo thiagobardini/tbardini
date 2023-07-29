@@ -67,7 +67,7 @@ to {
             target="_blank"
             size="small"
             sx={{
-              textTransform: "capitalize",
+              textTransform: "lowercase",
               mt: 2,
             }}
           >

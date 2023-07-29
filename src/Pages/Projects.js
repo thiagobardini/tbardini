@@ -80,16 +80,10 @@ const Projects = () => {
       <HeadingTop text={textTitle} />
       <Container>
         <CssBaseline />
-        <Typography color="text.primary" my={2} textAlign="center" variant="h5">
+        <Typography color="text.primary" my={2} textAlign="center" variant="h6">
           Check out my latest web software development portfolio projects.
         </Typography>
-        <Grid
-          container
-          // spacing={2}
-          justifyContent="center"
-          alignItems="center"
-          xs={12}
-        >
+        <Grid container justifyContent="center" alignItems="center" xs={12}>
           <Grid
             item
             xs={12}
@@ -100,7 +94,7 @@ const Projects = () => {
             }}
           >
             <Button
-              sx={{ mr: 1 }}
+              sx={{ mr: 1, textTransform: "lowercase" }}
               variant={
                 selectedKeyword === "show all" ? "contained" : "outlined"
               }
@@ -108,7 +102,7 @@ const Projects = () => {
               onClick={() => handleKeywordChange("show all")}
               size="small"
             >
-              Show All
+              show all
             </Button>
             {getAllKeywords().map((keyword, index) => (
               <Button
@@ -120,6 +114,7 @@ const Projects = () => {
                   my: 1,
                   mr: 1,
                   display: "inline-block",
+                  textTransform: "lowercase",
                 }}
                 size="small"
               >
@@ -132,7 +127,9 @@ const Projects = () => {
               variant="subtitle1"
               gutterBottom
               textAlign="center"
-              sx={{ color: "rgb(138, 138, 138)" }}
+              sx={{
+                color: "rgb(138, 138, 138)",
+              }}
             >
               {selectedKeyword === "show all" ? (
                 "Showing all projects. Use the filter to list them by skill or technology."

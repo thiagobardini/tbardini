@@ -10,6 +10,22 @@ import { createTheme } from "@mui/material";
 
 export const createCustomTheme = (mode) =>
   createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        xxs: 400, // Custom breakpoint
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
+      },
+    },
+    typography: {
+      // subtitle
+      subtitle: {
+        fontSize: "1.1rem",
+      },
+    },
     palette: {
       mode: mode,
       ...(mode === "light"
@@ -18,8 +34,8 @@ export const createCustomTheme = (mode) =>
             secondary: { main: "#0092ca" },
             primaryDark: { main: "#1270AF" },
             background: {
-              default: "#eeeeee",
-              paper: "#eeeeee",
+              default: "#d6d3d1",
+              paper: "#34495e",
             },
             text: {
               primary: "#34495e",
@@ -30,15 +46,15 @@ export const createCustomTheme = (mode) =>
             primary: { main: "#424242" }, // Dark grey
             secondary: { main: "#0092ca" },
             background: {
-              default: "#1B1917",
-              // paper: "#1B1917",
-              // default: "#34495e",
+              default: "#2A2525",
               paper: "#34495e",
             },
             text: {
-              primary: "#eeeeee", // White
+              primary: "#d6d3d1", // White
               secondary: "#222831",
             },
           }),
     },
   });
+
+// #eeeeee white

@@ -32,7 +32,7 @@ const Logout = ({ text, to }) => {
       component={Link}
       to={to}
       onClick={handleLogoutClick}
-      sx={{ textTransform: "none" }}
+      sx={{ textTransform: "lowercase" }}
     >
       {text}
     </Button>

@@ -107,7 +107,7 @@ const Contact = () => {
         </Stack>
         <Box sx={{ p: 3, textAlign: "center" }}>
           <Typography
-            variant="h5"
+            variant="h6"
             gutterBottom
             sx={{
               color: (theme) => theme.palette.text.primary,
@@ -137,7 +137,7 @@ const Contact = () => {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <PhoneIcon />
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   gutterBottom
                   sx={{
                     color: (theme) => theme.palette.text.primary,
@@ -157,7 +157,7 @@ const Contact = () => {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <EmailIcon />
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   gutterBottom
                   sx={{
                     color: (theme) => theme.palette.text.primary,
@@ -177,7 +177,7 @@ const Contact = () => {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <LinkedInIcon sx={{ fontSize: "2rem" }} />
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   gutterBottom
                   sx={{
                     color: (theme) => theme.palette.text.primary,

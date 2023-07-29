@@ -4,18 +4,14 @@ import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { lighten, darken } from "@mui/system";
+import TextAnimation from "./TextAnimation";
 
 const CustomBox = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
   textAlign: "center",
-  padding: theme.spacing(2),
-  top: { xs: "0px", md: "120px" }, // this should be equal to the height of your navbar
+  top: 1, // this should be equal to the height of your navbar
   position: "absolute",
   zIndex: 1,
-  backgroundColor: { xs: "none", md: "#282524" },
+  // backgroundColor: { xs: "none", md: "#282524" },
   borderRadius: "20px",
 }));
 
@@ -30,17 +26,17 @@ const HomeText = () => {
   return (
     <CustomBox component="section">
       <Typography
-        variant="h2"
+        variant="h1"
         component="h1"
         sx={{
-          textShadow: darkMode
-            ? "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
-            : "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
-          color: "#eeeeee",
-          fontWeight: 900,
+          textShadow:
+            "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+          color: darkMode ? "#eeeeee" : "#d6d3d1",
+          fontWeight: 800,
           position: "relative",
           borderRadius: "5px",
-          p: 1,
+          pb: 4,
+          fontSize: "3rem",
         }}
       >
         <TypeAnimation
@@ -51,64 +47,37 @@ const HomeText = () => {
           cursor={false}
         />
       </Typography>
-      <Typography>
-        <span style={{ fontWeight: 600, fontSize: "1.3rem" }}>
-          {"<"}
-          <span style={{ fontWeight: 800, color: "#1270AF" }}>code</span>
-          {">"}
-        </span>
-        <span style={{ fontSize: "1.3rem", color: "rgb(168, 162, 158)" }}>
-          I build
-        </span>
-        <TypeAnimation
-          sequence={[
-            // Same substring at the start will only be typed once, initially
-            " web applications",
-            1000,
-            " automation tools",
-            1000,
-          ]}
-          speed={50}
-          style={{
-            fontSize: "1.3rem",
-            fontWeight: 800,
-            color: "rgb(214, 211, 209)",
-          }}
-          repeat={Infinity}
-        />
-        <span style={{ fontWeight: 600, fontSize: "1.1rem" }}>
-          {"</"}
-          <span style={{ fontWeight: 800, color: "#1270AF" }}>code</span>
-          {">"}
-        </span>
-      </Typography>
-      <Typography
-        variant="h2"
-        component="p"
+      <TextAnimation darkMode={true} />
+
+      <Box
         sx={{
-          fontSize: "0.8rem",
           py: 3,
-          lineHeight: 1.6,
-          letterSpacing: "0.08em",
-          color: darkMode ? "#eeeeee" : "#222831",
-          // width: { xs: "100%", md: "60%" },
-          borderRadius: "5px",
-          padding: "1rem",
-          // fontWeight: "900",
+          px: 1,
           textShadow: darkMode
             ? "none"
             : "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
         }}
       >
-        <Typography sx={{ color: "rgb(168, 162, 158)", fontSize: "1.3rem" }}>
+        <Typography
+          variant="h6"
+          sx={{
+            color: darkMode ? "rgb(168, 162, 158)" : "#222831",
+            fontSize: { xs: "1.1rem", sm: "1.3rem" },
+          }}
+        >
           I'm a Boston based{" "}
-          <span style={{ fontWeight: 800, color: "rgb(214, 211, 209)" }}>
+          <span
+            style={{
+              fontWeight: 800,
+              color: darkMode ? "#d6d3d1" : "#222831",
+            }}
+          >
             software engineer
           </span>{" "}
           turned problem-solver, bringing creativity and design thinking to
           every line of code.
         </Typography>
-      </Typography>
+      </Box>
 
       <Box my={2}>
         <Button
@@ -120,10 +89,9 @@ const HomeText = () => {
             backgroundColor: darkMode
               ? theme.palette.primary.main
               : theme.palette.primaryDark.main,
-            textTransform: "capitalize",
+            textTransform: "lowercase",
             mr: 2,
-            px: 4,
-            py: 1,
+            width: "117px",
             pointerEvents: "auto",
             "&:hover": {
               backgroundColor: darkMode
@@ -143,11 +111,10 @@ const HomeText = () => {
           sx={{
             color: theme.palette.primary.main,
             borderColor: theme.palette.primary.main,
-            textTransform: "capitalize",
-            px: 4,
-            py: 1,
+            textTransform: "lowercase",
+            width: "117px",
             pointerEvents: "auto",
-            backgroundColor: "#eeeeee",
+            backgroundColor: "#d6d3d1",
             "&:hover": {
               backgroundColor: "#eeeeee",
               color: theme.palette.primary.main,
@@ -156,7 +123,7 @@ const HomeText = () => {
           }}
           onClick={() => window.scrollTo(0, 0)}
         >
-          Resume
+          resume
         </Button>
       </Box>
     </CustomBox>

@@ -17,7 +17,9 @@ function HeadingTop({ text }) {
     <TitleContainer>
       <Typography
         variant="h2"
+        component="h2"
         sx={{
+          fontSize: "3rem",
           display: "block",
           width: "100%",
           letterSpacing: "-.03em",

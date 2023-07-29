@@ -12,9 +12,11 @@ const CustomBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   textAlign: "center",
   padding: theme.spacing(2),
-  top: "50px", // this should be equal to the height of your navbar
+  top: { xs: "0px", md: "120px" }, // this should be equal to the height of your navbar
   position: "absolute",
-  zIndex: 1, //
+  zIndex: 1,
+  backgroundColor: { xs: "none", md: "#282524" },
+  borderRadius: "20px",
 }));
 
 const HomeText = () => {
@@ -38,7 +40,7 @@ const HomeText = () => {
           fontWeight: 900,
           position: "relative",
           borderRadius: "5px",
-          padding: "1rem",
+          p: 1,
         }}
       >
         <TypeAnimation
@@ -49,44 +51,66 @@ const HomeText = () => {
           cursor={false}
         />
       </Typography>
-
+      <Typography>
+        <span style={{ fontWeight: 600, fontSize: "1.3rem" }}>
+          {"<"}
+          <span style={{ fontWeight: 800, color: "#1270AF" }}>code</span>
+          {">"}
+        </span>
+        <span style={{ fontSize: "1.3rem", color: "rgb(168, 162, 158)" }}>
+          I build
+        </span>
+        <TypeAnimation
+          sequence={[
+            // Same substring at the start will only be typed once, initially
+            " web applications",
+            1000,
+            " automation tools",
+            1000,
+          ]}
+          speed={50}
+          style={{
+            fontSize: "1.3rem",
+            fontWeight: 800,
+            color: "rgb(214, 211, 209)",
+          }}
+          repeat={Infinity}
+        />
+        <span style={{ fontWeight: 600, fontSize: "1.1rem" }}>
+          {"</"}
+          <span style={{ fontWeight: 800, color: "#1270AF" }}>code</span>
+          {">"}
+        </span>
+      </Typography>
       <Typography
-        variant="h5"
+        variant="h2"
         component="p"
         sx={{
+          fontSize: "0.8rem",
           py: 3,
           lineHeight: 1.6,
           letterSpacing: "0.08em",
           color: darkMode ? "#eeeeee" : "#222831",
-          width: { xs: "100%", md: "60%" },
+          // width: { xs: "100%", md: "60%" },
           borderRadius: "5px",
           padding: "1rem",
-          fontWeight: "900",
+          // fontWeight: "900",
           textShadow: darkMode
             ? "none"
             : "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
         }}
       >
-        <Box
-          sx={{
-            padding: "0.2rem 0.5rem",
-            borderRadius: "5px",
-            minHeight: "140px",
-          }}
-        >
-          <TypeAnimation
-            sequence={[
-              1200,
-              "I'm a software engineer turned problem-solver, bringing creativity and design thinking to every line of code.",
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={1}
-          />
-        </Box>
+        <Typography sx={{ color: "rgb(168, 162, 158)", fontSize: "1.3rem" }}>
+          I'm a Boston based{" "}
+          <span style={{ fontWeight: 800, color: "rgb(214, 211, 209)" }}>
+            software engineer
+          </span>{" "}
+          turned problem-solver, bringing creativity and design thinking to
+          every line of code.
+        </Typography>
       </Typography>
 
-      <Box>
+      <Box my={2}>
         <Button
           component={Link}
           to="/portfolio"

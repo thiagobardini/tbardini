@@ -56,9 +56,12 @@ const CanvasComponent = () => {
     <Box
       sx={{
         position: "relative",
-        width: "100vw",
+        width: { xs: "100vw", md: "100vw" },
         height: "calc(100vh - 124px)",
         animation: `${fadeIn} 2s`,
+        // backgroundColor: "#1B1917",
+        // borderRadius: "20px",
+        mx: 2,
       }}
     >
       {!darkMode ? (
@@ -77,13 +80,14 @@ const CanvasComponent = () => {
           <OrbitControls enablePan={false} enableZoom={false} />
         </Canvas>
       )}
-      <div
-        style={{
+
+      {/* <Box
+        sx={{
           position: "absolute",
           top: 0,
           left: 0,
-
-          width: "100%",
+          width: { xs: "100%", md: "50%" },
+          // width: "50%",
           height: "100%",
           display: "flex",
           justifyContent: "center",
@@ -92,7 +96,7 @@ const CanvasComponent = () => {
         }}
       >
         <HomeText />
-      </div>
+      </Box> */}
     </Box>
   );
 };

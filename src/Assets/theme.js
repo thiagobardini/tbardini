@@ -30,8 +30,10 @@ export const createCustomTheme = (mode) =>
             primary: { main: "#424242" }, // Dark grey
             secondary: { main: "#0092ca" },
             background: {
-              default: "#34495e", // Slightly lighter grey
-              paper: "#34495e", // Slightly lighter grey
+              default: "#1B1917",
+              // paper: "#1B1917",
+              // default: "#34495e",
+              paper: "#34495e",
             },
             text: {
               primary: "#eeeeee", // White

@@ -89,6 +89,7 @@ const HomeText = () => {
               ? theme.palette.primary.main
               : theme.palette.primaryDark.main,
             textTransform: "lowercase",
+            py: 1,
             mr: 2,
             width: "117px",
             pointerEvents: "auto",
@@ -111,13 +112,14 @@ const HomeText = () => {
             color: theme.palette.primary.main,
             borderColor: theme.palette.primary.main,
             textTransform: "lowercase",
+            py: 1,
             width: "117px",
             pointerEvents: "auto",
             backgroundColor: "#d6d3d1",
             "&:hover": {
               backgroundColor: "#eeeeee",
               color: theme.palette.primary.main,
-              borderColor: !darkMode ? "#eeeeee" : "#222831",
+              // borderColor: !darkMode ? "#eeeeee" : "#222831",
             },
           }}
           onClick={() => window.scrollTo(0, 0)}

@@ -48,7 +48,7 @@ to {
             justifyContent: "center",
             alignItems: "center",
             px: { xs: 1, lg: 4 },
-            pointerEvents: "none",
+            // pointerEvents: "none",
           }}
         >
           <HomeText />

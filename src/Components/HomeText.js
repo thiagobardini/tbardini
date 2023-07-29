@@ -59,10 +59,9 @@ const HomeText = () => {
         }}
       >
         <Typography
-          variant="h6"
           sx={{
             color: darkMode ? "rgb(168, 162, 158)" : "#222831",
-            fontSize: { xs: "1.1rem", sm: "1.3rem" },
+            fontSize: { xs: "1.1rem", xxs: "1.3rem" },
           }}
         >
           I'm a Boston based{" "}

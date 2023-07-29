@@ -19,7 +19,7 @@ to {
         sx={{
           position: "relative",
           animation: `${fadeIn} 2s`,
-          padding: "50px",
+          padding: "70px",
         }}
       >
         <Box
@@ -48,7 +48,7 @@ to {
             justifyContent: "center",
             alignItems: "center",
             px: { xs: 1, lg: 4 },
-            // pointerEvents: "none",
+            pointerEvents: "none",
           }}
         >
           <HomeText />

@@ -6,8 +6,6 @@ import {
   Avatar,
   Badge,
 } from "@mui/material";
-
-import { Link } from "react-router-dom";
 import myself from "../Assets/images/myself.jpeg";
 import { useLocation } from "react-router-dom";
 
@@ -39,7 +37,7 @@ const HireMe = () => {
     right: 0,
     bottom: 0,
     pointerEvents: "auto",
-    borderRadius: 0,
+    borderRadius: "5px 0 0 0",
     "&:hover": {
       backgroundColor: "#ccc",
     },

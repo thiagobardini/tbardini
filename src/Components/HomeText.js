@@ -7,12 +7,12 @@ import { lighten, darken } from "@mui/system";
 import TextAnimation from "./TextAnimation";
 
 const CustomBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
   textAlign: "center",
-  top: 1, // this should be equal to the height of your navbar
-  position: "absolute",
   zIndex: 1,
-  // backgroundColor: { xs: "none", md: "#282524" },
-  borderRadius: "20px",
 }));
 
 const HomeText = () => {

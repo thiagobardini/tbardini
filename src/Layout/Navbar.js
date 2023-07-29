@@ -117,8 +117,7 @@ to {
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: "#22313f",
-        // backgroundColor: !isNavVisible && "transparent",
+        backgroundColor: !isNavVisible ? "transparent" : "#22313f",
         boxShadow: !isNavVisible && "none",
         backgroundImage: !isNavVisible && "none",
         transition:

@@ -2,7 +2,6 @@ import React, { Suspense, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import HomeText from "../HomeText";
 import { DarkCanvas } from "./DarkCanvas";
 import { LightCanvas } from "./LightCanvas";
 import { Box } from "@mui/material";
@@ -77,23 +76,6 @@ const CanvasComponent = () => {
           <OrbitControls enablePan={false} enableZoom={false} />
         </Canvas>
       )}
-
-      {/* <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: { xs: "100%", md: "50%" },
-          // width: "50%",
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          pointerEvents: "none",
-        }}
-      >
-        <HomeText />
-      </Box> */}
     </Box>
   );
 };

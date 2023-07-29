@@ -18,7 +18,7 @@ to {
       sx={{
         position: "relative",
         animation: `${fadeIn} 2s`,
-        paddingTop: "124px",
+        padding: "50px",
       }}
     >
       <Box
@@ -41,13 +41,12 @@ to {
           position: "absolute",
           right: 0,
           width: { xs: "100%", sm: "70%", md: "50%" },
-          height: "100%",
+          height: "calc(100vh - 124px)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          // alignItems: "center",
-
-          // pointerEvents: "none",
+          alignItems: "center",
+          pointerEvents: "none",
         }}
       >
         <HomeText />

@@ -1,23 +1,6 @@
 [
   {
     "id": "1",
-    "title": "Mini Market",
-    "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
-    "img": "https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
-    "techs": [
-      "React",
-      "Firebase Realtime Database",
-      "Stripe API",
-      "SASS",
-      "JavaScript",
-      "React Router"
-    ],
-    "live": "https://mini-market-tbardini.vercel.app/",
-    "readme": "",
-    "github": "https://github.com/thiagobardini/mini-market-tbardini"
-  },
-  {
-    "id": "2",
     "title": "Boston Heat Pump Accelerator",
     "description": "Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
     "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
@@ -33,6 +16,42 @@
     "live": "https://bhpa.vercel.app/public",
     "readme": "",
     "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main/frontend"
+  },
+  {
+    "id": "5",
+    "title": "My Portfolio",
+    "description": "This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
+    "img": "https://i.imgur.com/YN7jUwD.png",
+    "techs": [
+      "React",
+      "Firebase Auth",
+      "Firebase Firestore",
+      "Redux Toolkit",
+      "Material UI",
+      "JavaScript",
+      "React Router",
+      "React-three-fiber"
+    ],
+    "live": "/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/tbardiniCom"
+  },
+  {
+    "id": "2",
+    "title": "Mini Market",
+    "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
+    "img": "https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
+    "techs": [
+      "React",
+      "Firebase Realtime Database",
+      "Stripe API",
+      "SASS",
+      "JavaScript",
+      "React Router"
+    ],
+    "live": "https://mini-market-tbardini.vercel.app/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/mini-market-tbardini"
   },
   {
     "id": "3",

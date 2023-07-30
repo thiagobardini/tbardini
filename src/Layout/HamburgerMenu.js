@@ -50,9 +50,19 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             backgroundColor: darkMode
               ? theme.palette.background.paper
               : "#d6d3d1",
+            display: "block",
             boxSizing: "border-box",
             width: "100%",
             height: "100%",
+          },
+        }}
+        sx={{
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: "100%",
+            height: "100%",
+            zIndex: 1400,
+            overflow: "visible",
           },
         }}
       >

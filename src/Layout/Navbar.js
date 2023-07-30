@@ -137,9 +137,6 @@ to {
                 alignItems: "center",
                 textDecoration: "none",
                 mr: 2,
-                opacity: !isNavVisible ? 0 : 1,
-                visibility: !isNavVisible ? "hidden" : "visible",
-                transition: "opacity 2000ms linear, visibility 2000ms linear",
               }}
             >
               <Box

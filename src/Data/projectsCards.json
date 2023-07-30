@@ -18,7 +18,7 @@
     "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main/frontend"
   },
   {
-    "id": "5",
+    "id": "2",
     "title": "My Portfolio",
     "description": "This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
     "img": "https://i.imgur.com/YN7jUwD.png",
@@ -37,7 +37,7 @@
     "github": "https://github.com/thiagobardini/tbardiniCom"
   },
   {
-    "id": "2",
+    "id": "3",
     "title": "Mini Market",
     "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
     "img": "https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
@@ -54,7 +54,7 @@
     "github": "https://github.com/thiagobardini/mini-market-tbardini"
   },
   {
-    "id": "3",
+    "id": "4",
     "title": "Weather App - °C & °F",
     "description": "Weather App - °C & °F: Created to aid my daily life while residing in the United States, this app eliminates the need for manual calculations and provides instant conversion between °F and °C.",
     "img": "https://www.noaa.gov/sites/default/files/styles/square_width_650/public/2021-02/FocusArea__Weather-02.jpg",
@@ -90,24 +90,5 @@
     "live": "/portfolio/trip-route",
     "readme": "/portfolio/trip-route/readme",
     "github": ""
-  },
-  {
-    "id": "5",
-    "title": "My Portfolio",
-    "description": "This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
-    "img": "https://i.imgur.com/YN7jUwD.png",
-    "techs": [
-      "React",
-      "Firebase Auth",
-      "Firebase Firestore",
-      "Redux Toolkit",
-      "Material UI",
-      "JavaScript",
-      "React Router",
-      "React-three-fiber"
-    ],
-    "live": "/",
-    "readme": "",
-    "github": "https://github.com/thiagobardini/tbardiniCom"
   }
 ]

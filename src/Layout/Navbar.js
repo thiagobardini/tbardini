@@ -16,9 +16,9 @@ import {
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
-import logoNav from "../Assets/images/logoNav.png";
 import HamburgerMenu from "./HamburgerMenu";
 import { keyframes } from "@emotion/react";
+import LogoAnimation from "../Components/LogoAnimation";
 
 const pages = [
   {
@@ -139,14 +139,7 @@ to {
                 mr: 2,
               }}
             >
-              <Box
-                component="img"
-                alt="logo"
-                src={logoNav}
-                sx={{
-                  height: "120px",
-                }}
-              />
+              <LogoAnimation height={"120px"} />
             </Box>
           )}
           {/* Mobile view */}
@@ -179,14 +172,7 @@ to {
                   mr: 2,
                 }}
               >
-                <Box
-                  component="img"
-                  alt="logo"
-                  src={logoNav}
-                  sx={{
-                    height: "120px",
-                  }}
-                />
+                <LogoAnimation height={"120px"} />
               </Box>
             </Stack>
           )}

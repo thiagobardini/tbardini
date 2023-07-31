@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Hamburger from "hamburger-react";
 import { Link, useLocation } from "react-router-dom";
-import navLogo from "../Assets/images/logoNav.png";
 import {
   Drawer,
   List,
@@ -15,6 +14,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import { useSelector } from "react-redux";
+import LogoAnimation from "../Components/LogoAnimation";
 
 const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();
@@ -96,14 +96,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               my: 2,
             }}
           >
-            <Box
-              component="img"
-              alt="logo"
-              src={navLogo}
-              sx={{
-                height: "150px",
-              }}
-            />
+            <LogoAnimation height={"150px"} />
           </Box>
         </Box>
         <List>

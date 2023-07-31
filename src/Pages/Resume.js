@@ -69,9 +69,10 @@ to {
             sx={{
               textTransform: "lowercase",
               mt: 2,
+              py: 1,
             }}
           >
-            Dowload Resume
+            Download Resume
           </Button>
         </Stack>
       </Container>

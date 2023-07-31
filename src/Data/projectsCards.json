@@ -59,7 +59,7 @@
     "description": "Weather App - °C & °F: Created to aid my daily life while residing in the United States, this app eliminates the need for manual calculations and provides instant conversion between °F and °C.",
     "img": "https://www.noaa.gov/sites/default/files/styles/square_width_650/public/2021-02/FocusArea__Weather-02.jpg",
     "techs": [
-      "Next.js",
+      "NextJS",
       "React",
       "TypeScript",
       "Open Weather API",
@@ -73,7 +73,7 @@
     "github": "https://tbardini-next-ts.vercel.app"
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "Trip Route",
     "description": "This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
     "img": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",

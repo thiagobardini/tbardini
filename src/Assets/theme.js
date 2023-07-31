@@ -58,3 +58,4 @@ export const createCustomTheme = (mode) =>
   });
 
 // #eeeeee white
+// #282524 card - dark mode

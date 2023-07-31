@@ -40,7 +40,7 @@
     "id": "3",
     "title": "Mini Market",
     "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
-    "img": "https://raw.githubusercontent.com/thiagobardini/mini-market-tbardini/main/public/mini-market-logo.png",
+    "img": "/images/mini-market-logo.png",
     "techs": [
       "React",
       "Firebase Realtime Database",
@@ -57,7 +57,7 @@
     "id": "4",
     "title": "Weather App - °C & °F",
     "description": "Weather App - °C & °F: Created to aid my daily life while residing in the United States, this app eliminates the need for manual calculations and provides instant conversion between °F and °C.",
-    "img": "https://www.noaa.gov/sites/default/files/styles/square_width_650/public/2021-02/FocusArea__Weather-02.jpg",
+    "img": "/images/weatherapp.png",
     "techs": [
       "NextJS",
       "React",

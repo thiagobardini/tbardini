@@ -21,7 +21,7 @@
     "id": "2",
     "title": "My Portfolio",
     "description": "This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
-    "img": "https://i.imgur.com/YN7jUwD.png",
+    "img": "/images/myPortfolio.gif",
     "techs": [
       "React",
       "Firebase Auth",

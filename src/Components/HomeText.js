@@ -40,7 +40,7 @@ const HomeText = () => {
         }}
       >
         <TypeAnimation
-          sequence={["Hey, I'm Thiago"]}
+          sequence={["Hi, I'm Thiago"]}
           wrapper="span"
           speed={50}
           repeat={1}

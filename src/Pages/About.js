@@ -11,7 +11,7 @@ const About = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        minHeight: "calc(100vh - 520px)",
+        minHeight: "calc(100vh - 243px)",
       }}
     >
       <HeadingTop text="about me" />

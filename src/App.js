@@ -16,7 +16,8 @@ import Resume from "./Pages/Resume";
 import MyPortfolioReadme from "./Pages/projects/MyPortfolioReadme/MyPortfolioReadme";
 import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
-import NotFound from "./Pages/NotFound"; // import your 404 or error page
+import NotFound from "./Pages/NotFound";
+import Footer from "./Layout/Footer";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -60,6 +61,7 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />{" "}
         </Routes>
+        <Footer hideOn={["/"]} />
       </Box>
     </ThemeProvider>
   );

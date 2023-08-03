@@ -75,6 +75,7 @@ const Projects = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
+        minHeight: "calc(100vh - 243px)",
       }}
     >
       <HeadingTop text={textTitle} />

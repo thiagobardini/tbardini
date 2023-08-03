@@ -33,7 +33,7 @@ to {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 243px)",
         alignItems: "center",
       }}
     >

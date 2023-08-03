@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "My Portfolio",
-    "description": "This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
+    "description": "💼 This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
     "img": "/images/myPortfolio.gif",
     "techs": [
       "React",
@@ -19,7 +19,7 @@
   {
     "id": "2",
     "title": "Boston Heat Pump Accelerator",
-    "description": "Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
+    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
     "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
     "techs": [
       "React",
@@ -64,7 +64,7 @@
   {
     "id": "5",
     "title": "Trip Route",
-    "description": "This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
+    "description": "🗺 This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
     "img": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
     "techs": [
       "NextJS",

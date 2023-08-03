@@ -16,6 +16,7 @@ import Resume from "./Pages/Resume";
 import MyPortfolioReadme from "./Pages/projects/MyPortfolioReadme/MyPortfolioReadme";
 import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
+import NotFound from "./Pages/NotFound"; // import your 404 or error page
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -43,13 +44,10 @@ function App() {
         <Routes>
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-
           <Route index element={<Home />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-
-          <Route path="/portfolio" element={<Projects />} />
           <Route path="/portfolio" element={<Projects />} />
           <Route path="/portfolio/trip-route" element={<RouterPlanner />} />
           <Route
@@ -60,6 +58,7 @@ function App() {
             path="/portfolio/my-portfolio-readme"
             element={<MyPortfolioReadme />}
           />
+          <Route path="*" element={<NotFound />} />{" "}
         </Routes>
       </Box>
     </ThemeProvider>

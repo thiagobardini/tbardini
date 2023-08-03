@@ -56,7 +56,7 @@
     "title": "TB CRM",
     "description": "🕸️ A backend CRM System - A streamlined, user-friendly app for efficient account and opportunity management.",
     "img": "/images/tbcrmrocket.png",
-    "techs": ["JavaScript", "Heroku", "Mongodb", "Mongoose", "Ajax", "postman"],
+    "techs": ["nodejs", "Heroku", "Mongodb", "Mongoose", "Ajax", "postman"],
     "live": "https://github.com/thiagobardini/agile-rocket-api",
     "readme": "",
     "github": "https://github.com/thiagobardini/agile-rocket-api"

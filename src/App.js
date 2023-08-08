@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { createCustomTheme } from "./Assets/theme";
@@ -21,6 +21,7 @@ import Footer from "./Layout/Footer";
 
 function App() {
   const [mode, setMode] = useState("dark");
+  const [isLoading, setLoading] = useState(true);
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   useMemo(() => {
@@ -32,6 +33,24 @@ function App() {
   }, [darkMode]);
 
   const theme = useMemo(() => createCustomTheme(mode), [mode]);
+  function someRequest() {
+    //Simulates a request; makes a "promise" that'll run for 2.5 seconds
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+  }
+
+  useEffect(() => {
+    someRequest().then(() => {
+      const loaderElement = document.querySelector(".loader-container");
+      if (loaderElement) {
+        loaderElement.remove();
+        setLoading(!isLoading);
+      }
+    });
+  });
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <ThemeProvider theme={theme}>

@@ -10,6 +10,16 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <style>
+      .loader-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     .loader {
       width: 48px;
       height: 40px;
@@ -18,9 +28,7 @@
       position: relative;
       background: #1270AF;
       border-radius: 15% 15% 35% 35%;
-      position: absolute;
-      left: 45%;
-      top: 43%;
+      margin-bottom: 10px;
     }
     .loader::after {
       content: '';  
@@ -56,6 +64,39 @@
       box-shadow: 2px -8px rgba(0, 146, 202, 0), 12px -5px rgba(0, 146, 202, 0), 20px -5px rgba(0, 146, 202, 0);
     }
       }
+      .loading {
+        font-size: 28px;
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #263238;
+        box-sizing: border-box;
+        text-shadow: 0 0 2px #1270AF, 0 0 1px #1270AF, 0 0 1px #1270AF;
+        letter-spacing: 2px;
+        position: relative;
+        
+      }
+      .loading::after {
+        content: 'loading';
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #1270AF;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: animloading 2.7s linear infinite;
+      }
+
+      @keyframes animloading {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
       </style>
 
   </head>
@@ -66,6 +107,7 @@
     <!-- Loading Spinner Div -->
     <div class="loader-container">
       <div class="loader"></div>
+      <div class="loading">loading</div>
    </div>
   </body>
 </html>

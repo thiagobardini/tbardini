@@ -212,7 +212,7 @@ const CheckNumbers = () => {
           onClose={() => setTicketsDialogOpen(false)}
           maxWidth="md"
         >
-          <DialogTitle>All Your Tickets</DialogTitle>
+          <DialogTitle sx={{ color: "#eeeeee" }}>All Your Tickets</DialogTitle>
           <DialogContent>
             {tickets.map((ticket) => (
               <Box key={ticket.id} mb={2}>
@@ -224,8 +224,8 @@ const CheckNumbers = () => {
             ))}
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setTicketsDialogOpen(false)} color="primary">
-              Close
+            <Button onClick={() => setTicketsDialogOpen(false)}>
+              <Typography sx={{ color: "#eeeeee" }}>Close</Typography>
             </Button>
           </DialogActions>
         </Dialog>

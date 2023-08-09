@@ -18,6 +18,7 @@ import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
+import Lottery from "./Pages/lottery/Lottery";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -79,6 +80,8 @@ function App() {
             element={<MyPortfolioReadme />}
           />
           <Route path="*" element={<NotFound />} />{" "}
+          {/* delete it later - Implemented lottery game logic */}
+          <Route path="/lottery" element={<Lottery />} />
         </Routes>
         <Footer hideOn={["/"]} />
       </Box>

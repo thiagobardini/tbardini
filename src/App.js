@@ -18,7 +18,8 @@ import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
-import Lottery from "./Pages/lottery/Lottery";
+import LottoNest from "./Pages/lottonest/LottoNest";
+import LottoNestReadme from "./Pages/lottonest/LottoNestReadme";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -75,13 +76,16 @@ function App() {
             path="/portfolio/trip-route/readme"
             element={<RouterPlannerReadme />}
           />
+          <Route path="/portfolio/lottonest" element={<LottoNest />} />
+          <Route
+            path="/portfolio/lottonest/readme"
+            element={<LottoNestReadme />}
+          />
           <Route
             path="/portfolio/my-portfolio-readme"
             element={<MyPortfolioReadme />}
           />
-          <Route path="*" element={<NotFound />} />{" "}
-          {/* delete it later - Implemented lottery game logic */}
-          <Route path="/lottery" element={<Lottery />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer hideOn={["/"]} />
       </Box>

@@ -3,9 +3,9 @@ import { Box, Container, CssBaseline, Modal, Typography } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import tickets from "../../Assets/images/tickets.jpg";
 import CheckNumbers from "./CheckNumbers";
-import maldivas from "../../Assets/images/maldivas.png";
+import LogoNest from "../../Assets/images/MegaMillions.png";
 
-const Lottery = () => {
+const LottoNest = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -46,21 +46,21 @@ const Lottery = () => {
         minHeight: "calc(100vh - 243px)",
       }}
     >
-      <HeadingTop text="Future Millionaires" />
       <Box
         component="div"
         sx={{
           display: "flex",
           justifyContent: "center",
+          padding: "1.5em 0",
         }}
       >
         <Box
           component="img"
-          alt="maldives"
-          src={maldivas}
+          alt="LogoNest"
+          src={LogoNest}
           sx={{
-            maxHeight: "339px",
-            maxWidth: "500px",
+            maxHeight: "233px",
+            maxWidth: "300px",
             width: "100%",
             height: "auto",
             cursor: "pointer",
@@ -72,7 +72,7 @@ const Lottery = () => {
         <CssBaseline />
         <Box my={4}>
           <Typography variant="h4" gutterBottom>
-            Lottery Number Checker
+            Mega Millions Number Checker
           </Typography>
 
           <Typography variant="body1">
@@ -112,7 +112,7 @@ const Lottery = () => {
                   pt: 4,
                   pb: 1,
                   cursor: "pointer",
-                  boxShadow: "0 3px 5px 2px rgba(33, 49, 63, .3)", // Sombra baseada na cor primary
+                  boxShadow: "0 3px 5px 2px rgba(33, 49, 63, .3)",
                 }}
                 onClick={() => setOpen(false)}
               />
@@ -125,4 +125,4 @@ const Lottery = () => {
   );
 };
 
-export default Lottery;
+export default LottoNest;

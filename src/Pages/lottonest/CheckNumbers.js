@@ -83,7 +83,7 @@ const CheckNumbers = () => {
         }}
       >
         <Typography variant="h6" align="center" style={{ color: "#d6d3d1" }}>
-          Numbers you've selected:
+          Winning Numbers
         </Typography>
         <Box display="flex" flexDirection="column" alignItems="center" my={2}>
           <Typography
@@ -105,7 +105,7 @@ const CheckNumbers = () => {
 
       {!megaBall && (
         <Box my={2}>
-          <Typography variant="h6">Choose Up to 5 Numbers:</Typography>
+          <Typography variant="h6">Enter the 5 Drawn Numbers:</Typography>
           <ToggleButtonGroup
             value={drawnNumbers}
             onChange={handleNumberSelect}
@@ -186,7 +186,7 @@ const CheckNumbers = () => {
           <DialogContent>
             {tickets.map((ticket) => (
               <Box key={ticket.id} mb={2}>
-                <Typography color="textPrimary">
+                <Typography color="#eeeeee">
                   Ticket {ticket.id}: {ticket.numbers.join(", ")} (Mega Ball:{" "}
                   {ticket.megaBall})
                 </Typography>
@@ -209,7 +209,7 @@ const CheckNumbers = () => {
               backgroundColor: "#282524",
             }}
           >
-            <Typography color="textPrimary" variant="h6">
+            <Typography color="#eeeeee" variant="h6">
               Ticket {result.ticketId}: {result.matchingNumbers.join(", ")}
               {result.megaBallMatch && ` (Mega Ball Match: ${megaBall})`}
             </Typography>

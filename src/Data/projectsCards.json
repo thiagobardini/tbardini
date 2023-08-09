@@ -63,6 +63,23 @@
   },
   {
     "id": "5",
+    "title": "LottoNest",
+    "description": "🎰 LottoNest: Instantly check your Mega Millions numbers. Are you the next millionaire? Experience a seamless UI with detailed ticket views. Making lottery checks fun!",
+    "img": "/images/MegaMillions.png",
+    "techs": [
+      "React",
+      "Material-UI",
+      "CollectAPI (Lottery)",
+      "JavaScript",
+      "Modal",
+      "Responsive Design"
+    ],
+    "live": "/portfolio/lottonest",
+    "readme": "/portfolio/lottonest/readme",
+    "github": ""
+  },
+  {
+    "id": "6",
     "title": "Trip Route",
     "description": "🗺 This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
     "img": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",

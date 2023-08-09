@@ -93,5 +93,89 @@
   { "id": "16-B", "numbers": [19, 26, 30, 46, 61], "megaBall": 15 },
   { "id": "16-C", "numbers": [7, 14, 36, 60, 61], "megaBall": 3 },
   { "id": "16-D", "numbers": [6, 12, 29, 43, 56], "megaBall": 8 },
-  { "id": "16-E", "numbers": [28, 35, 44, 48, 56], "megaBall": 20 }
+  { "id": "16-E", "numbers": [28, 35, 44, 48, 56], "megaBall": 20 },
+
+  { "id": "17-A", "numbers": [14, 31, 51, 60, 63], "megaBall": 18 },
+  { "id": "17-B", "numbers": [16, 24, 31, 44, 60], "megaBall": 6 },
+  { "id": "17-C", "numbers": [21, 24, 34, 50, 59], "megaBall": 14 },
+  { "id": "17-D", "numbers": [6, 16, 33, 53, 67], "megaBall": 17 },
+  { "id": "17-E", "numbers": [2, 8, 11, 47, 49], "megaBall": 13 },
+
+  { "id": "18-A", "numbers": [25, 26, 27, 36, 60], "megaBall": 20 },
+  { "id": "18-B", "numbers": [8, 9, 25, 40, 47], "megaBall": 2 },
+  { "id": "18-C", "numbers": [4, 11, 12, 26, 34], "megaBall": 24 },
+  { "id": "18-D", "numbers": [10, 13, 25, 55, 68], "megaBall": 10 },
+  { "id": "18-E", "numbers": [23, 37, 40, 47, 64], "megaBall": 16 },
+
+  { "id": "19-A", "numbers": [4, 10, 15, 31, 33], "megaBall": 3 },
+  { "id": "19-B", "numbers": [16, 19, 33, 45, 48], "megaBall": 19 },
+  { "id": "19-C", "numbers": [15, 31, 38, 52, 65], "megaBall": 4 },
+  { "id": "19-D", "numbers": [11, 24, 38, 47, 67], "megaBall": 15 },
+  { "id": "19-E", "numbers": [30, 33, 53, 63, 69], "megaBall": 11 },
+
+  { "id": "20-A", "numbers": [23, 25, 27, 28, 46], "megaBall": 2 },
+  { "id": "20-B", "numbers": [15, 31, 46, 50, 62], "megaBall": 16 },
+  { "id": "20-C", "numbers": [29, 30, 34, 47, 65], "megaBall": 1 },
+  { "id": "20-D", "numbers": [33, 36, 51, 61, 70], "megaBall": 25 },
+  { "id": "20-E", "numbers": [37, 43, 47, 51, 69], "megaBall": 7 },
+
+  { "id": "21-A", "numbers": [1, 7, 13, 14, 15], "megaBall": 19 },
+  { "id": "21-B", "numbers": [2, 43, 59, 60, 68], "megaBall": 25 },
+  { "id": "21-C", "numbers": [21, 48, 59, 62, 63], "megaBall": 16 },
+  { "id": "21-D", "numbers": [18, 27, 28, 36, 56], "megaBall": 1 },
+  { "id": "21-E", "numbers": [3, 9, 24, 36, 42], "megaBall": 24 },
+
+  { "id": "22-A", "numbers": [3, 15, 27, 45, 47], "megaBall": 23 },
+  { "id": "22-B", "numbers": [24, 35, 48, 54, 60], "megaBall": 11 },
+  { "id": "22-C", "numbers": [24, 34, 45, 50, 54], "megaBall": 15 },
+  { "id": "22-D", "numbers": [22, 28, 36, 46, 57], "megaBall": 7 },
+  { "id": "22-E", "numbers": [14, 25, 38, 44, 59], "megaBall": 21 },
+
+  { "id": "23-A", "numbers": [16, 45, 51, 56, 62], "megaBall": 2 },
+  { "id": "23-B", "numbers": [6, 27, 31, 52, 67], "megaBall": 24 },
+  { "id": "23-C", "numbers": [6, 9, 15, 51, 56], "megaBall": 11 },
+  { "id": "23-D", "numbers": [17, 29, 35, 50, 57], "megaBall": 10 },
+  { "id": "23-E", "numbers": [35, 39, 57, 60, 65], "megaBall": 20 },
+
+  { "id": "24-A", "numbers": [8, 10, 21, 36, 48], "megaBall": 5 },
+  { "id": "24-B", "numbers": [2, 5, 24, 51, 55], "megaBall": 24 },
+  { "id": "24-C", "numbers": [1, 14, 32, 35, 38], "megaBall": 10 },
+  { "id": "24-D", "numbers": [10, 17, 26, 42, 59], "megaBall": 3 },
+  { "id": "24-E", "numbers": [4, 31, 40, 54, 65], "megaBall": 4 },
+
+  { "id": "25-A", "numbers": [2, 4, 13, 21, 35], "megaBall": 1 },
+  { "id": "25-B", "numbers": [7, 27, 41, 57, 67], "megaBall": 24 },
+  { "id": "25-C", "numbers": [9, 11, 33, 63, 66], "megaBall": 8 },
+  { "id": "25-D", "numbers": [5, 10, 14, 24, 68], "megaBall": 10 },
+  { "id": "25-E", "numbers": [13, 18, 28, 59, 62], "megaBall": 4 },
+
+  { "id": "26-A", "numbers": [3, 18, 33, 34, 64], "megaBall": 12 },
+  { "id": "26-B", "numbers": [20, 25, 30, 32, 50], "megaBall": 11 },
+  { "id": "26-C", "numbers": [12, 18, 40, 59, 60], "megaBall": 16 },
+  { "id": "26-D", "numbers": [20, 31, 32, 45, 52], "megaBall": 6 },
+  { "id": "26-E", "numbers": [14, 18, 19, 34, 51], "megaBall": 15 },
+
+  { "id": "27-A", "numbers": [20, 26, 27, 45, 70], "megaBall": 1 },
+  { "id": "27-B", "numbers": [25, 35, 51, 57, 59], "megaBall": 10 },
+  { "id": "27-C", "numbers": [29, 34, 42, 52, 53], "megaBall": 9 },
+  { "id": "27-D", "numbers": [13, 25, 40, 48, 63], "megaBall": 2 },
+  { "id": "27-E", "numbers": [29, 33, 35, 45, 57], "megaBall": 25 },
+
+  { "id": "28-A", "numbers": [24, 40, 57, 67, 69], "megaBall": 9 },
+  { "id": "28-B", "numbers": [24, 51, 58, 66, 68], "megaBall": 2 },
+  { "id": "28-C", "numbers": [8, 27, 41, 43, 53], "megaBall": 14 },
+  { "id": "28-D", "numbers": [32, 34, 53, 54, 64], "megaBall": 7 },
+  { "id": "28-E", "numbers": [1, 7, 13, 39, 48], "megaBall": 6 },
+
+  { "id": "29-A", "numbers": [9, 38, 43, 48, 51], "megaBall": 24 },
+  { "id": "29-B", "numbers": [2, 8, 20, 31, 32], "megaBall": 10 },
+  { "id": "29-C", "numbers": [4, 17, 42, 56, 58], "megaBall": 24 },
+  { "id": "29-D", "numbers": [4, 25, 27, 28, 36], "megaBall": 18 },
+  { "id": "29-E", "numbers": [15, 32, 38, 59, 64], "megaBall": 6 },
+
+  { "id": "30-A", "numbers": [19, 23, 33, 40, 47], "megaBall": 4 },
+  { "id": "30-B", "numbers": [12, 51, 57, 62, 66], "megaBall": 24 },
+  { "id": "30-C", "numbers": [2, 10, 28, 56, 66], "megaBall": 21 },
+  { "id": "30-D", "numbers": [2, 32, 40, 54, 58], "megaBall": 15 },
+  { "id": "30-E", "numbers": [5, 11, 35, 47, 48], "megaBall": 24 }
 ]

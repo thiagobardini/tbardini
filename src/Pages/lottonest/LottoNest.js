@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Container, CssBaseline, Modal, Typography } from "@mui/material";
-import HeadingTop from "../../Components/Typography/HeadingTop";
 import tickets from "../../Assets/images/tickets.jpg";
+import tickets2 from "../../Assets/images/tickets2.jpg";
 import CheckNumbers from "./CheckNumbers";
 import LogoNest from "../../Assets/images/MegaMillions.png";
 
@@ -75,16 +75,23 @@ const LottoNest = () => {
             Mega Millions Number Checker
           </Typography>
 
-          <Typography variant="body1">
-            Click on the lottery ticket to view it in full size.
-          </Typography>
           <Box
             component="img"
             alt="tickets"
             src={tickets}
-            sx={{ width: "100%", pt: 4, pb: 1, cursor: "pointer" }}
+            sx={{ width: "50%", cursor: "pointer" }}
             onClick={() => setOpen(true)}
           />
+          <Box
+            component="img"
+            alt="tickets"
+            src={tickets2}
+            sx={{ width: "45.5%", cursor: "pointer" }}
+            onClick={() => setOpen(true)}
+          />
+          <Typography variant="subtitle1" pb={1}>
+            Click on the lottery ticket images to view it in full size.
+          </Typography>
           <Modal
             open={open}
             onClose={() => setOpen(false)}

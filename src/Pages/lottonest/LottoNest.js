@@ -59,8 +59,8 @@ const LottoNest = () => {
           alt="LogoNest"
           src={LogoNest}
           sx={{
-            maxHeight: "233px",
-            maxWidth: "300px",
+            maxHeight: "auto",
+            maxWidth: "200px",
             width: "100%",
             height: "auto",
             cursor: "pointer",

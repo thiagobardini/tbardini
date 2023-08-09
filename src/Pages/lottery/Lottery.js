@@ -3,6 +3,7 @@ import { Box, Container, CssBaseline, Modal, Typography } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import tickets from "../../Assets/images/tickets.jpg";
 import CheckNumbers from "./CheckNumbers";
+import maldivas from "../../Assets/images/maldivas.png";
 
 const Lottery = () => {
   const [open, setOpen] = useState(false);
@@ -46,12 +47,34 @@ const Lottery = () => {
       }}
     >
       <HeadingTop text="Future Millionaires" />
+      <Box
+        component="div"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          component="img"
+          alt="maldives"
+          src={maldivas}
+          sx={{
+            maxHeight: "339px",
+            maxWidth: "500px",
+            width: "100%",
+            height: "auto",
+            cursor: "pointer",
+          }}
+        />
+      </Box>
+
       <Container>
         <CssBaseline />
         <Box my={4}>
           <Typography variant="h4" gutterBottom>
             Lottery Number Checker
           </Typography>
+
           <Typography variant="body1">
             Click on the lottery ticket to view it in full size.
           </Typography>

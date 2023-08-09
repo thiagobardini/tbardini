@@ -12,6 +12,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Link,
 } from "@mui/material";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import tickets from "./tickets.json";
@@ -105,7 +106,36 @@ const CheckNumbers = () => {
 
       {!megaBall && (
         <Box my={2}>
-          <Typography variant="h6">Enter the 5 Drawn Numbers:</Typography>
+          <Box
+            sx={{
+              mb: 1,
+              display: {
+                xs: "block",
+                md: "flex",
+              },
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: {
+                xs: "column",
+                md: "row",
+              },
+            }}
+          >
+            <Typography variant="h6" display="inline" mr={1}>
+              Enter the 5 Drawn Numbers:
+            </Typography>
+            <Box component="div">
+              <Link
+                href="https://www.megamillions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="hover"
+                color="secondary"
+              >
+                Check Drawn Numbers
+              </Link>
+            </Box>
+          </Box>
           <ToggleButtonGroup
             value={drawnNumbers}
             onChange={handleNumberSelect}

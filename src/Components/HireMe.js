@@ -47,7 +47,7 @@ const HireMe = () => {
     !isContactPage && (
       <StickyButton
         component="a"
-        href="mailto:thiagobardini@icloud.com?subject=🤘 Hi Thiago, I'd like to hire you"
+        href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
         variant="text"
         sx={{
           pointerEvents: "auto",

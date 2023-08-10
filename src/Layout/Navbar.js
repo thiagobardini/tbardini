@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "../redux/userSlice";
-import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
-import Logout from "../Features/auth/Logout";
+import { useSelector } from "react-redux";
+// import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
 import { Link, NavLink } from "react-router-dom";
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Container,
-  Button,
-  Stack,
-  useTheme,
-} from "@mui/material";
+import { Box, AppBar, Toolbar, Container, Button, Stack } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
@@ -41,12 +31,10 @@ function Navbar() {
   const [oldScrollPos, setOldScrollPos] = useState(0);
   const [showHamburger, setShowHamburger] = useState(false);
 
-  const theme = useTheme();
+  // const theme = useTheme();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
-  const user = useSelector(selectUser);
-
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     const onScroll = () => {
@@ -62,25 +50,6 @@ function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [oldScrollPos]);
-
-  // check at page load if a user is authenticated
-  useEffect(() => {
-    onAuthStateChanged(auth, (userAuth) => {
-      if (userAuth) {
-        // user is logged in, send the user's details to redux, store the current user in the state
-        dispatch(
-          login({
-            email: userAuth.email,
-            uid: userAuth.uid,
-            displayName: userAuth.displayName,
-            photoUrl: userAuth.photoURL,
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-  }, []);
 
   const toggleHamburger = () => {
     setOpen(!isOpen);

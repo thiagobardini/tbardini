@@ -10,13 +10,6 @@ import {
 import { Link } from "react-router-dom";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
 
-const DocumentationContainer = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-start",
-  minHeight: `calc(100vh - ${theme.spacing(26)})`,
-}));
-
 const List = styled("ul")(({ theme }) => ({
   paddingLeft: theme.spacing(2),
 }));
@@ -28,7 +21,7 @@ const ListItem = styled("li")(({ theme }) => ({
 const RouterPlannerReadme = ({ displayNone }) => {
   const data = [
     {
-      projectIdea: "Google Maps Route Planner",
+      projectIdea: "Trip Route",
       live: "/portfolio/trip-route",
       overview:
         "This project showcases a Google Maps trip route application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning. The application features a search bar, address table using DataGrid, and interactive maps.",
@@ -55,18 +48,17 @@ const RouterPlannerReadme = ({ displayNone }) => {
   ];
   return (
     <Box
-      mb={6}
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
-        minHeight: "calc(100vh - 520px)",
+        minHeight: "calc(100vh - 209px)",
+        flexGrow: 1,
       }}
     >
       <HeadingTop text="Trip Route - Docs" />
       <Container>
         <CssBaseline />
-        <DocumentationContainer mb={6}>
+        <Box mb={6}>
           {data.map((item, index) => (
             <Box key={index}>
               <Container>
@@ -128,7 +120,7 @@ const RouterPlannerReadme = ({ displayNone }) => {
               </Container>
             </Box>
           ))}
-        </DocumentationContainer>
+        </Box>
       </Container>
     </Box>
   );

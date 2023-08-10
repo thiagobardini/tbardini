@@ -30,32 +30,33 @@ export const createCustomTheme = (mode) =>
       mode: mode,
       ...(mode === "light"
         ? {
-            primary: { main: "#22313f" },
-            secondary: { main: "#0092ca" },
-            primaryDark: { main: "#1270AF" },
+            primary: { main: "#22313f" }, // Dark Slate Gray
+            secondary: { main: "#0092ca" }, // Bright Blue
+            primaryDark: { main: "#1270AF" }, // Medium Blue
             background: {
-              default: "#d6d3d1",
-              paper: "#34495e",
+              default: "#d6d3d1", // Light Gray
+              paper: "#34495e", // Charcoal
             },
             text: {
-              primary: "#34495e",
-              secondary: "#0092ca",
+              primary: "#34495e", // Charcoal
+              secondary: "#222831", // Dark Slate Gray
             },
+            customWhite: { main: "#eeeeee" }, // Off White
           }
         : {
-            primary: { main: "#424242" }, // Dark grey
-            secondary: { main: "#0092ca" },
+            primary: { main: "#424242" }, // Dark Gray
+            secondary: { main: "#0092ca" }, // Bright Blue
             background: {
-              default: "#2A2525",
-              paper: "#34495e",
+              default: "#2A2525", // Very Dark Brown
+              paper: "#34495e", // Charcoal
             },
             text: {
-              primary: "#d6d3d1", // White
-              secondary: "#222831",
+              primary: "#eeeeee", // Off White
+              secondary: "#d6d3d1", // Almost Black
             },
+            customWhite: { main: "#eeeeee" }, // Off White
           }),
     },
   });
 
-// #eeeeee white
 // #282524 card - dark mode

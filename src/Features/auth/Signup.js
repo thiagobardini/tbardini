@@ -17,7 +17,7 @@ import {
   updateProfile,
 } from "../../Firebase/firebaseConfig.js";
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/userSlice";
+import { changeUser } from "../../redux/authSlices.js";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -41,7 +41,7 @@ export default function SignUp() {
             .then(() => {
               // Dispatch the user information for persistence in the redux state
               dispatch(
-                login({
+                changeUser({
                   email: userAuth.user.email,
                   uid: userAuth.user.uid,
                   displayName: name,
@@ -65,7 +65,17 @@ export default function SignUp() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 209px)",
+        flexGrow: 1,
+        mb: 8,
+      }}
+    >
       <CssBaseline />
       <Box
         sx={{
@@ -87,6 +97,7 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
+                color="info"
                 autoComplete="given-name"
                 name="Name"
                 required
@@ -99,6 +110,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                color="info"
                 fullWidth
                 id="profilePic"
                 label="Profile picture URL (optional)"
@@ -109,6 +121,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                color="info"
                 required
                 fullWidth
                 id="email"
@@ -120,6 +133,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                color="info"
                 required
                 fullWidth
                 name="password"
@@ -136,16 +150,17 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            color="info"
           >
             Sign Up
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Typography
-                color="primary"
                 component={Link}
                 to="/signin"
                 variant="body2"
+                color="secondary.main"
               >
                 Already have an account? Sign in
               </Typography>

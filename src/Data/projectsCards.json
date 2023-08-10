@@ -69,12 +69,13 @@
     "techs": [
       "React",
       "Material-UI",
-      "CollectAPI (Lottery)",
       "JavaScript",
-      "Modal",
-      "Responsive Design"
+      "React Router",
+      "Firebase Auth",
+      "Firebase Firestore",
+      "Redux Toolkit"
     ],
-    "live": "/portfolio/lottonest",
+    "live": "/portfolio/lottonest-signin",
     "readme": "/portfolio/lottonest/readme",
     "github": ""
   },

@@ -1,27 +1,24 @@
 import React from "react";
 import { Box, Container, CssBaseline, Typography } from "@mui/material";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
-import BottomDrawer from "../../../Layout/BottomDrawer";
 
 const RouterPlanner = () => {
   return (
     <Box
-      mb={6}
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
-        minHeight: "calc(100vh - 520px)",
+        minHeight: "calc(100vh - 209px)",
+        flexGrow: 1,
       }}
     >
-      <HeadingTop text='Trip Route' />
+      <HeadingTop text="Trip Route" />
       <Container>
         <CssBaseline />
-        <Typography textAlign='center'>
+        <Typography textAlign="center">
           Great news! The Trip Route app will be available very soon!
         </Typography>
       </Container>
-      <BottomDrawer />
     </Box>
   );
 };

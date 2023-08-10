@@ -1,40 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { logoutTest } from "../../redux/authSlices";
-import { logout } from "../../redux/userSlice";
+import { logout } from "../../redux/authSlices";
 import { auth } from "../../Firebase/firebaseConfig";
 
 const Logout = ({ text, to }) => {
   const dispatch = useDispatch();
 
-  // Test Redux only
-  const handleLogout = () => {
-    dispatch(logoutTest());
-  };
-
   const logoutOfApp = () => {
-    // dispatch to the store with the logout action
+    console.log("Logout function called");
     dispatch(logout());
-    // sign out function from firebase
-    auth.signOut();
-  };
-
-  const handleLogoutClick = () => {
-    handleLogout();
-    logoutOfApp();
+    auth
+      .signOut()
+      .then(() => {
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        console.error("Error signing out", error);
+      });
   };
 
   return (
     <Button
-      color="inherit"
+      variant="contained"
+      color="info"
       component={Link}
       to={to}
-      onClick={handleLogoutClick}
+      onClick={logoutOfApp}
       sx={{ textTransform: "lowercase" }}
     >
-      {text}
+      <Typography>{text}</Typography>
     </Button>
   );
 };

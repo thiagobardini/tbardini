@@ -3,8 +3,8 @@ import {
   auth,
   signInWithEmailAndPassword,
 } from "../../Firebase/firebaseConfig.js";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { changeUser } from "../../redux/authSlices.js";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Avatar,
@@ -25,35 +25,48 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
+  const isLogged = useSelector((state) => state.authUser.isLogged);
 
   const navigate = useNavigate();
+
+  if (isLogged) {
+    navigate("/portfolio/lottonest");
+    return null; // if you log in, you don't need to see the signin page
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Sign in an existing user with Firebase
     signInWithEmailAndPassword(auth, email, password)
-      // returns an auth object after a successful authentication
-      // userAuth.user contains all our user details
       .then((userAuth) => {
         // store the user's information in the redux state
         dispatch(
-          login({
+          changeUser({
             email: userAuth.user.email,
             uid: userAuth.user.uid,
           })
         );
+
+        navigate("/portfolio/lottonest");
       })
-      // display the error if any
       .catch((err) => {
         alert(err);
       });
-
-    navigate("/");
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 209px)",
+        flexGrow: 1,
+        mb: 4,
+      }}
+    >
       <CssBaseline />
       <Box
         sx={{
@@ -63,6 +76,7 @@ export default function SignIn() {
           alignItems: "center",
           maxWidth: "500px",
           mminWidth: "250px",
+          backgroundColor: (theme) => theme.palette.background.default,
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -78,12 +92,14 @@ export default function SignIn() {
             fullWidth
             id="email"
             label="Email Address"
+            color="info"
             name="email"
             autoComplete="email"
             autoFocus
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
+            color="info"
             margin="normal"
             required
             fullWidth
@@ -102,14 +118,16 @@ export default function SignIn() {
             type="submit"
             fullWidth
             variant="contained"
+            color="info"
             sx={{ mt: 3, mb: 2 }}
           >
             Sign In
           </Button>
+
           <Grid container>
             <Grid item xs>
               <Typography
-                color="primary"
+                color="secondary.main"
                 component={Link}
                 to="/"
                 variant="body2"
@@ -119,7 +137,7 @@ export default function SignIn() {
             </Grid>
             <Grid item>
               <Typography
-                color="primary"
+                color="secondary.main"
                 component={Link}
                 to="/signup"
                 variant="body2"

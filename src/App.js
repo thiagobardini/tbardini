@@ -13,12 +13,12 @@ import RouterPlanner from "./Pages/projects/RouterPlanner/RouterPlanner";
 import RouterPlannerReadme from "./Pages/projects/RouterPlanner/RouterPlannerReadme";
 import Contact from "./Pages/Contact";
 import Resume from "./Pages/Resume";
-import MyPortfolioReadme from "./Pages/projects/MyPortfolioReadme/MyPortfolioReadme";
 import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
 import LottoNest from "./Pages/lottonest/LottoNest";
+import LottoNestSignin from "./Pages/lottonest/LottoNestSignin";
 import LottoNestReadme from "./Pages/lottonest/LottoNestReadme";
 
 function App() {
@@ -36,8 +36,8 @@ function App() {
 
   const theme = useMemo(() => createCustomTheme(mode), [mode]);
   function someRequest() {
-    //Simulates a request; makes a "promise" that'll run for 2.5 seconds
-    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+    //Simulates a request; makes a "promise" that'll run for 1.5 seconds
+    return new Promise((resolve) => setTimeout(() => resolve(), 1500));
   }
 
   useEffect(() => {
@@ -76,15 +76,16 @@ function App() {
             path="/portfolio/trip-route/readme"
             element={<RouterPlannerReadme />}
           />
+          <Route
+            path="/portfolio/lottonest-signin"
+            element={<LottoNestSignin />}
+          />
           <Route path="/portfolio/lottonest" element={<LottoNest />} />
           <Route
             path="/portfolio/lottonest/readme"
             element={<LottoNestReadme />}
           />
-          <Route
-            path="/portfolio/my-portfolio-readme"
-            element={<MyPortfolioReadme />}
-          />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer hideOn={["/"]} />

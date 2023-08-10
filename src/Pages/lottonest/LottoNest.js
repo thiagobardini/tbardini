@@ -1,40 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Box, Container, CssBaseline, Modal, Typography } from "@mui/material";
 import tickets from "../../Assets/images/tickets.jpg";
 import tickets2 from "../../Assets/images/tickets2.jpg";
 import CheckNumbers from "./CheckNumbers";
 import LogoNest from "../../Assets/images/MegaMillions.png";
+import Logout from "../../Features/auth/Logout";
 
 const LottoNest = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const isLogged = useSelector((state) => state.authUser.isLogged);
 
+  console.log(isLogged, " isLogged");
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://api.collectapi.com/chancegame/usaPowerball",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: process.env.REACT_APP_COLLECT_API_TOKEN,
-            },
-          }
-        );
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data);
-        } else {
-          console.error("Error fetching data:", response.statusText);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    if (!isLogged) {
+      navigate("/portfolio/lottonest-signin");
+    }
+  }, [isLogged, navigate]);
 
   return (
     <Box
@@ -46,8 +30,17 @@ const LottoNest = () => {
         minHeight: "calc(100vh - 243px)",
       }}
     >
+      <Container
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          pt: 1,
+          position: "absolute",
+        }}
+      >
+        <Logout text="logout" to="/portfolio/lottonest-signin" />
+      </Container>
       <Box
-        component="div"
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -70,6 +63,7 @@ const LottoNest = () => {
 
       <Container>
         <CssBaseline />
+
         <Box my={2}>
           <Typography variant="h4" gutterBottom>
             Mega Millions Number Checker

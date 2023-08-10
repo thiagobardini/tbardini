@@ -206,8 +206,8 @@ const CardsPortfolio = ({
               to={github}
               variant="outlined"
               color={darkMode ? "primary" : "secondary"}
-              target={!openNewTab ? "_blank" : undefined}
-              rel={!openNewTab ? "noopener noreferrer" : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => window.scrollTo(0, 0)}
               sx={{ textTransform: "lowercase" }}
             >

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LogoNest from "../../Assets/images/MegaMillions.png";
 import Signin from "../../Features/auth/Signin";
-import Signup from "../../Features/auth/Signup";
 
 const LottoNestSignin = () => {
   const isLogged = useSelector((state) => state.authUser.isLogged);

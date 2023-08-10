@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Container, CssBaseline } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import LogoNest from "../../Assets/images/MegaMillions.png";
 import Signin from "../../Features/auth/Signin";
 
 const LottoNestSignin = () => {
+  const isLogged = useSelector((state) => state.authUser.isLogged);
+  const navigate = useNavigate();
+
+  console.log("isLogged LottoNestSignin", isLogged);
+  useEffect(() => {
+    if (isLogged) {
+      navigate("/portfolio/lottonest");
+    }
+  }, [isLogged, navigate]);
+
   return (
     <Box
       mb={6}

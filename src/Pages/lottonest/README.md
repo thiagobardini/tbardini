@@ -4,7 +4,7 @@
 
 LottoNest is designed for lottery enthusiasts who want an easy and efficient way to check their lottery numbers. With a sleek design and intuitive interface, LottoNest offers a delightful user experience. The version 1 of the app allows manual entry of both tickets and the Mega Million results. Future updates are planned to enhance this process.
 
-[Visit the Project](/portfolio/lottonest)
+[Visit the Project](https://tbardini.com/portfolio/lottonest-signin)
 
 ## Technologies Used
 

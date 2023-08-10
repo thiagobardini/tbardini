@@ -162,6 +162,7 @@ const Projects = () => {
                     readme={card.readme}
                     live={card.live}
                     github={card.github}
+                    openNewTab={card.openNewTab}
                   />
                 </Box>
               ))}

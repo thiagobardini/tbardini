@@ -14,7 +14,8 @@
     ],
     "live": "/",
     "readme": "",
-    "github": "https://github.com/thiagobardini/tbardiniCom"
+    "github": "https://github.com/thiagobardini/tbardiniCom",
+    "openNewTab": true
   },
   {
     "id": "2",
@@ -32,7 +33,8 @@
     ],
     "live": "https://bhpa.vercel.app/public",
     "readme": "",
-    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main"
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main",
+    "openNewTab": false
   },
   {
     "id": "3",
@@ -49,7 +51,8 @@
     ],
     "live": "https://mini-market-tbardini.vercel.app/",
     "readme": "",
-    "github": "https://github.com/thiagobardini/mini-market-tbardini"
+    "github": "https://github.com/thiagobardini/mini-market-tbardini",
+    "openNewTab": false
   },
   {
     "id": "4",
@@ -59,7 +62,8 @@
     "techs": ["nodejs", "Heroku", "Mongodb", "Mongoose", "Ajax", "postman"],
     "live": "https://github.com/thiagobardini/agile-rocket-api",
     "readme": "",
-    "github": "https://github.com/thiagobardini/agile-rocket-api"
+    "github": "https://github.com/thiagobardini/agile-rocket-api",
+    "openNewTab": false
   },
   {
     "id": "5",
@@ -77,7 +81,8 @@
     ],
     "live": "/portfolio/lottonest-signin",
     "readme": "",
-    "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest"
+    "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
+    "openNewTab": true
   },
   {
     "id": "6",
@@ -97,6 +102,7 @@
     ],
     "live": "/portfolio/trip-route",
     "readme": "/portfolio/trip-route/readme",
-    "github": ""
+    "github": "",
+    "openNewTab": true
   }
 ]

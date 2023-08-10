@@ -103,6 +103,7 @@ const CardsPortfolio = ({
   live,
   readme,
   github,
+  openNewTab,
 }) => {
   const [showChips, setShowChips] = useState(false);
 
@@ -179,14 +180,14 @@ const CardsPortfolio = ({
             to={live}
             variant="contained"
             color="secondary"
-            target={github ? "_blank" : undefined}
-            rel={github ? "noopener noreferrer" : undefined}
+            target={!openNewTab ? "_blank" : undefined}
+            rel={!openNewTab ? "noopener noreferrer" : undefined}
             onClick={() => window.scrollTo(0, 0)}
             sx={{ textTransform: "lowercase" }}
           >
             Live
           </Button>
-          {github === "" ? (
+          {readme === "" ? null : (
             <Button
               component={Link}
               to={readme}
@@ -197,14 +198,16 @@ const CardsPortfolio = ({
             >
               Readme
             </Button>
-          ) : (
+          )}
+
+          {github === "" ? null : (
             <Button
               component={Link}
               to={github}
               variant="outlined"
               color={darkMode ? "primary" : "secondary"}
-              target={github ? "_blank" : undefined}
-              rel={github ? "noopener noreferrer" : undefined}
+              target={!openNewTab ? "_blank" : undefined}
+              rel={!openNewTab ? "noopener noreferrer" : undefined}
               onClick={() => window.scrollTo(0, 0)}
               sx={{ textTransform: "lowercase" }}
             >

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   Avatar,
@@ -25,6 +26,8 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -39,7 +42,7 @@ export default function SignUp() {
             photoURL: profilePic,
           })
             .then(() => {
-              // Dispatch the user information for persistence in the redux state
+              // Dispatch the user information and redirect
               dispatch(
                 changeUser({
                   email: userAuth.user.email,
@@ -48,6 +51,7 @@ export default function SignUp() {
                   photoUrl: profilePic,
                 })
               );
+              navigate("/portfolio/lottonest-signin");
             })
             .catch((error) => {
               console.log("Failed to update profile");
@@ -73,13 +77,12 @@ export default function SignUp() {
         flexDirection: "column",
         minHeight: "calc(100vh - 209px)",
         flexGrow: 1,
-        mb: 8,
+        my: 4,
       }}
     >
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

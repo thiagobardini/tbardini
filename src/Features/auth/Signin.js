@@ -64,13 +64,12 @@ export default function SignIn() {
         flexDirection: "column",
         minHeight: "calc(100vh - 209px)",
         flexGrow: 1,
-        mb: 4,
+        my: 4,
       }}
     >
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

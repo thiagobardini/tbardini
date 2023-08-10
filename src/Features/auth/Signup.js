@@ -161,7 +161,7 @@ export default function SignUp() {
             <Grid item>
               <Typography
                 component={Link}
-                to="/signin"
+                to="/portfolio/lottonest-signin"
                 variant="body2"
                 color="secondary.main"
               >

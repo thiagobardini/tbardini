@@ -6,6 +6,7 @@ function CardCaptureData() {
   const webcamRef = useRef(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [capturedNumbers, setCapturedNumbers] = useState(null);
+  const [facingMode, setFacingMode] = useState("environment");
 
   const capture = useCallback(() => {
     if (!isCameraOpen) return;
@@ -37,13 +38,31 @@ function CardCaptureData() {
     setIsCameraOpen(!isCameraOpen);
   }, [isCameraOpen]);
 
+  const flipCamera = useCallback(() => {
+    setFacingMode((prevMode) =>
+      prevMode === "environment" ? "user" : "environment"
+    );
+  }, []);
+
+  const videoConstraints = {
+    facingMode: facingMode,
+    width: window.innerWidth,
+  };
+
   return (
     <>
-      {isCameraOpen && <Webcam ref={webcamRef} />}
+      {isCameraOpen && (
+        <Webcam
+          ref={webcamRef}
+          videoConstraints={videoConstraints}
+          style={{ width: "100%" }}
+        />
+      )}
       <button onClick={capture}>Capture Numbers</button>
       <button onClick={toggleCamera}>
         {isCameraOpen ? "Close Camera" : "Open Camera"}
       </button>
+      {isCameraOpen && <button onClick={flipCamera}>Flip Camera</button>}
       {capturedNumbers && (
         <div>
           <h3>Captured Numbers:</h3>

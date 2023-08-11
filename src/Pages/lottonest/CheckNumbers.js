@@ -36,6 +36,7 @@ const CheckNumbers = () => {
   const [isMegaBallDialogOpen, setMegaBallDialogOpen] = useState(false);
   const [results, setResults] = useState([]);
   const [isTicketsDialogOpen, setTicketsDialogOpen] = useState(false);
+  const [manualEntry, setManualEntry] = useState(true);
 
   const currentUser = auth.currentUser; // Use o objeto 'auth' importado, não 'firebase.auth()'
 
@@ -137,9 +138,12 @@ const CheckNumbers = () => {
     const ticketWithUser = { ...ticket, userId: currentUser.uid };
     dispatch(addTicket(ticketWithUser));
   };
+
+  const toggleManualEntry = () => {
+    setManualEntry(!manualEntry);
+  };
   return (
     <Box>
-      <CardCaptureData />
       <Container>
         <Box
           my={2}
@@ -149,7 +153,13 @@ const CheckNumbers = () => {
             padding: "8px",
           }}
         >
-          <TicketInput />
+          <button onClick={toggleManualEntry}>
+            {manualEntry
+              ? "Switch to Camera Capture"
+              : "Switch to Manual Entry"}
+          </button>
+          {manualEntry ? <TicketInput /> : <CardCaptureData />}
+
           <Typography variant="h6" align="center" style={{ color: "#d6d3d1" }}>
             Winning Numbers
           </Typography>

@@ -1,6 +1,7 @@
 import React, { useRef, useCallback, useState } from "react";
 import Webcam from "react-webcam";
 import * as Tesseract from "tesseract.js";
+import { addCardCaptureDataToFirestore } from "./addTicketToFirestore";
 
 function CardCaptureData() {
   const webcamRef = useRef(null);
@@ -31,6 +32,9 @@ function CardCaptureData() {
         groupedNumbers
       );
       setCapturedNumbers(groupedNumbers);
+
+      // Enviar os números agrupados para o Firestore
+      addCardCaptureDataToFirestore(groupedNumbers);
     });
   }, [webcamRef, isCameraOpen]);
 

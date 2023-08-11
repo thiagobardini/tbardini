@@ -6,6 +6,10 @@ function CardCaptureData() {
   const webcamRef = useRef(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
 
+  const videoConstraints = {
+    facingMode: "environment", // para usar a câmera traseira
+  };
+
   const capture = useCallback(() => {
     if (!isCameraOpen) return;
 
@@ -37,7 +41,9 @@ function CardCaptureData() {
 
   return (
     <>
-      {isCameraOpen && <Webcam ref={webcamRef} />}
+      {isCameraOpen && (
+        <Webcam ref={webcamRef} videoConstraints={videoConstraints} />
+      )}
       <button onClick={capture}>Capture Numbers</button>
       <button onClick={toggleCamera}>
         {isCameraOpen ? "Close Camera" : "Open Camera"}

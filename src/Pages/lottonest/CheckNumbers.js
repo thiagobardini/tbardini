@@ -28,6 +28,7 @@ import {
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import tickets from "./tickets.json";
 import TicketInput from "./TicketInput";
+import CardCaptureData from "./CardCaptureData";
 
 const CheckNumbers = () => {
   const [drawnNumbers, setDrawnNumbers] = useState([]);
@@ -146,6 +147,7 @@ const CheckNumbers = () => {
           padding: "8px",
         }}
       >
+        <CardCaptureData />
         <TicketInput />
         <Typography variant="h6" align="center" style={{ color: "#d6d3d1" }}>
           Winning Numbers

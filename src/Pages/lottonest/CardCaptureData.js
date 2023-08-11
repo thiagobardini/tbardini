@@ -5,10 +5,7 @@ import * as Tesseract from "tesseract.js";
 function CardCaptureData() {
   const webcamRef = useRef(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-
-  const videoConstraints = {
-    facingMode: "environment", // para usar a câmera traseira
-  };
+  const [capturedNumbers, setCapturedNumbers] = useState(null);
 
   const capture = useCallback(() => {
     if (!isCameraOpen) return;
@@ -32,6 +29,7 @@ function CardCaptureData() {
         "Numbers as pairs of two grouped into arrays:",
         groupedNumbers
       );
+      setCapturedNumbers(groupedNumbers);
     });
   }, [webcamRef, isCameraOpen]);
 
@@ -41,13 +39,19 @@ function CardCaptureData() {
 
   return (
     <>
-      {isCameraOpen && (
-        <Webcam ref={webcamRef} videoConstraints={videoConstraints} />
-      )}
+      {isCameraOpen && <Webcam ref={webcamRef} />}
       <button onClick={capture}>Capture Numbers</button>
       <button onClick={toggleCamera}>
         {isCameraOpen ? "Close Camera" : "Open Camera"}
       </button>
+      {capturedNumbers && (
+        <div>
+          <h3>Captured Numbers:</h3>
+          {capturedNumbers.map((group, index) => (
+            <p key={index}>{group.join(", ")}</p>
+          ))}
+        </div>
+      )}
     </>
   );
 }

@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  db,
+  auth,
+  onAuthStateChanged,
+  collection,
+  query,
+  getDocs,
+  where,
+} from "../../Firebase/firebaseConfig";
+import { addTicket } from "../../redux/ticketSlice"; // Certifique-se de que essa ação esteja definida em sua slice
 import {
   ToggleButton,
   Container,
@@ -16,6 +27,7 @@ import {
 } from "@mui/material";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import tickets from "./tickets.json";
+import TicketInput from "./TicketInput";
 
 const CheckNumbers = () => {
   const [drawnNumbers, setDrawnNumbers] = useState([]);
@@ -23,6 +35,46 @@ const CheckNumbers = () => {
   const [isMegaBallDialogOpen, setMegaBallDialogOpen] = useState(false);
   const [results, setResults] = useState([]);
   const [isTicketsDialogOpen, setTicketsDialogOpen] = useState(false);
+
+  const currentUser = auth.currentUser; // Use o objeto 'auth' importado, não 'firebase.auth()'
+
+  const ticketsFirestore = useSelector((state) => state.tickets.tickets);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (currentUser) {
+      // Utilize as funções importadas diretamente, em vez de 'firebase.firestore()'
+      const ticketsCollection = collection(db, "tickets");
+      const q = query(
+        ticketsCollection,
+        where("userId", "==", currentUser.uid)
+      );
+      getDocs(q).then((querySnapshot) => {
+        const userTickets = querySnapshot.docs.map((doc) => doc.data());
+        // Atualize o estado ou a loja Redux aqui
+        // Por exemplo, usando o Redux:
+        // dispatch(updateTickets(userTickets));
+      });
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const userTicketsCollection = collection(db, "tickets");
+        // Substitua o 'where' importado corretamente aqui, se necessário
+        const q = query(
+          userTicketsCollection /*, where("userId", "==", user.uid)*/
+        );
+        getDocs(q).then((querySnapshot) => {
+          const userTickets = querySnapshot.docs.map((doc) => doc.data());
+          // Faça algo com os ingressos, como adicioná-los ao estado
+        });
+      }
+    });
+
+    return () => unsubscribe(); // Limpar inscrição na desmontagem
+  }, []);
 
   useEffect(() => {
     if (drawnNumbers.length === 5) {
@@ -34,8 +86,15 @@ const CheckNumbers = () => {
     handleCheck();
   }, [drawnNumbers, megaBall]);
 
+  // const userTickets = querySnapshot.docs.map((doc) => doc.data());
+  // Atualize o estado ou a loja Redux aqui
+  // Por exemplo, usando o Redux:
+  // dispatch(updateTickets(userTickets));
+
   const handleCheck = () => {
-    const newResults = tickets
+    const allTickets = [...tickets, ...ticketsFirestore]; // Combina os tickets do JSON e Firestore
+
+    const newResults = allTickets
       .map((ticket) => {
         const matches = ticket.numbers.filter((num) =>
           drawnNumbers.includes(num)
@@ -73,6 +132,10 @@ const CheckNumbers = () => {
     setTicketsDialogOpen(true);
   };
 
+  const addNewTicket = (ticket) => {
+    const ticketWithUser = { ...ticket, userId: currentUser.uid };
+    dispatch(addTicket(ticketWithUser));
+  };
   return (
     <Container>
       <Box
@@ -83,6 +146,7 @@ const CheckNumbers = () => {
           padding: "8px",
         }}
       >
+        <TicketInput />
         <Typography variant="h6" align="center" style={{ color: "#d6d3d1" }}>
           Winning Numbers
         </Typography>

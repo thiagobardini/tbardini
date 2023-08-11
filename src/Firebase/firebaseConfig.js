@@ -11,6 +11,7 @@ import {
   limit,
   onSnapshot,
   query,
+  where,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -57,6 +58,7 @@ export {
   limit,
   onSnapshot,
   query,
+  where,
   createUserWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,

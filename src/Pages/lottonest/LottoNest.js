@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchTickets } from "../../redux/ticketSlice";
 import { Box, Container, CssBaseline, Modal, Typography } from "@mui/material";
-import tickets from "../../Assets/images/tickets.jpg";
+import tickets1 from "../../Assets/images/tickets.jpg";
 import tickets2 from "../../Assets/images/tickets2.jpg";
 import CheckNumbers from "./CheckNumbers";
 import LogoNest from "../../Assets/images/MegaMillions.png";
@@ -13,12 +14,18 @@ const LottoNest = () => {
   const navigate = useNavigate();
   const isLogged = useSelector((state) => state.authUser.isLogged);
 
+  const dispatch = useDispatch();
+  const tickets = useSelector((state) => state.tickets.tickets);
+
   console.log(isLogged, " isLogged");
   useEffect(() => {
+    if (isLogged) {
+      dispatch(fetchTickets());
+    }
     if (!isLogged) {
       navigate("/portfolio/lottonest-signin");
     }
-  }, [isLogged, navigate]);
+  }, [isLogged, navigate, dispatch]);
 
   return (
     <Box
@@ -72,7 +79,7 @@ const LottoNest = () => {
           <Box
             component="img"
             alt="tickets"
-            src={tickets}
+            src={tickets1}
             sx={{ width: "50%", cursor: "pointer" }}
             onClick={() => setOpen(true)}
           />
@@ -119,6 +126,21 @@ const LottoNest = () => {
               />
             </Box>
           </Modal>
+          {tickets.map((ticket, index) => (
+            <Box key={index}>
+              <Typography variant="h6">Ticket {index + 1}</Typography>
+              <Typography variant="body1">
+                Numbers: {ticket.numbers.join(", ")}
+              </Typography>
+              <Typography variant="body1">
+                Mega Ball: {ticket.megaBall}
+              </Typography>
+              {/* <Typography variant="body1">
+                Timestamp: {ticket.timestamp.toString()}
+              </Typography> */}
+            </Box>
+          ))}
+
           <CheckNumbers />
         </Box>
       </Container>

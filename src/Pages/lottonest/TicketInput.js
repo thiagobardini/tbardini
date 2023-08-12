@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button, TextField, Container, Typography } from "@mui/material";
-import { addTicketToFirestore } from "./addTicketToFirestore"; // Atualize o caminho conforme necessário
+import { useDispatch } from "react-redux";
+import { addTicket } from "../../redux/ticketSlice";
 
 const TicketInput = () => {
   const [numbers, setNumbers] = useState(Array(5).fill(""));
   const [megaBall, setMegaBall] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleNumberChange = (index, value) => {
     const newNumbers = [...numbers];
@@ -15,7 +18,15 @@ const TicketInput = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (numbers.every((num) => num) && megaBall) {
-      await addTicketToFirestore(numbers, megaBall);
+      const ticket = {
+        numbers,
+        megaBall,
+        timestamp: new Date(),
+      };
+
+      // Adicione o ticket ao Firestore e ao Redux Toolkit
+      await dispatch(addTicket(ticket));
+
       alert("Ticket enviado com sucesso!");
       setNumbers(Array(5).fill(""));
       setMegaBall("");

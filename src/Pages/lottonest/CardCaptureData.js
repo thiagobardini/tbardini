@@ -1,13 +1,16 @@
 import React, { useRef, useCallback, useState } from "react";
 import Webcam from "react-webcam";
 import * as Tesseract from "tesseract.js";
-import { addCardCaptureDataToFirestore } from "./addTicketToFirestore";
+import { useDispatch } from "react-redux";
+import { addTicket } from "../../redux/ticketSlice";
 
-function CardCaptureData() {
+const CardCaptureData = () => {
   const webcamRef = useRef(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const [capturedNumbers, setCapturedNumbers] = useState(null);
+  const [capturedNumbers, setCapturedNumbers] = useState([]);
   const [facingMode, setFacingMode] = useState("environment");
+
+  const dispatch = useDispatch();
 
   const capture = useCallback(() => {
     if (!isCameraOpen) return;
@@ -22,21 +25,41 @@ function CardCaptureData() {
         pairedNumbers.push(Number(cleanedText.slice(i, i + 2)));
       }
 
+      // Agrupa os números em conjuntos de 6
       const groupedNumbers = [];
       for (let i = 0; i < pairedNumbers.length; i += 6) {
-        groupedNumbers.push(pairedNumbers.slice(i, i + 6));
+        const group = pairedNumbers.slice(i, i + 6);
+        if (group.length === 6) {
+          // Verifica se o grupo tem exatamente 6 números
+          groupedNumbers.push(group);
+        }
       }
 
       console.log(
         "Numbers as pairs of two grouped into arrays:",
         groupedNumbers
       );
-      setCapturedNumbers(groupedNumbers);
 
-      // Enviar os números agrupados para o Firestore
-      addCardCaptureDataToFirestore(groupedNumbers);
+      // Processa cada grupo de números
+      groupedNumbers.forEach((group) => {
+        const numbers = group.slice(0, 5);
+        const megaBall = group[5];
+
+        const ticket = {
+          numbers,
+          megaBall,
+          timestamp: new Date(),
+        };
+        console.log(
+          "TICKET - Numbers as pairs of two grouped into arrays:",
+          ticket
+        );
+        setCapturedNumbers((prevTickets) => [...prevTickets, ticket]);
+
+        dispatch(addTicket(ticket));
+      });
     });
-  }, [webcamRef, isCameraOpen]);
+  }, [webcamRef, isCameraOpen, dispatch]);
 
   const toggleCamera = useCallback(() => {
     setIsCameraOpen(!isCameraOpen);
@@ -70,13 +93,16 @@ function CardCaptureData() {
       {capturedNumbers && (
         <div>
           <h3>Captured Numbers:</h3>
-          {capturedNumbers.map((group, index) => (
-            <p key={index}>{group.join(", ")}</p>
+          {capturedNumbers.map((ticket, index) => (
+            <p key={index}>
+              Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}
+              {ticket.megaBall}
+            </p>
           ))}
         </div>
       )}
     </>
   );
-}
+};
 
 export default CardCaptureData;

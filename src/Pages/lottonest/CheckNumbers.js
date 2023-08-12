@@ -26,7 +26,7 @@ import {
   Link,
 } from "@mui/material";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import tickets from "./tickets.json";
+// import tickets from "./tickets.json";
 import TicketInput from "./TicketInput";
 import CardCaptureData from "./CardCaptureData";
 
@@ -88,15 +88,22 @@ const CheckNumbers = () => {
     handleCheck();
   }, [drawnNumbers, megaBall]);
 
+  const handleNumberSelect = (event, newNumbers) => {
+    setDrawnNumbers(newNumbers);
+  };
+
+  const handleMegaBallSelect = (number) => {
+    setMegaBall(number);
+    setMegaBallDialogOpen(false);
+  };
   // const userTickets = querySnapshot.docs.map((doc) => doc.data());
   // Atualize o estado ou a loja Redux aqui
   // Por exemplo, usando o Redux:
   // dispatch(updateTickets(userTickets));
 
   const handleCheck = () => {
-    const allTickets = [...tickets, ...ticketsFirestore]; // Combina os tickets do JSON e Firestore
-
-    const newResults = allTickets
+    // Use apenas 'ticketsFirestore' para checar os tickets
+    const newResults = ticketsFirestore
       .map((ticket) => {
         const matches = ticket.numbers.filter((num) =>
           drawnNumbers.includes(num)
@@ -112,16 +119,8 @@ const CheckNumbers = () => {
       .filter((result) => result.count > 0 || result.megaBallMatch)
       .sort((a, b) => b.count - a.count);
 
+    console.log("newResults", newResults);
     setResults(newResults);
-  };
-
-  const handleNumberSelect = (_, newNumbers) => {
-    setDrawnNumbers(newNumbers);
-  };
-
-  const handleMegaBallSelect = (num) => {
-    setMegaBall(num);
-    setMegaBallDialogOpen(false);
   };
 
   const resetGame = () => {
@@ -293,7 +292,7 @@ const CheckNumbers = () => {
               All Your Tickets
             </DialogTitle>
             <DialogContent>
-              {tickets.map((ticket) => (
+              {ticketsFirestore.map((ticket) => (
                 <Box key={ticket.id} mb={2}>
                   <Typography color="#eeeeee">
                     Ticket {ticket.id}: {ticket.numbers.join(", ")} (Mega Ball:{" "}

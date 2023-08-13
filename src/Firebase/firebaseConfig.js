@@ -12,6 +12,10 @@ import {
   onSnapshot,
   query,
   where,
+  runTransaction,
+  getDoc,
+  updateDoc,
+  setDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -59,6 +63,10 @@ export {
   onSnapshot,
   query,
   where,
+  runTransaction,
+  getDoc,
+  updateDoc,
+  setDoc,
   createUserWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,

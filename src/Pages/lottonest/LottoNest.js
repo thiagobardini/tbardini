@@ -130,8 +130,12 @@ const LottoNest = () => {
             <Box key={index}>
               <Typography variant="h6">Ticket {index + 1}</Typography>
               <Typography variant="body1">
-                Numbers: {ticket.numbers.join(", ")}
+                Numbers:{" "}
+                {ticket?.numbers?.length > 0
+                  ? ticket.numbers.join(", ")
+                  : "N/A"}
               </Typography>
+
               <Typography variant="body1">
                 Mega Ball: {ticket.megaBall}
               </Typography>

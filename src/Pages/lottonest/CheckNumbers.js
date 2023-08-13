@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   db,
@@ -43,6 +43,29 @@ const CheckNumbers = () => {
   const ticketsFirestore = useSelector((state) => state.tickets.tickets);
   const dispatch = useDispatch();
 
+  const handleCheck = useCallback(() => {
+    console.log(ticketsFirestore, "ticketsFirestore");
+    const newResults = ticketsFirestore
+      .map((ticket) => {
+        const matches = ticket.numbers
+          ? ticket.numbers.filter((num) => drawnNumbers.includes(num))
+          : [];
+
+        const hasMegaBallMatch = megaBall === ticket.megaBall;
+        return {
+          ticketId: ticket.id,
+          matchingNumbers: matches, // Isso sempre será um array
+          count: matches.length,
+          megaBallMatch: hasMegaBallMatch,
+        };
+      })
+      .filter((result) => result.count > 0 || result.megaBallMatch)
+      .sort((a, b) => b.count - a.count);
+
+    console.log("newResults", newResults);
+    setResults(newResults);
+  }, [ticketsFirestore, drawnNumbers, megaBall]);
+
   useEffect(() => {
     if (currentUser) {
       // Utilize as funções importadas diretamente, em vez de 'firebase.firestore()'
@@ -86,10 +109,11 @@ const CheckNumbers = () => {
 
   useEffect(() => {
     handleCheck();
-  }, [drawnNumbers, megaBall]);
+  }, [drawnNumbers, megaBall, handleCheck]);
 
-  const handleNumberSelect = (event, newNumbers) => {
+  const handleNumberSelect = (_, newNumbers) => {
     setDrawnNumbers(newNumbers);
+    console.log(drawnNumbers, "drawnNumbers");
   };
 
   const handleMegaBallSelect = (number) => {
@@ -100,28 +124,6 @@ const CheckNumbers = () => {
   // Atualize o estado ou a loja Redux aqui
   // Por exemplo, usando o Redux:
   // dispatch(updateTickets(userTickets));
-
-  const handleCheck = () => {
-    // Use apenas 'ticketsFirestore' para checar os tickets
-    const newResults = ticketsFirestore
-      .map((ticket) => {
-        const matches = ticket.numbers.filter((num) =>
-          drawnNumbers.includes(num)
-        );
-        const hasMegaBallMatch = megaBall === ticket.megaBall;
-        return {
-          ticketId: ticket.id,
-          matchingNumbers: matches,
-          count: matches.length,
-          megaBallMatch: hasMegaBallMatch,
-        };
-      })
-      .filter((result) => result.count > 0 || result.megaBallMatch)
-      .sort((a, b) => b.count - a.count);
-
-    console.log("newResults", newResults);
-    setResults(newResults);
-  };
 
   const resetGame = () => {
     setDrawnNumbers([]);
@@ -168,7 +170,7 @@ const CheckNumbers = () => {
               component="h3"
               style={{ color: "#d6d3d1", fontWeight: "bold" }}
             >
-              {drawnNumbers.join(", ")}
+              {drawnNumbers && drawnNumbers.join(", ")}
             </Typography>
             <Typography
               variant="h4"
@@ -295,7 +297,7 @@ const CheckNumbers = () => {
               {ticketsFirestore.map((ticket) => (
                 <Box key={ticket.id} mb={2}>
                   <Typography color="#eeeeee">
-                    Ticket {ticket.id}: {ticket.numbers.join(", ")} (Mega Ball:{" "}
+                    {/* Ticket {ticket.id}: {ticket.numbers.join(", ")} (Mega Ball:{" "} */}
                     {ticket.megaBall})
                   </Typography>
                 </Box>
@@ -317,10 +319,15 @@ const CheckNumbers = () => {
                 backgroundColor: "#282524",
               }}
             >
+              {/* {console.log(result, "resultado")} */}
               <Typography color="#eeeeee" variant="h6">
-                Ticket {result.ticketId}: {result.matchingNumbers.join(", ")}
+                Ticket {result.ticketId}:{" "}
+                {result.matchingNumbers
+                  ? result.matchingNumbers.join(", ")
+                  : ""}
                 {result.megaBallMatch && ` (Mega Ball Match: ${megaBall})`}
               </Typography>
+
               <Typography color="secondary">
                 (Total Matches: {result.count})
               </Typography>

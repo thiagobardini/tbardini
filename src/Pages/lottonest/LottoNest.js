@@ -128,7 +128,7 @@ const LottoNest = () => {
           </Modal>
           {tickets.map((ticket, index) => (
             <Box key={index}>
-              <Typography variant="h6">Ticket {index + 1}</Typography>
+              <Typography variant="h6">Ticket {ticket.id}</Typography>
               <Typography variant="body1">
                 Numbers:{" "}
                 {ticket?.numbers?.length > 0

@@ -45,7 +45,7 @@ export const fetchTickets = createAsyncThunk(
     const ticketSnapshot = await getDocs(ticketQuery);
     const tickets = ticketSnapshot.docs.map((doc) => ({
       ...doc.data(),
-      id: doc.id,
+      id: doc.data().id,
     }));
     return tickets;
   }

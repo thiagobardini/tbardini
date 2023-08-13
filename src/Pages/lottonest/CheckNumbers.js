@@ -321,7 +321,7 @@ const CheckNumbers = () => {
             >
               {/* {console.log(result, "resultado")} */}
               <Typography color="#eeeeee" variant="h6">
-                Ticket {result.ticketId}:{" "}
+                Ticket {result.id}:{" "}
                 {result.matchingNumbers
                   ? result.matchingNumbers.join(", ")
                   : ""}

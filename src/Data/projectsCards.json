@@ -19,22 +19,23 @@
   },
   {
     "id": "2",
-    "title": "Boston Heat Pump Accelerator",
-    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
-    "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "title": "LottoNest",
+    "description": "🎰 LottoNest: Quickly verify Mega Millions numbers via camera or manual input. Could you be the next millionaire? Experience a seamless UI with detailed ticket views for fast and enjoyable lottery checks!",
+    "img": "/images/MegaMillions.png",
     "techs": [
       "React",
-      "RTK Query",
-      "Redux Toolkit",
-      "Material UI",
+      "Material-UI",
       "JavaScript",
       "React Router",
-      "CSS"
+      "Firebase Auth",
+      "Firebase Firestore",
+      "Redux Toolkit",
+      "React Webcam"
     ],
-    "live": "https://bhpa.vercel.app/public",
+    "live": "/portfolio/lottonest-signin",
     "readme": "",
-    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main",
-    "openNewTab": false
+    "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
+    "openNewTab": true
   },
   {
     "id": "3",
@@ -56,6 +57,25 @@
   },
   {
     "id": "4",
+    "title": "Boston Heat Pump Accelerator",
+    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
+    "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "techs": [
+      "React",
+      "RTK Query",
+      "Redux Toolkit",
+      "Material UI",
+      "JavaScript",
+      "React Router",
+      "CSS"
+    ],
+    "live": "https://bhpa.vercel.app/public",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main",
+    "openNewTab": false
+  },
+  {
+    "id": "5",
     "title": "TB CRM",
     "description": "🕸️ A backend CRM System - A streamlined, user-friendly app for efficient account and opportunity management.",
     "img": "/images/tbcrmrocket.png",
@@ -65,25 +85,7 @@
     "github": "https://github.com/thiagobardini/agile-rocket-api",
     "openNewTab": false
   },
-  {
-    "id": "5",
-    "title": "LottoNest",
-    "description": "🎰 LottoNest: Instantly check your Mega Millions numbers. Are you the next millionaire? Experience a seamless UI with detailed ticket views. Making lottery checks fun!",
-    "img": "/images/MegaMillions.png",
-    "techs": [
-      "React",
-      "Material-UI",
-      "JavaScript",
-      "React Router",
-      "Firebase Auth",
-      "Firebase Firestore",
-      "Redux Toolkit"
-    ],
-    "live": "/portfolio/lottonest-signin",
-    "readme": "",
-    "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
-    "openNewTab": true
-  },
+
   {
     "id": "6",
     "title": "Trip Route",

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTickets } from "../../redux/ticketSlice";
+import { deleteAllTickets } from "../../redux/ticketSlice";
 import {
   Box,
   Container,
@@ -41,6 +42,10 @@ const LottoNest = () => {
 
   const toggleManualEntry = () => {
     setManualEntry(!manualEntry);
+  };
+
+  const handleDeleteAllTickets = () => {
+    dispatch(deleteAllTickets());
   };
 
   return (
@@ -125,6 +130,9 @@ const LottoNest = () => {
                 <Typography>VIEW ALL TICKETS</Typography>
               </AccordionSummary>
               <AccordionDetails>
+                <button onClick={handleDeleteAllTickets}>
+                  Delete All Tickets
+                </button>
                 {tickets.map((ticket, index) => (
                   <Box key={index}>
                     <Typography variant="h6">Ticket {ticket.id}</Typography>

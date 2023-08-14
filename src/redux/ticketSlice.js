@@ -51,6 +51,31 @@ export const fetchTickets = createAsyncThunk(
   }
 );
 
+export const deleteAllTickets = createAsyncThunk(
+  "tickets/deleteAllTickets",
+  async (_, { dispatch, getState }) => {
+    try {
+      const ticketCollection = collection(db, "tickets");
+      const ticketQuery = query(ticketCollection);
+      const ticketSnapshot = await getDocs(ticketQuery);
+
+      // Inicia uma transação para eliminar todos os documentos
+      await runTransaction(db, async (transaction) => {
+        ticketSnapshot.docs.forEach((doc) => {
+          transaction.delete(doc.ref);
+        });
+      });
+
+      console.log("All tickets deleted"); // Adicionado para depuração
+
+      return [];
+    } catch (error) {
+      console.error("Error deleting all tickets:", error);
+      throw error; // Isso permitirá que você lide com o erro na parte da sua aplicação que chamou esta ação
+    }
+  }
+);
+
 // ... other async thunks for update, delete, etc.
 export const ticketSlice = createSlice({
   name: "tickets",
@@ -82,7 +107,23 @@ export const ticketSlice = createSlice({
       .addCase(fetchTickets.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(deleteAllTickets.pending, (state) => {
+        state.status = "loading";
       });
+    builder.addCase(deleteAllTickets.fulfilled, (state) => {
+      console.log("deleteAllTickets fulfilled"); // Adicionado para depuração
+      state.status = "succeeded";
+      state.tickets = [];
+    });
+    builder.addCase(deleteAllTickets.rejected, (state, action) => {
+      console.log(
+        "deleteAllTickets rejected with error:",
+        action.error.message
+      ); // Adicionado para depuração
+      state.status = "failed";
+      state.error = action.error.message;
+    });
   },
 });
 

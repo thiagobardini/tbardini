@@ -30,7 +30,7 @@ const CheckNumbers = () => {
   const [drawnNumbers, setDrawnNumbers] = useState([]);
   const [megaBall, setMegaBall] = useState(null);
   const [isMegaBallDialogOpen, setMegaBallDialogOpen] = useState(false);
-  const [results, setResults] = useState([]);
+
   const [manualEntry, setManualEntry] = useState(true);
 
   const currentUser = auth.currentUser; // Use o objeto 'auth' importado, não 'firebase.auth()'
@@ -61,7 +61,6 @@ const CheckNumbers = () => {
     console.log("newResults", newResults);
 
     dispatch(updateMatchingTickets({ results: newResults, megaBall }));
-    // setResults(newResults);
   }, [ticketsFirestore, drawnNumbers, megaBall, dispatch]); // Adicionar 'dispatch' nas dependências
 
   useEffect(() => {
@@ -126,7 +125,6 @@ const CheckNumbers = () => {
   const resetGame = () => {
     setDrawnNumbers([]);
     setMegaBall(null);
-    setResults([]);
   };
 
   const addNewTicket = (ticket) => {

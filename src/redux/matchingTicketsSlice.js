@@ -20,7 +20,8 @@ export const matchingTicketsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(updateMatchingTickets, (state, action) => {
-      state.results = action.payload;
+      state.results = action.payload.results;
+      state.megaBall = action.payload.megaBall;
     });
   },
 });

@@ -11,7 +11,7 @@ const TicketInput = () => {
 
   const handleNumberChange = (index, value) => {
     const newNumbers = [...numbers];
-    newNumbers[index] = value;
+    newNumbers[index] = parseInt(value, 10);
     setNumbers(newNumbers);
   };
 
@@ -24,29 +24,31 @@ const TicketInput = () => {
         timestamp: new Date(),
       };
 
-      // Adicione o ticket ao Firestore e ao Redux Toolkit
+      // Add the ticket to Firestore and Redux Toolkit
       await dispatch(addTicket(ticket));
 
-      alert("Ticket enviado com sucesso!");
+      alert("Ticket sent successfully!");
       setNumbers(Array(5).fill(""));
       setMegaBall("");
     } else {
-      alert("Por favor, preencha todos os campos.");
+      alert("Please fill in all fields.");
     }
   };
 
   return (
     <Container>
-      <Typography variant="h6">Digite seus números e Mega Ball:</Typography>
+      <Typography variant="h6">Enter your numbers and Mega Ball:</Typography>
       <form onSubmit={handleSubmit}>
         {numbers.map((number, index) => (
           <TextField
             key={index}
             required
             type="number"
-            label={`Número ${index + 1}`}
+            label={`Number ${index + 1}`}
             value={number}
-            onChange={(e) => handleNumberChange(index, e.target.value)}
+            onChange={(e) =>
+              handleNumberChange(index, parseInt(e.target.value, 10))
+            }
           />
         ))}
         <TextField
@@ -57,7 +59,7 @@ const TicketInput = () => {
           onChange={(e) => setMegaBall(e.target.value)}
         />
         <Button type="submit" variant="contained" color="primary">
-          Enviar Ticket
+          Send Ticket
         </Button>
       </form>
     </Container>

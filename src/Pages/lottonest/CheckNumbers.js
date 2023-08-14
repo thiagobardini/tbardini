@@ -16,16 +16,12 @@ import {
   Typography,
   Box,
   Button,
-  Paper,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
   Link,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -64,7 +60,7 @@ const CheckNumbers = () => {
 
     console.log("newResults", newResults);
 
-    dispatch(updateMatchingTickets(newResults)); // Despachar a ação aqui
+    dispatch(updateMatchingTickets({ results: newResults, megaBall }));
     // setResults(newResults);
   }, [ticketsFirestore, drawnNumbers, megaBall, dispatch]); // Adicionar 'dispatch' nas dependências
 
@@ -260,42 +256,6 @@ const CheckNumbers = () => {
           </DialogActions>
         </Dialog>
       </Box>
-      {/* 
-      <Box mb={2}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>MATCHING TICKETS</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            {results.map((result) => (
-              <Paper
-                elevation={3}
-                style={{
-                  padding: "16px",
-                  margin: "8px 0",
-                  backgroundColor: "#282524",
-                }}
-              >
-                <Typography color="#eeeeee" variant="h6">
-                  Ticket {result.id}:{" "}
-                  {result.matchingNumbers
-                    ? result.matchingNumbers.join(", ")
-                    : ""}
-                  {result.megaBallMatch && ` (Mega Ball Match: ${megaBall})`}
-                </Typography>
-
-                <Typography color="secondary">
-                  (Total Matches: {result.count})
-                </Typography>
-              </Paper>
-            ))}
-          </AccordionDetails>
-        </Accordion>
-      </Box> */}
     </Box>
   );
 };

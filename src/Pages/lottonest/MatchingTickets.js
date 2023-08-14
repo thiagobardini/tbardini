@@ -17,7 +17,8 @@ import {
 const MatchingTickets = () => {
   const results = useSelector(selectResults);
   const megaBall = useSelector(selectMegaBall);
-
+  console.log(megaBall, "MEGABALL");
+  console.log(results, "results in matching tickets");
   return (
     <Box mb={2}>
       <Accordion>

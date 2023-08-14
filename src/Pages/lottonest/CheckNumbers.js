@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { updateMatchingTickets } from "../../redux/matchingTicketsSlice";
 import {
   db,
   auth,
@@ -12,11 +13,9 @@ import {
 import { addTicket } from "../../redux/ticketSlice"; // Certifique-se de que essa ação esteja definida em sua slice
 import {
   ToggleButton,
-  Container,
   Typography,
   Box,
   Button,
-  Divider,
   Paper,
   Dialog,
   DialogActions,
@@ -24,23 +23,24 @@ import {
   DialogContentText,
   DialogTitle,
   Link,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-// import tickets from "./tickets.json";
-import TicketInput from "./TicketInput";
-import CardCaptureData from "./CardCaptureData";
 
 const CheckNumbers = () => {
   const [drawnNumbers, setDrawnNumbers] = useState([]);
   const [megaBall, setMegaBall] = useState(null);
   const [isMegaBallDialogOpen, setMegaBallDialogOpen] = useState(false);
   const [results, setResults] = useState([]);
-  const [isTicketsDialogOpen, setTicketsDialogOpen] = useState(false);
   const [manualEntry, setManualEntry] = useState(true);
 
   const currentUser = auth.currentUser; // Use o objeto 'auth' importado, não 'firebase.auth()'
 
   const ticketsFirestore = useSelector((state) => state.tickets.tickets);
+
   const dispatch = useDispatch();
 
   const handleCheck = useCallback(() => {
@@ -54,7 +54,7 @@ const CheckNumbers = () => {
         const hasMegaBallMatch = megaBall === ticket.megaBall;
         return {
           ticketId: ticket.id,
-          matchingNumbers: matches, // Isso sempre será um array
+          matchingNumbers: matches,
           count: matches.length,
           megaBallMatch: hasMegaBallMatch,
         };
@@ -63,8 +63,10 @@ const CheckNumbers = () => {
       .sort((a, b) => b.count - a.count);
 
     console.log("newResults", newResults);
-    setResults(newResults);
-  }, [ticketsFirestore, drawnNumbers, megaBall]);
+
+    dispatch(updateMatchingTickets(newResults)); // Despachar a ação aqui
+    // setResults(newResults);
+  }, [ticketsFirestore, drawnNumbers, megaBall, dispatch]); // Adicionar 'dispatch' nas dependências
 
   useEffect(() => {
     if (currentUser) {
@@ -131,10 +133,6 @@ const CheckNumbers = () => {
     setResults([]);
   };
 
-  const handleTicketsDialogOpen = () => {
-    setTicketsDialogOpen(true);
-  };
-
   const addNewTicket = (ticket) => {
     const ticketWithUser = { ...ticket, userId: currentUser.uid };
     dispatch(addTicket(ticketWithUser));
@@ -145,22 +143,25 @@ const CheckNumbers = () => {
   };
   return (
     <Box>
-      <Container>
+      <Box mb={2}>
+        <Box component="div">
+          <Link
+            href="https://www.megamillions.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="hover"
+            color="secondary"
+          >
+            <Typography variant="subtitle2">Check Drawn Numbers</Typography>
+          </Link>
+        </Box>
         <Box
-          my={2}
           style={{
             backgroundColor: "#34495e",
             borderRadius: "5px",
-            padding: "8px",
+            padding: "10px",
           }}
         >
-          <button onClick={toggleManualEntry}>
-            {manualEntry
-              ? "Switch to Camera Capture"
-              : "Switch to Manual Entry"}
-          </button>
-          {manualEntry ? <TicketInput /> : <CardCaptureData />}
-
           <Typography variant="h6" align="center" style={{ color: "#d6d3d1" }}>
             Winning Numbers
           </Typography>
@@ -181,59 +182,54 @@ const CheckNumbers = () => {
             </Typography>
           </Box>
         </Box>
-
-        {!megaBall && (
-          <Box my={2}>
-            <Box
-              sx={{
-                mb: 1,
-                display: {
-                  xs: "block",
-                  md: "flex",
-                },
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: {
-                  xs: "column",
-                  md: "row",
-                },
-              }}
-            >
-              <Typography variant="h6" display="inline" mr={1}>
-                Enter the 5 Drawn Numbers:
-              </Typography>
-              <Box component="div">
-                <Link
-                  href="https://www.megamillions.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  underline="hover"
-                  color="secondary"
-                >
-                  Check Drawn Numbers
-                </Link>
-              </Box>
-            </Box>
-            <ToggleButtonGroup
-              value={drawnNumbers}
-              onChange={handleNumberSelect}
-              multiple
-              style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
-            >
-              {[...Array(70)].map((_, index) => (
-                <ToggleButton
-                  key={index}
-                  value={index + 1}
-                  style={{
-                    color: megaBall ? "#d6d3d1" : "#22313f",
-                    backgroundColor: megaBall ? "#424242" : "#d6d3d1",
+        <Button
+          variant="text"
+          color="secondary"
+          sx={{ textTransform: "none", p: 0 }}
+          onClick={toggleManualEntry}
+        >
+          {manualEntry ? "Manual Entry Drawn Numbers" : "Close Manual Entry"}
+        </Button>
+      </Box>
+      <Box mb={2}>
+        {!manualEntry && (
+          <>
+            {!megaBall && (
+              <Box>
+                <Box
+                  sx={{
+                    mb: 1,
                   }}
                 >
-                  {index + 1}
-                </ToggleButton>
-              ))}
-            </ToggleButtonGroup>
-          </Box>
+                  <Typography>Enter the 5 Drawn Numbers + Mega Ball</Typography>
+                </Box>
+                <ToggleButtonGroup
+                  value={drawnNumbers}
+                  onChange={handleNumberSelect}
+                  multiple
+                  style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
+                >
+                  {[...Array(70)].map((_, index) => (
+                    <ToggleButton
+                      key={index}
+                      value={index + 1}
+                      style={{
+                        color: megaBall ? "#d6d3d1" : "#22313f",
+                        backgroundColor: megaBall ? "#424242" : "#d6d3d1",
+                      }}
+                    >
+                      {index + 1}
+                    </ToggleButton>
+                  ))}
+                </ToggleButtonGroup>
+              </Box>
+            )}
+            <Box my={2} display="flex" justifyContent="center">
+              <Button color="primary" variant="contained" onClick={resetGame}>
+                {megaBall ? "New Game" : "Clear Selection"}
+              </Button>
+            </Box>
+          </>
         )}
         <Dialog
           open={isMegaBallDialogOpen}
@@ -263,78 +259,43 @@ const CheckNumbers = () => {
             </Button>
           </DialogActions>
         </Dialog>
-        <Box my={2} display="flex" justifyContent="center">
-          <Button color="primary" variant="contained" onClick={resetGame}>
-            {megaBall ? "New Game" : "Clear Selection"}
-          </Button>
-        </Box>
-        <Divider />
-        <Box my={2}>
-          <Box
-            my={2}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
+      </Box>
+      {/* 
+      <Box mb={2}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
-            <Typography variant="h6">Matching Tickets:</Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleTicketsDialogOpen}
-            >
-              View All Tickets
-            </Button>
-          </Box>
-          <Dialog
-            open={isTicketsDialogOpen}
-            onClose={() => setTicketsDialogOpen(false)}
-            maxWidth="md"
-          >
-            <DialogTitle sx={{ color: "#eeeeee" }}>
-              All Your Tickets
-            </DialogTitle>
-            <DialogContent>
-              {ticketsFirestore.map((ticket) => (
-                <Box key={ticket.id} mb={2}>
-                  <Typography color="#eeeeee">
-                    {/* Ticket {ticket.id}: {ticket.numbers.join(", ")} (Mega Ball:{" "} */}
-                    {ticket.megaBall})
-                  </Typography>
-                </Box>
-              ))}
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={() => setTicketsDialogOpen(false)}>
-                <Typography sx={{ color: "#eeeeee" }}>Close</Typography>
-              </Button>
-            </DialogActions>
-          </Dialog>
+            <Typography>MATCHING TICKETS</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {results.map((result) => (
+              <Paper
+                elevation={3}
+                style={{
+                  padding: "16px",
+                  margin: "8px 0",
+                  backgroundColor: "#282524",
+                }}
+              >
+                <Typography color="#eeeeee" variant="h6">
+                  Ticket {result.id}:{" "}
+                  {result.matchingNumbers
+                    ? result.matchingNumbers.join(", ")
+                    : ""}
+                  {result.megaBallMatch && ` (Mega Ball Match: ${megaBall})`}
+                </Typography>
 
-          {results.map((result) => (
-            <Paper
-              elevation={3}
-              style={{
-                padding: "16px",
-                margin: "8px 0",
-                backgroundColor: "#282524",
-              }}
-            >
-              {/* {console.log(result, "resultado")} */}
-              <Typography color="#eeeeee" variant="h6">
-                Ticket {result.id}:{" "}
-                {result.matchingNumbers
-                  ? result.matchingNumbers.join(", ")
-                  : ""}
-                {result.megaBallMatch && ` (Mega Ball Match: ${megaBall})`}
-              </Typography>
-
-              <Typography color="secondary">
-                (Total Matches: {result.count})
-              </Typography>
-            </Paper>
-          ))}
-        </Box>
-      </Container>
+                <Typography color="secondary">
+                  (Total Matches: {result.count})
+                </Typography>
+              </Paper>
+            ))}
+          </AccordionDetails>
+        </Accordion>
+      </Box> */}
     </Box>
   );
 };

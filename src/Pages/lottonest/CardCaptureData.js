@@ -48,7 +48,7 @@ const CardCaptureData = () => {
         const ticket = {
           numbers,
           megaBall,
-          timestamp: new Date(),
+          timestamp: new Date().getTime(),
         };
         console.log(
           "TICKET - Numbers as pairs of two grouped into arrays:",

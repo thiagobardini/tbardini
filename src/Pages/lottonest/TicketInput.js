@@ -56,7 +56,7 @@ const TicketInput = () => {
           type="number"
           label="Mega Ball"
           value={megaBall}
-          onChange={(e) => setMegaBall(e.target.value)}
+          onChange={(e) => setMegaBall(parseInt(e.target.value, 10))}
         />
         <Button type="submit" variant="contained" color="primary">
           Send Ticket

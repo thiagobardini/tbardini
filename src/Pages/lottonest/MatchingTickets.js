@@ -20,14 +20,14 @@ const MatchingTickets = () => {
   console.log(megaBall, "MEGABALL");
   console.log(results, "results in matching tickets");
   return (
-    <Box mb={2}>
+    <Box mb={2} color="#d6d3d1">
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>MATCHING TICKETS</Typography>
+          <Typography color="#d6d3d1">MATCHING TICKETS</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {results.map((result) => (
@@ -47,7 +47,7 @@ const MatchingTickets = () => {
                 {result.megaBallMatch && ` (Mega Ball Match: ${megaBall})`}
               </Typography>
 
-              <Typography color="secondary">
+              <Typography color="#d6d3d1">
                 (Total Matches: {result.count})
               </Typography>
             </Paper>

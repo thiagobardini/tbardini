@@ -107,7 +107,9 @@ const LottoNest = () => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>ENTER YOUR TICKETS NUMBERS</Typography>
+                <Typography color="#d6d3d1">
+                  ENTER YOUR TICKETS NUMBERS
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <button onClick={toggleManualEntry}>
@@ -121,13 +123,13 @@ const LottoNest = () => {
           </Box>
           <Box mb={2}>
             {/* VIEW ALL TICKETS */}
-            <Accordion>
+            <Accordion color="#d6d3d1">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>VIEW ALL TICKETS</Typography>
+                <Typography color="#d6d3d1">VIEW ALL TICKETS</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <button onClick={handleDeleteAllTickets}>
@@ -135,14 +137,16 @@ const LottoNest = () => {
                 </button>
                 {tickets.map((ticket, index) => (
                   <Box key={index}>
-                    <Typography variant="h6">Ticket {ticket.id}</Typography>
-                    <Typography variant="body1">
+                    <Typography color="#d6d3d1" variant="h6">
+                      Ticket {ticket.id}
+                    </Typography>
+                    <Typography color="#d6d3d1" variant="body1">
                       Numbers:{" "}
                       {ticket?.numbers?.length > 0
                         ? ticket.numbers.join(", ")
                         : "N/A"}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography color="#d6d3d1" variant="body1">
                       Mega Ball: {ticket.megaBall}
                     </Typography>
                     {/* <Typography variant="body1">

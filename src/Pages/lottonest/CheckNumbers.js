@@ -23,7 +23,7 @@ import {
   DialogTitle,
   Link,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { styled } from "@mui/system";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 const CheckNumbers = () => {
@@ -38,6 +38,8 @@ const CheckNumbers = () => {
   const ticketsFirestore = useSelector((state) => state.tickets.tickets);
 
   const dispatch = useDispatch();
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleCheck = useCallback(() => {
     console.log(ticketsFirestore, "ticketsFirestore");
@@ -156,7 +158,7 @@ const CheckNumbers = () => {
             padding: "10px",
           }}
         >
-          <Typography variant="h6" align="center" style={{ color: "#d6d3d1" }}>
+          <Typography variant="h6" align="center" sx={{ color: "#d6d3d1" }}>
             Winning Numbers
           </Typography>
           <Box display="flex" flexDirection="column" alignItems="center" my={2}>
@@ -209,8 +211,9 @@ const CheckNumbers = () => {
                       value={index + 1}
                       style={{
                         color: megaBall ? "#d6d3d1" : "#22313f",
-                        backgroundColor: megaBall ? "#424242" : "#d6d3d1",
+                        backgroundColor: darkMode ? "#d6d3d1" : "#f4d03f",
                       }}
+                      className={`lotto-ball${!darkMode ? " dark-mode" : ""}`}
                     >
                       {index + 1}
                     </ToggleButton>
@@ -230,20 +233,40 @@ const CheckNumbers = () => {
           onClose={() => setMegaBallDialogOpen(false)}
         >
           <DialogTitle>Select your Mega Ball number</DialogTitle>
-          <DialogContent style={{ backgroundColor: "#34495e" }}>
-            <DialogContentText style={{ color: "#d6d3d1" }}>
-              Choose one number from the list as your Mega Ball:
-            </DialogContentText>
+          <DialogContent
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px",
+            }}
+          >
             {[...Array(70)].map((_, index) => (
               <Button
                 key={index}
                 onClick={() => handleMegaBallSelect(index + 1)}
-                style={{ color: "#d6d3d1" }}
+                sx={{
+                  minWidth: "40px",
+                  color: "#ffffff",
+                  backgroundColor: "#e74c3c",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  padding: "0",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "16px",
+                  "&:hover": {
+                    backgroundColor: "#f4d03f",
+                    color: "#22313f",
+                  },
+                }}
               >
                 {index + 1}
               </Button>
             ))}
           </DialogContent>
+
           <DialogActions>
             <Button
               onClick={() => setMegaBallDialogOpen(false)}

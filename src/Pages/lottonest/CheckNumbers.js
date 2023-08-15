@@ -22,6 +22,7 @@ import {
   DialogContentText,
   DialogTitle,
   Link,
+  Container,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -138,145 +139,152 @@ const CheckNumbers = () => {
     setManualEntry(!manualEntry);
   };
   return (
-    <Box>
-      <Box mb={2}>
-        <Box component="div">
-          <Link
-            href="https://www.megamillions.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-            color="secondary"
-          >
-            <Typography variant="subtitle2">Check Drawn Numbers</Typography>
-          </Link>
-        </Box>
-        <Box
-          style={{
-            backgroundColor: "#34495e",
-            borderRadius: "5px",
-            padding: "10px",
-          }}
-        >
-          <Typography variant="h6" align="center" sx={{ color: "#d6d3d1" }}>
-            Winning Numbers
-          </Typography>
-          <Box display="flex" flexDirection="column" alignItems="center" my={2}>
-            <Typography
-              variant="h4"
-              component="h3"
-              style={{ color: "#d6d3d1", fontWeight: "bold" }}
+    <Box sx={{ backgroundColor: "#5CABE5" }}>
+      <Container>
+        <Box mb={2}>
+          <Box>
+            <Link
+              href="https://www.megamillions.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+              color="#d6d3d1"
             >
-              {drawnNumbers && drawnNumbers.join(", ")}
-            </Typography>
-            <Typography
-              variant="h4"
-              component="h3"
-              style={{ color: "#d6d3d1", fontWeight: "bold" }}
-            >
-              {megaBall && `(Mega Ball: ${megaBall})`}
-            </Typography>
+              <Typography variant="subtitle2">Check Drawn Numbers</Typography>
+            </Link>
           </Box>
+          <Box>
+            <Typography variant="h3" align="center" sx={{ color: "#d6d3d1" }}>
+              Winning Numbers
+            </Typography>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              my={2}
+              sx={{ height: "50px" }}
+            >
+              <Typography
+                variant="h4"
+                component="h3"
+                style={{ color: "#d6d3d1", fontWeight: "bold" }}
+              >
+                {drawnNumbers && drawnNumbers.join(", ")}
+              </Typography>
+              <Typography
+                variant="h4"
+                component="h3"
+                style={{ color: "#d6d3d1", fontWeight: "bold" }}
+              >
+                {megaBall && `(Mega Ball: ${megaBall})`}
+              </Typography>
+            </Box>
+          </Box>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{
+              textTransform: "none",
+              color: "#d6d3d1",
+            }}
+            onClick={toggleManualEntry}
+          >
+            {manualEntry ? "Manual Entry Drawn Numbers" : "Close Manual Entry"}
+          </Button>
         </Box>
-        <Button
-          variant="text"
-          color="secondary"
-          sx={{ textTransform: "none", p: 0 }}
-          onClick={toggleManualEntry}
-        >
-          {manualEntry ? "Manual Entry Drawn Numbers" : "Close Manual Entry"}
-        </Button>
-      </Box>
-      <Box mb={2}>
-        {!manualEntry && (
-          <>
-            {!megaBall && (
-              <Box>
-                <Box
+        <Box mb={2}>
+          {!manualEntry && (
+            <>
+              {!megaBall && (
+                <Box>
+                  <Box
+                    sx={{
+                      mb: 1,
+                    }}
+                  >
+                    <Typography>
+                      Enter the 5 Drawn Numbers + Mega Ball
+                    </Typography>
+                  </Box>
+                  <ToggleButtonGroup
+                    value={drawnNumbers}
+                    onChange={handleNumberSelect}
+                    multiple
+                    style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
+                  >
+                    {[...Array(70)].map((_, index) => (
+                      <ToggleButton
+                        key={index}
+                        value={index + 1}
+                        style={{
+                          color: megaBall ? "#d6d3d1" : "#22313f",
+                          backgroundColor: darkMode ? "#d6d3d1" : "#f4d03f",
+                        }}
+                        className={`lotto-ball${!darkMode ? " dark-mode" : ""}`}
+                      >
+                        {index + 1}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </Box>
+              )}
+              <Box my={2} display="flex" justifyContent="center">
+                <Button color="primary" variant="contained" onClick={resetGame}>
+                  {megaBall ? "New Game" : "Clear Selection"}
+                </Button>
+              </Box>
+            </>
+          )}
+          <Dialog
+            open={isMegaBallDialogOpen}
+            onClose={() => setMegaBallDialogOpen(false)}
+          >
+            <DialogTitle>Select your Mega Ball number</DialogTitle>
+            <DialogContent
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "8px",
+              }}
+            >
+              {[...Array(70)].map((_, index) => (
+                <Button
+                  key={index}
+                  onClick={() => handleMegaBallSelect(index + 1)}
                   sx={{
-                    mb: 1,
+                    minWidth: "40px",
+                    color: "#ffffff",
+                    backgroundColor: "#e74c3c",
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    padding: "0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "16px",
+                    "&:hover": {
+                      backgroundColor: "#f4d03f",
+                      color: "#22313f",
+                    },
                   }}
                 >
-                  <Typography>Enter the 5 Drawn Numbers + Mega Ball</Typography>
-                </Box>
-                <ToggleButtonGroup
-                  value={drawnNumbers}
-                  onChange={handleNumberSelect}
-                  multiple
-                  style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
-                >
-                  {[...Array(70)].map((_, index) => (
-                    <ToggleButton
-                      key={index}
-                      value={index + 1}
-                      style={{
-                        color: megaBall ? "#d6d3d1" : "#22313f",
-                        backgroundColor: darkMode ? "#d6d3d1" : "#f4d03f",
-                      }}
-                      className={`lotto-ball${!darkMode ? " dark-mode" : ""}`}
-                    >
-                      {index + 1}
-                    </ToggleButton>
-                  ))}
-                </ToggleButtonGroup>
-              </Box>
-            )}
-            <Box my={2} display="flex" justifyContent="center">
-              <Button color="primary" variant="contained" onClick={resetGame}>
-                {megaBall ? "New Game" : "Clear Selection"}
-              </Button>
-            </Box>
-          </>
-        )}
-        <Dialog
-          open={isMegaBallDialogOpen}
-          onClose={() => setMegaBallDialogOpen(false)}
-        >
-          <DialogTitle>Select your Mega Ball number</DialogTitle>
-          <DialogContent
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "8px",
-            }}
-          >
-            {[...Array(70)].map((_, index) => (
-              <Button
-                key={index}
-                onClick={() => handleMegaBallSelect(index + 1)}
-                sx={{
-                  minWidth: "40px",
-                  color: "#ffffff",
-                  backgroundColor: "#e74c3c",
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  padding: "0",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "16px",
-                  "&:hover": {
-                    backgroundColor: "#f4d03f",
-                    color: "#22313f",
-                  },
-                }}
-              >
-                {index + 1}
-              </Button>
-            ))}
-          </DialogContent>
+                  {index + 1}
+                </Button>
+              ))}
+            </DialogContent>
 
-          <DialogActions>
-            <Button
-              onClick={() => setMegaBallDialogOpen(false)}
-              style={{ color: "#d6d3d1" }}
-            >
-              Cancel
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </Box>
+            <DialogActions>
+              <Button
+                onClick={() => setMegaBallDialogOpen(false)}
+                style={{ color: "#d6d3d1" }}
+              >
+                Cancel
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </Box>
+      </Container>
     </Box>
   );
 };

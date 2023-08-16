@@ -161,7 +161,7 @@ const CheckNumbers = () => {
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
-                my={2}
+                mt={2}
               >
                 <Box display="flex" alignItems="center" my={1}>
                   {drawnNumbers.map((number) => (

@@ -8,6 +8,7 @@ import {
   runTransaction,
   query,
   getDocs,
+  where,
 } from "../Firebase/firebaseConfig";
 
 // Async thunk for adding a ticket
@@ -39,9 +40,9 @@ export const addTicket = createAsyncThunk(
 
 export const fetchTickets = createAsyncThunk(
   "tickets/fetchTickets",
-  async () => {
+  async (uid) => {
     const ticketCollection = collection(db, "tickets");
-    const ticketQuery = query(ticketCollection);
+    const ticketQuery = query(ticketCollection, where("userId", "==", uid)); // Supondo que o campo que vincula o ticket ao usuário seja 'userId'
     const ticketSnapshot = await getDocs(ticketQuery);
     const tickets = ticketSnapshot.docs.map((doc) => ({
       ...doc.data(),

@@ -25,20 +25,19 @@ const LottoNest = () => {
   const [manualEntry, setManualEntry] = useState(true);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const isLogged = useSelector((state) => state.authUser.isLogged);
+  const isEmail = useSelector((state) => state.authUser.email);
 
   const dispatch = useDispatch();
   const tickets = useSelector((state) => state.tickets.tickets);
 
-  console.log(isLogged, " isLogged");
   useEffect(() => {
-    if (isLogged) {
+    if (isEmail) {
       dispatch(fetchTickets());
     }
-    if (!isLogged) {
+    if (!isEmail) {
       navigate("/portfolio/lottonest-signin");
     }
-  }, [isLogged, navigate, dispatch]);
+  }, [isEmail, navigate, dispatch]);
 
   const toggleManualEntry = () => {
     setManualEntry(!manualEntry);

@@ -5,6 +5,7 @@ import {
 } from "../../Firebase/firebaseConfig.js";
 import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/authSlices.js";
+import { fetchTickets } from "../../redux/ticketSlice.js";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Avatar,
@@ -25,11 +26,14 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const isLogged = useSelector((state) => state.authUser.isLogged);
+
+  const isEmail = useSelector((state) => state.authUser.email);
+
+  const storedAuth = JSON.parse(localStorage.getItem("auth"));
 
   const navigate = useNavigate();
 
-  if (isLogged) {
+  if (isEmail) {
     navigate("/portfolio/lottonest");
     return null; // if you log in, you don't need to see the signin page
   }
@@ -43,10 +47,14 @@ export default function SignIn() {
         // store the user's information in the redux state
         dispatch(
           changeUser({
-            email: userAuth.user.email,
-            uid: userAuth.user.uid,
+            email: userAuth.user.email || "",
+            uid: userAuth.user.uid || "",
           })
         );
+        // Fetch the tickets associated with this user
+        if (storedAuth) {
+          dispatch(fetchTickets(storedAuth.uid));
+        }
 
         navigate("/portfolio/lottonest");
       })

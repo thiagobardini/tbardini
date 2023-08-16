@@ -6,15 +6,16 @@ import LogoNest from "../../Assets/images/MegaMillions.png";
 import Signin from "../../Features/auth/Signin";
 
 const LottoNestSignin = () => {
-  const isLogged = useSelector((state) => state.authUser.isLogged);
+  const isEmail = useSelector((state) => state.authUser.email);
+
   const navigate = useNavigate();
 
-  console.log("isLogged LottoNestSignin", isLogged);
+  // console.log("isLogged LottoNestSignin", isLogged);
   useEffect(() => {
-    if (isLogged) {
-      navigate("/portfolio/lottonest");
+    if (!isEmail) {
+      navigate("/portfolio/lottonest-signin");
     }
-  }, [isLogged, navigate]);
+  }, [isEmail, navigate]);
 
   return (
     <Box

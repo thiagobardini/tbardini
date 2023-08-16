@@ -17,7 +17,7 @@ import { TypeAnimation } from "react-type-animation";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import myself from "../Assets/images/myself.jpeg";
+import myself from "../Assets/images/myself.png";
 
 const fadeIn = keyframes`
 from {

@@ -6,7 +6,7 @@ import {
   Avatar,
   Badge,
 } from "@mui/material";
-import myself from "../Assets/images/myself.jpeg";
+import myself from "../Assets/images/myself.png";
 import { useLocation } from "react-router-dom";
 
 const HireMe = () => {

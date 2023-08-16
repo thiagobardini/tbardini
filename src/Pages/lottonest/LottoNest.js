@@ -94,10 +94,6 @@ const LottoNest = () => {
         <CssBaseline />
 
         <Box my={2}>
-          <Typography variant="h4" gutterBottom>
-            Mega Millions Number Checker
-          </Typography>
-
           {/* ENTER YOUR TICKETS NUMBERS */}
           <Box mb={2}>
             <Accordion>

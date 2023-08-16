@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateMatchingTickets } from "../../redux/matchingTicketsSlice";
+import useFetch from "../../Hooks/useFetch";
 import {
   db,
   auth,
@@ -10,29 +11,37 @@ import {
   getDocs,
   where,
 } from "../../Firebase/firebaseConfig";
-import { addTicket } from "../../redux/ticketSlice"; // Certifique-se de que essa ação esteja definida em sua slice
-import {
-  ToggleButton,
-  Typography,
-  Box,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Link,
-  Container,
-} from "@mui/material";
-import { styled } from "@mui/system";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { Typography, Box, Paper, Link, Container } from "@mui/material";
+import { styled, keyframes } from "@mui/system";
+
+const dropAndBounceAnimation = keyframes`
+  0% {
+    transform: translateY(-100px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+const Ball = styled(Paper)`
+  padding: 10px;
+  borderradius: 50%;
+  margin: 0 5px;
+  width: 50px;
+  backgroundcolor: ${(props) => props.bgColor || "#f4d03f"};
+  animation: ${dropAndBounceAnimation} 0.5s ease;
+`;
 
 const CheckNumbers = () => {
   const [drawnNumbers, setDrawnNumbers] = useState([]);
   const [megaBall, setMegaBall] = useState(null);
-  const [isMegaBallDialogOpen, setMegaBallDialogOpen] = useState(false);
+  const [drawingDate, setDrawingDate] = useState(null);
+  const [jackPot, setJackPot] = useState(null);
 
-  const [manualEntry, setManualEntry] = useState(true);
+  const { get, loading } = useFetch("https://mega-millions.p.rapidapi.com");
 
   const currentUser = auth.currentUser; // Use o objeto 'auth' importado, não 'firebase.auth()'
 
@@ -64,11 +73,17 @@ const CheckNumbers = () => {
     console.log("newResults", newResults);
 
     dispatch(updateMatchingTickets({ results: newResults, megaBall }));
-  }, [ticketsFirestore, drawnNumbers, megaBall, dispatch]); // Adicionar 'dispatch' nas dependências
+  }, [
+    ticketsFirestore,
+    drawnNumbers,
+    megaBall,
+    jackPot,
+    drawingDate,
+    dispatch,
+  ]);
 
   useEffect(() => {
     if (currentUser) {
-      // Utilize as funções importadas diretamente, em vez de 'firebase.firestore()'
       const ticketsCollection = collection(db, "tickets");
       const q = query(
         ticketsCollection,
@@ -76,12 +91,9 @@ const CheckNumbers = () => {
       );
       getDocs(q).then((querySnapshot) => {
         const userTickets = querySnapshot.docs.map((doc) => doc.data());
-        // Atualize o estado ou a loja Redux aqui
-        // Por exemplo, usando o Redux:
-        // dispatch(updateTickets(userTickets));
       });
     }
-  }, [currentUser]);
+  }, [currentUser, dispatch]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -102,187 +114,117 @@ const CheckNumbers = () => {
   }, []);
 
   useEffect(() => {
-    if (drawnNumbers.length === 5) {
-      setMegaBallDialogOpen(true);
-    }
-  }, [drawnNumbers]);
+    handleCheck();
+  }, [drawnNumbers, megaBall, jackPot, drawingDate, handleCheck]);
 
   useEffect(() => {
-    handleCheck();
-  }, [drawnNumbers, megaBall, handleCheck]);
+    get("/latest")
+      .then((data) => {
+        const numbers = data.data[0].NumberSet.split(" ")
+          .slice(0, -2)
+          .map(Number);
+        const megaBallNumber = Number(
+          data.data[0].NumberSet.split(" ").slice(-2, -1)
+        );
 
-  const handleNumberSelect = (_, newNumbers) => {
-    setDrawnNumbers(newNumbers);
-    console.log(drawnNumbers, "drawnNumbers");
-  };
+        if (drawnNumbers.length === 0) {
+          setDrawnNumbers(numbers);
+          setMegaBall(megaBallNumber);
+          setDrawingDate(data.data[0].DrawingDate);
+          setJackPot(data.data[0].JackPot);
+        }
 
-  const handleMegaBallSelect = (number) => {
-    setMegaBall(number);
-    setMegaBallDialogOpen(false);
-  };
-  // const userTickets = querySnapshot.docs.map((doc) => doc.data());
-  // Atualize o estado ou a loja Redux aqui
-  // Por exemplo, usando o Redux:
-  // dispatch(updateTickets(userTickets));
+        console.log(drawnNumbers, "drawnNumbers");
+        console.log(jackPot, "jackPot");
+      })
+      .catch((error) => console.error(error));
+  });
 
-  const resetGame = () => {
-    setDrawnNumbers([]);
-    setMegaBall(null);
-  };
-
-  const addNewTicket = (ticket) => {
-    const ticketWithUser = { ...ticket, userId: currentUser.uid };
-    dispatch(addTicket(ticketWithUser));
-  };
-
-  const toggleManualEntry = () => {
-    setManualEntry(!manualEntry);
-  };
   return (
-    <Box sx={{ backgroundColor: "#5CABE5" }}>
+    <Box sx={{ backgroundColor: darkMode ? "#0A2B4C" : "#5CABE5" }}>
       <Container>
-        <Box mb={2}>
+        <Box mt={2}>
           <Box>
-            <Link
-              href="https://www.megamillions.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="hover"
-              color="#d6d3d1"
+            <Typography
+              variant="h4"
+              align="center"
+              sx={{ color: "#d6d3d1", fontWeight: 900 }}
             >
-              <Typography variant="subtitle2">Check Drawn Numbers</Typography>
-            </Link>
-          </Box>
-          <Box>
-            <Typography variant="h3" align="center" sx={{ color: "#d6d3d1" }}>
               Winning Numbers
             </Typography>
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              my={2}
-              sx={{ height: "50px" }}
-            >
-              <Typography
-                variant="h4"
-                component="h3"
-                style={{ color: "#d6d3d1", fontWeight: "bold" }}
-              >
-                {drawnNumbers && drawnNumbers.join(", ")}
+            {loading ? (
+              <Typography variant="h5" sx={{ textAlign: "center" }}>
+                Loading...
               </Typography>
-              <Typography
-                variant="h4"
-                component="h3"
-                style={{ color: "#d6d3d1", fontWeight: "bold" }}
+            ) : (
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                my={2}
               >
-                {megaBall && `(Mega Ball: ${megaBall})`}
-              </Typography>
-            </Box>
-          </Box>
-          <Button
-            variant="contained"
-            color="secondary"
-            sx={{
-              textTransform: "none",
-              color: "#d6d3d1",
-            }}
-            onClick={toggleManualEntry}
-          >
-            {manualEntry ? "Manual Entry Drawn Numbers" : "Close Manual Entry"}
-          </Button>
-        </Box>
-        <Box mb={2}>
-          {!manualEntry && (
-            <>
-              {!megaBall && (
-                <Box>
-                  <Box
+                <Box display="flex" alignItems="center" my={1}>
+                  {drawnNumbers.map((number) => (
+                    <Ball
+                      elevation={3}
+                      sx={{
+                        backgroundColor: "#f4d03f",
+                        padding: "10px",
+                        borderRadius: "50%",
+                        margin: "0 5px",
+                        width: "50px",
+                      }}
+                    >
+                      <Typography
+                        variant="h5"
+                        sx={{ color: "#000", textAlign: "center" }}
+                      >
+                        {number}
+                      </Typography>
+                    </Ball>
+                  ))}
+
+                  <Ball
+                    elevation={3}
                     sx={{
-                      mb: 1,
+                      backgroundColor: "#e76f51",
+                      padding: "10px",
+                      borderRadius: "50%",
+                      margin: "0 5px",
+                      width: "50px",
                     }}
                   >
-                    <Typography>
-                      Enter the 5 Drawn Numbers + Mega Ball
+                    <Typography
+                      variant="h5"
+                      sx={{ color: "#000", textAlign: "center" }}
+                    >
+                      {megaBall}
                     </Typography>
-                  </Box>
-                  <ToggleButtonGroup
-                    value={drawnNumbers}
-                    onChange={handleNumberSelect}
-                    multiple
-                    style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
-                  >
-                    {[...Array(70)].map((_, index) => (
-                      <ToggleButton
-                        key={index}
-                        value={index + 1}
-                        style={{
-                          color: megaBall ? "#d6d3d1" : "#22313f",
-                          backgroundColor: darkMode ? "#d6d3d1" : "#f4d03f",
-                        }}
-                        className={`lotto-ball${!darkMode ? " dark-mode" : ""}`}
-                      >
-                        {index + 1}
-                      </ToggleButton>
-                    ))}
-                  </ToggleButtonGroup>
+                  </Ball>
                 </Box>
-              )}
-              <Box my={2} display="flex" justifyContent="center">
-                <Button color="primary" variant="contained" onClick={resetGame}>
-                  {megaBall ? "New Game" : "Clear Selection"}
-                </Button>
-              </Box>
-            </>
-          )}
-          <Dialog
-            open={isMegaBallDialogOpen}
-            onClose={() => setMegaBallDialogOpen(false)}
-          >
-            <DialogTitle>Select your Mega Ball number</DialogTitle>
-            <DialogContent
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "8px",
-              }}
-            >
-              {[...Array(70)].map((_, index) => (
-                <Button
-                  key={index}
-                  onClick={() => handleMegaBallSelect(index + 1)}
-                  sx={{
-                    minWidth: "40px",
-                    color: "#ffffff",
-                    backgroundColor: "#e74c3c",
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    padding: "0",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "16px",
-                    "&:hover": {
-                      backgroundColor: "#f4d03f",
-                      color: "#22313f",
-                    },
-                  }}
+                <Typography
+                  variant="h6"
+                  component="h6"
+                  style={{ color: "#d6d3d1", fontWeight: "bold" }}
+                  my={2}
                 >
-                  {index + 1}
-                </Button>
-              ))}
-            </DialogContent>
-
-            <DialogActions>
-              <Button
-                onClick={() => setMegaBallDialogOpen(false)}
-                style={{ color: "#d6d3d1" }}
-              >
-                Cancel
-              </Button>
-            </DialogActions>
-          </Dialog>
+                  {drawingDate &&
+                    `Date: ${new Date(drawingDate).toLocaleDateString()}`}{" "}
+                  <br />
+                  {jackPot && `JackPot: ${jackPot}`}
+                </Typography>
+              </Box>
+            )}
+          </Box>
+          <Link
+            href="https://www.megamillions.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="hover"
+            color="#d6d3d1"
+          >
+            <Typography variant="subtitle2">Check Drawn Numbers</Typography>
+          </Link>
         </Box>
       </Container>
     </Box>

@@ -17,7 +17,7 @@ import { TypeAnimation } from "react-type-animation";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import myself from "../Assets/images/myself.png";
+import myself from "../Assets/images/myselfbg.jpg";
 
 const fadeIn = keyframes`
 from {
@@ -149,7 +149,7 @@ const Contact = () => {
               </Box>
             </Link>
             <Link
-              href="mailto:thiagobardini@icloud.com?subject=🤘 Hi Thiago, I'd like to hire you"
+              href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
               color="inherit"
               underline="none"
               target="_blank"

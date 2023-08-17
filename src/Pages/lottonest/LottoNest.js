@@ -31,6 +31,7 @@ const LottoNest = () => {
 
   const { uid } = useSelector(selectAuth);
   const tickets = useSelector((state) => state.tickets.tickets);
+  const storedAuth = JSON.parse(localStorage.getItem("auth"));
 
   useEffect(() => {
     if (uid) {
@@ -46,7 +47,9 @@ const LottoNest = () => {
   };
 
   const handleDeleteAllTickets = () => {
-    dispatch(deleteAllTickets());
+    if (storedAuth) {
+      dispatch(deleteAllTickets(storedAuth.uid));
+    }
   };
 
   return (

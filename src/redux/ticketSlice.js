@@ -42,7 +42,7 @@ export const fetchTickets = createAsyncThunk(
   "tickets/fetchTickets",
   async (uid) => {
     const ticketCollection = collection(db, "tickets");
-    const ticketQuery = query(ticketCollection, where("userId", "==", uid)); // Supondo que o campo que vincula o ticket ao usuário seja 'userId'
+    const ticketQuery = query(ticketCollection, where("userId", "==", uid));
     const ticketSnapshot = await getDocs(ticketQuery);
     const tickets = ticketSnapshot.docs.map((doc) => ({
       ...doc.data(),
@@ -54,25 +54,28 @@ export const fetchTickets = createAsyncThunk(
 
 export const deleteAllTickets = createAsyncThunk(
   "tickets/deleteAllTickets",
-  async (_, { dispatch, getState }) => {
+  async (uid, { dispatch, getState }) => {
     try {
+      // Define the collection and query to fetch only the tickets for the given userId
       const ticketCollection = collection(db, "tickets");
-      const ticketQuery = query(ticketCollection);
+      const ticketQuery = query(ticketCollection, where("userId", "==", uid));
+
+      // Retrieve the snapshot of the documents matching the query
       const ticketSnapshot = await getDocs(ticketQuery);
 
-      // Inicia uma transação para eliminar todos os documentos
+      // Start a transaction to delete all the fetched documents
       await runTransaction(db, async (transaction) => {
         ticketSnapshot.docs.forEach((doc) => {
           transaction.delete(doc.ref);
         });
       });
 
-      console.log("All tickets deleted"); // Adicionado para depuração
+      console.log("All tickets for user deleted"); // Added for debugging
 
       return [];
     } catch (error) {
-      console.error("Error deleting all tickets:", error);
-      throw error; // Isso permitirá que você lide com o erro na parte da sua aplicação que chamou esta ação
+      console.error("Error deleting all tickets for user:", error);
+      throw error; // This will allow you to handle the error in the part of your application that called this action
     }
   }
 );

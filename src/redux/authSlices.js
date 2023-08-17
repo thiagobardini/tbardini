@@ -16,14 +16,12 @@ export const slice = createSlice({
           JSON.stringify({
             email: payload.email || "",
             uid: payload.uid || "",
-            password: payload.password || "",
           })
         );
         return {
           ...state,
           isLogged: true,
           email: payload.email,
-          password: payload.password,
           uid: payload.uid,
         };
       }

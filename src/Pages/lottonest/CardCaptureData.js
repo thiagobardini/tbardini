@@ -4,7 +4,7 @@ import * as Tesseract from "tesseract.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
-import { Typography, Button, Box } from "@mui/material";
+import { Typography, Stack, Button, Box } from "@mui/material";
 
 const CardCaptureData = () => {
   const webcamRef = useRef(null);
@@ -81,6 +81,10 @@ const CardCaptureData = () => {
     width: window.innerWidth,
   };
 
+  const handleCapturedCleanClick = () => {
+    setIsCameraOpen([]);
+  };
+
   return (
     <>
       {isCameraOpen && (
@@ -113,11 +117,27 @@ const CardCaptureData = () => {
           </Button>
         )}
       </Box>
-      {capturedNumbers && (
+      {capturedNumbers !== [] && (
         <div>
-          <Typography variant="h6" mt={2} color="#d6d3d1">
-            Captured Numbers:
-          </Typography>
+          <Stack
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            spacing={2}
+          >
+            <Typography variant="h6" color="#d6d3d1">
+              Captured Numbers:
+            </Typography>
+            <Button
+              variant="text"
+              color="info"
+              size="small"
+              onClick={handleCapturedCleanClick}
+              sx={{ textTransform: "none" }}
+            >
+              Clean Captured
+            </Button>
+          </Stack>
           {capturedNumbers.map((ticket, index) => (
             <Typography mt={2} color="#d6d3d1" key={index}>
               Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}

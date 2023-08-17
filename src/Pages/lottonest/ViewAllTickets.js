@@ -49,34 +49,25 @@ const ViewAllTickets = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography color="#d6d3d1">View All Tickets</Typography>
+          <Typography color="#d6d3d1" variant="h6">
+            View All Tickets
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Button
             variant="outlined"
             color="info"
-            sx={{ mb: 4 }}
+            sx={{ mb: 2 }}
             onClick={handleDeleteAllTickets}
           >
             Delete All Tickets
           </Button>
           {tickets.map((ticket, index) => (
             <Box key={index}>
-              <Typography color="#d6d3d1" variant="h6">
-                Ticket {ticket.id}
+              <Typography mt={2} color="#d6d3d1" key={index}>
+                Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}
+                {ticket.megaBall}
               </Typography>
-              <Typography color="#d6d3d1" variant="body1">
-                Numbers:{" "}
-                {ticket?.numbers?.length > 0
-                  ? ticket.numbers.join(", ")
-                  : "N/A"}
-              </Typography>
-              <Typography color="#d6d3d1" variant="body1">
-                Mega Ball: {ticket.megaBall}
-              </Typography>
-              {/* <Typography variant="body1">
-                Timestamp: {ticket.timestamp.toString()}
-              </Typography> */}
             </Box>
           ))}
         </AccordionDetails>

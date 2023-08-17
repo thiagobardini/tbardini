@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTickets } from "../../redux/ticketSlice";
-import { deleteAllTickets } from "../../redux/ticketSlice";
 import { selectAuth } from "../../redux/authSlices";
 import {
   Box,
@@ -21,6 +20,7 @@ import Logout from "../../Features/auth/Logout";
 import TicketInput from "./TicketInput";
 import CardCaptureData from "./CardCaptureData";
 import MatchingTickets from "./MatchingTickets";
+import ViewAllTickets from "./ViewAllTickets";
 
 const LottoNest = () => {
   const [manualEntry, setManualEntry] = useState(true);
@@ -30,8 +30,6 @@ const LottoNest = () => {
   const dispatch = useDispatch();
 
   const { uid } = useSelector(selectAuth);
-  const tickets = useSelector((state) => state.tickets.tickets);
-  const storedAuth = JSON.parse(localStorage.getItem("auth"));
 
   useEffect(() => {
     if (uid) {
@@ -44,12 +42,6 @@ const LottoNest = () => {
 
   const toggleManualEntry = () => {
     setManualEntry(!manualEntry);
-  };
-
-  const handleDeleteAllTickets = () => {
-    if (storedAuth) {
-      dispatch(deleteAllTickets(storedAuth.uid));
-    }
   };
 
   return (
@@ -124,6 +116,7 @@ const LottoNest = () => {
                   </Button>
                 </Box>
                 {manualEntry ? <TicketInput /> : <CardCaptureData />}
+                <ViewAllTickets />
               </AccordionDetails>
             </Accordion>
           </Box>

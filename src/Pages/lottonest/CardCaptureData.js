@@ -1,7 +1,8 @@
 import React, { useRef, useCallback, useState } from "react";
 import Webcam from "react-webcam";
 import * as Tesseract from "tesseract.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
 
 const CardCaptureData = () => {
@@ -9,6 +10,8 @@ const CardCaptureData = () => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [capturedNumbers, setCapturedNumbers] = useState([]);
   const [facingMode, setFacingMode] = useState("environment");
+
+  const { uid } = useSelector(selectAuth);
 
   const dispatch = useDispatch();
 
@@ -49,6 +52,7 @@ const CardCaptureData = () => {
           numbers,
           megaBall,
           timestamp: new Date().getTime(),
+          userId: uid,
         };
         console.log(
           "TICKET - Numbers as pairs of two grouped into arrays:",

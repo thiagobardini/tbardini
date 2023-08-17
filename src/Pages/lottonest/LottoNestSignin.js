@@ -10,7 +10,6 @@ const LottoNestSignin = () => {
 
   const navigate = useNavigate();
 
-  // console.log("isLogged LottoNestSignin", isLogged);
   useEffect(() => {
     if (!isEmail) {
       navigate("/portfolio/lottonest-signin");

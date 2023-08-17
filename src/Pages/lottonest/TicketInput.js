@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Button, TextField, Container, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
 
 const TicketInput = () => {
   const [numbers, setNumbers] = useState(Array(5).fill(""));
   const [megaBall, setMegaBall] = useState("");
+
+  const { uid } = useSelector(selectAuth);
 
   const dispatch = useDispatch();
 
@@ -22,6 +25,7 @@ const TicketInput = () => {
         numbers,
         megaBall,
         timestamp: new Date(),
+        userId: uid,
       };
 
       // Add the ticket to Firestore and Redux Toolkit

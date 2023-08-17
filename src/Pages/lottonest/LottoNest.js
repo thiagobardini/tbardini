@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTickets } from "../../redux/ticketSlice";
 import { deleteAllTickets } from "../../redux/ticketSlice";
+import { selectAuth } from "../../redux/authSlices";
 import {
   Box,
   Container,
@@ -23,21 +24,22 @@ import MatchingTickets from "./MatchingTickets";
 
 const LottoNest = () => {
   const [manualEntry, setManualEntry] = useState(true);
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const isEmail = useSelector((state) => state.authUser.email);
 
   const dispatch = useDispatch();
+
+  const { uid } = useSelector(selectAuth);
   const tickets = useSelector((state) => state.tickets.tickets);
 
   useEffect(() => {
-    if (isEmail) {
-      dispatch(fetchTickets());
+    if (uid) {
+      dispatch(fetchTickets(uid));
     }
     if (!isEmail) {
       navigate("/portfolio/lottonest-signin");
     }
-  }, [isEmail, navigate, dispatch]);
+  }, [uid, isEmail, navigate, dispatch]);
 
   const toggleManualEntry = () => {
     setManualEntry(!manualEntry);

@@ -51,7 +51,7 @@ export default function SignUp() {
                   photoUrl: profilePic,
                 })
               );
-              navigate("/portfolio/lottonest-signin");
+              navigate("/portfolio/lottonest");
             })
             .catch((error) => {
               console.log("Failed to update profile");

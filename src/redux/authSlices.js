@@ -27,7 +27,7 @@ export const slice = createSlice({
           uid: payload.uid,
         };
       }
-      return state; // Retornar o estado inalterado se payload for nulo ou indefinido
+      return state;
     },
     logout(state) {
       localStorage.removeItem("auth");

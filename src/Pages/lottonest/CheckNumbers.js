@@ -190,7 +190,7 @@ const CheckNumbers = () => {
                   <Ball
                     elevation={3}
                     sx={{
-                      backgroundColor: "#e76f51",
+                      backgroundColor: "#e74c3c",
                       padding: "10px",
                       borderRadius: "50%",
                       margin: "0 5px",

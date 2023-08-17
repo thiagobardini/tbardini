@@ -55,28 +55,6 @@ const TicketInput = () => {
 
   return (
     <Container>
-      <Box
-        sx={{
-          display: "flex",
-          gap: 1,
-          justifyContent: "center",
-        }}
-      >
-        {Array.from({ length: 5 }, (_, index) => (
-          <NumberBall
-            number={numbers[index] || "?"}
-            color={numbers[index] ? "#f4d03f" : "#f4d03f"}
-            hoverable={false}
-          />
-        ))}
-        <MegaBall
-          number={megaBall || "?"}
-          selected={megaBall !== null}
-          hoverable={false}
-          color={megaBall ? "#e74c3c" : "#caf0f6"}
-        />
-      </Box>
-
       <Box sx={{ mt: 1 }}>
         <Typography color="#d6d3d1" variant="h6">
           Select your numbers:
@@ -149,15 +127,43 @@ const TicketInput = () => {
           />
         ))}
       </Box>
-      <Button
-        type="submit"
-        variant="contained"
-        color="info"
-        onClick={handleSubmit}
-        sx={{ mt: 1 }}
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          justifyContent: "center",
+          mt: 2,
+          alignContent: "center",
+          alignItems: "center",
+        }}
       >
-        Send Ticket
-      </Button>
+        {Array.from({ length: 5 }, (_, index) => (
+          <NumberBall
+            number={numbers[index] || "?"}
+            color={numbers[index] ? "#f4d03f" : "#f4d03f"}
+            hoverable={false}
+            height="40px"
+            width="40px"
+          />
+        ))}
+        <MegaBall
+          number={megaBall || "?"}
+          selected={megaBall !== null}
+          hoverable={false}
+          color={megaBall ? "#e74c3c" : "#caf0f6"}
+          height="40px"
+          width="40px"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="info"
+          onClick={handleSubmit}
+          sx={{ ml: 1 }}
+        >
+          Send Ticket
+        </Button>
+      </Box>
     </Container>
   );
 };

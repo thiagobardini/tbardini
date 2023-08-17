@@ -141,7 +141,10 @@ const CheckNumbers = () => {
   });
 
   return (
-    <Box sx={{ backgroundColor: darkMode ? "#0A2B4C" : "#5CABE5" }}>
+    <Paper
+      elevation={3}
+      sx={{ backgroundColor: darkMode ? "#0A2B4C" : "#5CABE5" }}
+    >
       <Container>
         <Box mt={2}>
           <Box>
@@ -227,7 +230,7 @@ const CheckNumbers = () => {
           </Link>
         </Box>
       </Container>
-    </Box>
+    </Paper>
   );
 };
 

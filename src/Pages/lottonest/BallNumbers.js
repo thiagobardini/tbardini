@@ -1,11 +1,16 @@
 import { Button } from "@mui/material";
 
-export const NumberBall = ({ number, color = "#e74c3c" }) => (
+export const NumberBall = ({
+  number,
+  color = "#f4d03f",
+  onClick,
+  hoverable = true,
+}) => (
   <Button
-    onClick={() => console.log(`Number ${number} clicked!`)} // Adicione sua lógica onClick aqui
+    onClick={hoverable ? onClick : null}
     sx={{
       minWidth: "40px",
-      color: "#ffffff",
+      color: "#22313f",
       backgroundColor: color,
       width: "40px",
       height: "40px",
@@ -15,6 +20,7 @@ export const NumberBall = ({ number, color = "#e74c3c" }) => (
       alignItems: "center",
       justifyContent: "center",
       fontSize: "16px",
+      cursor: hoverable ? "pointer" : "default",
       "&:hover": {
         backgroundColor: "#f4d03f",
         color: "#22313f",
@@ -25,13 +31,15 @@ export const NumberBall = ({ number, color = "#e74c3c" }) => (
   </Button>
 );
 
-export const MegaBall = ({ number, onClick }) => (
+export const MegaBall = ({ number, onClick, selected, hoverable = true }) => (
   <Button
-    onClick={onClick}
+    onClick={hoverable ? onClick : null}
     sx={{
       minWidth: "40px",
-      color: "#ffffff",
-      backgroundColor: "#f4d03f", // Coloração diferente para o Mega Ball
+      color: "#22313f",
+      color: selected ? "#eeeeee" : "#22313f",
+      backgroundColor: selected ? "#e74c3c" : "#f4a261",
+
       width: "40px",
       height: "40px",
       borderRadius: "50%",
@@ -40,9 +48,10 @@ export const MegaBall = ({ number, onClick }) => (
       alignItems: "center",
       justifyContent: "center",
       fontSize: "16px",
+      cursor: hoverable ? "pointer" : "default",
       "&:hover": {
         backgroundColor: "#e74c3c",
-        color: "#22313f",
+        color: selected ? "#eeeeee" : "#22313f",
       },
     }}
   >

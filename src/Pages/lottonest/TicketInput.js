@@ -1,26 +1,33 @@
 import React, { useState } from "react";
-import { Button, TextField, Container, Typography } from "@mui/material";
+import { Button, Container, Typography, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
+import { NumberBall, MegaBall } from "./BallNumbers";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const TicketInput = () => {
-  const [numbers, setNumbers] = useState(Array(5).fill(""));
-  const [megaBall, setMegaBall] = useState("");
+  const [numbers, setNumbers] = useState([]);
+  const [megaBall, setMegaBall] = useState(null);
 
   const { uid } = useSelector(selectAuth);
 
   const dispatch = useDispatch();
 
-  const handleNumberChange = (index, value) => {
-    const newNumbers = [...numbers];
-    newNumbers[index] = parseInt(value, 10);
-    setNumbers(newNumbers);
+  const handleNumberClick = (value) => {
+    if (numbers.length < 5 && !numbers.includes(value)) {
+      setNumbers([...numbers, value]);
+    }
+  };
+
+  const handleMegaBallClick = (value) => {
+    console.log("Mega Ball Clicked:", value);
+    setMegaBall(value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (numbers.every((num) => num) && megaBall) {
+    if (numbers.length === 5 && megaBall !== null) {
       const ticket = {
         numbers,
         megaBall,
@@ -28,44 +35,129 @@ const TicketInput = () => {
         userId: uid,
       };
 
-      // Add the ticket to Firestore and Redux Toolkit
       await dispatch(addTicket(ticket));
 
       alert("Ticket sent successfully!");
-      setNumbers(Array(5).fill(""));
-      setMegaBall("");
+      setNumbers([]);
+      setMegaBall(null);
     } else {
-      alert("Please fill in all fields.");
+      alert("Please select 5 numbers and a Mega Ball.");
     }
+  };
+
+  const clearSelectionNumbers = () => {
+    setNumbers([]);
+  };
+
+  const clearSelectionMegaBall = () => {
+    setMegaBall(null);
   };
 
   return (
     <Container>
-      <Typography variant="h6">Enter your numbers and Mega Ball:</Typography>
-      <form onSubmit={handleSubmit}>
-        {numbers.map((number, index) => (
-          <TextField
-            key={index}
-            required
-            type="number"
-            label={`Number ${index + 1}`}
-            value={number}
-            onChange={(e) =>
-              handleNumberChange(index, parseInt(e.target.value, 10))
-            }
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          justifyContent: "center",
+        }}
+      >
+        {Array.from({ length: 5 }, (_, index) => (
+          <NumberBall
+            number={numbers[index] || "?"}
+            color={numbers[index] ? "#f4d03f" : "#f4d03f"}
+            hoverable={false}
           />
         ))}
-        <TextField
-          required
-          type="number"
-          label="Mega Ball"
-          value={megaBall}
-          onChange={(e) => setMegaBall(parseInt(e.target.value, 10))}
+        <MegaBall
+          number={megaBall || "?"}
+          selected={megaBall !== null}
+          hoverable={false}
+          color={megaBall ? "#e74c3c" : "#caf0f6"}
         />
-        <Button type="submit" variant="contained" color="primary">
-          Send Ticket
-        </Button>
-      </form>
+      </Box>
+
+      <Box sx={{ mt: 1 }}>
+        <Typography color="#d6d3d1" variant="h6">
+          Select your numbers:
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 1,
+          border: "2px solid #1976d2",
+          borderRadius: "10px",
+          padding: 2,
+        }}
+      >
+        <Box
+          sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
+        >
+          <Button
+            startIcon={<ClearIcon />}
+            variant="outlined"
+            color="info"
+            size="small"
+            onClick={clearSelectionNumbers}
+          >
+            Clear Selection
+          </Button>
+        </Box>
+        {Array.from({ length: 70 }, (_, index) => (
+          <NumberBall
+            number={index + 1}
+            onClick={() => handleNumberClick(index + 1)}
+            color={numbers.includes(index + 1) ? "#f4d03f" : "#f7f7f7"}
+          />
+        ))}
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 1 }}>
+        <Typography color="#d6d3d1" variant="h6">
+          Select your Mega Ball:
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 1,
+          border: "2px solid #1976d2",
+          borderRadius: "10px",
+          padding: 2,
+        }}
+      >
+        <Box
+          sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
+        >
+          <Button
+            startIcon={<ClearIcon />}
+            variant="outlined"
+            color="info"
+            size="small"
+            onClick={clearSelectionMegaBall}
+          >
+            Clear Selection
+          </Button>
+        </Box>
+        {Array.from({ length: 70 }, (_, index) => (
+          <MegaBall
+            number={index + 1}
+            onClick={() => handleMegaBallClick(index + 1)}
+            selected={megaBall === index + 1}
+          />
+        ))}
+      </Box>
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        onClick={handleSubmit}
+        sx={{ mt: 1 }}
+      >
+        Send Ticket
+      </Button>
     </Container>
   );
 };

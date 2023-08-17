@@ -8,7 +8,7 @@ import {
   Box,
   Container,
   CssBaseline,
-  Modal,
+  Button,
   Typography,
   Accordion,
   AccordionDetails,
@@ -108,11 +108,18 @@ const LottoNest = () => {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <button onClick={toggleManualEntry}>
-                  {manualEntry
-                    ? "Switch to Camera Capture"
-                    : "Switch to Manual Entry"}
-                </button>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    variant="outlined"
+                    color="info"
+                    sx={{ mb: 4 }}
+                    onClick={toggleManualEntry}
+                  >
+                    {manualEntry
+                      ? "Switch to Camera Capture"
+                      : "Switch to Manual Entry"}
+                  </Button>
+                </Box>
                 {manualEntry ? <TicketInput /> : <CardCaptureData />}
               </AccordionDetails>
             </Accordion>

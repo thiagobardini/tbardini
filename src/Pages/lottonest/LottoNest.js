@@ -97,7 +97,7 @@ const LottoNest = () => {
         <Box my={2}>
           {/* ENTER YOUR TICKETS NUMBERS */}
           <Box mb={2}>
-            <Accordion>
+            <Accordion sx={{ background: "#424242" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -110,7 +110,7 @@ const LottoNest = () => {
               <AccordionDetails>
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <Button
-                    variant="outlined"
+                    variant="contained"
                     color="info"
                     sx={{ mb: 4 }}
                     onClick={toggleManualEntry}
@@ -126,7 +126,7 @@ const LottoNest = () => {
           </Box>
           <Box mb={2}>
             {/* VIEW ALL TICKETS */}
-            <Accordion color="#d6d3d1">
+            <Accordion color="#d6d3d1" sx={{ background: "#424242" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -135,9 +135,14 @@ const LottoNest = () => {
                 <Typography color="#d6d3d1">VIEW ALL TICKETS</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <button onClick={handleDeleteAllTickets}>
+                <Button
+                  variant="outlined"
+                  color="info"
+                  sx={{ mb: 4 }}
+                  onClick={handleDeleteAllTickets}
+                >
                   Delete All Tickets
-                </button>
+                </Button>
                 {tickets.map((ticket, index) => (
                   <Box key={index}>
                     <Typography color="#d6d3d1" variant="h6">

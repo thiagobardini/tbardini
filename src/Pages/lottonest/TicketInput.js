@@ -152,7 +152,7 @@ const TicketInput = () => {
       <Button
         type="submit"
         variant="contained"
-        color="primary"
+        color="info"
         onClick={handleSubmit}
         sx={{ mt: 1 }}
       >

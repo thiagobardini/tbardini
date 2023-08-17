@@ -21,7 +21,7 @@ const MatchingTickets = () => {
   console.log(results, "results in matching tickets");
   return (
     <Box mb={2} color="#d6d3d1">
-      <Accordion>
+      <Accordion sx={{ background: "#424242" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

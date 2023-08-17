@@ -4,6 +4,7 @@ import * as Tesseract from "tesseract.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
+import { Typography, Button, Box } from "@mui/material";
 
 const CardCaptureData = () => {
   const webcamRef = useRef(null);
@@ -89,19 +90,39 @@ const CardCaptureData = () => {
           style={{ width: "100%" }}
         />
       )}
-      <button onClick={capture}>Capture Numbers</button>
-      <button onClick={toggleCamera}>
-        {isCameraOpen ? "Close Camera" : "Open Camera"}
-      </button>
-      {isCameraOpen && <button onClick={flipCamera}>Flip Camera</button>}
+      <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <Button variant="outlined" color="info" sx={{ m: 1 }} onClick={capture}>
+          Capture Numbers
+        </Button>
+        <Button
+          variant="outlined"
+          color="info"
+          sx={{ m: 1 }}
+          onClick={toggleCamera}
+        >
+          {isCameraOpen ? "Close Camera" : "Open Camera"}
+        </Button>
+        {isCameraOpen && (
+          <Button
+            variant="outlined"
+            color="info"
+            sx={{ m: 1 }}
+            onClick={flipCamera}
+          >
+            Flip Camera
+          </Button>
+        )}
+      </Box>
       {capturedNumbers && (
         <div>
-          <h3>Captured Numbers:</h3>
+          <Typography variant="h6" mt={2} color="#d6d3d1">
+            Captured Numbers:
+          </Typography>
           {capturedNumbers.map((ticket, index) => (
-            <p key={index}>
+            <Typography mt={2} color="#d6d3d1" key={index}>
               Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}
               {ticket.megaBall}
-            </p>
+            </Typography>
           ))}
         </div>
       )}

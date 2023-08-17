@@ -110,7 +110,7 @@ const LottoNest = () => {
                   ENTER YOUR TICKETS NUMBERS
                 </Typography>
               </AccordionSummary>
-              <AccordionDetails>
+              <AccordionDetails sx={{ px: 1 }}>
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <Button
                     variant="contained"

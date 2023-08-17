@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Button, Container, Typography, Box } from "@mui/material";
+import {
+  Button,
+  Container,
+  Typography,
+  Box,
+  Grid,
+  CssBaseline,
+  Stack,
+} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
@@ -41,7 +49,7 @@ const TicketInput = () => {
       setNumbers([]);
       setMegaBall(null);
     } else {
-      alert("Please select 5 numbers and a Mega Ball.");
+      alert("Please select 5 numbers and 1 Mega Ball.");
     }
   };
 
@@ -54,79 +62,107 @@ const TicketInput = () => {
   };
 
   return (
-    <Container>
-      <Box sx={{ mt: 1 }}>
-        <Typography color="#d6d3d1" variant="h6">
-          Select your numbers:
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 1,
-          border: "2px solid #1976d2",
-          borderRadius: "10px",
-          padding: 2,
-        }}
+    <Box>
+      <CssBaseline />
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="flex-start"
+        spacing={2}
       >
-        <Box
-          sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
-        >
-          <Button
-            startIcon={<ClearIcon />}
-            variant="outlined"
-            color="info"
-            size="small"
-            onClick={clearSelectionNumbers}
+        <Grid item>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="flex-end"
+            spacing={2}
           >
-            Clear Selection
-          </Button>
-        </Box>
-        {Array.from({ length: 70 }, (_, index) => (
-          <NumberBall
-            number={index + 1}
-            onClick={() => handleNumberClick(index + 1)}
-            color={numbers.includes(index + 1) ? "#f4d03f" : "#f7f7f7"}
-          />
-        ))}
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 1 }}>
-        <Typography color="#d6d3d1" variant="h6">
-          Select your Mega Ball:
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 1,
-          border: "2px solid #1976d2",
-          borderRadius: "10px",
-          padding: 2,
-        }}
-      >
-        <Box
-          sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
-        >
-          <Button
-            startIcon={<ClearIcon />}
-            variant="outlined"
-            color="info"
-            size="small"
-            onClick={clearSelectionMegaBall}
+            <Box>
+              <Typography color="#d6d3d1" variant="h6">
+                Numbers
+              </Typography>
+              <Typography variant="subtitle2" color="#d6d3d1">
+                Selected 5 numbers
+              </Typography>
+            </Box>
+            <Button
+              variant="text"
+              color="info"
+              size="small"
+              onClick={clearSelectionNumbers}
+              sx={{ textTransform: "none" }}
+            >
+              Clear Board
+            </Button>
+          </Stack>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              border: "2px solid #1976d2",
+              borderRadius: "10px",
+              padding: 1,
+              maxWidth: "420px",
+              justifyContent: "center",
+            }}
           >
-            Clear Selection
-          </Button>
-        </Box>
-        {Array.from({ length: 70 }, (_, index) => (
-          <MegaBall
-            number={index + 1}
-            onClick={() => handleMegaBallClick(index + 1)}
-            selected={megaBall === index + 1}
-          />
-        ))}
-      </Box>
+            {Array.from({ length: 70 }, (_, index) => (
+              <NumberBall
+                number={index + 1}
+                onClick={() => handleNumberClick(index + 1)}
+                color={numbers.includes(index + 1) ? "#f4d03f" : "#f7f7f7"}
+                disabled={numbers.length >= 5 && !numbers.includes(index + 1)}
+              />
+            ))}
+          </Box>
+        </Grid>
+        <Grid item>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="flex-end"
+            spacing={2}
+          >
+            <Box>
+              <Typography color="#d6d3d1" variant="h6">
+                Mega Ball
+              </Typography>
+              <Typography variant="subtitle2" color="#d6d3d1">
+                Selected 1 mega ball
+              </Typography>
+            </Box>
+            <Button
+              variant="text"
+              color="info"
+              size="small"
+              onClick={clearSelectionMegaBall}
+              sx={{ textTransform: "none" }}
+            >
+              Clear Board
+            </Button>
+          </Stack>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              border: "2px solid #1976d2",
+              borderRadius: "10px",
+              padding: 1,
+              maxWidth: "420px",
+              justifyContent: "center",
+            }}
+          >
+            {Array.from({ length: 70 }, (_, index) => (
+              <MegaBall
+                number={index + 1}
+                onClick={() => handleMegaBallClick(index + 1)}
+                selected={megaBall === index + 1}
+              />
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
       <Box
         sx={{
           display: "flex",
@@ -159,12 +195,12 @@ const TicketInput = () => {
           variant="contained"
           color="info"
           onClick={handleSubmit}
-          sx={{ ml: 1 }}
+          sx={{ ml: 1, textTransform: "none" }}
         >
-          Send Ticket
+          Send
         </Button>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

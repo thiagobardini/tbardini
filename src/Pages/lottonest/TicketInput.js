@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
 import { NumberBall, MegaBall } from "./BallNumbers";
-import ClearIcon from "@mui/icons-material/Clear";
+import ViewAllTickets from "./ViewAllTickets";
 
 const TicketInput = () => {
   const [numbers, setNumbers] = useState([]);
@@ -200,6 +200,7 @@ const TicketInput = () => {
           Send
         </Button>
       </Box>
+      <ViewAllTickets />
     </Box>
   );
 };

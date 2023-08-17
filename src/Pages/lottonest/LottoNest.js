@@ -127,47 +127,6 @@ const LottoNest = () => {
               </AccordionDetails>
             </Accordion>
           </Box>
-          <Box mb={2}>
-            {/* VIEW ALL TICKETS */}
-            <Accordion color="#d6d3d1" sx={{ background: "#424242" }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography color="#d6d3d1">VIEW ALL TICKETS</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Button
-                  variant="outlined"
-                  color="info"
-                  sx={{ mb: 4 }}
-                  onClick={handleDeleteAllTickets}
-                >
-                  Delete All Tickets
-                </Button>
-                {tickets.map((ticket, index) => (
-                  <Box key={index}>
-                    <Typography color="#d6d3d1" variant="h6">
-                      Ticket {ticket.id}
-                    </Typography>
-                    <Typography color="#d6d3d1" variant="body1">
-                      Numbers:{" "}
-                      {ticket?.numbers?.length > 0
-                        ? ticket.numbers.join(", ")
-                        : "N/A"}
-                    </Typography>
-                    <Typography color="#d6d3d1" variant="body1">
-                      Mega Ball: {ticket.megaBall}
-                    </Typography>
-                    {/* <Typography variant="body1">
-                Timestamp: {ticket.timestamp.toString()}
-              </Typography> */}
-                  </Box>
-                ))}
-              </AccordionDetails>
-            </Accordion>
-          </Box>
           <MatchingTickets />
         </Box>
       </Container>

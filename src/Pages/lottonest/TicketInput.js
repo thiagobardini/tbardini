@@ -64,9 +64,9 @@ const TicketInput = () => {
       <CssBaseline />
       <Grid
         container
-        direction="row"
+        direction="column"
         justifyContent="center"
-        alignItems="flex-start"
+        alignItems="center"
         spacing={2}
       >
         <Grid item>
@@ -151,7 +151,7 @@ const TicketInput = () => {
               justifyContent: "center",
             }}
           >
-            {Array.from({ length: 70 }, (_, index) => (
+            {Array.from({ length: 25 }, (_, index) => (
               <MegaBall
                 number={index + 1}
                 onClick={() => handleMegaBallClick(index + 1)}

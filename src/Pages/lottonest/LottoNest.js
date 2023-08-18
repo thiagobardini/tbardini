@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTickets } from "../../redux/ticketSlice";
+import { fetchTickets, isTickets } from "../../redux/ticketSlice";
 import { selectAuth } from "../../redux/authSlices";
+import { selectResults } from "../../redux/matchingTicketsSlice";
 import {
   Box,
   Container,
@@ -23,13 +24,15 @@ import MatchingTickets from "./MatchingTickets";
 import ViewAllTickets from "./ViewAllTickets";
 
 const LottoNest = () => {
-  const [manualEntry, setManualEntry] = useState(true);
   const [showComponent, setShowComponent] = useState(null);
   const [accordionExpanded, setAccordionExpanded] = useState(false);
 
   const navigate = useNavigate();
   const isEmail = useSelector((state) => state.authUser.email);
+  const isTicket = useSelector(isTickets);
+  const results = useSelector(selectResults);
 
+  console.log(isTicket, "isTicket");
   const dispatch = useDispatch();
 
   const { uid } = useSelector(selectAuth);
@@ -140,8 +143,8 @@ const LottoNest = () => {
               </AccordionDetails>
             </Accordion>
           </Box>
-          <ViewAllTickets />
-          <MatchingTickets />
+          {isTicket.length > 0 && <ViewAllTickets />}
+          {results.length > 0 && <MatchingTickets />}
         </Box>
       </Container>
     </Box>

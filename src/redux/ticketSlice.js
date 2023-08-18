@@ -198,4 +198,6 @@ export const ticketSlice = createSlice({
   },
 });
 
+export const isTickets = (state) => state.tickets.tickets;
+
 export default ticketSlice.reducer;

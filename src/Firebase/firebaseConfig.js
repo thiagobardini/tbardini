@@ -16,6 +16,7 @@ import {
   getDoc,
   updateDoc,
   setDoc,
+  writeBatch,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -67,6 +68,7 @@ export {
   getDoc,
   updateDoc,
   setDoc,
+  writeBatch,
   createUserWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,

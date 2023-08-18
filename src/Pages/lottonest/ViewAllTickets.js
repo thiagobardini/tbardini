@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTickets } from "../../redux/ticketSlice";
-import { deleteAllTickets } from "../../redux/ticketSlice";
+import {
+  fetchTickets,
+  deleteTicketById,
+  deleteAllTickets,
+} from "../../redux/ticketSlice";
 import { selectAuth } from "../../redux/authSlices";
 import {
   Box,
@@ -15,7 +18,6 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const ViewAllTickets = () => {
-  const [manualEntry, setManualEntry] = useState(true);
   const navigate = useNavigate();
   const isEmail = useSelector((state) => state.authUser.email);
 
@@ -38,6 +40,10 @@ const ViewAllTickets = () => {
     if (storedAuth) {
       dispatch(deleteAllTickets(storedAuth.uid));
     }
+  };
+
+  const handleDeleteTicket = (ticketId) => {
+    dispatch(deleteTicketById(ticketId));
   };
 
   return (
@@ -64,10 +70,17 @@ const ViewAllTickets = () => {
           </Button>
           {tickets.map((ticket, index) => (
             <Box key={index}>
-              <Typography mt={2} color="#d6d3d1" key={index}>
-                {ticket.ticketId} - Numbers: {ticket.numbers.join(", ")} - Mega
-                Ball: {ticket.megaBall}
+              <Typography mt={2} color="#d6d3d1">
+                {index + 1} - Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}
+                {ticket.megaBall}
               </Typography>
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={() => handleDeleteTicket(ticket.ticketId)}
+              >
+                Delete Ticket
+              </Button>
             </Box>
           ))}
         </AccordionDetails>

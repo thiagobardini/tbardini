@@ -9,6 +9,8 @@ import {
   query,
   getDocs,
   where,
+  deleteDoc,
+  writeBatch,
 } from "../Firebase/firebaseConfig";
 
 // Async thunk for adding a ticket
@@ -99,7 +101,78 @@ export const deleteAllTickets = createAsyncThunk(
   }
 );
 
-// ... other async thunks for update, delete, etc.
+// export const deleteTicketById = createAsyncThunk(
+//   "tickets/deleteTicketById",
+//   async (ticketId, thunkAPI) => {
+//     try {
+//       const uid = thunkAPI.getState().authUser.uid; // Obtain the user ID
+//       const ticketCollection = collection(db, "tickets");
+//       const ticketQuery = query(
+//         ticketCollection,
+//         where("ticketId", "==", ticketId),
+//         where("userId", "==", uid)
+//       );
+//       const ticketSnapshot = await getDocs(ticketQuery);
+//       console.log(thunkAPI, "thunkAPI");
+//       if (ticketSnapshot.empty) {
+//         throw new Error("No matching ticket found");
+//       }
+
+//       // There should only be one matching ticket, so we take the first one
+//       const ticketRef = ticketSnapshot.docs[0].ref;
+//       await deleteDoc(ticketRef);
+//       return ticketId;
+//     } catch (error) {
+//       console.error("Error deleting ticket:", error);
+//       throw error;
+//     }
+//   }
+// );
+
+export const deleteTicketById = createAsyncThunk(
+  "tickets/deleteTicketById",
+  async (ticketId, thunkAPI) => {
+    try {
+      const uid = thunkAPI.getState().authUser.uid;
+      const ticketCollection = collection(db, "tickets");
+      const ticketQuery = query(
+        ticketCollection,
+        where("ticketId", "==", ticketId),
+        where("userId", "==", uid)
+      );
+      const ticketSnapshot = await getDocs(ticketQuery);
+
+      if (ticketSnapshot.empty) {
+        throw new Error("No matching ticket found");
+      }
+
+      const ticketRef = ticketSnapshot.docs[0].ref;
+      await deleteDoc(ticketRef);
+
+      // Update the ticketIds of the subsequent tickets
+      const subsequentTicketQuery = query(
+        ticketCollection,
+        where("ticketId", ">", ticketId),
+        where("userId", "==", uid)
+      );
+      const subsequentTicketSnapshot = await getDocs(subsequentTicketQuery);
+
+      const batch = writeBatch(db);
+      subsequentTicketSnapshot.docs.forEach((doc) => {
+        const updatedTicketId = doc.data().ticketId - 1;
+        batch.update(doc.ref, { ticketId: updatedTicketId });
+      });
+
+      await batch.commit();
+
+      return ticketId;
+    } catch (error) {
+      console.error("Error deleting ticket:", error);
+      throw error;
+    }
+  }
+);
+
 export const ticketSlice = createSlice({
   name: "tickets",
   initialState: {
@@ -143,9 +216,14 @@ export const ticketSlice = createSlice({
       console.log(
         "deleteAllTickets rejected with error:",
         action.error.message
-      ); // Adicionado para depuração
+      );
       state.status = "failed";
       state.error = action.error.message;
+    });
+    builder.addCase(deleteTicketById.fulfilled, (state, action) => {
+      state.tickets = state.tickets.filter(
+        (ticket) => ticket.ticketId !== action.payload
+      );
     });
   },
 });

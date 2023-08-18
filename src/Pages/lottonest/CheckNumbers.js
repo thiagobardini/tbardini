@@ -61,7 +61,7 @@ const CheckNumbers = () => {
 
         const hasMegaBallMatch = megaBall === ticket.megaBall;
         return {
-          ticketId: ticket.id,
+          ticketId: ticket.ticketId,
           matchingNumbers: matches,
           count: matches.length,
           megaBallMatch: hasMegaBallMatch,

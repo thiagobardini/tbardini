@@ -4,13 +4,34 @@ import * as Tesseract from "tesseract.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
-import { Typography, Stack, Button, Box, Divider } from "@mui/material";
+import { Typography, Stack, Button, Box, Divider, Paper } from "@mui/material";
 import { Edit, Cancel, Update, Delete, DeleteSweep } from "@mui/icons-material";
 import SendIcon from "@mui/icons-material/Send";
-import IconButton from "@mui/material/IconButton";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import FlipCameraAndroidIcon from "@mui/icons-material/FlipCameraAndroid";
 import VideocamOffIcon from "@mui/icons-material/VideocamOff";
+import { styled, keyframes } from "@mui/system";
+
+const dropAndBounceAnimation = keyframes`
+  0% {
+    transform: translateY(-100px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+const Ball = styled(Paper)`
+  // padding: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  width: 30px;
+  background-color: ${(props) => props.bgColor || "#f4d03f"};
+  animation: ${dropAndBounceAnimation} 0.5s ease;
+`;
 
 const CardCaptureData = () => {
   const webcamRef = useRef(null);
@@ -178,137 +199,162 @@ const CardCaptureData = () => {
           </Button>
         )}
       </Box>
-      {capturedNumbers.length > 0 && (
-        <Box>
-          <Divider sx={{ mb: 2 }} />
-          <Typography variant="h6">Captured Numbers</Typography>
-          {capturedNumbers.map((ticket, index) => (
-            <div key={index}>
-              <Stack
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="flex-end"
-                spacing={2}
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+        mt={2}
+      >
+        {capturedNumbers.length > 0 && (
+          <Box>
+            <Divider sx={{ mb: 2 }} />
+            <Typography variant="h6" mb={2}>
+              Captured Numbers
+            </Typography>
+            {capturedNumbers.map((ticket, index) => (
+              <div key={index}>
+                <Stack
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="flex-end"
+                >
+                  {ticket.numbers.map((number) => (
+                    <Ball elevation={3} sx={{ backgroundColor: "#f4d03f" }}>
+                      <Typography
+                        variant="h6"
+                        sx={{ color: "#000", textAlign: "center" }}
+                      >
+                        {number}
+                      </Typography>
+                    </Ball>
+                  ))}
+                  <Ball elevation={3} sx={{ backgroundColor: "#e74c3c" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "#000", textAlign: "center" }}
+                    >
+                      {ticket.megaBall}
+                    </Typography>
+                  </Ball>
+
+                  <Stack direction="row" justifyContent="flex-start">
+                    <Button
+                      variant="text"
+                      color="info"
+                      size="small"
+                      onClick={() => handleDeleteTicket(index)}
+                    >
+                      <Delete />
+                    </Button>
+                    <Button
+                      variant="text"
+                      color="info"
+                      size="small"
+                      onClick={() => handleEditTicket(index)}
+                    >
+                      <Edit />
+                    </Button>
+                  </Stack>
+                </Stack>
+                {editingTicket && editingTicket.index === index && (
+                  <Box mb={2}>
+                    <Typography color="#d6d3d1" mt={1}>
+                      Editing Numbers:
+                    </Typography>
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      {editingTicket.ticket.numbers.map((number, numIndex) => (
+                        <input
+                          key={numIndex}
+                          type="number"
+                          value={number}
+                          min="1"
+                          max="70"
+                          onChange={(e) =>
+                            setEditingTicket({
+                              ...editingTicket,
+                              ticket: {
+                                ...editingTicket.ticket,
+                                numbers: editingTicket.ticket.numbers.map(
+                                  (n, i) =>
+                                    i === numIndex ? Number(e.target.value) : n
+                                ),
+                              },
+                            })
+                          }
+                          style={{ width: "40px" }}
+                        />
+                      ))}
+                      <Box sx={{ mx: 2 }}>
+                        <input
+                          type="number"
+                          value={editingTicket.ticket.megaBall}
+                          min="1"
+                          max="25"
+                          onChange={(e) =>
+                            setEditingTicket({
+                              ...editingTicket,
+                              ticket: {
+                                ...editingTicket.ticket,
+                                megaBall: Number(e.target.value),
+                              },
+                            })
+                          }
+                          style={{ width: "40px" }}
+                        />
+                      </Box>
+                      <Button
+                        variant="text"
+                        color="info"
+                        size="small"
+                        onClick={handleUpdateTicket}
+                      >
+                        <Update fontSize="small" />
+                      </Button>
+                      <Button
+                        variant="text"
+                        color="info"
+                        size="small"
+                        onClick={() => setEditingTicket(null)}
+                      >
+                        <Cancel fontSize="small" />
+                      </Button>
+                    </div>
+                  </Box>
+                )}
+              </div>
+            ))}
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="flex-end"
+              spacing={2}
+              mt={2}
+            >
+              <Button
+                variant="contained"
+                color="info"
+                size="small"
+                onClick={handleDeleteAllTickets}
+                sx={{ textTransform: "none" }}
               >
-                <Typography mt={1} color="#d6d3d1">
-                  Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}
-                  {ticket.megaBall}
-                </Typography>
-                <Button
-                  variant="outlined"
-                  color="info"
-                  size="small"
-                  onClick={() => handleDeleteTicket(index)}
-                >
-                  <Delete fontSize="small" />
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="info"
-                  size="small"
-                  onClick={() => handleEditTicket(index)}
-                >
-                  <Edit fontSize="small" />
-                </Button>
-              </Stack>
-              {editingTicket && editingTicket.index === index && (
-                <div>
-                  <Typography mt={2} color="#d6d3d1">
-                    Editing Numbers:
-                  </Typography>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    {editingTicket.ticket.numbers.map((number, numIndex) => (
-                      <input
-                        key={numIndex}
-                        type="number"
-                        value={number}
-                        min="1"
-                        max="70"
-                        onChange={(e) =>
-                          setEditingTicket({
-                            ...editingTicket,
-                            ticket: {
-                              ...editingTicket.ticket,
-                              numbers: editingTicket.ticket.numbers.map(
-                                (n, i) =>
-                                  i === numIndex ? Number(e.target.value) : n
-                              ),
-                            },
-                          })
-                        }
-                        style={{ width: "40px" }}
-                      />
-                    ))}
-                    <Box sx={{ mx: 2 }}>
-                      <input
-                        type="number"
-                        value={editingTicket.ticket.megaBall}
-                        min="1"
-                        max="25"
-                        onChange={(e) =>
-                          setEditingTicket({
-                            ...editingTicket,
-                            ticket: {
-                              ...editingTicket.ticket,
-                              megaBall: Number(e.target.value),
-                            },
-                          })
-                        }
-                        style={{ width: "40px" }}
-                      />
-                    </Box>
-                    <Button
-                      variant="outlined"
-                      color="info"
-                      size="small"
-                      onClick={handleUpdateTicket}
-                    >
-                      <Update fontSize="small" />
-                    </Button>
-                    <Button
-                      variant="outlined"
-                      color="info"
-                      size="small"
-                      onClick={() => setEditingTicket(null)}
-                    >
-                      <Cancel fontSize="small" />
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-          <Stack
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="flex-end"
-            spacing={2}
-          >
-            <Button
-              variant="contained"
-              color="info"
-              size="small"
-              onClick={handleDeleteAllTickets}
-              sx={{ mt: 2 }}
-            >
-              <DeleteSweep fontSize="small" />
-              <Typography sx={{ ml: 1, textTransform: "none" }}>
-                {" "}
+                <DeleteSweep fontSize="small" />
                 Clean All Captured
-              </Typography>
-            </Button>
-            <Button
-              variant="contained"
-              color="info"
-              size="small"
-              onClick={handleSendAllTickets}
-              startIcon={<SendIcon />}
-            >
-              Send All Captured
-            </Button>
-          </Stack>
-        </Box>
-      )}
+              </Button>
+              <Button
+                variant="contained"
+                color="info"
+                size="small"
+                onClick={handleSendAllTickets}
+                startIcon={<SendIcon />}
+                sx={{ textTransform: "none" }}
+              >
+                Send All Captured
+              </Button>
+            </Stack>
+          </Box>
+        )}
+      </Stack>
     </>
   );
 };

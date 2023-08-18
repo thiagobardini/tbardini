@@ -143,8 +143,8 @@ const LottoNest = () => {
               </AccordionDetails>
             </Accordion>
           </Box>
-          {isTicket.length > 0 && <ViewAllTickets />}
           {results.length > 0 && <MatchingTickets />}
+          {isTicket.length > 0 && <ViewAllTickets />}
         </Box>
       </Container>
     </Box>

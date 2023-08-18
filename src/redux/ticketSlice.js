@@ -12,11 +12,15 @@ import {
 } from "../Firebase/firebaseConfig";
 
 // Async thunk for adding a ticket
+
 export const addTicket = createAsyncThunk(
   "tickets/addTicket",
   async (ticket) => {
+    const uid = ticket.userId; // Obtenha o UID do ticket
+
     const sequentialNumber = await runTransaction(db, async (transaction) => {
-      const seqNumberDocRef = doc(db, "tickets", "sequentialNumber");
+      // Use o UID como parte da referência do documento
+      const seqNumberDocRef = doc(db, "tickets", `sequentialNumber-${uid}`);
       const seqNumberDoc = await transaction.get(seqNumberDocRef);
 
       // Se o documento não existir, criá-lo com o próximo valor 1
@@ -30,10 +34,13 @@ export const addTicket = createAsyncThunk(
       return nextSequentialNumber;
     });
 
-    console.log("Ticket received:", ticket); // Verifique o que está chegando
-    const ticketWithSequentialId = { ...ticket, id: sequentialNumber };
+    console.log("Ticket received:", ticket);
+    const ticketWithSequentialId = {
+      ...ticket,
+      id: sequentialNumber,
+    };
+    console.log("Ticket returned:", ticketWithSequentialId);
     await addDoc(collection(db, "tickets"), ticketWithSequentialId);
-    console.log("Ticket returned:", ticketWithSequentialId); // Verifique o que está sendo retornado
     return ticketWithSequentialId;
   }
 );

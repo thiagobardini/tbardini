@@ -13,8 +13,6 @@ import {
   writeBatch,
 } from "../Firebase/firebaseConfig";
 
-// Async thunk for adding a ticket
-
 export const addTicket = createAsyncThunk(
   "tickets/addTicket",
   async (ticket) => {
@@ -100,34 +98,6 @@ export const deleteAllTickets = createAsyncThunk(
     }
   }
 );
-
-// export const deleteTicketById = createAsyncThunk(
-//   "tickets/deleteTicketById",
-//   async (ticketId, thunkAPI) => {
-//     try {
-//       const uid = thunkAPI.getState().authUser.uid; // Obtain the user ID
-//       const ticketCollection = collection(db, "tickets");
-//       const ticketQuery = query(
-//         ticketCollection,
-//         where("ticketId", "==", ticketId),
-//         where("userId", "==", uid)
-//       );
-//       const ticketSnapshot = await getDocs(ticketQuery);
-//       console.log(thunkAPI, "thunkAPI");
-//       if (ticketSnapshot.empty) {
-//         throw new Error("No matching ticket found");
-//       }
-
-//       // There should only be one matching ticket, so we take the first one
-//       const ticketRef = ticketSnapshot.docs[0].ref;
-//       await deleteDoc(ticketRef);
-//       return ticketId;
-//     } catch (error) {
-//       console.error("Error deleting ticket:", error);
-//       throw error;
-//     }
-//   }
-// );
 
 export const deleteTicketById = createAsyncThunk(
   "tickets/deleteTicketById",

@@ -20,12 +20,16 @@ export const addTicket = createAsyncThunk(
 
     const sequentialNumber = await runTransaction(db, async (transaction) => {
       // Use o UID como parte da referência do documento
-      const seqNumberDocRef = doc(db, "tickets", `sequentialNumber-${uid}`);
+      const seqNumberDocRef = doc(
+        db,
+        "tickets",
+        `ticketSequentialNumber-${uid}`
+      );
       const seqNumberDoc = await transaction.get(seqNumberDocRef);
 
       // Se o documento não existir, criá-lo com o próximo valor 1
       if (!seqNumberDoc.exists()) {
-        await setDoc(seqNumberDocRef, { next: 1 });
+        await setDoc(seqNumberDocRef, { next: 1, uid: uid });
         return 1;
       }
 
@@ -37,7 +41,7 @@ export const addTicket = createAsyncThunk(
     console.log("Ticket received:", ticket);
     const ticketWithSequentialId = {
       ...ticket,
-      id: sequentialNumber,
+      ticketId: sequentialNumber,
     };
     console.log("Ticket returned:", ticketWithSequentialId);
     await addDoc(collection(db, "tickets"), ticketWithSequentialId);
@@ -53,15 +57,15 @@ export const fetchTickets = createAsyncThunk(
     const ticketSnapshot = await getDocs(ticketQuery);
     const tickets = ticketSnapshot.docs.map((doc) => ({
       ...doc.data(),
-      id: doc.data().id,
+      ticketId: doc.data().ticketId,
     }));
-    return tickets;
+    return tickets.sort((a, b) => a.ticketId - b.ticketId);
   }
 );
 
 export const deleteAllTickets = createAsyncThunk(
   "tickets/deleteAllTickets",
-  async (uid, { dispatch, getState }) => {
+  async (uid) => {
     try {
       // Define the collection and query to fetch only the tickets for the given userId
       const ticketCollection = collection(db, "tickets");
@@ -75,9 +79,17 @@ export const deleteAllTickets = createAsyncThunk(
         ticketSnapshot.docs.forEach((doc) => {
           transaction.delete(doc.ref);
         });
+
+        // Reset the sequential number for the UID
+        const seqNumberDocRef = doc(
+          db,
+          "tickets",
+          `ticketSequentialNumber-${uid}`
+        );
+        transaction.set(seqNumberDocRef, { next: 1, uid: uid });
       });
 
-      console.log("All tickets for user deleted"); // Added for debugging
+      console.log("All tickets for user deleted and sequential number reset"); // Added for debugging
 
       return [];
     } catch (error) {

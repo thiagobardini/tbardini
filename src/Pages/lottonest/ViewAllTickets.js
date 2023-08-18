@@ -65,8 +65,8 @@ const ViewAllTickets = () => {
           {tickets.map((ticket, index) => (
             <Box key={index}>
               <Typography mt={2} color="#d6d3d1" key={index}>
-                Numbers: {ticket.numbers.join(", ")} - Mega Ball:{" "}
-                {ticket.megaBall}
+                {ticket.ticketId} - Numbers: {ticket.numbers.join(", ")} - Mega
+                Ball: {ticket.megaBall}
               </Typography>
             </Box>
           ))}

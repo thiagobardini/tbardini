@@ -69,19 +69,24 @@ const LottoNest = () => {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
-          margin: "0 auto",
           pt: 1,
+          position: "absolute",
+          top: "155px",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
         }}
       >
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: { xs: "flex-end", sm: "space-between" },
             alignItems: "center",
             width: "100%",
           }}
         >
-          <DonateButton />
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <DonateButton />
+          </Box>
 
           <Box sx={{ mt: 1.5 }}>
             <Logout text="logout" to="/portfolio/lottonest-signin" />
@@ -160,6 +165,16 @@ const LottoNest = () => {
           </Box>
           {results.length > 0 && <MatchingTickets />}
           {isTicket.length > 0 && <ViewAllTickets />}
+        </Box>
+        <Box
+          sx={{
+            display: { xs: "flex", sm: "none" },
+            justifyContent: "center",
+            width: "100%",
+            mt: 6,
+          }}
+        >
+          <DonateButton />
         </Box>
       </Container>
     </Box>

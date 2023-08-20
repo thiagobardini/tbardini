@@ -20,6 +20,7 @@ function DonateButton() {
         size="large"
         target="_blank"
         sx={{
+          paddingLeft: "0",
           fontFamily: "'Cookie', cursive",
           textDecoration: "none",
           display: "inline-flex",
@@ -35,7 +36,6 @@ function DonateButton() {
             boxShadow: "none",
             border: "none",
             verticalAlign: "middle",
-            // backgroundColor: "#F7F7F7",
             backgroundColor: darkMode ? "#6f7364" : "#F7F7F7",
             borderRadius: "10px",
             padding: "10px",

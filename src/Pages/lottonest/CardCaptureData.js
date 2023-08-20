@@ -21,6 +21,8 @@ import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import FlipCameraAndroidIcon from "@mui/icons-material/FlipCameraAndroid";
 import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import { styled, keyframes } from "@mui/system";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const dropAndBounceAnimation = keyframes`
   0% {
@@ -191,6 +193,32 @@ const CardCaptureData = () => {
       },
     });
   };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setShowMegaBallAlert(false);
+    setShowNumberAlert(false);
+    setShowAlert(false);
+  };
+
+  const action = (
+    <>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </>
+  );
   return (
     <>
       {isCameraOpen && (
@@ -401,8 +429,9 @@ const CardCaptureData = () => {
         <Snackbar
           open={showNumberAlert}
           autoHideDuration={3000}
-          onClose={() => setShowMegaBallAlert(false)}
+          onClose={() => setShowNumberAlert(false)}
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          action={action}
         >
           <Alert severity="error">
             The number must be less than or equal to 70!
@@ -416,6 +445,7 @@ const CardCaptureData = () => {
           autoHideDuration={3000}
           onClose={() => setShowMegaBallAlert(false)}
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          action={action}
         >
           <Alert severity="error">
             The Mega Ball must be less than or equal to 25!
@@ -429,6 +459,7 @@ const CardCaptureData = () => {
           onClose={() => setShowAlert(false)}
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           severity="error"
+          action={action}
         >
           <Alert severity="error">All numbers must be filled in!</Alert>
         </Snackbar>

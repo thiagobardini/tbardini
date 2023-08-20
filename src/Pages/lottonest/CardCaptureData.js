@@ -270,6 +270,7 @@ const CardCaptureData = () => {
                           value={number}
                           min="1"
                           max="70"
+                          required
                           onInput={(e) => {
                             const value =
                               e.target.value === ""
@@ -294,6 +295,7 @@ const CardCaptureData = () => {
                           value={editingTicket.ticket.megaBall}
                           min="1"
                           max="25"
+                          required
                           onInput={(e) => {
                             const value =
                               e.target.value === ""

@@ -133,9 +133,6 @@ const CheckNumbers = () => {
           setDrawingDate(data.data[0].DrawingDate);
           setJackPot(data.data[0].JackPot);
         }
-
-        console.log(drawnNumbers, "drawnNumbers");
-        console.log(jackPot, "jackPot");
       })
       .catch((error) => console.error(error));
   });

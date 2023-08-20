@@ -4,7 +4,17 @@ import * as Tesseract from "tesseract.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlices";
 import { addTicket } from "../../redux/ticketSlice";
-import { Typography, Stack, Button, Box, Divider, Paper } from "@mui/material";
+import {
+  Typography,
+  Stack,
+  Button,
+  Box,
+  Divider,
+  Paper,
+  Snackbar,
+  Alert,
+  AlertTitle,
+} from "@mui/material";
 import { Edit, Cancel, Update, Delete, DeleteSweep } from "@mui/icons-material";
 import SendIcon from "@mui/icons-material/Send";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
@@ -40,6 +50,9 @@ const CardCaptureData = () => {
   const [facingMode, setFacingMode] = useState("environment");
   const [sendTickets, setSendTickets] = useState(false);
   const [editingTicket, setEditingTicket] = useState(null);
+  const [showNumberAlert, setShowNumberAlert] = useState(false);
+  const [showMegaBallAlert, setShowMegaBallAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const { uid } = useSelector(selectAuth);
 
@@ -111,6 +124,16 @@ const CardCaptureData = () => {
   };
 
   const handleUpdateTicket = () => {
+    setShowAlert(true);
+    if (
+      editingTicket.ticket.numbers.some(
+        (number) => number === "" || number === 0
+      ) ||
+      editingTicket.ticket.megaBall === "" ||
+      editingTicket.ticket.megaBall === 0
+    ) {
+      return;
+    }
     const updatedTickets = [...capturedNumbers];
     updatedTickets[editingTicket.index] = editingTicket.ticket;
     setCapturedNumbers(updatedTickets);
@@ -135,6 +158,39 @@ const CardCaptureData = () => {
     handleDeleteAllTickets();
   };
 
+  const handleNumberInput = (value, numIndex) => {
+    const number = value === "" ? "" : Number(value);
+    if (number > 70) {
+      setShowNumberAlert(true);
+      return;
+    }
+    setShowNumberAlert(false);
+    setEditingTicket({
+      ...editingTicket,
+      ticket: {
+        ...editingTicket.ticket,
+        numbers: editingTicket.ticket.numbers.map((n, i) =>
+          i === numIndex ? number : n
+        ),
+      },
+    });
+  };
+
+  const handleMegaBallInput = (value) => {
+    const number = value === "" ? "" : Number(value);
+    if (number > 25) {
+      setShowMegaBallAlert(true);
+      return;
+    }
+    setShowMegaBallAlert(false);
+    setEditingTicket({
+      ...editingTicket,
+      ticket: {
+        ...editingTicket.ticket,
+        megaBall: number,
+      },
+    });
+  };
   return (
     <>
       {isCameraOpen && (
@@ -271,21 +327,9 @@ const CardCaptureData = () => {
                           min="1"
                           max="70"
                           required
-                          onInput={(e) => {
-                            const value =
-                              e.target.value === ""
-                                ? ""
-                                : Number(e.target.value);
-                            setEditingTicket({
-                              ...editingTicket,
-                              ticket: {
-                                ...editingTicket.ticket,
-                                numbers: editingTicket.ticket.numbers.map(
-                                  (n, i) => (i === numIndex ? value : n)
-                                ),
-                              },
-                            });
-                          }}
+                          onInput={(e) =>
+                            handleNumberInput(e.target.value, numIndex)
+                          }
                           style={{ width: "40px" }}
                         />
                       ))}
@@ -296,19 +340,7 @@ const CardCaptureData = () => {
                           min="1"
                           max="25"
                           required
-                          onInput={(e) => {
-                            const value =
-                              e.target.value === ""
-                                ? ""
-                                : Number(e.target.value);
-                            setEditingTicket({
-                              ...editingTicket,
-                              ticket: {
-                                ...editingTicket.ticket,
-                                megaBall: value,
-                              },
-                            });
-                          }}
+                          onInput={(e) => handleMegaBallInput(e.target.value)}
                           style={{ width: "40px" }}
                         />
                       </Box>
@@ -364,6 +396,43 @@ const CardCaptureData = () => {
           </Box>
         )}
       </Stack>
+
+      {showNumberAlert && (
+        <Snackbar
+          open={showNumberAlert}
+          autoHideDuration={3000}
+          onClose={() => setShowMegaBallAlert(false)}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        >
+          <Alert severity="error">
+            The number must be less than or equal to 70!
+          </Alert>
+        </Snackbar>
+      )}
+
+      {showMegaBallAlert && (
+        <Snackbar
+          open={showMegaBallAlert}
+          autoHideDuration={3000}
+          onClose={() => setShowMegaBallAlert(false)}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        >
+          <Alert severity="error">
+            The Mega Ball must be less than or equal to 25!
+          </Alert>
+        </Snackbar>
+      )}
+      {showAlert && (
+        <Snackbar
+          open={showAlert}
+          autoHideDuration={3000}
+          onClose={() => setShowAlert(false)}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          severity="error"
+        >
+          <Alert severity="error">All numbers must be filled in!</Alert>
+        </Snackbar>
+      )}
     </>
   );
 };

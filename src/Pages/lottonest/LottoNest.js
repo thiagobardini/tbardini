@@ -22,6 +22,7 @@ import TicketInput from "./TicketInput";
 import CardCaptureData from "./CardCaptureData";
 import MatchingTickets from "./MatchingTickets";
 import ViewAllTickets from "./ViewAllTickets";
+import DonateButton from "../../Components/DonateButton";
 
 const LottoNest = () => {
   const [showComponent, setShowComponent] = useState(null);
@@ -32,7 +33,6 @@ const LottoNest = () => {
   const isTicket = useSelector(isTickets);
   const results = useSelector(selectResults);
 
-  console.log(isTicket, "isTicket");
   const dispatch = useDispatch();
 
   const { uid } = useSelector(selectAuth);
@@ -49,7 +49,7 @@ const LottoNest = () => {
   const handleAccordionChange = (event, newExpanded) => {
     setAccordionExpanded(newExpanded);
     if (!newExpanded) {
-      setShowComponent(null); // Reseta o estado quando o Accordion é fechado
+      setShowComponent(null);
     }
   };
 
@@ -66,12 +66,27 @@ const LottoNest = () => {
       <Container
         sx={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          margin: "0 auto",
           pt: 1,
-          position: "absolute",
         }}
       >
-        <Logout text="logout" to="/portfolio/lottonest-signin" />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <DonateButton />
+
+          <Box sx={{ mt: 1.5 }}>
+            <Logout text="logout" to="/portfolio/lottonest-signin" />
+          </Box>
+        </Box>
       </Container>
       <Box
         sx={{

@@ -49,7 +49,6 @@ export const MegaBall = ({
   <Button
     onClick={hoverable ? onClick : null}
     sx={{
-      color: "#22313f",
       color: selected ? "#eeeeee" : "#22313f",
       backgroundColor: selected ? "#e74c3c" : "#f4a261",
       width: width,

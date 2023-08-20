@@ -106,7 +106,9 @@ const ViewAllTickets = () => {
 
             <Divider sx={{ my: 2 }} />
 
-            <Typography variant="h6">Tickets</Typography>
+            <Typography variant="h6" color="#d6d3d1">
+              Tickets
+            </Typography>
             {tickets.map((ticket, index) => (
               <Box key={index}>
                 <Typography mt={1} color="#d6d3d1">

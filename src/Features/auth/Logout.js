@@ -23,7 +23,7 @@ const Logout = ({ text, to }) => {
 
   return (
     <Button
-      variant="contained"
+      variant="outlined"
       color="info"
       component={Link}
       to={to}

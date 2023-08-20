@@ -209,7 +209,7 @@ const CardCaptureData = () => {
         {capturedNumbers.length > 0 && (
           <Box>
             <Divider sx={{ mb: 2 }} />
-            <Typography variant="h6" mb={2}>
+            <Typography variant="h6" color="#d6d3d1" mb={2}>
               Captured Numbers
             </Typography>
             {capturedNumbers.map((ticket, index) => (
@@ -266,40 +266,47 @@ const CardCaptureData = () => {
                       {editingTicket.ticket.numbers.map((number, numIndex) => (
                         <input
                           key={numIndex}
-                          type="number"
+                          type="tel"
                           value={number}
                           min="1"
                           max="70"
-                          onChange={(e) =>
+                          onInput={(e) => {
+                            const value =
+                              e.target.value === ""
+                                ? ""
+                                : Number(e.target.value);
                             setEditingTicket({
                               ...editingTicket,
                               ticket: {
                                 ...editingTicket.ticket,
                                 numbers: editingTicket.ticket.numbers.map(
-                                  (n, i) =>
-                                    i === numIndex ? Number(e.target.value) : n
+                                  (n, i) => (i === numIndex ? value : n)
                                 ),
                               },
-                            })
-                          }
+                            });
+                          }}
                           style={{ width: "40px" }}
                         />
                       ))}
                       <Box sx={{ mx: 2 }}>
                         <input
-                          type="number"
+                          type="tel"
                           value={editingTicket.ticket.megaBall}
                           min="1"
                           max="25"
-                          onChange={(e) =>
+                          onInput={(e) => {
+                            const value =
+                              e.target.value === ""
+                                ? ""
+                                : Number(e.target.value);
                             setEditingTicket({
                               ...editingTicket,
                               ticket: {
                                 ...editingTicket.ticket,
-                                megaBall: Number(e.target.value),
+                                megaBall: value,
                               },
-                            })
-                          }
+                            });
+                          }}
                           style={{ width: "40px" }}
                         />
                       </Box>

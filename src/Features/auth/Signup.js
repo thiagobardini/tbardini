@@ -10,6 +10,7 @@ import {
   Typography,
   Container,
   CssBaseline,
+  Paper,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
@@ -81,96 +82,103 @@ export default function SignUp() {
       }}
     >
       <CssBaseline />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          maxWidth: "500px",
-          mminWidth: "250px",
-        }}
-      >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                color="info"
-                autoComplete="given-name"
-                name="Name"
-                required
-                fullWidth
-                id="Name"
-                label="Name"
-                autoFocus
-                onChange={(e) => setName(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                color="info"
-                fullWidth
-                id="profilePic"
-                label="Profile picture URL (optional)"
-                name="profilePic"
-                autoComplete="url"
-                onChange={(e) => setProfilePic(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                color="info"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                color="info"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="new-password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            color="info"
+      <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            maxWidth: "500px",
+            mminWidth: "250px",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
           >
-            Sign Up
-          </Button>
-          <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Typography
-                component={Link}
-                to="/portfolio/lottonest-signin"
-                variant="body2"
-                color="secondary.main"
-              >
-                Already have an account? Sign in
-              </Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  color="info"
+                  autoComplete="given-name"
+                  name="Name"
+                  required
+                  fullWidth
+                  id="Name"
+                  label="Name"
+                  autoFocus
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  color="info"
+                  fullWidth
+                  id="profilePic"
+                  label="Profile picture URL (optional)"
+                  name="profilePic"
+                  autoComplete="url"
+                  onChange={(e) => setProfilePic(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  color="info"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  color="info"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Grid>
             </Grid>
-          </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              color="info"
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Typography
+                  component={Link}
+                  to="/portfolio/lottonest-signin"
+                  variant="body2"
+                  color="secondary.main"
+                >
+                  Already have an account? Sign in
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
-      </Box>
+      </Paper>
     </Container>
   );
 }

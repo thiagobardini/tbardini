@@ -139,11 +139,11 @@ const CheckNumbers = () => {
 
   return (
     <Paper
-      elevation={3}
-      sx={{ backgroundColor: darkMode ? "#0A2B4C" : "#5CABE5" }}
+      elevation={7}
+      sx={{ backgroundColor: darkMode ? "#0A2B4C" : "#5CABE5", pt: 3 }}
     >
       <Container>
-        <Box mt={2}>
+        <Box>
           <Box>
             <Typography
               variant="h4"

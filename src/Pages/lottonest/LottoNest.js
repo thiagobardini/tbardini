@@ -13,6 +13,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Paper,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckNumbers from "./CheckNumbers";
@@ -55,7 +56,6 @@ const LottoNest = () => {
 
   return (
     <Box
-      mb={6}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -114,68 +114,69 @@ const LottoNest = () => {
         />
       </Box>
 
-      <CheckNumbers />
       <Container>
         <CssBaseline />
-
-        <Box my={2}>
-          {/* ENTER YOUR TICKETS NUMBERS */}
-          <Box mb={2}>
-            <Accordion
-              sx={{ background: "#424242" }}
-              onChange={handleAccordionChange}
-              expanded={accordionExpanded}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+          <CheckNumbers />
+          <Box my={2}>
+            {/* ENTER YOUR TICKETS NUMBERS */}
+            <Box mb={2}>
+              <Accordion
+                sx={{ background: "#424242" }}
+                onChange={handleAccordionChange}
+                expanded={accordionExpanded}
               >
-                <Typography color="#d6d3d1" variant="h6">
-                  Enter Your Tickets
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ px: 1 }}>
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  {showComponent !== "manualEntry" && (
-                    <Button
-                      variant="contained"
-                      color="info"
-                      sx={{ mb: 4, textTransform: "none" }}
-                      onClick={() => setShowComponent("manualEntry")}
-                    >
-                      Manual Entry
-                    </Button>
-                  )}
-                  {showComponent !== "cameraCapture" && (
-                    <Button
-                      variant="contained"
-                      color="info"
-                      sx={{ mb: 4, ml: 2, textTransform: "none" }}
-                      onClick={() => setShowComponent("cameraCapture")}
-                    >
-                      Camera Capture
-                    </Button>
-                  )}
-                </Box>
-                {showComponent === "manualEntry" && <TicketInput />}
-                {showComponent === "cameraCapture" && <CardCaptureData />}
-              </AccordionDetails>
-            </Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography color="#d6d3d1" variant="h6">
+                    Enter Your Tickets
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ px: 1 }}>
+                  <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    {showComponent !== "manualEntry" && (
+                      <Button
+                        variant="contained"
+                        color="info"
+                        sx={{ mb: 4, textTransform: "none" }}
+                        onClick={() => setShowComponent("manualEntry")}
+                      >
+                        Manual Entry
+                      </Button>
+                    )}
+                    {showComponent !== "cameraCapture" && (
+                      <Button
+                        variant="contained"
+                        color="info"
+                        sx={{ mb: 4, ml: 2, textTransform: "none" }}
+                        onClick={() => setShowComponent("cameraCapture")}
+                      >
+                        Camera Capture
+                      </Button>
+                    )}
+                  </Box>
+                  {showComponent === "manualEntry" && <TicketInput />}
+                  {showComponent === "cameraCapture" && <CardCaptureData />}
+                </AccordionDetails>
+              </Accordion>
+            </Box>
+            {results.length > 0 && <MatchingTickets />}
+            {isTicket.length > 0 && <ViewAllTickets />}
           </Box>
-          {results.length > 0 && <MatchingTickets />}
-          {isTicket.length > 0 && <ViewAllTickets />}
-        </Box>
-        <Box
-          sx={{
-            display: { xs: "flex", sm: "none" },
-            justifyContent: "center",
-            width: "100%",
-            mt: 6,
-          }}
-        >
-          <DonateButton />
-        </Box>
+          <Box
+            sx={{
+              display: { xs: "flex", sm: "none" },
+              justifyContent: "center",
+              width: "100%",
+              mt: 6,
+            }}
+          >
+            <DonateButton />
+          </Box>
+        </Paper>
       </Container>
     </Box>
   );

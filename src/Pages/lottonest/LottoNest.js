@@ -116,7 +116,10 @@ const LottoNest = () => {
 
       <Container>
         <CssBaseline />
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+        <Paper
+          elevation={3}
+          sx={{ py: 5, p: { xs: 1, sm: 3 }, borderRadius: 3, mb: 5 }}
+        >
           <CheckNumbers />
           <Box my={2}>
             {/* ENTER YOUR TICKETS NUMBERS */}

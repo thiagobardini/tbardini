@@ -142,7 +142,7 @@ const AboutMe = () => {
             }}
           >
             <Typography variant="h5" sx={{ fontWeight: 700 }}>
-              About Me
+              About me
             </Typography>
           </Box>
           <Typography variant="body1" sx={{ mb: 2, animation: `${fadeIn} 2s` }}>
@@ -166,7 +166,7 @@ const AboutMe = () => {
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <Typography variant="h5" sx={{ fontWeight: 700 }}>
-              What do I Do?
+              What do I do?
             </Typography>
           </Box>
           <Typography variant="body1" sx={{ mb: 3, animation: `${fadeIn} 2s` }}>

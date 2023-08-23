@@ -72,7 +72,6 @@ const Contact = () => {
   }));
   return (
     <Box
-      mb={6}
       sx={{
         display: "flex",
         flexDirection: "column",

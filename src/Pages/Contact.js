@@ -85,7 +85,7 @@ const Contact = () => {
       </Box>
 
       <Container>
-        <Paper elevation={3} sx={{ p: 5, borderRadius: 3, mb: 5 }}>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
           <CssBaseline />
           <Stack
             direction="row"
@@ -106,7 +106,7 @@ const Contact = () => {
               />
             </StyledBadge>
           </Stack>
-          <Box sx={{ p: 3, textAlign: "center" }}>
+          <Box sx={{ py: 3, textAlign: "center" }}>
             <Typography
               variant="h5"
               gutterBottom

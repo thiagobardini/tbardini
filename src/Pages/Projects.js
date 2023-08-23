@@ -83,7 +83,7 @@ const Projects = () => {
     >
       <HeadingTop text={textTitle} />
       <Container>
-        <Paper elevation={3} sx={{ p: 5, borderRadius: 3, mb: 5 }}>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
           <CssBaseline />
           <Typography
             color="text.primary"

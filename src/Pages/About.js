@@ -54,7 +54,7 @@ const AboutMe = () => {
       <HeadingTop text={textTitle} />
       <Container>
         <CssBaseline />
-        <Paper elevation={3} sx={{ p: 5, borderRadius: 3, mb: 5 }}>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
           <Grid
             container
             spacing={3}

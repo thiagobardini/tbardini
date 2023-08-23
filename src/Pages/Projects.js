@@ -84,9 +84,10 @@ const Projects = () => {
           <CssBaseline />
           <Typography
             color="text.primary"
-            my={2}
+            mb={2}
             textAlign="center"
             variant="h6"
+            sx={{ fontWeight: 700 }}
           >
             Check out my latest web software development portfolio projects.
           </Typography>

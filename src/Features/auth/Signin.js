@@ -70,9 +70,7 @@ export default function SignIn() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "calc(100vh - 209px)",
         flexGrow: 1,
-        my: 4,
       }}
     >
       <CssBaseline />
@@ -83,7 +81,6 @@ export default function SignIn() {
           alignItems: "center",
           maxWidth: "500px",
           mminWidth: "250px",
-          backgroundColor: (theme) => theme.palette.background.default,
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>

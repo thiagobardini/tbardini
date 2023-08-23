@@ -12,7 +12,6 @@ import Signup from "./Features/auth/Signup";
 import RouterPlanner from "./Pages/projects/RouterPlanner/RouterPlanner";
 import RouterPlannerReadme from "./Pages/projects/RouterPlanner/RouterPlannerReadme";
 import Contact from "./Pages/Contact";
-import Resume from "./Pages/Resume";
 import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
@@ -67,7 +66,6 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route index element={<Home />} />
-          <Route path="/resume" element={<Resume />} />
           <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Projects />} />

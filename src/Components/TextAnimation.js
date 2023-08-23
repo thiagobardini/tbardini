@@ -9,24 +9,22 @@ function TextAnimation() {
   const typeAnimationStyle = useMemo(
     () => ({
       display: "inline-block",
-      fontSize: { xs: "1.1rem", xxs: "1.3rem" },
-      fontWeight: 800,
+      fontWeight: 900,
       color: darkMode ? "rgb(214, 211, 209)" : "#222831",
       textShadow: darkMode
         ? "none"
-        : "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
+        : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
     }),
     [darkMode]
   );
 
   return (
-    <Typography>
+    <Typography variant="h6">
       <Box
         component="span"
         sx={{
           display: "inline-block",
           fontWeight: 600,
-          fontSize: { xs: "1.1rem", xxs: "1.3rem" },
         }}
       >
         {"<"}
@@ -46,11 +44,12 @@ function TextAnimation() {
         component="span"
         sx={{
           display: "inline-block",
-          fontSize: { xs: "1.1rem", xxs: "1.3rem" },
-          color: darkMode ? "rgb(168, 162, 158)" : "#222831",
+
+          color: (theme) => theme.palette.text.secondary,
           textShadow: darkMode
             ? "none"
-            : "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff",
+            : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+
           mr: "0.5rem",
         }}
       >
@@ -60,7 +59,6 @@ function TextAnimation() {
         <TypeAnimation
           sequence={["web applications", 1000, "automation tools", 1000]}
           speed={50}
-          // style={typeAnimationStyle}
           repeat={Infinity}
         />
       </Box>
@@ -69,7 +67,6 @@ function TextAnimation() {
         sx={{
           display: "inline-block",
           fontWeight: 600,
-          fontSize: { xs: "1.1rem", xxs: "1.3rem" },
         }}
       >
         {"</"}

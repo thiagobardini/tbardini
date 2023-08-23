@@ -108,10 +108,10 @@ const Contact = () => {
           </Stack>
           <Box sx={{ p: 3, textAlign: "center" }}>
             <Typography
-              variant="h6"
+              variant="h5"
               gutterBottom
               sx={{
-                color: (theme) => theme.palette.text.primary,
+                color: (theme) => theme.palette.text.secondary,
               }}
             >
               Looking forward to connecting and collaborating with you. Feel
@@ -135,7 +135,13 @@ const Contact = () => {
                 underline="none"
                 target="_blank"
               >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                  }}
+                >
                   <PhoneIcon />
                   <Typography
                     variant="h6"
@@ -143,6 +149,7 @@ const Contact = () => {
                     sx={{
                       color: (theme) => theme.palette.text.primary,
                       animation: `${fadeIn} 2s`,
+                      fontWeight: 700,
                     }}
                   >
                     978-648-7075
@@ -163,6 +170,7 @@ const Contact = () => {
                     sx={{
                       color: (theme) => theme.palette.text.primary,
                       animation: `${fadeIn} 2s`,
+                      fontWeight: 700,
                     }}
                   >
                     thiagobardini@icloud.com
@@ -183,6 +191,7 @@ const Contact = () => {
                     sx={{
                       color: (theme) => theme.palette.text.primary,
                       animation: `${fadeIn} 2s`,
+                      fontWeight: 700,
                     }}
                   >
                     thiagobardini

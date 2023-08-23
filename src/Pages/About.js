@@ -87,44 +87,83 @@ const AboutMe = () => {
               <List>
                 <ListItem disableGutters>
                   <ListItemIcon sx={{ minWidth: "40px" }}>
-                    <Typography color="inherit">
+                    <Typography
+                      sx={{ color: (theme) => theme.palette.text.secondary }}
+                    >
                       <LocationOnIcon />
                     </Typography>
                   </ListItemIcon>
                   <Typography
                     variant="body1"
-                    sx={{ color: (theme) => theme.palette.text.primary }}
+                    sx={{
+                      color: (theme) => theme.palette.text.primary,
+                      fontWeight: 700,
+                    }}
                   >
-                    <span style={{ fontWeight: 700 }}>Address:</span> Greater
-                    Boston, MA
+                    <Typography
+                      variant="span"
+                      sx={{
+                        fontWeight: 500,
+                        color: (theme) => theme.palette.text.secondary,
+                      }}
+                    >
+                      Address:
+                    </Typography>{" "}
+                    Greater Boston, MA
                   </Typography>
                 </ListItem>
                 <ListItem disableGutters>
                   <ListItemIcon sx={{ minWidth: "40px" }}>
-                    <Typography color="inherit">
+                    <Typography
+                      sx={{ color: (theme) => theme.palette.text.secondary }}
+                    >
                       <FlagIcon />
                     </Typography>
                   </ListItemIcon>
                   <Typography
                     variant="body1"
-                    sx={{ color: (theme) => theme.palette.text.primary }}
+                    sx={{
+                      color: (theme) => theme.palette.text.primary,
+                      fontWeight: 700,
+                    }}
                   >
-                    <span style={{ fontWeight: 700 }}>Nationalities:</span>{" "}
+                    <Typography
+                      variant="span"
+                      sx={{
+                        fontWeight: 500,
+                        color: (theme) => theme.palette.text.secondary,
+                      }}
+                    >
+                      Nationalities:
+                    </Typography>{" "}
                     American, Brazilian
                   </Typography>
                 </ListItem>
                 <ListItem disableGutters>
                   <ListItemIcon sx={{ minWidth: "40px" }}>
-                    <Typography color="inherit">
+                    <Typography
+                      sx={{ color: (theme) => theme.palette.text.secondary }}
+                    >
                       <LanguageIcon />
                     </Typography>
                   </ListItemIcon>
                   <Typography
                     variant="body1"
-                    sx={{ color: (theme) => theme.palette.text.primary }}
+                    sx={{
+                      color: (theme) => theme.palette.text.primary,
+                      fontWeight: 700,
+                    }}
                   >
-                    <span style={{ fontWeight: 700 }}>Languages:</span> English,
-                    Portuguese
+                    <Typography
+                      variant="span"
+                      sx={{
+                        fontWeight: 500,
+                        color: (theme) => theme.palette.text.secondary,
+                      }}
+                    >
+                      Languages:
+                    </Typography>{" "}
+                    English, Portuguese
                   </Typography>
                 </ListItem>
               </List>
@@ -138,14 +177,26 @@ const AboutMe = () => {
               display: "flex",
               alignItems: "center",
               mb: 1,
-              color: (theme) => theme.palette.text.primary,
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: 700 }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: 700,
+                color: (theme) => theme.palette.text.primary,
+              }}
+            >
               About me
             </Typography>
           </Box>
-          <Typography variant="body1" sx={{ mb: 2, animation: `${fadeIn} 2s` }}>
+          <Typography
+            variant="body1"
+            sx={{
+              mb: 2,
+              animation: `${fadeIn} 2s`,
+              color: (theme) => theme.palette.text.secondary,
+            }}
+          >
             I am a detail-oriented software engineer specialized in JavaScript,
             React, Redux, and modern CSS libraries. Currently employed at
             TransPerfect as a QA Engineer Automation, I also collaborate as a
@@ -155,25 +206,47 @@ const AboutMe = () => {
             traveling, and surfing.
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <Typography variant="h5" sx={{ fontWeight: 700 }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: 700,
+                color: (theme) => theme.palette.text.primary,
+              }}
+            >
               Objective
             </Typography>
           </Box>
-          <Typography variant="body1" sx={{ mb: 2, animation: `${fadeIn} 2s` }}>
+          <Typography
+            variant="body1"
+            sx={{
+              mb: 2,
+              animation: `${fadeIn} 2s`,
+              color: (theme) => theme.palette.text.secondary,
+            }}
+          >
             Looking to connect and collaborate with a company where I can grow
             personally and professionally. I want to be a part of a community
             that values integrity, intelligence, and creativity.
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <Typography variant="h5" sx={{ fontWeight: 700 }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: 700,
+                color: (theme) => theme.palette.text.primary,
+              }}
+            >
               What do I do?
             </Typography>
           </Box>
-          <Typography variant="body1" sx={{ mb: 3, animation: `${fadeIn} 2s` }}>
-            {/* As a professional working in both frontend development and QA
-            automation, I have a unique combination of skills that contribute to
-            creating modern responsive websites and automation tests. Recently,
-            I have been interested in Mobile Applications using React Native. */}
+          <Typography
+            variant="body1"
+            sx={{
+              mb: 3,
+              animation: `${fadeIn} 2s`,
+              color: (theme) => theme.palette.text.secondary,
+            }}
+          >
             I have substantial experience in customizing or creating modern
             responsive websites with creative design involving latest
             frameworks. I enjoy working as a Front End/Full Stack Developer.

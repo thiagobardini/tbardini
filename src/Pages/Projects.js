@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   Box,
   Container,
@@ -16,6 +17,8 @@ import { keyframes } from "@emotion/react";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleKeywordChange = (keyword) => {
     setSelectedKeyword(keyword);
@@ -86,10 +89,10 @@ const Projects = () => {
             color="text.primary"
             mb={2}
             textAlign="center"
-            variant="h6"
+            variant="h5"
             sx={{ fontWeight: 700 }}
           >
-            Check out my latest web software development portfolio projects.
+            Explore my latest software development projects.
           </Typography>
           <Grid container justifyContent="center" alignItems="center" xs={12}>
             <Grid
@@ -110,7 +113,12 @@ const Projects = () => {
                 onClick={() => handleKeywordChange("show all")}
                 size="small"
               >
-                show all
+                <Typography
+                  sx={{ color: darkMode ? "#d6d3d1" : "" }}
+                  variant="subtitle2"
+                >
+                  show all
+                </Typography>
               </Button>
               {getAllKeywords()
                 .sort((a, b) => a.localeCompare(b))
@@ -130,17 +138,24 @@ const Projects = () => {
                     }}
                     size="small"
                   >
-                    {keyword}
+                    <Typography
+                      sx={{ color: darkMode ? "#d6d3d1" : "" }}
+                      variant="subtitle2"
+                    >
+                      {" "}
+                      {keyword}
+                    </Typography>
                   </Button>
                 ))}
             </Grid>
             <Grid item xs={12}>
               <Typography
-                variant="subtitle1"
+                variant="subtitle2"
                 gutterBottom
                 textAlign="center"
                 sx={{
-                  color: "rgb(138, 138, 138)",
+                  mt: 1,
+                  color: (theme) => theme.palette.text.primary,
                 }}
               >
                 {selectedKeyword === "show all" ? (

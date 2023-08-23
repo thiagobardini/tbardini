@@ -8,6 +8,7 @@ import {
   Typography,
   Chip,
   Button,
+  useTheme,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import { red, amber, green } from "@mui/material/colors";
@@ -111,6 +112,7 @@ const CardsPortfolio = ({
     window.scrollTo(0, 0);
   }, []);
 
+  const theme = useTheme();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleMouseEnter = () => {
@@ -192,9 +194,15 @@ const CardsPortfolio = ({
               component={Link}
               to={readme}
               variant="outlined"
-              color={darkMode ? "primary" : "secondary"}
               onClick={() => window.scrollTo(0, 0)}
-              sx={{ textTransform: "lowercase" }}
+              sx={{
+                textTransform: "lowercase",
+                color: theme.palette.primary.main,
+                backgroundColor: "#eeeeee",
+                "&:hover": {
+                  backgroundColor: "#d6d3d1",
+                },
+              }}
             >
               Readme
             </Button>
@@ -205,11 +213,17 @@ const CardsPortfolio = ({
               component={Link}
               to={github}
               variant="outlined"
-              color={darkMode ? "primary" : "secondary"}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => window.scrollTo(0, 0)}
-              sx={{ textTransform: "lowercase" }}
+              sx={{
+                textTransform: "lowercase",
+                color: theme.palette.primary.main,
+                backgroundColor: "#eeeeee",
+                "&:hover": {
+                  backgroundColor: "#d6d3d1",
+                },
+              }}
             >
               Github
             </Button>

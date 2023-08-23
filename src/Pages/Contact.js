@@ -108,7 +108,7 @@ const Contact = () => {
           </Stack>
           <Box sx={{ py: 3, textAlign: "center" }}>
             <Typography
-              variant="h5"
+              variant="h6"
               gutterBottom
               sx={{
                 color: (theme) => theme.palette.text.secondary,
@@ -119,7 +119,7 @@ const Contact = () => {
             </Typography>
 
             <Divider
-              sx={{ width: { xs: "100%", md: "50%" }, my: 6, mx: "auto" }}
+              sx={{ width: { xs: "100%", md: "70%" }, my: 6, mx: "auto" }}
             />
             <Box
               sx={{

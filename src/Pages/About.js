@@ -58,14 +58,21 @@ const AboutMe = () => {
           <Grid
             container
             spacing={3}
-            alignItems="center"
             direction={{ xs: "column", sm: "row" }}
-            justifyContent="center"
             sx={{ animation: `${fadeIn} 2s` }}
           >
-            <Grid item xs={12} sm={5} md={7}>
+            <Grid
+              item
+              xs={12}
+              sm={2}
+              // md={2}
+              direction="row"
+              alignItems="center"
+              justifyContent={{ xs: "center", md: "flex-start" }}
+              sx={{ width: "100%", display: "flex" }}
+            >
               <Avatar
-                alt="Your Name"
+                alt="Thiago Bardini"
                 src={myself}
                 sx={{
                   width: { xs: 150, sm: 200, md: 200 },
@@ -73,11 +80,11 @@ const AboutMe = () => {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={7} md={5}>
+            <Grid item xs={12} sm={8}>
               <Typography
                 variant="h4"
                 sx={{
-                  mb: 2,
+                  mb: 1,
                   fontWeight: 800,
                   color: (theme) => theme.palette.text.primary,
                 }}
@@ -170,7 +177,7 @@ const AboutMe = () => {
             </Grid>
           </Grid>
           <Divider
-            sx={{ width: { xs: "100%", md: "50%" }, my: 3, mx: "auto" }}
+            sx={{ width: { xs: "100%", md: "70%" }, my: 3, mx: "auto" }}
           />
           <Box
             sx={{

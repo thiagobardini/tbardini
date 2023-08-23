@@ -126,7 +126,6 @@ const CardsPortfolio = ({
   const StyledDescription = styled(Typography)({
     flexGrow: 1,
     textAlign: "center",
-    color: darkMode ? "d6d3d1" : "#424242",
   });
 
   const StyledCard = styled(Card)(({ theme }) => ({
@@ -171,7 +170,12 @@ const CardsPortfolio = ({
                 }}
               />
             </Box>
-            <StyledDescription sx={{ textDecoration: "none" }}>
+            <StyledDescription
+              sx={{
+                textDecoration: "none",
+                color: (theme) => theme.palette.text.secondary,
+              }}
+            >
               <span className="blue">{description}</span>
             </StyledDescription>
           </StyledCardContent>

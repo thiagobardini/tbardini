@@ -12,12 +12,12 @@ import LogoAnimation from "../Components/LogoAnimation";
 
 const pages = [
   {
-    text: "portfolio",
-    to: "/portfolio",
+    text: "about me",
+    to: "/aboutme",
   },
   {
-    text: "resume",
-    to: "/resume",
+    text: "portfolio",
+    to: "/portfolio",
   },
   {
     text: "contact",

@@ -35,7 +35,7 @@ export const createCustomTheme = (mode) =>
             primaryDark: { main: "#1270AF" }, // Medium Blue
             background: {
               default: "#d6d3d1", // Light Gray
-              paper: "#34495e", // Charcoal
+              paper: "#eeeeee", // Charcoal
             },
             text: {
               primary: "#34495e", // Charcoal

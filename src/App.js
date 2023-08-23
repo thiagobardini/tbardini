@@ -5,7 +5,7 @@ import { createCustomTheme } from "./Assets/theme";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Layout/Navbar";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
+import AboutMe from "./Pages/About";
 import Projects from "./Pages/Projects";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
@@ -68,7 +68,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route index element={<Home />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Projects />} />
           <Route path="/portfolio/trip-route" element={<RouterPlanner />} />

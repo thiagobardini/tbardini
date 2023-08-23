@@ -216,15 +216,18 @@ const CheckNumbers = () => {
               </Box>
             )}
           </Box>
-          <Link
-            href="https://www.megamillions.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-            color="#d6d3d1"
-          >
-            <Typography variant="subtitle2">Check Drawn Numbers</Typography>
-          </Link>
+          <Box>
+            <Link
+              href="https://www.megamillions.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+              color="#d6d3d1"
+              width="auto"
+            >
+              <Typography variant="subtitle2">Mega Millions website</Typography>
+            </Link>
+          </Box>
         </Box>
       </Container>
     </Paper>

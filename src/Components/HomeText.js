@@ -106,7 +106,7 @@ const HomeText = () => {
 
         <Button
           component={Link}
-          to={"/resume"}
+          to={"/aboutme"}
           variant="outlined"
           sx={{
             color: theme.palette.primary.main,
@@ -119,12 +119,11 @@ const HomeText = () => {
             "&:hover": {
               backgroundColor: "#eeeeee",
               color: theme.palette.primary.main,
-              // borderColor: !darkMode ? "#eeeeee" : "#222831",
             },
           }}
           onClick={() => window.scrollTo(0, 0)}
         >
-          resume
+          about me
         </Button>
       </Box>
     </CustomBox>

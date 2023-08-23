@@ -11,6 +11,7 @@ import {
   styled,
   Badge,
   Stack,
+  Paper,
 } from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
 import { TypeAnimation } from "react-type-animation";
@@ -80,116 +81,118 @@ const Contact = () => {
         alignItems: "center",
       }}
     >
-      <Box sx={{ minHeight: "140px" }}>
+      <Box>
         <HeadingTop text={textTitle} />{" "}
       </Box>
 
       <Container>
-        <CssBaseline />
-        <Stack
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          spacing={0}
-          sx={{ animation: `${fadeIn} 2s` }}
-        >
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
+        <Paper elevation={3} sx={{ p: 5, borderRadius: 3, mb: 5 }}>
+          <CssBaseline />
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={0}
+            sx={{ animation: `${fadeIn} 2s` }}
           >
-            <Avatar
-              alt="Thiago Bardini"
-              src={myself}
-              sx={{ width: 150, height: 150 }}
-            />
-          </StyledBadge>
-        </Stack>
-        <Box sx={{ p: 3, textAlign: "center" }}>
-          <Typography
-            variant="h6"
-            gutterBottom
-            sx={{
-              color: (theme) => theme.palette.text.primary,
-            }}
-          >
-            Looking forward to connecting and collaborating with you. Feel free
-            to reach out!
-          </Typography>
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              variant="dot"
+            >
+              <Avatar
+                alt="Thiago Bardini"
+                src={myself}
+                sx={{ width: 150, height: 150 }}
+              />
+            </StyledBadge>
+          </Stack>
+          <Box sx={{ p: 3, textAlign: "center" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{
+                color: (theme) => theme.palette.text.primary,
+              }}
+            >
+              Looking forward to connecting and collaborating with you. Feel
+              free to reach out!
+            </Typography>
 
-          <Divider
-            sx={{ width: { xs: "100%", md: "50%" }, my: 6, mx: "auto" }}
-          />
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              justifyContent: "center",
-              gap: 3,
-            }}
-          >
-            <Link
-              href="tel:978-648-7075"
-              color="inherit"
-              underline="none"
-              target="_blank"
+            <Divider
+              sx={{ width: { xs: "100%", md: "50%" }, my: 6, mx: "auto" }}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                justifyContent: "center",
+                gap: 3,
+              }}
             >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <PhoneIcon />
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: (theme) => theme.palette.text.primary,
-                    animation: `${fadeIn} 2s`,
-                  }}
-                >
-                  978-648-7075
-                </Typography>
-              </Box>
-            </Link>
-            <Link
-              href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
-              color="inherit"
-              underline="none"
-              target="_blank"
-            >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <EmailIcon />
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: (theme) => theme.palette.text.primary,
-                    animation: `${fadeIn} 2s`,
-                  }}
-                >
-                  thiagobardini@icloud.com
-                </Typography>
-              </Box>
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/thiagobardini/"
-              color="inherit"
-              underline="none"
-              target="_blank"
-            >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <LinkedInIcon sx={{ fontSize: "2rem" }} />
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: (theme) => theme.palette.text.primary,
-                    animation: `${fadeIn} 2s`,
-                  }}
-                >
-                  thiagobardini
-                </Typography>
-              </Box>
-            </Link>
+              <Link
+                href="tel:978-648-7075"
+                color="inherit"
+                underline="none"
+                target="_blank"
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <PhoneIcon />
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{
+                      color: (theme) => theme.palette.text.primary,
+                      animation: `${fadeIn} 2s`,
+                    }}
+                  >
+                    978-648-7075
+                  </Typography>
+                </Box>
+              </Link>
+              <Link
+                href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
+                color="inherit"
+                underline="none"
+                target="_blank"
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <EmailIcon />
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{
+                      color: (theme) => theme.palette.text.primary,
+                      animation: `${fadeIn} 2s`,
+                    }}
+                  >
+                    thiagobardini@icloud.com
+                  </Typography>
+                </Box>
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/thiagobardini/"
+                color="inherit"
+                underline="none"
+                target="_blank"
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <LinkedInIcon sx={{ fontSize: "2rem" }} />
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{
+                      color: (theme) => theme.palette.text.primary,
+                      animation: `${fadeIn} 2s`,
+                    }}
+                  >
+                    thiagobardini
+                  </Typography>
+                </Box>
+              </Link>
+            </Box>
           </Box>
-        </Box>
+        </Paper>
       </Container>
     </Box>
   );

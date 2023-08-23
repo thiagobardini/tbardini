@@ -146,13 +146,13 @@ const AboutMe = () => {
             </Typography>
           </Box>
           <Typography variant="body1" sx={{ mb: 2, animation: `${fadeIn} 2s` }}>
-            I am a detail-oriented software engineer with experience in frontend
-            development and QA automation. My work revolves around JavaScript,
-            React, Redux, and modern CSS libraries. I'm currently employed as a
-            Frontend Developer and QA Engineer Automation at TransPerfect and
-            collaborating as a Frontend Developer at Code for Boston. In my free
-            time, I enjoy hobbies such as bass guitar, hiking, traveling and
-            surfing.
+            I am a detail-oriented software engineer specialized in JavaScript,
+            React, Redux, and modern CSS libraries. Currently employed at
+            TransPerfect as a QA Engineer Automation, I also collaborate as a
+            Frontend Developer at Code for Boston. My professional journey
+            involves creating responsive websites and managing QA automation. In
+            my free time, I enjoy hobbies such as playing bass guitar, hiking,
+            traveling, and surfing.
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <Typography variant="h5" sx={{ fontWeight: 700 }}>

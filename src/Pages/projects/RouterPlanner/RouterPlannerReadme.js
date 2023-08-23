@@ -6,6 +6,7 @@ import {
   Typography,
   styled,
   Button,
+  Paper,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
@@ -58,69 +59,71 @@ const RouterPlannerReadme = ({ displayNone }) => {
       <HeadingTop text="Trip Route - Docs" />
       <Container>
         <CssBaseline />
-        <Box mb={6}>
-          {data.map((item, index) => (
-            <Box key={index}>
-              <Container>
-                <Box>
-                  <Button
-                    to={item.live}
-                    component={Link}
-                    variant="contained"
-                    color="secondary"
-                    sx={{
-                      textTransform: "lowercase",
-                      mr: 2,
-                      px: 4,
-                      py: 1,
-                      display: displayNone && "none",
-                    }}
-                  >
-                    <Typography>Visit the Project</Typography>
-                  </Button>
-                  <Typography variant="h4" mt={2}>
-                    Overview
-                  </Typography>
-                  <Typography variant="body1">{item.overview}</Typography>
-                  <Typography variant="h4" mt={2}>
-                    Technologies Used
-                  </Typography>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+          <Box mb={6}>
+            {data.map((item, index) => (
+              <Box key={index}>
+                <Container>
+                  <Box>
+                    <Button
+                      to={item.live}
+                      component={Link}
+                      variant="contained"
+                      color="secondary"
+                      sx={{
+                        textTransform: "lowercase",
+                        mr: 2,
+                        px: 4,
+                        py: 1,
+                        display: displayNone && "none",
+                      }}
+                    >
+                      <Typography>Visit the Project</Typography>
+                    </Button>
+                    <Typography variant="h4" mt={2}>
+                      Overview
+                    </Typography>
+                    <Typography variant="body1">{item.overview}</Typography>
+                    <Typography variant="h4" mt={2}>
+                      Technologies Used
+                    </Typography>
 
-                  <List>
-                    {item.technologiesUsed.map((tech, index) => (
-                      <ListItem key={index}>{tech}</ListItem>
-                    ))}
-                  </List>
-
-                  <Typography variant="h4" mt={2}>
-                    Functionality
-                  </Typography>
-                  <Typography variant="body1">
                     <List>
-                      {item.functionality.map((func, index) => (
-                        <ListItem key={index}>{func}</ListItem>
+                      {item.technologiesUsed.map((tech, index) => (
+                        <ListItem key={index}>{tech}</ListItem>
                       ))}
                     </List>
-                  </Typography>
-                  <Typography variant="h4" mt={2}>
-                    Project Structure
-                  </Typography>
-                  <Typography variant="body1">
-                    <List>
-                      {item.projectStructure.map((struct, index) => (
-                        <ListItem key={index}>{struct}</ListItem>
-                      ))}
-                    </List>
-                  </Typography>
-                  <Typography variant="h4" mt={2}>
-                    Conclusion
-                  </Typography>
-                  <Typography variant="body1">{item.conclusion}</Typography>
-                </Box>
-              </Container>
-            </Box>
-          ))}
-        </Box>
+
+                    <Typography variant="h4" mt={2}>
+                      Functionality
+                    </Typography>
+                    <Typography variant="body1">
+                      <List>
+                        {item.functionality.map((func, index) => (
+                          <ListItem key={index}>{func}</ListItem>
+                        ))}
+                      </List>
+                    </Typography>
+                    <Typography variant="h4" mt={2}>
+                      Project Structure
+                    </Typography>
+                    <Typography variant="body1">
+                      <List>
+                        {item.projectStructure.map((struct, index) => (
+                          <ListItem key={index}>{struct}</ListItem>
+                        ))}
+                      </List>
+                    </Typography>
+                    <Typography variant="h4" mt={2}>
+                      Conclusion
+                    </Typography>
+                    <Typography variant="body1">{item.conclusion}</Typography>
+                  </Box>
+                </Container>
+              </Box>
+            ))}
+          </Box>
+        </Paper>
       </Container>
     </Box>
   );

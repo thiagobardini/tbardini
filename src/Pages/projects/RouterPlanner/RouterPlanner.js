@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, CssBaseline, Typography } from "@mui/material";
+import { Box, Container, CssBaseline, Typography, Paper } from "@mui/material";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
 
 const RouterPlanner = () => {
@@ -15,9 +15,11 @@ const RouterPlanner = () => {
       <HeadingTop text="Trip Route" />
       <Container>
         <CssBaseline />
-        <Typography textAlign="center">
-          Great news! The Trip Route app will be available very soon!
-        </Typography>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+          <Typography textAlign="center">
+            Great news! The Trip Route app will be available very soon!
+          </Typography>
+        </Paper>
       </Container>
     </Box>
   );

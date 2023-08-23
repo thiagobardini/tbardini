@@ -112,25 +112,27 @@ const Projects = () => {
               >
                 show all
               </Button>
-              {getAllKeywords().map((keyword, index) => (
-                <Button
-                  key={keyword}
-                  color="secondary"
-                  variant={
-                    selectedKeyword === keyword ? "contained" : "outlined"
-                  }
-                  onClick={() => handleKeywordChange(keyword)}
-                  sx={{
-                    my: 1,
-                    mr: 1,
-                    display: "inline-block",
-                    textTransform: "lowercase",
-                  }}
-                  size="small"
-                >
-                  {keyword}
-                </Button>
-              ))}
+              {getAllKeywords()
+                .sort((a, b) => a.localeCompare(b))
+                .map((keyword, index) => (
+                  <Button
+                    key={index}
+                    color="secondary"
+                    variant={
+                      selectedKeyword === keyword ? "contained" : "outlined"
+                    }
+                    onClick={() => handleKeywordChange(keyword)}
+                    sx={{
+                      my: 1,
+                      mr: 1,
+                      display: "inline-block",
+                      textTransform: "lowercase",
+                    }}
+                    size="small"
+                  >
+                    {keyword}
+                  </Button>
+                ))}
             </Grid>
             <Grid item xs={12}>
               <Typography

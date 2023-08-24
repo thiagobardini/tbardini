@@ -50,7 +50,7 @@ to {
             height: "calc(100vh - 184px)",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: { xs: "flex-start", xs: "center" },
             alignItems: "center",
             px: { xs: 1, lg: 4 },
             pointerEvents: "none",

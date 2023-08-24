@@ -81,7 +81,7 @@ const HomeText = () => {
         </Typography>
       </Box>
 
-      <Box my={2}>
+      <Box my={6}>
         <Button
           component={Link}
           to="/portfolio"

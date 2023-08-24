@@ -66,14 +66,24 @@ const CanvasComponent = () => {
           <Suspense fallback={null}>
             <ModelContainerLight />
           </Suspense>
-          <OrbitControls enablePan={false} enableZoom={false} />
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            minPolarAngle={Math.PI / 2}
+            maxPolarAngle={Math.PI / 2}
+          />
         </Canvas>
       ) : (
         <Canvas>
           <Suspense fallback={null}>
             <ModelContainerDark />
           </Suspense>
-          <OrbitControls enablePan={false} enableZoom={false} />
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            minPolarAngle={Math.PI / 2}
+            maxPolarAngle={Math.PI / 2}
+          />
         </Canvas>
       )}
     </Box>

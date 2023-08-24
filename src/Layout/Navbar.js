@@ -224,12 +224,12 @@ to {
                         width: "90%",
                       },
                     }}
-                    isActive={(match) => {
-                      if (!match) {
-                        return false;
-                      }
-                      return true;
-                    }}
+                    // isActive={(match) => {
+                    //   if (!match) {
+                    //     return false;
+                    //   }
+                    //   return true;
+                    // }}
                   >
                     <Typography variant="h5">{page.text}</Typography>
                   </Button>

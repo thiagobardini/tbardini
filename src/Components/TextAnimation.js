@@ -19,7 +19,7 @@ function TextAnimation() {
   );
 
   return (
-    <Typography variant="h6">
+    <Typography variant="h6" sx={{ backdropFilter: "blur(10px);" }}>
       <Box
         component="span"
         sx={{
@@ -46,9 +46,9 @@ function TextAnimation() {
           display: "inline-block",
 
           color: (theme) => theme.palette.text.secondary,
-          textShadow: darkMode
-            ? "none"
-            : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+          // textShadow: darkMode
+          //   ? "none"
+          //   : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
 
           mr: "0.5rem",
         }}

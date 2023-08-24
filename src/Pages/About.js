@@ -206,10 +206,11 @@ const AboutMe = () => {
           >
             I am a detail-oriented software engineer specialized in JavaScript,
             React, Redux, and modern CSS libraries. Currently employed at
-            TransPerfect as a QA Engineer Automation, I also collaborate as a
-            Frontend Developer at Code for Boston. My professional journey
-            involves creating responsive websites and managing QA automation. In
-            my free time, I enjoy hobbies such as playing bass guitar, hiking,
+            TransPerfect, I work on QA automation tests and frontend
+            development, and also collaborate as a Frontend Developer at Code
+            for Boston. My professional journey revolves around creating
+            responsive websites and managing QA automation processes. In my free
+            time, I enjoy hobbies such as playing bass guitar, hiking,
             traveling, and surfing.
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>

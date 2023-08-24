@@ -52,15 +52,16 @@ const HomeText = () => {
         sx={{
           py: 3,
           px: 1,
-          textShadow: darkMode
-            ? "none"
-            : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+          // textShadow: darkMode
+          //   ? "none"
+          //   : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
         }}
       >
         <Typography
           variant="h6"
           sx={{
             color: (theme) => theme.palette.text.secondary,
+            backdropFilter: "blur(10px);",
           }}
         >
           I'm a Boston based{" "}
@@ -68,6 +69,9 @@ const HomeText = () => {
             style={{
               fontWeight: 900,
               color: darkMode ? "#eeeeee" : "#222831",
+              textShadow: darkMode
+                ? "none"
+                : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
             }}
           >
             software engineer

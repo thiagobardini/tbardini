@@ -114,7 +114,7 @@ const AboutMe = () => {
                         color: (theme) => theme.palette.text.secondary,
                       }}
                     >
-                      Address:
+                      Location:
                     </Typography>{" "}
                     Greater Boston, MA
                   </Typography>

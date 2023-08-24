@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
 import { Link, NavLink } from "react-router-dom";
-import { Box, AppBar, Toolbar, Container, Button, Stack } from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Container,
+  Button,
+  Stack,
+  Typography,
+} from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
@@ -173,7 +181,11 @@ to {
 
           {/* Only show pages and icons if isNavVisible is true */}
           {isNavVisible === true && (
-            <>
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="flex-end"
+            >
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
@@ -188,7 +200,6 @@ to {
                       color: "#eeeeee",
                       textTransform: "none",
                       fontWeight: "500",
-                      fontSize: "1.4rem",
                       textDecoration: "none",
                       position: "relative",
                       mr: 2,
@@ -220,7 +231,7 @@ to {
                       return true;
                     }}
                   >
-                    {page.text}
+                    <Typography variant="h5">{page.text}</Typography>
                   </Button>
                 ))}
               </Box>
@@ -249,7 +260,7 @@ to {
                   <GitHubIcon />
                 </Box>
               </Box>
-            </>
+            </Stack>
           )}
 
           <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>

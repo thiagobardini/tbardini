@@ -145,11 +145,9 @@ const Contact = () => {
                   <PhoneIcon />
                   <Typography
                     variant="h6"
-                    gutterBottom
                     sx={{
                       color: (theme) => theme.palette.text.primary,
                       animation: `${fadeIn} 2s`,
-                      fontWeight: 700,
                     }}
                   >
                     978-648-7075
@@ -166,11 +164,9 @@ const Contact = () => {
                   <EmailIcon />
                   <Typography
                     variant="h6"
-                    gutterBottom
                     sx={{
                       color: (theme) => theme.palette.text.primary,
                       animation: `${fadeIn} 2s`,
-                      fontWeight: 700,
                     }}
                   >
                     thiagobardini@icloud.com
@@ -187,11 +183,9 @@ const Contact = () => {
                   <LinkedInIcon sx={{ fontSize: "2rem" }} />
                   <Typography
                     variant="h6"
-                    gutterBottom
                     sx={{
                       color: (theme) => theme.palette.text.primary,
                       animation: `${fadeIn} 2s`,
-                      fontWeight: 700,
                     }}
                   >
                     thiagobardini

@@ -46,6 +46,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             boxSizing: "border-box",
             width: "100%",
             height: "100%",
+            overflowY: "auto",
           },
         }}
         sx={{
@@ -55,6 +56,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             height: "100%",
             zIndex: 1400,
             overflow: "visible",
+            overflowY: "auto",
           },
         }}
       >

@@ -260,9 +260,7 @@ to {
       </Container>
     </AppBar>
   ) : (
-    // <AppBar position="fixed">
     <Container maxWidth="xl" sx={{ m: 0 }}>
-      {/* <Toolbar disableGutters> */}
       <Stack
         sx={{
           zIndex: "1200",
@@ -274,18 +272,15 @@ to {
         <Box
           sx={{
             display: "flex",
-            mt: 1,
             position: "absolute",
             left: "0px",
-            top: "0px",
+            top: "11px",
             borderRadius: "50%",
             color: "secondary",
-            // backgroundColor: darkMode ? "#0092ca" : "#1270AF",
             height: "70px",
             width: "70px",
             justifyContent: "center",
             alignItems: "center",
-            // opacity: location.pathname === "/" ? 1 : isNavVisible ? 0 : 1,
           }}
         >
           <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
@@ -305,7 +300,7 @@ to {
         <Box
           sx={{
             display: "flex",
-            // mt: 1,
+
             position: "absolute",
             right: "30px",
             top: "29px",
@@ -314,9 +309,7 @@ to {
           <ToggleThemeMode />
         </Box>
       </Stack>
-      {/* </Toolbar> */}
     </Container>
-    // </AppBar>
   );
 }
 

@@ -79,7 +79,7 @@ export default function SignUp() {
         minHeight: "calc(100vh - 156px)",
         flexGrow: 1,
         my: 4,
-        pt: "124px",
+        pt: "134px",
       }}
     >
       <CssBaseline />

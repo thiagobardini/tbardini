@@ -267,6 +267,7 @@ to {
           width: "calc(100vw - 24px)",
           position: "absolute",
           display: "block",
+          animation: `${fadeIn} 2s`,
         }}
       >
         <Box
@@ -302,8 +303,8 @@ to {
             display: "flex",
 
             position: "absolute",
-            right: "30px",
-            top: "29px",
+            right: "20px",
+            top: "42px",
           }}
         >
           <ToggleThemeMode />

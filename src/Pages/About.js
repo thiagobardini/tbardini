@@ -49,7 +49,7 @@ const AboutMe = () => {
         justifyContent: "flex-start",
         minHeight: "calc(100vh - 85px)",
         alignItems: "center",
-        pt: "134px",
+        pt: "96px",
       }}
     >
       <HeadingTop text={textTitle} />

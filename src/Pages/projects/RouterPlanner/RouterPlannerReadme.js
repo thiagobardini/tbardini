@@ -54,7 +54,7 @@ const RouterPlannerReadme = ({ displayNone }) => {
         flexDirection: "column",
         minHeight: "calc(100vh - 85px)",
         flexGrow: 1,
-        pt: "134px",
+        pt: "96px",
       }}
     >
       <HeadingTop text="Trip Route - Docs" />

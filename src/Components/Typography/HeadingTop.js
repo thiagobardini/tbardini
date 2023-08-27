@@ -1,7 +1,8 @@
 import { Box, Typography, styled, useTheme } from "@mui/material";
 
 const TitleContainer = styled(Box)({
-  padding: "1.5em 0",
+  paddingTop: "1.5em",
+  paddingBottom: "0.8em",
   textAlign: "center",
 });
 

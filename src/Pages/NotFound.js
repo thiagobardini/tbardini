@@ -10,7 +10,7 @@ const NotFound = () => {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "calc(100vh - 85px)",
-        pt: "134px",
+        pt: "96px",
       }}
     >
       <Typography variant="h2" sx={{ marginBottom: "20px" }}>

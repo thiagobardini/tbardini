@@ -58,7 +58,8 @@ const LottoNestReadme = ({ displayNone }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        minHeight: "calc(100vh - 520px)",
+        minHeight: "calc(100vh - 85px)",
+        pt: "96px",
       }}
     >
       <HeadingTop text="LottoNest - Docs" />

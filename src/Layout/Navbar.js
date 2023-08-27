@@ -89,7 +89,7 @@ to {
       position="fixed"
       sx={{
         py: "2px",
-        top: 0,
+        top: "26px",
         left: 0,
         right: 0,
         backgroundColor: !isNavVisible
@@ -115,6 +115,7 @@ to {
                 justifyContent: "center",
                 alignItems: "center",
                 textDecoration: "none",
+                position: "fixed",
                 mr: 2,
               }}
             >
@@ -149,6 +150,7 @@ to {
                   justifyContent: "center",
                   textDecoration: "none",
                   mr: 2,
+                  position: "fixed",
                 }}
               >
                 <LogoAnimation height={"120px"} />
@@ -276,8 +278,6 @@ to {
       <Box
         sx={{
           zIndex: "1200",
-          // width: "calc(100vw - 24px)",
-
           width: "100%",
           position: "absolute",
           display: "block",

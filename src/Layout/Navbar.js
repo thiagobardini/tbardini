@@ -92,7 +92,11 @@ to {
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: !isNavVisible ? "transparent" : "#22313f",
+        backgroundColor: !isNavVisible
+          ? "transparent"
+          : darkMode
+          ? "#22313f"
+          : "#393635",
         boxShadow: !isNavVisible && "none",
         backgroundImage: !isNavVisible && "none",
         transition:
@@ -260,7 +264,7 @@ to {
       </Container>
     </AppBar>
   ) : (
-    <Container maxWidth="xl" sx={{ m: 0 }}>
+    <Container maxWidth="xl" sx={{ padding: 0 }}>
       <Stack
         sx={{
           zIndex: "1200",
@@ -274,8 +278,8 @@ to {
           sx={{
             display: "flex",
             position: "absolute",
-            left: "0px",
-            top: "11px",
+            left: "8px",
+            top: "23px",
             borderRadius: "50%",
             color: "secondary",
             height: "70px",

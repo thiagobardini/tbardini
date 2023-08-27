@@ -55,16 +55,17 @@ const HomeText = () => {
       <Box
         sx={{
           px: 1,
-          // textShadow: darkMode
-          //   ? "none"
-          //   : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
         }}
       >
         <Typography
           variant="h6"
           sx={{
             color: (theme) => theme.palette.text.secondary,
-            backdropFilter: darkMode ? "blur(10px)" : "blur(100px)",
+            backdropFilter: darkMode ? "blur(2px)" : "blur(10px)",
+            textShadow: darkMode
+              ? "none"
+              : "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+            fontWeight: 600,
           }}
         >
           I'm a Boston based{" "}

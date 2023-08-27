@@ -18,7 +18,7 @@ to {
 `;
 
   return (
-    <Container maxWidth="false">
+    <Container maxWidth="false" sx={{ padding: 0 }}>
       <Box
         sx={{
           position: "relative",
@@ -30,7 +30,7 @@ to {
             position: "absolute",
             top: 0,
             left: 0,
-            width: { xs: "100%", sm: "60%" },
+            width: { xs: "100vw", sm: "60vw" },
             height: "calc(100vh - 16px)",
             display: "flex",
             justifyContent: "center",

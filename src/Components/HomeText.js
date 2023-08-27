@@ -61,7 +61,7 @@ const HomeText = () => {
           variant="h6"
           sx={{
             color: (theme) => theme.palette.text.secondary,
-            backdropFilter: darkMode ? "blur(2px)" : "blur(10px)",
+            backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
             textShadow: darkMode
               ? "none"
               : "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",

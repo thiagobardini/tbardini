@@ -76,8 +76,9 @@ const Contact = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        minHeight: "calc(100vh - 243px)",
+        minHeight: "calc(100vh - 85px)",
         alignItems: "center",
+        pt: "124px",
       }}
     >
       <Box>

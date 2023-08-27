@@ -27,15 +27,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
 
   return (
     <Box>
-      <Box
-        color={
-          !isOpen
-            ? "#eeeeee"
-            : isOpen && theme.palette.mode === "light"
-            ? "#22313f"
-            : "#eeeeee"
-        }
-      >
+      <Box>
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </Box>
       <Drawer

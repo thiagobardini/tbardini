@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   Box,
   AppBar,
@@ -39,10 +39,8 @@ function Navbar() {
   const [oldScrollPos, setOldScrollPos] = useState(0);
   const [showHamburger, setShowHamburger] = useState(false);
 
-  // const theme = useTheme();
   const darkMode = useSelector((state) => state.theme.darkMode);
-
-  // const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
@@ -86,7 +84,7 @@ to {
 }
 `;
 
-  return (
+  return location.pathname !== "/" ? (
     <AppBar
       position="fixed"
       sx={{
@@ -224,12 +222,6 @@ to {
                         width: "90%",
                       },
                     }}
-                    // isActive={(match) => {
-                    //   if (!match) {
-                    //     return false;
-                    //   }
-                    //   return true;
-                    // }}
                   >
                     <Typography variant="h5">{page.text}</Typography>
                   </Button>
@@ -267,6 +259,64 @@ to {
         </Toolbar>
       </Container>
     </AppBar>
+  ) : (
+    // <AppBar position="fixed">
+    <Container maxWidth="xl" sx={{ m: 0 }}>
+      {/* <Toolbar disableGutters> */}
+      <Stack
+        sx={{
+          zIndex: "1200",
+          width: "calc(100vw - 24px)",
+          position: "absolute",
+          display: "block",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            mt: 1,
+            position: "absolute",
+            left: "0px",
+            top: "0px",
+            borderRadius: "50%",
+            color: "secondary",
+            // backgroundColor: darkMode ? "#0092ca" : "#1270AF",
+            height: "70px",
+            width: "70px",
+            justifyContent: "center",
+            alignItems: "center",
+            // opacity: location.pathname === "/" ? 1 : isNavVisible ? 0 : 1,
+          }}
+        >
+          <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
+        </Box>
+        <Box
+          component={Link}
+          to="/"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textDecoration: "none",
+          }}
+        >
+          <LogoAnimation height={"120px"} />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            // mt: 1,
+            position: "absolute",
+            right: "30px",
+            top: "29px",
+          }}
+        >
+          <ToggleThemeMode />
+        </Box>
+      </Stack>
+      {/* </Toolbar> */}
+    </Container>
+    // </AppBar>
   );
 }
 

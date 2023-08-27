@@ -7,9 +7,12 @@ import TextAnimation from "./TextAnimation";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
+  height: "100%",
+  minHeight: "250px",
+  maxHeight: "650px",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-around",
   textAlign: "center",
   zIndex: 1,
 }));
@@ -34,7 +37,6 @@ const HomeText = () => {
           fontWeight: 800,
           position: "relative",
           borderRadius: "5px",
-          pb: 4,
           fontSize: "3rem",
         }}
       >
@@ -46,11 +48,12 @@ const HomeText = () => {
           cursor={false}
         />
       </Typography>
-      <TextAnimation darkMode={true} />
+      <Box sx={{ py: 3 }}>
+        <TextAnimation darkMode={true} />
+      </Box>
 
       <Box
         sx={{
-          py: 3,
           px: 1,
           // textShadow: darkMode
           //   ? "none"
@@ -61,7 +64,7 @@ const HomeText = () => {
           variant="h6"
           sx={{
             color: (theme) => theme.palette.text.secondary,
-            backdropFilter: "blur(10px);",
+            backdropFilter: darkMode ? "blur(10px)" : "blur(100px)",
           }}
         >
           I'm a Boston based{" "}
@@ -81,7 +84,7 @@ const HomeText = () => {
         </Typography>
       </Box>
 
-      <Box my={6}>
+      <Box mt={4}>
         <Button
           component={Link}
           to="/portfolio"

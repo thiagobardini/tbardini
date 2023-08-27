@@ -23,7 +23,8 @@ const LottoNestSignin = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        minHeight: "calc(100vh - 243px)",
+        minHeight: "calc(100vh - 85px)",
+        pt: "124px",
       }}
     >
       <Container>

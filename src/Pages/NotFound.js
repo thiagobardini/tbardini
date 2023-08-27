@@ -9,9 +9,8 @@ const NotFound = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "calc(100vh - 243px)",
-        textAlign: "center",
-        padding: "0 30px",
+        minHeight: "calc(100vh - 85px)",
+        pt: "124px",
       }}
     >
       <Typography variant="h2" sx={{ marginBottom: "20px" }}>

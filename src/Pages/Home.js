@@ -18,12 +18,11 @@ to {
 `;
 
   return (
-    <Container maxWidth="false" disableGutters>
+    <Container maxWidth="false">
       <Box
         sx={{
           position: "relative",
           animation: `${fadeIn} 2s`,
-          padding: "60px",
         }}
       >
         <Box
@@ -32,7 +31,7 @@ to {
             top: 0,
             left: 0,
             width: !darkMode ? { xs: "100%" } : { xs: "100%", sm: "60%" },
-            height: "calc(100vh - 124px)",
+            height: "calc(100vh - 16px)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -42,26 +41,31 @@ to {
           <CanvasComponent />
         </Box>
         <Box
-          sx={{
-            pt: 2,
-            position: "absolute",
-            right: 0,
-            width: !darkMode ? "100%" : { xs: "100%", sm: "70%", md: "50%" },
-            height: "calc(100vh - 184px)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: { xs: "flex-start", xs: "center" },
-            alignItems: "center",
-            px: { xs: 1, lg: 4 },
-            pointerEvents: "none",
-          }}
+          sx={{ height: "100vh", display: "flex", justifyContent: "flex-end" }}
         >
           <Box
             sx={{
-              width: darkMode ? "100%" : { xs: "100%", sm: "80%", md: "60%" },
+              pt: 2,
+              right: 0,
+              width: !darkMode ? "100%" : { xs: "100%", sm: "100%", md: "50%" },
+              height: "100%",
+
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: { xs: "center", sm: "center" },
+              alignItems: "center",
+              px: { xs: 1, lg: 4 },
+              pointerEvents: "none",
             }}
           >
-            <HomeText />
+            <Box
+              sx={{
+                // width: darkMode ? "100%" : { xs: "100%", sm: "80%", md: "60%" },
+                mt: "130px",
+              }}
+            >
+              <HomeText />
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -12,7 +12,7 @@ export function DarkCanvas(props) {
           name="Sketchfab_model"
           rotation={[-Math.PI / 2, 0, 0]}
           position={[0, -9, 0]}
-          scale={2.2}
+          scale={2.1}
         >
           <group name="Root">
             <group name="mentor_roman_retopo" position={[-0.266, 0.12, 1.326]}>

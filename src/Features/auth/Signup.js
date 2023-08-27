@@ -76,9 +76,10 @@ export default function SignUp() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "calc(100vh - 209px)",
+        minHeight: "calc(100vh - 156px)",
         flexGrow: 1,
         my: 4,
+        pt: "124px",
       }}
     >
       <CssBaseline />

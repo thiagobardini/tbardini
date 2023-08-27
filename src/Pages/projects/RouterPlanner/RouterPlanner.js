@@ -8,8 +8,9 @@ const RouterPlanner = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "calc(100vh - 209px)",
+        minHeight: "calc(100vh - 85px)",
         flexGrow: 1,
+        pt: "124px",
       }}
     >
       <HeadingTop text="Trip Route" />

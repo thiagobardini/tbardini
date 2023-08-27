@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { DarkCanvas } from "./DarkCanvas";
-// import { LightCanvas } from "./LightCanvas";
+import { LightCanvas } from "./LightCanvas";
 import { Box } from "@mui/material";
 import { keyframes } from "@emotion/react";
 import { Model } from "./Model";
@@ -26,24 +26,24 @@ const CanvasComponent = () => {
 
   // Secondary model for the light model
   //
-  // const ModelContainerLight = () => {
-  //   const modelRef = useRef();
-  //   const cameraRef = useRef();
-  //   useFrame(({ camera }) => {
-  //     modelRef.current.rotation.y += 0.001;
-  //   });
-  //   return (
-  //     <>
-  //       <perspectiveCamera
-  //         ref={cameraRef}
-  //         position={[0, 0, 5]} // Adjust camera start position as needed
-  //       />
-  //       <group ref={modelRef}>
-  //         <LightCanvas />
-  //       </group>
-  //     </>
-  //   );
-  // };
+  const ModelContainerLight = () => {
+    const modelRef = useRef();
+    const cameraRef = useRef();
+    useFrame(({ camera }) => {
+      modelRef.current.rotation.y += 0.001;
+    });
+    return (
+      <>
+        <perspectiveCamera
+          ref={cameraRef}
+          position={[0, 0, 5]} // Adjust camera start position as needed
+        />
+        <group ref={modelRef}>
+          <LightCanvas />
+        </group>
+      </>
+    );
+  };
 
   const ModelContainerDark = () => {
     const modelRef = useRef();
@@ -78,17 +78,20 @@ const CanvasComponent = () => {
       sx={{
         position: "relative",
         width: "100vw",
-        height: "calc(100vh - 124px)",
+
+        height: "calc(100vh + 16px)",
+
         animation: `${fadeIn} 2s`,
       }}
     >
       <Canvas>
-        <pointLight position={[5, 5, 5]} intensity={0.5} />
         <Suspense fallback={null}>
           {!darkMode ? (
             <>
-              <ModelContainerBeach />
-              {/* <ModelContainerLight /> */}
+              <pointLight position={[5, 5, 5]} intensity={0.5} />
+              {/* <ModelContainerBeach /> */}
+              <ModelContainerLight />
+              {/* <ModelContainerDark /> */}
             </>
           ) : (
             <ModelContainerDark />

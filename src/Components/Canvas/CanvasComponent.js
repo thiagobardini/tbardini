@@ -32,6 +32,7 @@ const CanvasComponent = () => {
     useFrame(({ camera }) => {
       modelRef.current.rotation.y += 0.001;
     });
+
     return (
       <>
         <perspectiveCamera
@@ -78,9 +79,7 @@ const CanvasComponent = () => {
       sx={{
         position: "relative",
         width: "100vw",
-
         height: "calc(100vh + 16px)",
-
         animation: `${fadeIn} 2s`,
       }}
     >

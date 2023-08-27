@@ -30,7 +30,7 @@ to {
             position: "absolute",
             top: 0,
             left: 0,
-            width: !darkMode ? { xs: "100%" } : { xs: "100%", sm: "60%" },
+            width: { xs: "100%", sm: "60%" },
             height: "calc(100vh - 16px)",
             display: "flex",
             justifyContent: "center",
@@ -47,7 +47,7 @@ to {
             sx={{
               pt: 2,
               right: 0,
-              width: !darkMode ? "100%" : { xs: "100%", sm: "100%", md: "50%" },
+              width: { xs: "100%", sm: "100%", md: "50%" },
               height: "100%",
 
               display: "flex",
@@ -60,7 +60,6 @@ to {
           >
             <Box
               sx={{
-                // width: darkMode ? "100%" : { xs: "100%", sm: "80%", md: "60%" },
                 mt: "130px",
               }}
             >

@@ -264,11 +264,21 @@ to {
       </Container>
     </AppBar>
   ) : (
-    <Container maxWidth="xl" sx={{ padding: 0 }}>
-      <Stack
+    <Container
+      maxWidth="xl"
+      sx={{
+        padding: 0,
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Box
         sx={{
           zIndex: "1200",
-          width: "calc(100vw - 24px)",
+          // width: "calc(100vw - 24px)",
+
+          width: "100%",
           position: "absolute",
           display: "block",
           animation: `${fadeIn} 2s`,
@@ -313,7 +323,7 @@ to {
         >
           <ToggleThemeMode />
         </Box>
-      </Stack>
+      </Box>
     </Container>
   );
 }

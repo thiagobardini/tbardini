@@ -9,7 +9,7 @@
       "Redux Toolkit",
       "Material-UI",
       "JavaScript",
-      "React Router",
+      "SASS & CSS",
       "React-three-fiber"
     ],
     "live": "/",
@@ -26,12 +26,9 @@
       "React-JS",
       "Material-UI",
       "JavaScript",
-      "React Router",
-      "Firebase Auth",
-      "Firebase Firestore",
+      "Firebase",
       "Redux Toolkit",
-      "React Webcam",
-      "Rest-API"
+      "SASS & CSS"
     ],
     "live": "/portfolio/lottonest",
     "readme": "",
@@ -43,15 +40,7 @@
     "title": "Mini Market",
     "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
     "img": "/images/mini-market-logo.png",
-    "techs": [
-      "React-JS",
-      "Firebase Realtime Database",
-      "Stripe API",
-      "CSS",
-      "JavaScript",
-      "React Router",
-      "Rest-API"
-    ],
+    "techs": ["React-JS", "Firebase", "Stripe API", "SASS & CSS", "JavaScript"],
     "live": "https://mini-market-tbardini.vercel.app/",
     "readme": "",
     "github": "https://github.com/thiagobardini/mini-market-tbardini",
@@ -68,9 +57,7 @@
       "Redux Toolkit",
       "Material-UI",
       "JavaScript",
-      "React Router",
-      "Rest-API",
-      "CSS"
+      "SASS & CSS"
     ],
     "live": "https://bhpa.vercel.app/public",
     "readme": "",
@@ -82,14 +69,7 @@
     "title": "TB CRM",
     "description": "🕸️ A backend CRM System - A streamlined, user-friendly app for efficient account and opportunity management.",
     "img": "/images/tbcrmrocket.png",
-    "techs": [
-      "nodejs",
-      "Heroku",
-      "Mongodb",
-      "Mongoose",
-      "Express-js",
-      "postman"
-    ],
+    "techs": ["nodejs", "Heroku", "Mongodb", "Express-js"],
     "live": "https://github.com/thiagobardini/agile-rocket-api",
     "readme": "",
     "github": "https://github.com/thiagobardini/agile-rocket-api",
@@ -102,16 +82,13 @@
     "description": "🗺 This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
     "img": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
     "techs": [
-      "NextJS",
+      "Next-JS",
       "React-JS",
-      "Google Maps API",
-      "Firebase Auth",
-      "Firebase Firestore",
+      "Google Map API",
+      "Firebase",
       "Redux Toolkit",
       "TypeScript",
-      "Next Router",
-      "Rest-API",
-      "Tailwind CSS"
+      "Tailwind"
     ],
     "live": "/portfolio/trip-route",
     "readme": "/portfolio/trip-route/readme",

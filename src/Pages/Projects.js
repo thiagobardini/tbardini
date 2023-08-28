@@ -15,9 +15,12 @@ import projectsCards from "../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
 import { keyframes } from "@emotion/react";
 import ButtonFab from "../Components/ButtonFab";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
+  const [showMoreKeywords, setShowMoreKeywords] = useState(false);
 
   const darkMode = useSelector((state) => state.theme.darkMode);
 
@@ -29,6 +32,37 @@ const Projects = () => {
   const getAllKeywords = () => {
     const allKeywords = projectsCards.flatMap((card) => card.techs);
     return Array.from(new Set(allKeywords));
+  };
+
+  const prioritizeKeywords = (keywords) => {
+    const priorityKeywords = [
+      "javascript",
+      "react-js",
+      "next-js",
+      "redux toolkit",
+      "typescript",
+    ];
+
+    return keywords.sort((a, b) => {
+      const lowerA = a.toLowerCase();
+      const lowerB = b.toLowerCase();
+
+      if (
+        priorityKeywords.includes(lowerA) &&
+        priorityKeywords.includes(lowerB)
+      ) {
+        return (
+          priorityKeywords.indexOf(lowerA) - priorityKeywords.indexOf(lowerB)
+        );
+      }
+      if (priorityKeywords.includes(lowerA)) {
+        return -1;
+      }
+      if (priorityKeywords.includes(lowerB)) {
+        return 1;
+      }
+      return lowerA.localeCompare(lowerB);
+    });
   };
 
   const getFilterPhrase = () => {
@@ -73,6 +107,10 @@ const Projects = () => {
   }
   `;
 
+  const displayKeywordsStyle = {
+    maxHeight: showMoreKeywords ? "none" : "3.2em",
+    overflow: "hidden",
+  };
   return (
     <Box
       sx={{
@@ -115,6 +153,7 @@ const Projects = () => {
                 display: "inline-block",
                 justifyContent: "center",
                 textAlign: "center",
+                ...displayKeywordsStyle,
               }}
             >
               <Button
@@ -133,34 +172,52 @@ const Projects = () => {
                   show all
                 </Typography>
               </Button>
-              {getAllKeywords()
-                .sort((a, b) => a.localeCompare(b))
-                .map((keyword, index) => (
-                  <Button
-                    key={index}
-                    color="secondary"
-                    variant={
-                      selectedKeyword === keyword ? "contained" : "outlined"
-                    }
-                    onClick={() => handleKeywordChange(keyword)}
-                    sx={{
-                      my: 1,
-                      mr: 1,
-                      display: "inline-block",
-                      textTransform: "lowercase",
-                    }}
-                    size="small"
+              {prioritizeKeywords(getAllKeywords()).map((keyword, index) => (
+                <Button
+                  key={index}
+                  color="secondary"
+                  variant={
+                    selectedKeyword === keyword ? "contained" : "outlined"
+                  }
+                  onClick={() => handleKeywordChange(keyword)}
+                  sx={{
+                    my: 1,
+                    mr: 1,
+                    display: "inline-block",
+                    textTransform: "lowercase",
+                  }}
+                  size="small"
+                >
+                  <Typography
+                    sx={{ color: darkMode ? "#d6d3d1" : "" }}
+                    variant="subtitle2"
                   >
-                    <Typography
-                      sx={{ color: darkMode ? "#d6d3d1" : "" }}
-                      variant="subtitle2"
-                    >
-                      {" "}
-                      {keyword}
-                    </Typography>
-                  </Button>
-                ))}
+                    {keyword}
+                  </Typography>
+                </Button>
+              ))}
             </Grid>
+            <Button
+              variant="text"
+              color="secondary"
+              size="small"
+              onClick={() => setShowMoreKeywords(!showMoreKeywords)}
+              sx={{
+                borderRadius: "50%",
+                minWidth: "auto",
+                width: 36,
+                height: 26,
+                display:
+                  prioritizeKeywords(getAllKeywords()).length > 5
+                    ? "block"
+                    : "none",
+                "&:hover": {
+                  backgroundColor: "secondary.light",
+                },
+              }}
+            >
+              {showMoreKeywords ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </Button>
             <Grid item xs={12}>
               <Typography
                 variant="subtitle2"
@@ -178,6 +235,7 @@ const Projects = () => {
                 )}
               </Typography>
             </Grid>
+
             <Grid
               xs={12}
               sx={{

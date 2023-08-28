@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { Fab, useTheme } from "@mui/material";
+import { Fab } from "@mui/material";
 import { Link } from "react-router-dom";
 import EastIcon from "@mui/icons-material/East";
 import { useSelector } from "react-redux";
 
 const ButtonFab = ({ to, label, onClick }) => {
-  const theme = useTheme();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {

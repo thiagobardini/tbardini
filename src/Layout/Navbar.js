@@ -92,7 +92,9 @@ to {
         top: "26px",
         left: 0,
         right: 0,
-        backgroundColor: "transparent",
+        backgroundColor: darkMode
+          ? "transparent !important"
+          : "#eeeeee !important",
         backdropFilter: !isNavVisible
           ? "none"
           : darkMode

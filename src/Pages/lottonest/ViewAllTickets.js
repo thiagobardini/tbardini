@@ -75,7 +75,7 @@ const ViewAllTickets = () => {
   return (
     <Box my={2}>
       {/* VIEW ALL TICKETS */}
-      <Accordion color="#d6d3d1" sx={{ background: "#393635" }}>
+      <Accordion color="#d6d3d1" sx={{ background: "#424242" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

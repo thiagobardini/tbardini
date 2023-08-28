@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { Box, styled, Typography, Button, useTheme, Fab } from "@mui/material";
+import { Box, styled, Typography, useTheme } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import TextAnimation from "./TextAnimation";
 import ButtonFab from "./ButtonFab";

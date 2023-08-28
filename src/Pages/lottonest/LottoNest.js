@@ -24,6 +24,7 @@ import CardCaptureData from "./CardCaptureData";
 import MatchingTickets from "./MatchingTickets";
 import ViewAllTickets from "./ViewAllTickets";
 import DonateButton from "../../Components/DonateButton";
+import ButtonFab from "../../Components/ButtonFab";
 
 const LottoNest = () => {
   const [showComponent, setShowComponent] = useState(null);
@@ -33,6 +34,7 @@ const LottoNest = () => {
   const isEmail = useSelector((state) => state.authUser.email);
   const isTicket = useSelector(isTickets);
   const results = useSelector(selectResults);
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
 
@@ -119,7 +121,15 @@ const LottoNest = () => {
         <CssBaseline />
         <Paper
           elevation={3}
-          sx={{ py: 5, p: { xs: 1, sm: 3 }, borderRadius: 3, mb: 5 }}
+          sx={{
+            py: 5,
+            p: { xs: 1, sm: 3 },
+            borderRadius: 3,
+            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backgroundColor: darkMode
+              ? "transparent !important"
+              : "#eeeeee !important",
+          }}
         >
           <CheckNumbers />
           <Box my={2}>
@@ -175,12 +185,26 @@ const LottoNest = () => {
               display: { xs: "flex", sm: "none" },
               justifyContent: "center",
               width: "100%",
-              mt: 6,
+              mt: 4,
             }}
           >
             <DonateButton />
           </Box>
         </Paper>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            display: "flex",
+            justifyContent: "flex-start",
+            my: 3,
+          }}
+        >
+          <ButtonFab
+            to="/portfolio"
+            label="Go back to portfolio"
+            onClick={() => window.scrollTo(0, 0)}
+          />
+        </Box>
       </Container>
     </Box>
   );

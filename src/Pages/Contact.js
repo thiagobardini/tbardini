@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { keyframes } from "@emotion/react";
 import {
   Box,
@@ -30,6 +31,8 @@ to {
 }
 `;
 const Contact = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   const textTitle = (
     <TypeAnimation
       sequence={["contact", 1000, "let’s work together!", 1000]}
@@ -87,7 +90,18 @@ const Contact = () => {
       </Box>
 
       <Container>
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3 }}>
+        <Paper
+          elevation={3}
+          sx={{
+            py: 5,
+            px: 3,
+            borderRadius: 3,
+            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backgroundColor: darkMode
+              ? "transparent !important"
+              : "#eeeeee !important",
+          }}
+        >
           <CssBaseline />
           <Stack
             direction="row"

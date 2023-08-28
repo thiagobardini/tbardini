@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   Box,
   Container,
@@ -10,6 +11,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
+import ButtonFab from "../../../Components/ButtonFab";
 
 const List = styled("ul")(({ theme }) => ({
   paddingLeft: theme.spacing(2),
@@ -20,6 +22,8 @@ const ListItem = styled("li")(({ theme }) => ({
 }));
 
 const RouterPlannerReadme = ({ displayNone }) => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   const data = [
     {
       projectIdea: "Trip Route",
@@ -60,7 +64,18 @@ const RouterPlannerReadme = ({ displayNone }) => {
       <HeadingTop text="Trip Route - Docs" />
       <Container>
         <CssBaseline />
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+        <Paper
+          elevation={3}
+          sx={{
+            py: 5,
+            px: 3,
+            borderRadius: 3,
+            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backgroundColor: darkMode
+              ? "transparent !important"
+              : "#eeeeee !important",
+          }}
+        >
           <Box mb={6}>
             {data.map((item, index) => (
               <Box key={index}>
@@ -125,6 +140,20 @@ const RouterPlannerReadme = ({ displayNone }) => {
             ))}
           </Box>
         </Paper>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            display: "flex",
+            justifyContent: "flex-start",
+            my: 3,
+          }}
+        >
+          <ButtonFab
+            to="/portfolio"
+            label="Go back to portfolio"
+            onClick={() => window.scrollTo(0, 0)}
+          />
+        </Box>
       </Container>
     </Box>
   );

@@ -18,7 +18,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "../../Firebase/firebaseConfig.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/authSlices.js";
 
 export default function SignUp() {
@@ -26,6 +26,8 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const navigate = useNavigate();
 
@@ -83,7 +85,19 @@ export default function SignUp() {
       }}
     >
       <CssBaseline />
-      <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+      <Paper
+        elevation={3}
+        sx={{
+          py: 5,
+          px: 3,
+          borderRadius: 3,
+          mb: 5,
+          backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+          backgroundColor: darkMode
+            ? "transparent !important"
+            : "#eeeeee !important",
+        }}
+      >
         <Box
           sx={{
             display: "flex",

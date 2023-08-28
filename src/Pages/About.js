@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   Box,
   Container,
@@ -33,6 +34,8 @@ to {
 `;
 
 const AboutMe = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   const textTitle = (
     <TypeAnimation
       sequence={["about me"]}
@@ -56,7 +59,18 @@ const AboutMe = () => {
       <HeadingTop text={textTitle} />
       <Container>
         <CssBaseline />
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3 }}>
+        <Paper
+          elevation={3}
+          sx={{
+            py: 5,
+            px: 3,
+            borderRadius: 3,
+            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backgroundColor: darkMode
+              ? "transparent !important"
+              : "#eeeeee !important",
+          }}
+        >
           <Grid
             container
             spacing={3}
@@ -67,7 +81,6 @@ const AboutMe = () => {
               item
               xs={12}
               sm={2}
-              // md={2}
               direction="row"
               alignItems="center"
               justifyContent={{ xs: "center", md: "flex-start" }}

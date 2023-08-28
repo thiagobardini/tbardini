@@ -21,6 +21,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import myself from "../Assets/images/myselfbg.jpg";
 import ButtonFab from "../Components/ButtonFab";
+import ScrollTrigger from "react-scroll-trigger";
 
 const fadeIn = keyframes`
 from {
@@ -32,6 +33,13 @@ to {
 `;
 const Contact = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  const onEnterViewport = (animationClass) => {
+    const element = document.getElementById(animationClass);
+    if (element) {
+      element.classList.add(animationClass);
+    }
+  };
 
   const textTitle = (
     <TypeAnimation
@@ -123,17 +131,27 @@ const Contact = () => {
             </StyledBadge>
           </Stack>
           <Box sx={{ py: 3, textAlign: "center" }}>
-            <Typography
-              variant="h6"
-              gutterBottom
-              sx={{
-                color: (theme) => theme.palette.text.secondary,
-              }}
-            >
-              Looking forward to connecting and collaborating with you. Feel
-              free to reach out!
-            </Typography>
-
+            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c1")}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                id="fade-slide-up-c1"
+                sx={{
+                  color: (theme) => theme.palette.text.secondary,
+                  opacity: 0,
+                  transform: "translateY(20px)",
+                  transition:
+                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  "&.fade-slide-up-c1": {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                Looking forward to connecting and collaborating with you. Feel
+                free to reach out!
+              </Typography>
+            </ScrollTrigger>
             <Divider
               sx={{ width: { xs: "100%", md: "70%" }, my: 6, mx: "auto" }}
             />
@@ -145,69 +163,114 @@ const Contact = () => {
                 gap: 3,
               }}
             >
-              <Link
-                href="tel:978-648-7075"
-                color="inherit"
-                underline="none"
-                target="_blank"
+              <ScrollTrigger
+                onEnter={() => onEnterViewport("fade-slide-up-c2")}
               >
-                <Box
+                <Link
+                  href="tel:978-648-7075"
+                  color="inherit"
+                  underline="none"
+                  target="_blank"
+                  id="fade-slide-up-c2"
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
+                    opacity: 0,
+                    transform: "translateY(20px)",
+                    transition:
+                      "opacity 1s ease-in-out, transform 1s ease-in-out",
+                    "&.fade-slide-up-c2": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
                   }}
                 >
-                  <PhoneIcon />
-                  <Typography
-                    variant="h6"
+                  <Box
                     sx={{
-                      color: (theme) => theme.palette.text.primary,
-                      animation: `${fadeIn} 2s`,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
                     }}
                   >
-                    978-648-7075
-                  </Typography>
-                </Box>
-              </Link>
-              <Link
-                href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
-                color="inherit"
-                underline="none"
-                target="_blank"
+                    <PhoneIcon />
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: (theme) => theme.palette.text.primary,
+                        animation: `${fadeIn} 2s`,
+                      }}
+                    >
+                      978-648-7075
+                    </Typography>
+                  </Box>
+                </Link>
+              </ScrollTrigger>
+              <ScrollTrigger
+                onEnter={() => onEnterViewport("fade-slide-up-c3")}
               >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <EmailIcon />
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: (theme) => theme.palette.text.primary,
-                      animation: `${fadeIn} 2s`,
-                    }}
-                  >
-                    thiagobardini@icloud.com
-                  </Typography>
-                </Box>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/thiagobardini/"
-                color="inherit"
-                underline="none"
-                target="_blank"
+                <Link
+                  href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
+                  color="inherit"
+                  underline="none"
+                  target="_blank"
+                  id="fade-slide-up-c3"
+                  sx={{
+                    opacity: 0,
+                    transform: "translateY(20px)",
+                    transition:
+                      "opacity 1s ease-in-out, transform 1s ease-in-out",
+                    "&.fade-slide-up-c3": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <EmailIcon />
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: (theme) => theme.palette.text.primary,
+                        animation: `${fadeIn} 2s`,
+                      }}
+                    >
+                      thiagobardini@icloud.com
+                    </Typography>
+                  </Box>
+                </Link>
+              </ScrollTrigger>
+              <ScrollTrigger
+                onEnter={() => onEnterViewport("fade-slide-up-c4")}
               >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <LinkedInIcon sx={{ fontSize: "2rem" }} />
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: (theme) => theme.palette.text.primary,
-                      animation: `${fadeIn} 2s`,
-                    }}
-                  >
-                    thiagobardini
-                  </Typography>
-                </Box>
-              </Link>
+                <Link
+                  href="https://www.linkedin.com/in/thiagobardini/"
+                  color="inherit"
+                  underline="none"
+                  target="_blank"
+                  id="fade-slide-up-c4"
+                  sx={{
+                    opacity: 0,
+                    transform: "translateY(20px)",
+                    transition:
+                      "opacity 1s ease-in-out, transform 1s ease-in-out",
+                    "&.fade-slide-up-c4": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <LinkedInIcon sx={{ fontSize: "2rem" }} />
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: (theme) => theme.palette.text.primary,
+                        animation: `${fadeIn} 2s`,
+                      }}
+                    >
+                      thiagobardini
+                    </Typography>
+                  </Box>
+                </Link>
+              </ScrollTrigger>
             </Box>
           </Box>
         </Paper>

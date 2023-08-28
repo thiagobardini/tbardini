@@ -4,6 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 import { useSelector } from "react-redux";
 import TextAnimation from "./TextAnimation";
 import ButtonFab from "./ButtonFab";
+import ScrollTrigger from "react-scroll-trigger";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -22,9 +23,14 @@ const HomeText = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const theme = useTheme();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
+  const onEnterViewport = (animationClass) => {
+    const element = document.getElementById(animationClass);
+    if (element) {
+      element.classList.add(animationClass);
+    }
+  };
   return (
     <CustomBox component="section">
       <Typography
@@ -57,32 +63,42 @@ const HomeText = () => {
           px: 1,
         }}
       >
-        <Typography
-          variant="h6"
-          sx={{
-            color: (theme) => theme.palette.text.secondary,
-            backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
-            textShadow: darkMode
-              ? "none"
-              : "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
-            fontWeight: 600,
-          }}
-        >
-          I'm a Boston based{" "}
-          <span
-            style={{
-              fontWeight: 900,
-              color: darkMode ? "#eeeeee" : "#222831",
+        <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-h1")}>
+          <Typography
+            variant="h6"
+            id="fade-slide-up-h1"
+            sx={{
+              color: (theme) => theme.palette.text.secondary,
+              backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
               textShadow: darkMode
                 ? "none"
-                : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+                : "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+              fontWeight: 600,
+              opacity: 0,
+              transform: "translateY(20px)",
+              transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+              "&.fade-slide-up-h1": {
+                opacity: 1,
+                transform: "translateY(0)",
+              },
             }}
           >
-            software engineer
-          </span>{" "}
-          turned problem-solver, bringing creativity and design thinking to
-          every line of code.
-        </Typography>
+            I'm a Boston based{" "}
+            <span
+              style={{
+                fontWeight: 900,
+                color: darkMode ? "#eeeeee" : "#222831",
+                textShadow: darkMode
+                  ? "none"
+                  : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+              }}
+            >
+              software engineer
+            </span>{" "}
+            turned problem-solver, bringing creativity and design thinking to
+            every line of code.
+          </Typography>
+        </ScrollTrigger>
       </Box>
 
       <Box mt={4} sx={{ width: "auto" }}>

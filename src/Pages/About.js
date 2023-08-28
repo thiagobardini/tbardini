@@ -23,6 +23,7 @@ import HeadingTop from "../Components/Typography/HeadingTop";
 import LanguageIcon from "@mui/icons-material/Language";
 import { keyframes } from "@emotion/react";
 import ButtonFab from "../Components/ButtonFab";
+import ScrollTrigger from "react-scroll-trigger";
 
 const fadeIn = keyframes`
 from {
@@ -35,6 +36,13 @@ to {
 
 const AboutMe = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  const onEnterViewport = (animationClass) => {
+    const element = document.getElementById(animationClass);
+    if (element) {
+      element.classList.add(animationClass);
+    }
+  };
 
   const textTitle = (
     <TypeAnimation
@@ -96,99 +104,112 @@ const AboutMe = () => {
               />
             </Grid>
             <Grid item xs={12} sm={8}>
-              <Typography
-                variant="h4"
-                sx={{
-                  mb: 1,
-                  fontWeight: 800,
-                  color: (theme) => theme.palette.text.primary,
-                }}
-              >
-                Thiago Bardini
-              </Typography>
-              <List>
-                <ListItem disableGutters>
-                  <ListItemIcon sx={{ minWidth: "40px" }}>
+              <ScrollTrigger onEnter={() => onEnterViewport("fade-in")}>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    mb: 1,
+                    fontWeight: 800,
+                    color: (theme) => theme.palette.text.primary,
+                  }}
+                >
+                  Thiago Bardini
+                </Typography>
+
+                <List
+                  id="fade-in"
+                  variant="body1"
+                  sx={{
+                    opacity: 0,
+                    transition: "opacity 1s ease-in-out",
+                    "&.fade-in": {
+                      opacity: 1,
+                    },
+                  }}
+                >
+                  <ListItem disableGutters>
+                    <ListItemIcon sx={{ minWidth: "40px" }}>
+                      <Typography
+                        sx={{ color: (theme) => theme.palette.text.secondary }}
+                      >
+                        <LocationOnIcon />
+                      </Typography>
+                    </ListItemIcon>
                     <Typography
-                      sx={{ color: (theme) => theme.palette.text.secondary }}
-                    >
-                      <LocationOnIcon />
-                    </Typography>
-                  </ListItemIcon>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: (theme) => theme.palette.text.primary,
-                      fontWeight: 700,
-                    }}
-                  >
-                    <Typography
-                      variant="span"
+                      variant="body1"
                       sx={{
-                        fontWeight: 500,
-                        color: (theme) => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.primary,
+                        fontWeight: 700,
                       }}
                     >
-                      Location:
-                    </Typography>{" "}
-                    Greater Boston, MA
-                  </Typography>
-                </ListItem>
-                <ListItem disableGutters>
-                  <ListItemIcon sx={{ minWidth: "40px" }}>
-                    <Typography
-                      sx={{ color: (theme) => theme.palette.text.secondary }}
-                    >
-                      <FlagIcon />
+                      <Typography
+                        variant="span"
+                        sx={{
+                          fontWeight: 500,
+                          color: (theme) => theme.palette.text.secondary,
+                        }}
+                      >
+                        Location:
+                      </Typography>{" "}
+                      Greater Boston, MA
                     </Typography>
-                  </ListItemIcon>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: (theme) => theme.palette.text.primary,
-                      fontWeight: 700,
-                    }}
-                  >
+                  </ListItem>
+                  <ListItem disableGutters>
+                    <ListItemIcon sx={{ minWidth: "40px" }}>
+                      <Typography
+                        sx={{ color: (theme) => theme.palette.text.secondary }}
+                      >
+                        <FlagIcon />
+                      </Typography>
+                    </ListItemIcon>
                     <Typography
-                      variant="span"
+                      variant="body1"
                       sx={{
-                        fontWeight: 500,
-                        color: (theme) => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.primary,
+                        fontWeight: 700,
                       }}
                     >
-                      Nationalities:
-                    </Typography>{" "}
-                    American, Brazilian
-                  </Typography>
-                </ListItem>
-                <ListItem disableGutters>
-                  <ListItemIcon sx={{ minWidth: "40px" }}>
-                    <Typography
-                      sx={{ color: (theme) => theme.palette.text.secondary }}
-                    >
-                      <LanguageIcon />
+                      <Typography
+                        variant="span"
+                        sx={{
+                          fontWeight: 500,
+                          color: (theme) => theme.palette.text.secondary,
+                        }}
+                      >
+                        Nationalities:
+                      </Typography>{" "}
+                      American, Brazilian
                     </Typography>
-                  </ListItemIcon>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: (theme) => theme.palette.text.primary,
-                      fontWeight: 700,
-                    }}
-                  >
+                  </ListItem>
+                  <ListItem disableGutters>
+                    <ListItemIcon sx={{ minWidth: "40px" }}>
+                      <Typography
+                        sx={{ color: (theme) => theme.palette.text.secondary }}
+                      >
+                        <LanguageIcon />
+                      </Typography>
+                    </ListItemIcon>
                     <Typography
-                      variant="span"
+                      variant="body1"
                       sx={{
-                        fontWeight: 500,
-                        color: (theme) => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.primary,
+                        fontWeight: 700,
                       }}
                     >
-                      Languages:
-                    </Typography>{" "}
-                    English, Portuguese
-                  </Typography>
-                </ListItem>
-              </List>
+                      <Typography
+                        variant="span"
+                        sx={{
+                          fontWeight: 500,
+                          color: (theme) => theme.palette.text.secondary,
+                        }}
+                      >
+                        Languages:
+                      </Typography>{" "}
+                      English, Portuguese
+                    </Typography>
+                  </ListItem>
+                </List>
+              </ScrollTrigger>
             </Grid>
           </Grid>
           <Divider
@@ -201,81 +222,141 @@ const AboutMe = () => {
               mb: 1,
             }}
           >
+            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-1")}>
+              <Typography
+                id="fade-slide-down-1"
+                variant="h5"
+                sx={{
+                  fontWeight: 700,
+                  color: (theme) => theme.palette.text.primary,
+                  opacity: 0,
+                  transform: "translateY(-20px)",
+                  transition:
+                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  "&.fade-slide-down-1": {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                About me
+              </Typography>
+            </ScrollTrigger>
+          </Box>
+          <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-1")}>
             <Typography
-              variant="h5"
+              id="fade-slide-up-1"
+              variant="body1"
               sx={{
-                fontWeight: 700,
-                color: (theme) => theme.palette.text.primary,
+                mb: 2,
+                color: (theme) => theme.palette.text.secondary,
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                "&.fade-slide-up-1": {
+                  opacity: 1,
+                  transform: "translateY(0)",
+                },
               }}
             >
-              About me
+              I am a detail-oriented software engineer specialized in
+              JavaScript, React, Redux, and modern CSS libraries. Currently
+              employed at TransPerfect, I work on QA automation tests and
+              frontend development, and also collaborate as a Frontend Developer
+              at Code for Boston. My professional journey revolves around
+              creating responsive websites and managing QA automation processes.
+              In my free time, I enjoy hobbies such as playing bass guitar,
+              hiking, traveling, and surfing.
             </Typography>
-          </Box>
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 2,
-              animation: `${fadeIn} 2s`,
-              color: (theme) => theme.palette.text.secondary,
-            }}
-          >
-            I am a detail-oriented software engineer specialized in JavaScript,
-            React, Redux, and modern CSS libraries. Currently employed at
-            TransPerfect, I work on QA automation tests and frontend
-            development, and also collaborate as a Frontend Developer at Code
-            for Boston. My professional journey revolves around creating
-            responsive websites and managing QA automation processes. In my free
-            time, I enjoy hobbies such as playing bass guitar, hiking,
-            traveling, and surfing.
-          </Typography>
+          </ScrollTrigger>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-2")}>
+              <Typography
+                variant="h5"
+                id="fade-slide-down-2"
+                sx={{
+                  fontWeight: 700,
+                  color: (theme) => theme.palette.text.primary,
+                  opacity: 0,
+                  transform: "translateY(-20px)",
+                  transition:
+                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  "&.fade-slide-down-2": {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                Objective
+              </Typography>
+            </ScrollTrigger>
+          </Box>
+          <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-2")}>
             <Typography
-              variant="h5"
+              id="fade-slide-up-2"
+              variant="body1"
               sx={{
-                fontWeight: 700,
-                color: (theme) => theme.palette.text.primary,
+                mb: 2,
+                color: (theme) => theme.palette.text.secondary,
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                "&.fade-slide-up-2": {
+                  opacity: 1,
+                  transform: "translateY(0)",
+                },
               }}
             >
-              Objective
+              Looking to connect and collaborate with a company where I can grow
+              personally and professionally. I want to be a part of a community
+              that values integrity, intelligence, and creativity.
             </Typography>
-          </Box>
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 2,
-              animation: `${fadeIn} 2s`,
-              color: (theme) => theme.palette.text.secondary,
-            }}
-          >
-            Looking to connect and collaborate with a company where I can grow
-            personally and professionally. I want to be a part of a community
-            that values integrity, intelligence, and creativity.
-          </Typography>
+          </ScrollTrigger>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-3")}>
+              <Typography
+                id="fade-slide-down-3"
+                variant="h5"
+                sx={{
+                  fontWeight: 700,
+                  color: (theme) => theme.palette.text.primary,
+                  opacity: 0,
+                  transform: "translateY(-20px)",
+                  transition:
+                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  "&.fade-slide-down-3": {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+                }}
+              >
+                What do I do?
+              </Typography>
+            </ScrollTrigger>
+          </Box>
+          <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-3")}>
             <Typography
-              variant="h5"
+              id="fade-slide-up-3"
+              variant="body1"
               sx={{
-                fontWeight: 700,
-                color: (theme) => theme.palette.text.primary,
+                mb: 3,
+                color: (theme) => theme.palette.text.secondary,
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                "&.fade-slide-up-3": {
+                  opacity: 1,
+                  transform: "translateY(0)",
+                },
               }}
             >
-              What do I do?
+              I have substantial experience in customizing or creating modern
+              responsive websites with creative design involving latest
+              frameworks. I enjoy working as a Front End/Full Stack Developer.
+              Recently, I have been interested in Mobile Applications using
+              React Native.
             </Typography>
-          </Box>
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 3,
-              animation: `${fadeIn} 2s`,
-              color: (theme) => theme.palette.text.secondary,
-            }}
-          >
-            I have substantial experience in customizing or creating modern
-            responsive websites with creative design involving latest
-            frameworks. I enjoy working as a Front End/Full Stack Developer.
-            Recently, I have been interested in Mobile Applications using React
-            Native.
-          </Typography>
+          </ScrollTrigger>
           <Button
             variant="contained"
             color="secondary"

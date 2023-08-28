@@ -5,6 +5,7 @@ import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { Howl } from "howler";
 import { keyframes } from "@emotion/react";
 import { Paper, Button } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 
 const pulse = keyframes`
   0% {
@@ -27,6 +28,7 @@ const SoundControl = () => {
   );
   const backgroundSound = useRef(null);
   const clickSound = useRef(null);
+  const isDesktop = useMediaQuery({ minDeviceWidth: 1024 });
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
@@ -78,7 +80,7 @@ const SoundControl = () => {
 
   return (
     <>
-      {permission === "pending" && (
+      {isDesktop /* Render only on desktop */ && permission === "pending" && (
         <div
           style={{
             position: "fixed",

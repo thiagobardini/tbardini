@@ -92,7 +92,9 @@ to {
         top: "26px",
         left: 0,
         right: 0,
-        backgroundColor: darkMode
+        backgroundColor: !isNavVisible
+          ? "transparent"
+          : darkMode
           ? "transparent !important"
           : "#eeeeee !important",
         backdropFilter: !isNavVisible
@@ -103,7 +105,7 @@ to {
         backgroundImage: !isNavVisible && "none",
         boxShadow: !isNavVisible && "none",
         transition:
-          "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
+          "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear, backgroundColor  200ms linear",
         animation: `${fadeIn} 2s`,
       }}
     >

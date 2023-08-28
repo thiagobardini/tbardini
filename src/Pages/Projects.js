@@ -212,7 +212,7 @@ const Projects = () => {
                     ? "block"
                     : "none",
                 "&:hover": {
-                  backgroundColor: "secondary.light",
+                  backgroundColor: "transparent",
                 },
               }}
             >

@@ -92,15 +92,16 @@ to {
         top: "26px",
         left: 0,
         right: 0,
-        backgroundColor: !isNavVisible
-          ? "transparent"
+        backgroundColor: "transparent",
+        backdropFilter: !isNavVisible
+          ? "none"
           : darkMode
-          ? "#22313f"
-          : "#393635",
-        boxShadow: !isNavVisible && "none",
+          ? "blur(10px)"
+          : "blur(10px)",
         backgroundImage: !isNavVisible && "none",
+        boxShadow: !isNavVisible && "none",
         transition:
-          "background-color 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
+          "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
         animation: `${fadeIn} 2s`,
       }}
     >
@@ -126,7 +127,11 @@ to {
           {isNavVisible === true && (
             <Box
               onClick={toggleHamburger}
-              sx={{ display: { xs: "flex", md: "none" }, zIndex: 9999 }}
+              sx={{
+                display: { xs: "flex", md: "none" },
+                zIndex: 9999,
+                color: darkMode ? "#eeeeee" : "#222831",
+              }}
             >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
             </Box>
@@ -168,7 +173,9 @@ to {
                 left: "-12px",
                 top: "0px",
                 borderRadius: "50%",
+                backdropFilter: darkMode ? "blur(80px)" : "invert(80%)",
                 backgroundColor: darkMode ? "#0092ca" : "#1270AF",
+                color: "#eeeeee",
                 height: "70px",
                 width: "70px",
                 justifyContent: "center",
@@ -201,7 +208,7 @@ to {
                     to={page.to}
                     key={page.text}
                     sx={{
-                      color: "#eeeeee",
+                      color: darkMode ? "#eeeeee" : "#222831",
                       textTransform: "none",
                       fontWeight: "500",
                       textDecoration: "none",
@@ -241,7 +248,7 @@ to {
               >
                 <Box
                   component={Link}
-                  color="#eeeeee"
+                  sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
                   to={"https://www.linkedin.com/in/thiagobardini/"}
                   target="_blank"
                   m={1}
@@ -250,7 +257,7 @@ to {
                 </Box>
                 <Box
                   component={Link}
-                  color="#eeeeee"
+                  sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
                   to={"https://github.com/thiagobardini"}
                   target="_blank"
                   m={1}
@@ -266,65 +273,90 @@ to {
       </Container>
     </AppBar>
   ) : (
-    <Container
-      maxWidth="xl"
+    <AppBar
+      position="fixed"
       sx={{
-        padding: 0,
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
+        py: "2px",
+        top: "26px",
+        left: 0,
+        right: 0,
+        backgroundColor: "transparent",
+        backdropFilter: !isNavVisible
+          ? "none"
+          : darkMode
+          ? "blur(5px)"
+          : "blur(5px)",
+        backgroundImage: !isNavVisible && "none",
+        boxShadow: !isNavVisible && "none",
+        transition:
+          "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
+        animation: `${fadeIn} 2s`,
       }}
     >
-      <Box
-        sx={{
-          zIndex: "1200",
-          width: "100%",
-          position: "absolute",
-          display: "block",
-          animation: `${fadeIn} 2s`,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            position: "absolute",
-            left: "8px",
-            top: "23px",
-            borderRadius: "50%",
-            color: "secondary",
-            height: "70px",
-            width: "70px",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
-        </Box>
-        <Box
-          component={Link}
-          to="/"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textDecoration: "none",
-          }}
-        >
-          <LogoAnimation height={"120px"} />
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-
-            position: "absolute",
-            right: "20px",
-            top: "42px",
-          }}
-        >
-          <ToggleThemeMode />
-        </Box>
-      </Box>
-    </Container>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          {isNavVisible === true && (
+            <Box
+              onClick={toggleHamburger}
+              sx={{
+                display: { xs: "flex" },
+                zIndex: 9999,
+                color: darkMode ? "#eeeeee" : "#222831",
+              }}
+            >
+              <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
+            </Box>
+          )}
+          {/* Only show logo if isNavVisible is true */}
+          {isNavVisible === true && (
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              sx={{
+                flexGrow: 1,
+              }}
+            >
+              <Box
+                component={Link}
+                to="/"
+                sx={{
+                  position: "fixed",
+                }}
+              >
+                <LogoAnimation height={"120px"} />
+              </Box>
+            </Stack>
+          )}
+          {showHamburger && (
+            <Box
+              sx={{
+                display: "flex",
+                mt: 1,
+                position: "absolute",
+                left: "-12px",
+                top: "0px",
+                borderRadius: "50%",
+                backdropFilter: darkMode ? "blur(80px)" : "invert(80%)",
+                backgroundColor: darkMode ? "#0092ca" : "#1270AF",
+                color: "#eeeeee",
+                height: "70px",
+                width: "70px",
+                justifyContent: "center",
+                alignItems: "center",
+                opacity: isNavVisible ? 0 : 1,
+                visibility: isNavVisible ? "hidden" : "visible",
+                transition: "opacity 2000ms linear, visibility 2000ms linear",
+                animation: `${fadeIn} 2s`,
+              }}
+            >
+              <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
+            </Box>
+          )}
+          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 

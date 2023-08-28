@@ -1,10 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef } from "react";
 import IconButton from "@mui/material/IconButton";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { Howl } from "howler";
 import { keyframes } from "@emotion/react";
-import { Paper, Button } from "@mui/material";
+import {
+  Dialog,
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Slide,
+} from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 const pulse = keyframes`
@@ -19,16 +27,22 @@ const pulse = keyframes`
   }
 `;
 
+const Transition = forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const SoundControl = () => {
   const theme = useTheme();
   const isMdOrUp = useMediaQuery(theme.breakpoints.up("md"));
 
+  const [open, setOpen] = useState(true);
   const [isMuted, setIsMuted] = useState(
     localStorage.getItem("audioPermission") === "granted"
   );
   const [permission, setPermission] = useState(
     localStorage.getItem("audioPermission") || "pending"
   );
+
   const backgroundSound = useRef(null);
   const clickSound = useRef(null);
 
@@ -78,60 +92,49 @@ const SoundControl = () => {
   const grantPermission = () => {
     setPermission("granted");
     localStorage.setItem("audioPermission", "granted");
+    setOpen(true);
   };
 
   const denyPermission = () => {
     setPermission("denied");
     localStorage.setItem("audioPermission", "denied");
+    setOpen(false);
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
     <>
       {isMdOrUp && permission === "pending" && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.7)",
-            zIndex: 2000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
-            <div
-              style={{
-                padding: "20px",
-                borderRadius: "8px",
-              }}
-            >
-              <p>
+        <div>
+          <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle>{"Do you agree?"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
                 This site requires your permission to enhance user experience.
-                Do you agree?
-              </p>
-              <Button
-                variant="outlined"
-                color="secondary"
-                size="small"
-                onClick={grantPermission}
-                sx={{ mr: 2 }}
-              >
-                Allow
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button variant="info" onClick={denyPermission}>
+                Disagree
               </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                size="small"
-                onClick={denyPermission}
-              >
-                Close
+              <Button variant="info" onClick={grantPermission}>
+                Agree
               </Button>
-            </div>
-          </Paper>
+            </DialogActions>
+          </Dialog>
         </div>
       )}
       {isMdOrUp && (

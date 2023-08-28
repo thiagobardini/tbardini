@@ -5,7 +5,7 @@ import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { Howl } from "howler";
 import { keyframes } from "@emotion/react";
 import { Paper, Button } from "@mui/material";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const pulse = keyframes`
   0% {
@@ -20,6 +20,9 @@ const pulse = keyframes`
 `;
 
 const SoundControl = () => {
+  const theme = useTheme();
+  const isMdOrUp = useMediaQuery(theme.breakpoints.up("md"));
+
   const [isMuted, setIsMuted] = useState(
     localStorage.getItem("audioPermission") === "granted"
   );
@@ -28,7 +31,6 @@ const SoundControl = () => {
   );
   const backgroundSound = useRef(null);
   const clickSound = useRef(null);
-  const isDesktop = useMediaQuery({ minDeviceWidth: 1024 });
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
@@ -66,7 +68,12 @@ const SoundControl = () => {
     } else if (permission === "denied") {
       setIsMuted(true);
     }
-  }, [permission, isMuted]);
+
+    // Stop sound if screen width is less than "md"
+    if (!isMdOrUp) {
+      backgroundSound.current.stop();
+    }
+  }, [permission, isMuted, isMdOrUp]);
 
   const grantPermission = () => {
     setPermission("granted");
@@ -80,7 +87,7 @@ const SoundControl = () => {
 
   return (
     <>
-      {isDesktop /* Render only on desktop */ && permission === "pending" && (
+      {isMdOrUp && permission === "pending" && (
         <div
           style={{
             position: "fixed",
@@ -127,23 +134,25 @@ const SoundControl = () => {
           </Paper>
         </div>
       )}
-      <IconButton
-        onClick={toggleMute}
-        sx={{
-          position: "fixed",
-          bottom: 10,
-          left: 10,
-          zIndex: "1300",
-          fontSize: "2rem",
-          "& .MuiSvgIcon-root": {
+      {isMdOrUp && (
+        <IconButton
+          onClick={toggleMute}
+          sx={{
+            position: "fixed",
+            bottom: 10,
+            left: 10,
+            zIndex: "1300",
             fontSize: "2rem",
-            animation: `${pulse} 2s infinite ease-in-out`,
-            animationPlayState: isMuted ? "paused" : "running",
-          },
-        }}
-      >
-        {isMuted ? <VolumeOffIcon /> : <VolumeUpIcon />}
-      </IconButton>
+            "& .MuiSvgIcon-root": {
+              fontSize: "2rem",
+              animation: `${pulse} 2s infinite ease-in-out`,
+              animationPlayState: isMuted ? "paused" : "running",
+            },
+          }}
+        >
+          {isMuted ? <VolumeOffIcon /> : <VolumeUpIcon />}
+        </IconButton>
+      )}
     </>
   );
 };

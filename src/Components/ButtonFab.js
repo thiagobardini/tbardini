@@ -19,16 +19,18 @@ const ButtonFab = ({ to, label, onClick }) => {
       to={to}
       size="medium"
       sx={{
-        color: "#eeeeee",
+        color: darkMode ? "#eeeeee" : "#282524",
         textTransform: "none",
         width: "auto",
         pointerEvents: "auto",
         border: "1px solid #eeeeee",
         backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
-        backgroundColor: "transparent !important",
+        backgroundColor: darkMode
+          ? "transparent !important"
+          : "#transparent !important",
         "&:hover": {
           backdropFilter: darkMode ? "blur(100px)" : "blur(100px)",
-          border: "2px solid #eeeeee",
+          border: darkMode ? "2px solid #eeeeee" : "2px solid #282524",
         },
         "& .moveRight": {
           animation: "moveRight 1s infinite",

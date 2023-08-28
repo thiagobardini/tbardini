@@ -19,6 +19,7 @@ import Footer from "./Layout/Footer";
 import LottoNest from "./Pages/lottonest/LottoNest";
 import LottoNestSignin from "./Pages/lottonest/LottoNestSignin";
 import LottoNestReadme from "./Pages/lottonest/LottoNestReadme";
+import SoundControl from "./Layout/SoundControl";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -60,6 +61,7 @@ function App() {
         <Box sx={{ zIndex: 9999 }}>
           <Navbar />
           <HireMe />
+          <SoundControl />
         </Box>
         <ScrollToTop />
         <Routes>

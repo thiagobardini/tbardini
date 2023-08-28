@@ -104,3 +104,19 @@
   color: #22313f;
   background-color: #f4d03f;
 }
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.hoverEffect:hover {
+  background-color: #ddd;
+}

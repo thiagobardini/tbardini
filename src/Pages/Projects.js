@@ -14,6 +14,7 @@ import CardsPortfolio from "../Components/CardsPortfolio";
 import projectsCards from "../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
 import { keyframes } from "@emotion/react";
+import ButtonFab from "../Components/ButtonFab";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
@@ -84,7 +85,7 @@ const Projects = () => {
     >
       <HeadingTop text={textTitle} />
       <Container>
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3 }}>
           <CssBaseline />
           <Typography
             color="text.primary"
@@ -200,6 +201,20 @@ const Projects = () => {
             </Grid>
           </Grid>
         </Paper>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            display: "flex",
+            justifyContent: "flex-start",
+            my: 3,
+          }}
+        >
+          <ButtonFab
+            to="/contact"
+            label="Let's work together go to contact"
+            onClick={() => window.scrollTo(0, 0)}
+          />
+        </Box>
       </Container>
     </Box>
   );

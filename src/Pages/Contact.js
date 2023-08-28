@@ -19,6 +19,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import myself from "../Assets/images/myselfbg.jpg";
+import ButtonFab from "../Components/ButtonFab";
 
 const fadeIn = keyframes`
 from {
@@ -86,7 +87,7 @@ const Contact = () => {
       </Box>
 
       <Container>
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3 }}>
           <CssBaseline />
           <Stack
             direction="row"
@@ -196,6 +197,20 @@ const Contact = () => {
             </Box>
           </Box>
         </Paper>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            display: "flex",
+            justifyContent: "flex-start",
+            my: 3,
+          }}
+        >
+          <ButtonFab
+            to="/"
+            label="Go back home"
+            onClick={() => window.scrollTo(0, 0)}
+          />
+        </Box>
       </Container>
     </Box>
   );

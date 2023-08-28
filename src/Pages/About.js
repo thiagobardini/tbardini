@@ -21,6 +21,7 @@ import { TypeAnimation } from "react-type-animation";
 import HeadingTop from "../Components/Typography/HeadingTop";
 import LanguageIcon from "@mui/icons-material/Language";
 import { keyframes } from "@emotion/react";
+import ButtonFab from "../Components/ButtonFab";
 
 const fadeIn = keyframes`
 from {
@@ -55,7 +56,7 @@ const AboutMe = () => {
       <HeadingTop text={textTitle} />
       <Container>
         <CssBaseline />
-        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3, mb: 5 }}>
+        <Paper elevation={3} sx={{ py: 5, px: 3, borderRadius: 3 }}>
           <Grid
             container
             spacing={3}
@@ -275,6 +276,20 @@ const AboutMe = () => {
             download my resume
           </Button>
         </Paper>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            display: "flex",
+            justifyContent: "flex-start",
+            my: 3,
+          }}
+        >
+          <ButtonFab
+            to="/portfolio"
+            label="Let's continue to portfolio"
+            onClick={() => window.scrollTo(0, 0)}
+          />
+        </Box>
       </Container>
     </Box>
   );

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Box, styled, Typography, Button, useTheme } from "@mui/material";
+import { Box, styled, Typography, Button, useTheme, Fab } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import TextAnimation from "./TextAnimation";
+import ButtonFab from "./ButtonFab";
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -85,44 +86,14 @@ const HomeText = () => {
         </Typography>
       </Box>
 
-      <Box mt={4}>
-        <Button
-          component={Link}
-          to="/portfolio"
-          variant="contained"
-          color="secondary"
-          size="large"
-          sx={{
-            textTransform: "lowercase",
-            mr: 2,
-            width: "117px",
-            pointerEvents: "auto",
-          }}
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          portfolio
-        </Button>
-
-        <Button
-          component={Link}
-          to={"/aboutme"}
-          variant="outlined"
-          color="primary"
-          size="large"
-          sx={{
-            color: theme.palette.primary.main,
-            textTransform: "lowercase",
-            width: "117px",
-            pointerEvents: "auto",
-            backgroundColor: "#eeeeee",
-            "&:hover": {
-              backgroundColor: "#d6d3d1",
-            },
-          }}
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          about me
-        </Button>
+      <Box mt={4} sx={{ width: "auto" }}>
+        <Box sx={{ "& > :not(style)": { m: 1 } }}>
+          <ButtonFab
+            to="/aboutme"
+            label="See more about me"
+            onClick={() => window.scrollTo(0, 0)}
+          />
+        </Box>
       </Box>
     </CustomBox>
   );

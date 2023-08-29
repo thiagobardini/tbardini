@@ -47,7 +47,7 @@ to {
             sx={{
               pt: 2,
               right: 0,
-              width: { xs: "100%", sm: "100%", md: "50%" },
+              width: { xs: "100%", sm: "90%", md: "50%" },
               height: "100%",
 
               display: "flex",

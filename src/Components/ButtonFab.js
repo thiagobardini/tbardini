@@ -8,7 +8,7 @@ const ButtonFab = ({ to, label, onClick }) => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(-20, 0);
   }, []);
 
   return (

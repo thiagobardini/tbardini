@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { keyframes } from "@emotion/react";
 import {
@@ -32,7 +32,13 @@ to {
 }
 `;
 const Contact = () => {
+  const [key, setKey] = useState(0);
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  // ScrollTrigger keep the animation from running after change the theme
+  useEffect(() => {
+    setKey((prevKey) => prevKey + 1);
+  }, [darkMode]);
 
   const onEnterViewport = (animationClass) => {
     const element = document.getElementById(animationClass);
@@ -84,6 +90,7 @@ const Contact = () => {
   }));
   return (
     <Box
+      key={key}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -155,33 +162,29 @@ const Contact = () => {
             <Divider
               sx={{ width: { xs: "100%", md: "70%" }, my: 6, mx: "auto" }}
             />
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                justifyContent: "center",
-                gap: 3,
-              }}
-            >
-              <ScrollTrigger
-                onEnter={() => onEnterViewport("fade-slide-up-c2")}
+            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c2")}>
+              <Box
+                id="fade-slide-up-c2"
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  justifyContent: "center",
+                  gap: 3,
+                  opacity: 0,
+                  transform: "translateY(20px)",
+                  transition:
+                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  "&.fade-slide-up-c2": {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+                }}
               >
                 <Link
                   href="tel:978-648-7075"
                   color="inherit"
                   underline="none"
                   target="_blank"
-                  id="fade-slide-up-c2"
-                  sx={{
-                    opacity: 0,
-                    transform: "translateY(20px)",
-                    transition:
-                      "opacity 1s ease-in-out, transform 1s ease-in-out",
-                    "&.fade-slide-up-c2": {
-                      opacity: 1,
-                      transform: "translateY(0)",
-                    },
-                  }}
                 >
                   <Box
                     sx={{
@@ -202,26 +205,11 @@ const Contact = () => {
                     </Typography>
                   </Box>
                 </Link>
-              </ScrollTrigger>
-              <ScrollTrigger
-                onEnter={() => onEnterViewport("fade-slide-up-c3")}
-              >
                 <Link
                   href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
                   color="inherit"
                   underline="none"
                   target="_blank"
-                  id="fade-slide-up-c3"
-                  sx={{
-                    opacity: 0,
-                    transform: "translateY(20px)",
-                    transition:
-                      "opacity 1s ease-in-out, transform 1s ease-in-out",
-                    "&.fade-slide-up-c3": {
-                      opacity: 1,
-                      transform: "translateY(0)",
-                    },
-                  }}
                 >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <EmailIcon />
@@ -236,26 +224,12 @@ const Contact = () => {
                     </Typography>
                   </Box>
                 </Link>
-              </ScrollTrigger>
-              <ScrollTrigger
-                onEnter={() => onEnterViewport("fade-slide-up-c4")}
-              >
+
                 <Link
                   href="https://www.linkedin.com/in/thiagobardini/"
                   color="inherit"
                   underline="none"
                   target="_blank"
-                  id="fade-slide-up-c4"
-                  sx={{
-                    opacity: 0,
-                    transform: "translateY(20px)",
-                    transition:
-                      "opacity 1s ease-in-out, transform 1s ease-in-out",
-                    "&.fade-slide-up-c4": {
-                      opacity: 1,
-                      transform: "translateY(0)",
-                    },
-                  }}
                 >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <LinkedInIcon sx={{ fontSize: "2rem" }} />
@@ -270,8 +244,8 @@ const Contact = () => {
                     </Typography>
                   </Box>
                 </Link>
-              </ScrollTrigger>
-            </Box>
+              </Box>
+            </ScrollTrigger>
           </Box>
         </Paper>
         <Box

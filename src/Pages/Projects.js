@@ -280,7 +280,7 @@ const Projects = () => {
         >
           <ButtonFab
             to="/contact"
-            label="Let's work together go to contact"
+            label="Let's work together, go to contact"
             onClick={() => window.scrollTo(0, 0)}
           />
         </Box>

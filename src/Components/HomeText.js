@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Box, styled, Typography, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, styled, Typography } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import { useSelector } from "react-redux";
 import TextAnimation from "./TextAnimation";
@@ -19,11 +19,16 @@ const CustomBox = styled(Box)(({ theme }) => ({
 }));
 
 const HomeText = () => {
+  const [key, setKey] = useState(0);
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const darkMode = useSelector((state) => state.theme.darkMode);
+  useEffect(() => {
+    setKey((prevKey) => prevKey + 1);
+  }, [darkMode]);
 
   const onEnterViewport = (animationClass) => {
     const element = document.getElementById(animationClass);
@@ -32,7 +37,7 @@ const HomeText = () => {
     }
   };
   return (
-    <CustomBox component="section">
+    <CustomBox component="section" key={key}>
       <Typography
         variant="h1"
         component="h1"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   Box,
@@ -35,7 +35,14 @@ to {
 `;
 
 const AboutMe = () => {
+  const [key, setKey] = useState(0);
+
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  // ScrollTrigger keep the animation from running after change the theme
+  useEffect(() => {
+    setKey((prevKey) => prevKey + 1);
+  }, [darkMode]);
 
   const onEnterViewport = (animationClass) => {
     const element = document.getElementById(animationClass);
@@ -55,6 +62,7 @@ const AboutMe = () => {
   );
   return (
     <Box
+      key={key}
       sx={{
         display: "flex",
         flexDirection: "column",

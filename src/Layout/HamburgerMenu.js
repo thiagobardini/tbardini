@@ -39,9 +39,13 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         }}
         PaperProps={{
           sx: {
+            // backgroundColor: darkMode
+            //   ? theme.palette.background.paper
+            //   : "#d6d3d1",
+            backdropFilter: darkMode ? "blur(40px)" : "blur(50px)",
             backgroundColor: darkMode
-              ? theme.palette.background.paper
-              : "#d6d3d1",
+              ? "transparent !important"
+              : "#transparent !important",
             display: "block",
             boxSizing: "border-box",
             width: "100%",

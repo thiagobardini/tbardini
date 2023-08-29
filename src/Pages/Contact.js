@@ -124,25 +124,27 @@ const Contact = () => {
             justifyContent="center"
             alignItems="center"
             spacing={0}
-            sx={{ animation: `${fadeIn} 2s` }}
+            sx={{ animation: `${fadeIn} 2s`, position: "relative" }}
           >
-            <StyledBadge
-              overlap="circular"
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              variant="dot"
-            >
-              <Avatar
-                alt="Thiago Bardini"
-                src={myself}
-                sx={{ width: 150, height: 150 }}
-              />
-            </StyledBadge>
+            <Box>
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+              >
+                <Avatar
+                  alt="Thiago Bardini"
+                  src={myself}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </StyledBadge>
+            </Box>
             <Box
               sm={3}
               sx={{
                 position: "absolute",
 
-                top: "10px",
+                top: "-35px",
               }}
             >
               <CanvasComponentMini />

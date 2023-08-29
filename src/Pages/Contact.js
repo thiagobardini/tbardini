@@ -22,6 +22,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import myself from "../Assets/images/myselfbg.jpg";
 import ButtonFab from "../Components/ButtonFab";
 import ScrollTrigger from "react-scroll-trigger";
+import CanvasComponentMini from "../Components/Canvas/CanvasComponentMini";
 
 const fadeIn = keyframes`
 from {
@@ -136,6 +137,16 @@ const Contact = () => {
                 sx={{ width: 150, height: 150 }}
               />
             </StyledBadge>
+            <Box
+              sm={3}
+              sx={{
+                position: "absolute",
+
+                top: "10px",
+              }}
+            >
+              <CanvasComponentMini />
+            </Box>
           </Stack>
           <Box sx={{ py: 3, textAlign: "center" }}>
             <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c1")}>

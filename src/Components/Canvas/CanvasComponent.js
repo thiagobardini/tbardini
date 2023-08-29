@@ -88,9 +88,7 @@ const CanvasComponent = () => {
           {!darkMode ? (
             <>
               <pointLight position={[5, 5, 5]} intensity={0.5} />
-              {/* <ModelContainerBeach /> */}
               <ModelContainerLight />
-              {/* <ModelContainerDark /> */}
             </>
           ) : (
             <ModelContainerDark />

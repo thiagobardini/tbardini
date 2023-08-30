@@ -5,8 +5,8 @@ import {
   fetchTickets,
   deleteTicketById,
   deleteAllTickets,
-} from "../../redux/ticketSlice";
-import { selectAuth } from "../../redux/authSlices";
+} from "../../../../redux/ticketSlice";
+import { selectAuth } from "../../../../redux/authSlices";
 import {
   Box,
   Button,

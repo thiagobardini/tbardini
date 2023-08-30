@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTickets, isTickets } from "../../redux/ticketSlice";
-import { selectAuth } from "../../redux/authSlices";
-import { selectResults } from "../../redux/matchingTicketsSlice";
+import { fetchTickets, isTickets } from "../../../redux/ticketSlice";
+import { selectAuth } from "../../../redux/authSlices";
+import { selectResults } from "../../../redux/matchingTicketsSlice";
 import {
   Box,
   Container,
@@ -16,15 +16,15 @@ import {
   Paper,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CheckNumbers from "./CheckNumbers";
-import LogoNest from "../../Assets/images/MegaMillions.png";
-import Logout from "../../Features/auth/Logout";
-import TicketInput from "./TicketInput";
-import CardCaptureData from "./CardCaptureData";
-import MatchingTickets from "./MatchingTickets";
-import ViewAllTickets from "./ViewAllTickets";
-import DonateButton from "../../Components/DonateButton";
-import ButtonFab from "../../Components/ButtonFab";
+import CheckNumbers from "./Components/CheckNumbers";
+import LogoNest from "../../../Assets/images/MegaMillions.png";
+import Logout from "../../../Features/auth/Logout";
+import TicketInput from "./Components/TicketInput";
+import CardCaptureData from "./Components/CardCaptureData";
+import MatchingTickets from "./Components/MatchingTickets";
+import ViewAllTickets from "./Components/ViewAllTickets";
+import DonateButton from "../../../Components/DonateButton";
+import ButtonFab from "../../../Components/ButtonFab";
 
 const LottoNest = () => {
   const [showComponent, setShowComponent] = useState(null);

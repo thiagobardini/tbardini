@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import HeadingTop from "../../Components/Typography/HeadingTop";
+import HeadingTop from "../../../../Components/Typography/HeadingTop";
 
 const DocumentationContainer = styled(Box)(({ theme }) => ({
   display: "flex",

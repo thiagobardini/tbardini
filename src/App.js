@@ -9,16 +9,16 @@ import AboutMe from "./Pages/About";
 import Projects from "./Pages/Projects";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
-import RouterPlanner from "./Pages/projects/RouterPlanner/RouterPlanner";
-import RouterPlannerReadme from "./Pages/projects/RouterPlanner/RouterPlannerReadme";
+import RouterPlanner from "./Pages/Projects/RouterPlanner/RouterPlanner";
+import RouterPlannerReadme from "./Pages/Projects/RouterPlanner/RouterPlannerReadme";
 import Contact from "./Pages/Contact";
 import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
-import LottoNest from "./Pages/lottonest/LottoNest";
-import LottoNestSignin from "./Pages/lottonest/LottoNestSignin";
-import LottoNestReadme from "./Pages/lottonest/LottoNestReadme";
+import LottoNest from "./Pages/Projects/Lottonest/LottoNest";
+import LottoNestSignin from "./Pages/Projects/Lottonest/Auth/LottoNestSignin";
+import LottoNestReadme from "./Pages/Projects/Lottonest/Pages/LottoNestReadme";
 import SoundControl from "./Layout/SoundControl";
 
 function App() {

@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Box, Container, CssBaseline, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import LogoNest from "../../Assets/images/MegaMillions.png";
-import Signin from "../../Features/auth/Signin";
-import ButtonFab from "../../Components/ButtonFab";
+import LogoNest from "../../../../Assets/images/MegaMillions.png";
+import Signin from "../../../../Features/auth/Signin";
+import ButtonFab from "../../../../Components/ButtonFab";
 
 const LottoNestSignin = () => {
   const isEmail = useSelector((state) => state.authUser.email);

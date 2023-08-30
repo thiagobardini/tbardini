@@ -2,8 +2,8 @@ import React, { useRef, useCallback, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import * as Tesseract from "tesseract.js";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth } from "../../redux/authSlices";
-import { addTicket } from "../../redux/ticketSlice";
+import { selectAuth } from "../../../../redux/authSlices";
+import { addTicket } from "../../../../redux/ticketSlice";
 import {
   Typography,
   Stack,
@@ -13,7 +13,6 @@ import {
   Paper,
   Snackbar,
   Alert,
-  AlertTitle,
 } from "@mui/material";
 import { Edit, Cancel, Update, Delete, DeleteSweep } from "@mui/icons-material";
 import SendIcon from "@mui/icons-material/Send";

@@ -8,8 +8,8 @@ import {
   Stack,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth } from "../../redux/authSlices";
-import { addTicket } from "../../redux/ticketSlice";
+import { selectAuth } from "../../../../redux/authSlices";
+import { addTicket } from "../../../../redux/ticketSlice";
 import { NumberBall, MegaBall } from "./BallNumbers";
 
 const TicketInput = () => {

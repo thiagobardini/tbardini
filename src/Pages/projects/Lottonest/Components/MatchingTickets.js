@@ -13,7 +13,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   selectResults,
   selectMegaBall,
-} from "../../redux/matchingTicketsSlice";
+} from "../../../../redux/matchingTicketsSlice";
 import { styled, keyframes } from "@mui/system";
 
 const dropAndBounceAnimation = keyframes`

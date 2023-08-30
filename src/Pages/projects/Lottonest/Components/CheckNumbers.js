@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateMatchingTickets } from "../../redux/matchingTicketsSlice";
-import useFetch from "../../Hooks/useFetch";
+import { updateMatchingTickets } from "../../../../redux/matchingTicketsSlice";
+import useFetch from "../../../../Hooks/useFetch";
 import {
   db,
   auth,
@@ -10,7 +10,7 @@ import {
   query,
   getDocs,
   where,
-} from "../../Firebase/firebaseConfig";
+} from "../../../../Firebase/firebaseConfig";
 import { Typography, Box, Paper, Link, Container } from "@mui/material";
 import { styled, keyframes } from "@mui/system";
 

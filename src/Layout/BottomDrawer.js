@@ -9,7 +9,7 @@ import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import RouterPlannerReadme from "../Pages/projects/RouterPlanner/RouterPlannerReadme";
+import RouterPlannerReadme from "../Pages/Projects/RouterPlanner/RouterPlannerReadme";
 
 const drawerBleeding = 56;
 

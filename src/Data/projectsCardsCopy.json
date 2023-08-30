@@ -1,0 +1,103 @@
+[
+  {
+    "id": "1",
+    "title": "My Portfolio",
+    "description": "💼 This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
+    "logo": "/images/myPortfolio.gif",
+    "img": "/images/myPortfolio.gif",
+    "techs": [
+      "React-JS",
+      "Redux Toolkit",
+      "Material-UI",
+      "JavaScript",
+      "SASS & CSS",
+      "React-three-fiber"
+    ],
+    "live": "/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/tbardiniCom",
+    "openNewTab": true
+  },
+  {
+    "id": "2",
+    "title": "LottoNest",
+    "description": "🎰 LottoNest: Quickly verify Mega Millions numbers via camera or manual input. Could you be the next millionaire? Experience a seamless UI with detailed ticket views for fast and enjoyable lottery checks!",
+    "logo": "/images/MegaMillions.png",
+    "img": "/images/MegaMillions.png",
+    "techs": [
+      "React-JS",
+      "Material-UI",
+      "JavaScript",
+      "Firebase",
+      "Redux Toolkit",
+      "SASS & CSS"
+    ],
+    "live": "/portfolio/lottonest",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
+    "openNewTab": true
+  },
+  {
+    "id": "3",
+    "title": "Mini Market",
+    "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
+    "img": "/images/mini-market-logo.png",
+    "techs": ["React-JS", "Firebase", "Stripe API", "SASS & CSS", "JavaScript"],
+    "live": "https://mini-market-tbardini.vercel.app/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/mini-market-tbardini",
+    "openNewTab": false
+  },
+  {
+    "id": "4",
+    "title": "Boston Heat Pump Accelerator",
+    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
+    "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "img": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "techs": [
+      "React-JS",
+      "RTK Query",
+      "Redux Toolkit",
+      "Material-UI",
+      "JavaScript",
+      "SASS & CSS"
+    ],
+    "live": "https://bhpa.vercel.app/public",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main",
+    "openNewTab": false
+  },
+  {
+    "id": "5",
+    "title": "TB CRM",
+    "description": "🕸️ A backend CRM System - A streamlined, user-friendly app for efficient account and opportunity management.",
+    "logo": "/images/tbcrmrocket.png",
+    "img": "/images/tbcrmrocket.png",
+    "techs": ["nodejs", "Heroku", "Mongodb", "Express-js"],
+    "live": "https://github.com/thiagobardini/agile-rocket-api",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/agile-rocket-api",
+    "openNewTab": false
+  },
+
+  {
+    "id": "6",
+    "title": "Trip Route",
+    "description": "🗺 This app is a Google Maps-based route planner. Users can enter addresses, see them on a map, and organize them by distance for better route planning. Saved routes can be stored in your account when you sign up.",
+    "logo": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
+    "img": "https://evolve-systems.com/wp-content/uploads/2020/05/using-google-maps-for-your-business.png",
+    "techs": [
+      "Next-JS",
+      "React-JS",
+      "Google Map API",
+      "Firebase",
+      "Redux Toolkit",
+      "TypeScript",
+      "Tailwind"
+    ],
+    "live": "/portfolio/trip-route",
+    "readme": "/portfolio/trip-route/readme",
+    "github": "",
+    "openNewTab": true
+  }
+]

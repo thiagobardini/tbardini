@@ -387,8 +387,8 @@ const AboutMe = () => {
           }}
         >
           <ButtonFab
-            to="/portfolio"
-            label="Let's continue to portfolio"
+            to="/projects"
+            label="Let's continue to projects"
             onClick={() => window.scrollTo(0, 0)}
           />
         </Box>

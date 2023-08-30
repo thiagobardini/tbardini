@@ -120,3 +120,14 @@
 .hoverEffect:hover {
   background-color: #ddd;
 }
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -30px;
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
+}

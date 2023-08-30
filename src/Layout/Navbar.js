@@ -28,6 +28,10 @@ const pages = [
     to: "/portfolio",
   },
   {
+    text: "projects",
+    to: "/projects",
+  },
+  {
     text: "contact",
     to: "/contact",
   },

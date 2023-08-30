@@ -19,7 +19,8 @@ import Footer from "./Layout/Footer";
 import LottoNest from "./Pages/Projects/Lottonest/LottoNest";
 import LottoNestSignin from "./Pages/Projects/Lottonest/Auth/LottoNestSignin";
 import LottoNestReadme from "./Pages/Projects/Lottonest/Pages/LottoNestReadme";
-import SoundControl from "./Layout/SoundControl";
+import SoundControl from "./Components/SoundControl";
+import Projectsv2 from "./Pages/Projects/Projectsv2";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -54,43 +55,56 @@ function App() {
     return null;
   }
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box>
-        <Box sx={{ zIndex: 9999 }}>
-          <Navbar />
-          <HireMe />
-          <SoundControl />
-        </Box>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route index element={<Home />} />
-          <Route path="/aboutme" element={<AboutMe />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/portfolio" element={<Projects />} />
-          <Route path="/portfolio/trip-route" element={<RouterPlanner />} />
-          <Route
-            path="/portfolio/trip-route/readme"
-            element={<RouterPlannerReadme />}
-          />
-          <Route
-            path="/portfolio/lottonest-signin"
-            element={<LottoNestSignin />}
-          />
-          <Route path="/portfolio/lottonest" element={<LottoNest />} />
-          <Route
-            path="/portfolio/lottonest/readme"
-            element={<LottoNestReadme />}
-          />
+  console.log(`CONTACT ME
+----------------------------------------
+   \\   ^__^
+    \\  (oo)\\_______
+       (__)\\       )\\/\\
+           ||----w |
+           ||     ||
+           Hey There, I'm glad you liked the site and want to see what's going on, sure check the repo at https://github.com/thiagobardini/tbardini
+           And don't forget to shoot me an email at thiagobardini@icloud.com if you need me to come do awesome work at your company`);
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer hideOn={["/"]} />
-      </Box>
-    </ThemeProvider>
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box>
+          <Box sx={{ zIndex: 9999 }}>
+            <Navbar />
+            <HireMe />
+            <SoundControl />
+          </Box>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route index element={<Home />} />
+            <Route path="/aboutme" element={<AboutMe />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Projects />} />
+            <Route path="/projects" element={<Projectsv2 />} />
+            <Route path="/portfolio/trip-route" element={<RouterPlanner />} />
+            <Route
+              path="/portfolio/trip-route/readme"
+              element={<RouterPlannerReadme />}
+            />
+            <Route
+              path="/portfolio/lottonest-signin"
+              element={<LottoNestSignin />}
+            />
+            <Route path="/portfolio/lottonest" element={<LottoNest />} />
+            <Route
+              path="/portfolio/lottonest/readme"
+              element={<LottoNestReadme />}
+            />
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer hideOn={["/"]} />
+        </Box>
+      </ThemeProvider>
+    </>
   );
 }
 

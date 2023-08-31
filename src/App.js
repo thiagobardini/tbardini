@@ -9,8 +9,8 @@ import AboutMe from "./Pages/About";
 import Projects from "./Pages/Projects";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
-import RouterPlanner from "./Pages/Projects/RouterPlanner/RouterPlanner";
-import RouterPlannerReadme from "./Pages/Projects/RouterPlanner/RouterPlannerReadme";
+// import RouterPlanner from "./Pages/Projects/RouterPlanner/RouterPlanner";
+// import RouterPlannerReadme from "./Pages/Projects/RouterPlanner/RouterPlannerReadme";
 import Contact from "./Pages/Contact";
 import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
@@ -20,7 +20,7 @@ import LottoNest from "./Pages/Projects/Lottonest/LottoNest";
 import LottoNestSignin from "./Pages/Projects/Lottonest/Auth/LottoNestSignin";
 import LottoNestReadme from "./Pages/Projects/Lottonest/Pages/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
-import Projectsv2 from "./Pages/Projects/Projectsv2";
+import Projectsvdois from "./Pages/Projects/Projectsvdois";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -83,12 +83,12 @@ function App() {
             <Route path="/aboutme" element={<AboutMe />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/portfolio" element={<Projects />} />
-            <Route path="/projects" element={<Projectsv2 />} />
-            <Route path="/portfolio/trip-route" element={<RouterPlanner />} />
+            <Route path="/projects" element={<Projectsvdois />} />
+            {/* <Route path="/portfolio/trip-route" element={<RouterPlanner />} />
             <Route
               path="/portfolio/trip-route/readme"
               element={<RouterPlannerReadme />}
-            />
+            /> */}
             <Route
               path="/portfolio/lottonest-signin"
               element={<LottoNestSignin />}

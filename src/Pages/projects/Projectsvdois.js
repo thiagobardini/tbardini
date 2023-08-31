@@ -19,7 +19,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import CardsProjects from "../../Components/CardsProjects";
 import Masonry from "@mui/lab/Masonry";
 
-const Projectsv2 = () => {
+const Projectsvdois = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
   const [showMoreKeywords, setShowMoreKeywords] = useState(false);
 
@@ -274,4 +274,4 @@ const Projectsv2 = () => {
   );
 };
 
-export default Projectsv2;
+export default Projectsvdois;

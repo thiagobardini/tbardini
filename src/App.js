@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./Layout/Navbar";
 import Home from "./Pages/Home";
 import AboutMe from "./Pages/About";
-import Projects from "./Pages/Projects";
+import Projects from "./Pages/ProjectsOld";
 import Signin from "./Features/auth/Signin";
 import Signup from "./Features/auth/Signup";
 // import RouterPlanner from "./Pages/Projects/RouterPlanner/RouterPlanner";

@@ -132,7 +132,7 @@ const Projectsvdois = () => {
           elevation={3}
           sx={{
             py: 5,
-            px: 3,
+            px: 0,
             borderRadius: 3,
             backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
             backgroundColor: darkMode
@@ -219,7 +219,7 @@ const Projectsvdois = () => {
               </Typography>
             </Grid>
 
-            <Box mt={2}>
+            <Box mt={2} sx={{ display: "flex", justifyContent: "center" }}>
               <Masonry
                 columns={{ xs: 1, sm: 1, md: 1, lg: 2, xl: 2 }}
                 spacing={3}

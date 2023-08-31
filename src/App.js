@@ -16,11 +16,11 @@ import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
-import LottoNest from "./Pages/Projects/Lottonest/LottoNest";
-import LottoNestSignin from "./Pages/Projects/Lottonest/Auth/LottoNestSignin";
-import LottoNestReadme from "./Pages/Projects/Lottonest/Pages/LottoNestReadme";
+import LottoNest from "./Pages/Portfolio/Lottonest/LottoNest";
+import LottoNestSignin from "./Pages/Portfolio/Lottonest/Auth/LottoNestSignin";
+import LottoNestReadme from "./Pages/Portfolio/Lottonest/Pages/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
-import Projectsvdois from "./Pages/Projects/Projectsvdois";
+import Projectsvdois from "./Pages/Portfolio/Projects";
 
 function App() {
   const [mode, setMode] = useState("dark");

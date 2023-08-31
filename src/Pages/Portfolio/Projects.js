@@ -19,19 +19,12 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import CardsProjects from "../../Components/CardsProjects";
 import Masonry from "@mui/lab/Masonry";
 
-const Projectsvdois = () => {
+const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
-  const [showMoreKeywords, setShowMoreKeywords] = useState(false);
 
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   const heights = [500, 370, 370, 500, 370];
-  // const heights = ["100%", "80%", "80%", "100%", "80%"];
-
-  // const getWidth = (index) => {
-  //   const pattern = ["100%", "80%", "80%", "100%", "80%"];
-  //   return pattern[index % pattern.length];
-  // };
 
   const handleKeywordChange = (keyword) => {
     setSelectedKeyword(keyword);
@@ -274,4 +267,4 @@ const Projectsvdois = () => {
   );
 };
 
-export default Projectsvdois;
+export default Projects;

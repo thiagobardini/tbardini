@@ -198,14 +198,26 @@ export default function TemporaryDrawer({
           justifyContent: "center",
         }}
       >
-        <Button
-          variant="text"
-          endIcon={<LaunchIcon />}
-          color="customWhite"
-          sx={{ textTransform: "none" }}
+        <Link
+          href={live}
+          target="_blank"
+          rel="noopener noreferrer"
+          underline="none"
+          sx={{
+            color: "#eeeeee",
+            "&:hover": {
+              textDecoration: "underline",
+              "& svg": {
+                textDecoration: "none",
+              },
+            },
+          }}
         >
-          Open project
-        </Button>
+          <Stack direction="row" alignItems="center">
+            <Typography mr={1}>Open project</Typography>
+            <LaunchIcon />
+          </Stack>
+        </Link>
       </Box>
     </Drawer>
   );

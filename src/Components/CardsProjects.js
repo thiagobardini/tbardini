@@ -90,7 +90,7 @@ const CardsProjects = ({
             <div
               style={{ display: "inline-block", backdropFilter: "blur(10px)" }}
             >
-              {description} {index + 1}
+              {description}
             </div>
           </Typography>
 

@@ -129,7 +129,7 @@ const Projects = () => {
       }}
     >
       <HeadingTop text={textTitle} />
-      <Container>
+      <Container sx={{ px: "0px" }}>
         <Paper
           elevation={3}
           sx={{

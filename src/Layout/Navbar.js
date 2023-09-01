@@ -23,10 +23,10 @@ const pages = [
     text: "about me",
     to: "/aboutme",
   },
-  {
-    text: "portfolio",
-    to: "/portfolio",
-  },
+  // {
+  //   text: "portfolio",
+  //   to: "/portfolio",
+  // },
   {
     text: "projects",
     to: "/projects",

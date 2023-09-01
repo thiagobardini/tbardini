@@ -40,6 +40,7 @@ export const createCustomTheme = (mode) =>
             text: {
               primary: "#34495e", // Charcoal
               secondary: "#222831", // Dark Slate Gray
+              third: "#393635", // Light Gray
             },
             customWhite: { main: "#eeeeee" }, // Off White
           }
@@ -53,6 +54,7 @@ export const createCustomTheme = (mode) =>
             text: {
               primary: "#eeeeee", // Off White
               secondary: "#d6d3d1", // Almost Black
+              third: "#d6d3d1", // Almost Black
             },
             customWhite: { main: "#eeeeee" }, // Off White
           }),

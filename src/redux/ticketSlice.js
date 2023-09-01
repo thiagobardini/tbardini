@@ -16,10 +16,9 @@ import {
 export const addTicket = createAsyncThunk(
   "tickets/addTicket",
   async (ticket) => {
-    const uid = ticket.userId; // Obtenha o UID do ticket
+    const uid = ticket.userId;
 
     const sequentialNumber = await runTransaction(db, async (transaction) => {
-      // Use o UID como parte da referência do documento
       const seqNumberDocRef = doc(
         db,
         "tickets",
@@ -27,7 +26,6 @@ export const addTicket = createAsyncThunk(
       );
       const seqNumberDoc = await transaction.get(seqNumberDocRef);
 
-      // Se o documento não existir, criá-lo com o próximo valor 1
       if (!seqNumberDoc.exists()) {
         await setDoc(seqNumberDocRef, { next: 1, uid: uid });
         return 1;
@@ -150,19 +148,17 @@ export const ticketSlice = createSlice({
     status: "idle",
     error: null,
   },
-  reducers: {
-    // synchronous actions here
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(addTicket.pending /* ... */)
+      .addCase(addTicket.pending)
       .addCase(addTicket.fulfilled, (state, action) => {
-        console.log("State before:", current(state)); // Usando current aqui
+        console.log("State before:", current(state));
         state.status = "succeeded";
         state.tickets.push(action.payload);
-        console.log("State after:", current(state)); // Usando current aqui também
+        console.log("State after:", current(state));
       })
-      .addCase(addTicket.rejected /* ... */)
+      .addCase(addTicket.rejected)
       .addCase(fetchTickets.pending, (state) => {
         state.status = "loading";
       })
@@ -178,7 +174,7 @@ export const ticketSlice = createSlice({
         state.status = "loading";
       });
     builder.addCase(deleteAllTickets.fulfilled, (state) => {
-      console.log("deleteAllTickets fulfilled"); // Adicionado para depuração
+      console.log("deleteAllTickets fulfilled");
       state.status = "succeeded";
       state.tickets = [];
     });

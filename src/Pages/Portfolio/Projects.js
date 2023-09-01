@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { openDrawer, closeDrawer } from "../../redux/drawerSlice";
 import {
   Box,
   Container,
@@ -8,21 +9,25 @@ import {
   Button,
   Typography,
   Paper,
+  Link,
 } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import projectsCards from "../../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
 import { keyframes } from "@emotion/react";
 import ButtonFab from "../../Components/ButtonFab";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import CardsProjects from "../../Components/CardsProjects";
 import Masonry from "@mui/lab/Masonry";
+import DrawerProject from "../../Components/DrawerProject";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
 
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  const dispatch = useDispatch();
+  const isDrawerOpen = useSelector((state) => state.drawerProject.isOpen);
+  const openedCardId = useSelector((state) => state.drawerProject.openedCardId);
 
   const heights = [500, 370, 370, 500, 370];
 
@@ -108,6 +113,10 @@ const Projects = () => {
     opacity: 1;
   }
   `;
+
+  const handleCardClick = (id) => {
+    dispatch(openDrawer(id));
+  };
 
   return (
     <Box
@@ -213,10 +222,7 @@ const Projects = () => {
             </Grid>
 
             <Box mt={2} sx={{ display: "flex", justifyContent: "center" }}>
-              <Masonry
-                columns={{ xs: 1, sm: 1, md: 1, lg: 2, xl: 2 }}
-                spacing={3}
-              >
+              <Masonry columns={{ xs: 1, md: 2, lg: 2, xl: 2 }} spacing={2}>
                 {projectsCards
                   .filter((card) => {
                     if (selectedKeyword === "show all") {
@@ -226,23 +232,28 @@ const Projects = () => {
                     }
                   })
                   .map((card, index) => (
-                    <Box sx={{ animation: `${fadeIn} 2s` }} key={index}>
-                      <CardsProjects
-                        id={card.id}
-                        title={card.title}
-                        description={card.description}
-                        logo={card.logo}
-                        img={card.img}
-                        techs={card.techs}
-                        readme={card.readme}
-                        live={card.live}
-                        github={card.github}
-                        openNewTab={card.openNewTab}
-                        index={index}
-                        height={heights[index % heights.length]}
-                        // width={getWidth(index)}
-                      />
-                    </Box>
+                    <Link
+                      key={index}
+                      underline="none"
+                      onClick={() => handleCardClick(index)}
+                    >
+                      <Box sx={{ animation: `${fadeIn} 2s` }} key={index}>
+                        <CardsProjects
+                          id={card.id}
+                          title={card.title}
+                          description={card.description}
+                          logo={card.logo}
+                          img={card.img}
+                          techs={card.techs}
+                          readme={card.readme}
+                          live={card.live}
+                          github={card.github}
+                          openNewTab={card.openNewTab}
+                          index={index}
+                          height={heights[index % heights.length]}
+                        />
+                      </Box>
+                    </Link>
                   ))}
               </Masonry>
             </Box>
@@ -263,6 +274,22 @@ const Projects = () => {
           />
         </Box>
       </Container>
+      {projectsCards.map((card, index) => (
+        <DrawerProject
+          open={isDrawerOpen && index === openedCardId}
+          onClose={() => dispatch(closeDrawer())}
+          title={card.title}
+          description={card.description}
+          logo={card.logo}
+          img={card.img}
+          techs={card.techs}
+          readme={card.readme}
+          live={card.live}
+          github={card.github}
+          openNewTab={card.openNewTab}
+          index={index}
+        />
+      ))}
     </Box>
   );
 };

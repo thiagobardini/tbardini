@@ -23,13 +23,11 @@ const CardsProjects = ({
   logo,
   index,
   height,
-  width,
 }) => {
   return (
     <Box key={id}>
       <Card
         sx={{
-          width: "100%",
           height: "100%",
           position: "relative",
           cursor: "pointer",
@@ -39,7 +37,7 @@ const CardsProjects = ({
 
           display: "flex",
           alignItems: "flex-end",
-          borderRadius: "9px",
+          borderRadius: "11px",
           breakInside: "avoid",
         }}
       >
@@ -49,7 +47,7 @@ const CardsProjects = ({
           image={img}
           sx={{
             with: "100%",
-            maxWidth: "770px",
+            // maxWidth: "770px",
             minWidth: "273px",
             objectFit: "cover",
             height: { xs: "100%", md: height },

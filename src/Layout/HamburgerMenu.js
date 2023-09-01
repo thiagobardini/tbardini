@@ -161,9 +161,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             />
           </IconButton>
         </Box>
-        <Box sx={{ pb: 3 }}>
-          <ToggleThemeMode />
-        </Box>
+        <Box sx={{ pb: 3 }}>{/* <ToggleThemeMode /> */}</Box>
       </Drawer>
     </Box>
   );

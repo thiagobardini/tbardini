@@ -276,7 +276,7 @@ to {
             </Stack>
           )}
 
-          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
+          {/* <Box>{isNavVisible === true && <ToggleThemeMode />}</Box> */}
         </Toolbar>
       </Container>
     </AppBar>
@@ -361,7 +361,7 @@ to {
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
             </Box>
           )}
-          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
+          {/* <Box>{isNavVisible === true && <ToggleThemeMode />}</Box> */}
         </Toolbar>
       </Container>
     </AppBar>

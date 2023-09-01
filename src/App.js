@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { createCustomTheme } from "./Assets/theme";
 import { Route, Routes } from "react-router-dom";
@@ -21,11 +21,15 @@ import LottoNestSignin from "./Pages/Portfolio/Lottonest/Auth/LottoNestSignin";
 import LottoNestReadme from "./Pages/Portfolio/Lottonest/Pages/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
 import Projectsvdois from "./Pages/Portfolio/Projects";
+import { asyncToggleTheme } from "./redux/themeSlice";
 
 function App() {
   const [mode, setMode] = useState("dark");
   const [isLoading, setLoading] = useState(true);
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  // Function hidden temporarily the toggle theme button
+  const dispatch = useDispatch();
 
   useMemo(() => {
     if (darkMode) {
@@ -42,6 +46,14 @@ function App() {
   }
 
   useEffect(() => {
+    // Function hidden temporarily the toggle theme button
+    const storedDarkMode = localStorage.getItem("darkMode");
+    if (storedDarkMode === "true") {
+      dispatch(asyncToggleTheme(true));
+    } else {
+      dispatch(asyncToggleTheme(false));
+    }
+
     someRequest().then(() => {
       const loaderElement = document.querySelector(".loader-container");
       if (loaderElement) {
@@ -49,7 +61,20 @@ function App() {
         setLoading(!isLoading);
       }
     });
-  });
+  }, []);
+
+  // Função para atualizar o localStorage quando o usuário alternar para o darkMode
+  const updateLocalStorage = (value) => {
+    localStorage.setItem("darkMode", value);
+    dispatch(asyncToggleTheme(value)); // Atualiza o darkMode no Redux
+  };
+
+  // Function hidden temporarily the toggle theme button
+  const handleToggleTheme = () => {
+    const updatedDarkMode = !darkMode; // Inverte o valor do darkMode
+    localStorage.setItem("darkMode", updatedDarkMode);
+    dispatch(asyncToggleTheme(updatedDarkMode)); // Atualiza o darkMode no Redux
+  };
 
   if (isLoading) {
     return null;

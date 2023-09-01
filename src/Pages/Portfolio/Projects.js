@@ -129,7 +129,7 @@ const Projects = () => {
       }}
     >
       <HeadingTop text={textTitle} />
-      <Container>
+      <Container sx={{ p: "0 0 !important" }}>
         <Paper
           elevation={3}
           sx={{
@@ -221,7 +221,14 @@ const Projects = () => {
               </Typography>
             </Grid>
 
-            <Box mt={2} sx={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              mt={2}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                px: { xs: "2px", sm: "16px" },
+              }}
+            >
               <Masonry columns={{ xs: 1, md: 2, lg: 2, xl: 2 }} spacing={2}>
                 {projectsCards
                   .filter((card) => {

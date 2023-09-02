@@ -1,26 +1,6 @@
 [
   {
     "id": "1",
-    "title": "Boston Heat Pump Accelerator",
-    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
-    "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
-    "img": "/images/bhpaBrowserVertical.gif",
-    "techs": [
-      "React-JS",
-      "RTK Query",
-      "Redux Toolkit",
-      "Material-UI",
-      "JavaScript",
-      "SASS & CSS"
-    ],
-    "live": "https://www.bostonhpa.org/",
-    "readme": "",
-    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
-    "openNewTab": false,
-    "dev": "frontend"
-  },
-  {
-    "id": "2",
     "title": "My Portfolio",
     "description": "💼 This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
     "logo": "/images/myPortfolio.gif",
@@ -39,7 +19,26 @@
     "openNewTab": true,
     "dev": "frontend"
   },
-
+  {
+    "id": "2",
+    "title": "Boston Heat Pump Accelerator",
+    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
+    "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "img": "/images/bhpaBrowserVertical.gif",
+    "techs": [
+      "React-JS",
+      "RTK Query",
+      "Redux Toolkit",
+      "Material-UI",
+      "JavaScript",
+      "SASS & CSS"
+    ],
+    "live": "https://www.bostonhpa.org/",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
+    "openNewTab": false,
+    "dev": "frontend"
+  },
   {
     "id": "3",
     "title": "Mini Market",

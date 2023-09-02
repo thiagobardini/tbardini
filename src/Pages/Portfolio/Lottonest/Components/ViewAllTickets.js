@@ -58,7 +58,7 @@ const ViewAllTickets = () => {
       dispatch(fetchTickets(uid));
     }
     if (!isEmail) {
-      navigate("/portfolio/lottonest-signin");
+      navigate("/projects/lottonest-signin");
     }
   }, [uid, isEmail, navigate, dispatch]);
 

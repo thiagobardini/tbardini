@@ -54,7 +54,7 @@ export default function SignUp() {
                   photoUrl: profilePic,
                 })
               );
-              navigate("/portfolio/lottonest");
+              navigate("/projects/lottonest");
             })
             .catch((error) => {
               console.log("Failed to update profile");
@@ -183,7 +183,7 @@ export default function SignUp() {
               <Grid item>
                 <Typography
                   component={Link}
-                  to="/portfolio/lottonest-signin"
+                  to="/projects/lottonest-signin"
                   variant="body2"
                   color="secondary.main"
                 >

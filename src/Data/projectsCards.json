@@ -14,6 +14,7 @@
       "React-three-fiber"
     ],
     "live": "https://tbardini.com/",
+    "localUrl": "/",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardiniCom",
     "openNewTab": true,
@@ -34,6 +35,7 @@
       "SASS & CSS"
     ],
     "live": "https://www.bostonhpa.org/",
+    "localUrl": "",
     "readme": "",
     "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
     "openNewTab": false,
@@ -47,6 +49,7 @@
     "img": "/images/miniMarket.gif",
     "techs": ["React-JS", "Firebase", "Stripe API", "SASS & CSS", "JavaScript"],
     "live": "https://mini-market-tbardini.vercel.app/",
+    "localUrl": "",
     "readme": "",
     "github": "https://github.com/thiagobardini/mini-market-tbardini",
     "openNewTab": false,
@@ -66,7 +69,8 @@
       "Redux Toolkit",
       "SASS & CSS"
     ],
-    "live": "https://www.tbardini.com/portfolio/lottonest",
+    "live": "https://www.tbardini.com/projects/lottonest",
+    "localUrl": "/projects/lottonest",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
     "openNewTab": true,

@@ -15,7 +15,7 @@ const LottoNestSignin = () => {
 
   useEffect(() => {
     if (!isEmail) {
-      navigate("/portfolio/lottonest-signin");
+      navigate("/projects/lottonest-signin");
     }
   }, [isEmail, navigate]);
 
@@ -76,9 +76,10 @@ const LottoNestSignin = () => {
           }}
         >
           <ButtonFab
-            to="/portfolio"
+            to="/projects"
             label="Go back to portfolio"
             onClick={() => window.scrollTo(0, 0)}
+            backArrow={true}
           />
         </Box>
       </Container>

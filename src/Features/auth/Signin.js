@@ -34,7 +34,7 @@ export default function SignIn() {
   const navigate = useNavigate();
 
   if (isEmail) {
-    navigate("/portfolio/lottonest");
+    navigate("/projects/lottonest");
     return null; // if you log in, you don't need to see the signin page
   }
 
@@ -56,7 +56,7 @@ export default function SignIn() {
           dispatch(fetchTickets(storedAuth.uid));
         }
 
-        navigate("/portfolio/lottonest");
+        navigate("/projects/lottonest");
       })
       .catch((err) => {
         alert(err);

@@ -62,12 +62,12 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
             <Route
-              path="/portfolio/lottonest-signin"
+              path="/projects/lottonest-signin"
               element={<LottoNestSignin />}
             />
-            <Route path="/portfolio/lottonest" element={<LottoNest />} />
+            <Route path="/projects/lottonest" element={<LottoNest />} />
             <Route
-              path="/portfolio/lottonest/readme"
+              path="/projects/lottonest/readme"
               element={<LottoNestReadme />}
             />
 

@@ -288,6 +288,7 @@ const Projects = () => {
           github={card.github}
           openNewTab={card.openNewTab}
           id={card.id}
+          localUrl={card.localUrl}
         />
       ))}
     </Box>

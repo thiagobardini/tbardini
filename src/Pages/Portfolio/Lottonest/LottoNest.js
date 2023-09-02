@@ -45,7 +45,7 @@ const LottoNest = () => {
       dispatch(fetchTickets(uid));
     }
     if (!isEmail) {
-      navigate("/portfolio/lottonest-signin");
+      navigate("/projects/lottonest-signin");
     }
   }, [uid, isEmail, navigate, dispatch]);
 
@@ -92,7 +92,7 @@ const LottoNest = () => {
           </Box>
 
           <Box sx={{ mt: 1.5 }}>
-            <Logout text="logout" to="/portfolio/lottonest-signin" />
+            <Logout text="logout" to="/projects/lottonest-signin" />
           </Box>
         </Box>
       </Container>
@@ -200,9 +200,10 @@ const LottoNest = () => {
           }}
         >
           <ButtonFab
-            to="/portfolio"
-            label="Go back to portfolio"
+            to="/projects"
+            label="Go back to projects"
             onClick={() => window.scrollTo(0, 0)}
+            backArrow={true}
           />
         </Box>
       </Container>

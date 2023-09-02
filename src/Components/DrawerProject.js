@@ -32,6 +32,7 @@ export default function TemporaryDrawer({
   openNewTab,
   logo,
   index,
+  localUrl,
   id,
 }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -218,26 +219,47 @@ export default function TemporaryDrawer({
           justifyContent: "center",
         }}
       >
-        <Link
-          href={live}
-          target="_blank"
-          rel="noopener noreferrer"
-          underline="none"
-          sx={{
-            color: "#eeeeee",
-            "&:hover": {
-              textDecoration: "underline",
-              "& svg": {
-                textDecoration: "none",
+        {localUrl === "" ? (
+          <Link
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="none"
+            sx={{
+              color: "#eeeeee",
+              "&:hover": {
+                textDecoration: "underline",
+                "& svg": {
+                  textDecoration: "none",
+                },
               },
-            },
-          }}
-        >
-          <Stack direction="row" alignItems="center">
-            <Typography mr={1}>Open project</Typography>
-            <LaunchIcon />
-          </Stack>
-        </Link>
+            }}
+          >
+            <Stack direction="row" alignItems="center">
+              <Typography mr={1}>Open project</Typography>
+              <LaunchIcon />
+            </Stack>
+          </Link>
+        ) : (
+          <Link
+            href={localUrl}
+            underline="none"
+            sx={{
+              color: "#eeeeee",
+              "&:hover": {
+                textDecoration: "underline",
+                "& svg": {
+                  textDecoration: "none",
+                },
+              },
+            }}
+          >
+            <Stack direction="row" alignItems="center">
+              <Typography mr={1}>Open project</Typography>
+              <LaunchIcon />
+            </Stack>
+          </Link>
+        )}
       </Box>
     </Drawer>
   );

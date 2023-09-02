@@ -32,7 +32,7 @@
       "Redux Toolkit",
       "SASS & CSS"
     ],
-    "live": "/portfolio/lottonest",
+    "live": "/projects/lottonest",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
     "openNewTab": true
@@ -95,8 +95,8 @@
       "TypeScript",
       "Tailwind"
     ],
-    "live": "/portfolio/trip-route",
-    "readme": "/portfolio/trip-route/readme",
+    "live": "/projects/trip-route",
+    "readme": "/projects/trip-route/readme",
     "github": "",
     "openNewTab": true
   }

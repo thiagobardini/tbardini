@@ -2,14 +2,33 @@ import React, { useEffect } from "react";
 import { Fab } from "@mui/material";
 import { Link } from "react-router-dom";
 import EastIcon from "@mui/icons-material/East";
+import WestIcon from "@mui/icons-material/West";
 import { useSelector } from "react-redux";
 
-const ButtonFab = ({ to, label, onClick }) => {
+const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const commonStyles = {
+    color: darkMode ? "#eeeeee" : "#282524",
+    textTransform: "none",
+    width: "auto",
+    pointerEvents: "auto",
+    border: "1px solid #eeeeee",
+    backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
+    backgroundColor: "transparent !important",
+    "&:hover": {
+      backdropFilter: "blur(100px)",
+      border: darkMode ? "2px solid #eeeeee" : "2px solid #282524",
+    },
+    "& .moveRight": {
+      animation: "moveRight 1s infinite",
+    },
+  };
 
   useEffect(() => {
     window.scrollTo(-20, 0);
   }, []);
+
+  const Icon = backArrow ? WestIcon : EastIcon;
 
   return (
     <Fab
@@ -17,29 +36,21 @@ const ButtonFab = ({ to, label, onClick }) => {
       component={Link}
       to={to}
       size="medium"
-      sx={{
-        color: darkMode ? "#eeeeee" : "#282524",
-        textTransform: "none",
-        width: "auto",
-        pointerEvents: "auto",
-        border: "1px solid #eeeeee",
-        backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
-        backgroundColor: darkMode
-          ? "transparent !important"
-          : "#transparent !important",
-        "&:hover": {
-          backdropFilter: darkMode ? "blur(100px)" : "blur(100px)",
-          border: darkMode ? "2px solid #eeeeee" : "2px solid #282524",
-        },
-        "& .moveRight": {
-          animation: "moveRight 1s infinite",
-        },
-      }}
+      sx={commonStyles}
       className="hoverEffect"
       onClick={onClick}
     >
-      {label}
-      <EastIcon sx={{ ml: 1 }} className="moveRight" />
+      {backArrow ? (
+        <>
+          <Icon sx={{ mr: 2 }} className="moveRight" />
+          {label}
+        </>
+      ) : (
+        <>
+          {label}
+          <Icon sx={{ ml: 1 }} className="moveRight" />
+        </>
+      )}
     </Fab>
   );
 };

@@ -27,7 +27,7 @@ const RouterPlannerReadme = ({ displayNone }) => {
   const data = [
     {
       projectIdea: "Trip Route",
-      live: "/portfolio/trip-route",
+      live: "/projects/trip-route",
       overview:
         "This project showcases a Google Maps trip route application built with Next.js, Material-UI v5, and JavaScript. It allows users to input addresses, view them on a map, and sort them based on proximity for efficient route planning. The application features a search bar, address table using DataGrid, and interactive maps.",
       technologiesUsed: [

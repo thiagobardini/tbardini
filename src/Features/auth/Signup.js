@@ -20,6 +20,8 @@ import {
 } from "../../Firebase/firebaseConfig.js";
 import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/authSlices.js";
+import ButtonFab from "../../Components/ButtonFab";
+import shirtTbardini from "../../Assets/images/shirt.png";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -72,128 +74,166 @@ export default function SignUp() {
   };
 
   return (
-    <Container
-      component="main"
-      maxWidth="xs"
+    <Box
       sx={{
         display: "flex",
         flexDirection: "column",
-        flexGrow: 1,
-        my: 4,
+        justifyContent: "flex-start",
         minHeight: "calc(100vh - 85px)",
-        pt: "96px",
+        pt: "106px",
       }}
     >
-      <CssBaseline />
-      <Paper
-        elevation={3}
-        sx={{
-          py: 5,
-          px: 3,
-          borderRadius: 3,
-          mb: 5,
-          backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
-          backgroundColor: darkMode
-            ? "transparent !important"
-            : "#eeeeee !important",
-        }}
-      >
+      <Container>
+        <CssBaseline />
         <Box
+          component="div"
           sx={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            maxWidth: "500px",
-            mminWidth: "250px",
+            justifyContent: "center",
+            pt: 2,
+            pb: 1,
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
           <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  color="info"
-                  autoComplete="given-name"
-                  name="Name"
-                  required
-                  fullWidth
-                  id="Name"
-                  label="Name"
-                  autoFocus
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  color="info"
-                  fullWidth
-                  id="profilePic"
-                  label="Profile picture URL (optional)"
-                  name="profilePic"
-                  autoComplete="url"
-                  onChange={(e) => setProfilePic(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  color="info"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  color="info"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              color="info"
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Typography
-                  component={Link}
-                  to="/projects/lottonest-signin"
-                  variant="body2"
-                  color="secondary.main"
-                >
-                  Already have an account? Sign in
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
+            component="img"
+            alt="shirtTbardini"
+            src={shirtTbardini}
+            sx={{
+              maxHeight: "auto",
+              maxWidth: "150px",
+              width: "100%",
+              height: "auto",
+              cursor: "pointer",
+            }}
+          />
         </Box>
-      </Paper>
-    </Container>
+        <Paper
+          elevation={3}
+          sx={{
+            p: 5,
+            px: 3,
+            borderRadius: 3,
+            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backgroundColor: darkMode
+              ? "transparent !important"
+              : "#eeeeee !important",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              maxWidth: "500px",
+              mminWidth: "250px",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign up
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    color="info"
+                    autoComplete="given-name"
+                    name="Name"
+                    required
+                    fullWidth
+                    id="Name"
+                    label="Name"
+                    autoFocus
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    color="info"
+                    fullWidth
+                    id="profilePic"
+                    label="Profile picture URL (optional)"
+                    name="profilePic"
+                    autoComplete="url"
+                    onChange={(e) => setProfilePic(e.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    color="info"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    color="info"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                color="info"
+              >
+                Sign Up
+              </Button>
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                  <Typography
+                    component={Link}
+                    to="/projects/lottonest-signin"
+                    variant="body2"
+                    color="secondary.main"
+                  >
+                    Already have an account? Sign in
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Paper>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            display: "flex",
+            justifyContent: "flex-start",
+            my: 3,
+          }}
+        >
+          <ButtonFab
+            to="/projects"
+            label="Go back to portfolio"
+            onClick={() => window.scrollTo(0, 0)}
+            backArrow={true}
+          />
+        </Box>
+      </Container>
+    </Box>
   );
 }

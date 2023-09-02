@@ -36,7 +36,8 @@ const LottoNestSignin = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            py: 3,
+            pt: 3,
+            pb: 1,
           }}
         >
           <Box

@@ -100,7 +100,8 @@ const LottoNest = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          padding: "1.5em 0",
+          pt: 3,
+          pb: 1,
         }}
       >
         <Box

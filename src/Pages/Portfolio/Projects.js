@@ -221,8 +221,17 @@ const Projects = () => {
               </Typography>
             </Grid>
 
-            <Box mt={2} sx={{ display: "flex", justifyContent: "center" }}>
-              <Masonry columns={{ xs: 1, md: 2, lg: 2, xl: 2 }} spacing={2}>
+            <Box
+              mt={2}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <Masonry columns={{ xs: 1, md: 2, lg: 2, xl: 2 }}>
                 {projectsCards
                   .filter((card) => {
                     if (selectedKeyword === "show all") {

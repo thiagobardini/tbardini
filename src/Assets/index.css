@@ -123,11 +123,16 @@
 
 .my-masonry-grid {
   display: flex;
-  margin-left: -30px;
+  margin-left: -12px; /* Ajustar o valor do espaçamento entre as colunas aqui */
   width: auto;
 }
 
 .my-masonry-grid_column {
-  padding-left: 30px;
+  padding-left: 12px; /* Ajustar o valor do espaçamento entre as colunas aqui */
   background-clip: padding-box;
+}
+
+/* Estilo para os itens dentro das colunas, caso necessário */
+.my-masonry-grid_column > div {
+  margin-bottom: 30px; /* Ajustar o valor do espaçamento entre os itens aqui */
 }

@@ -36,24 +36,25 @@ function App() {
   }, [darkMode]);
 
   const theme = useMemo(() => createCustomTheme(mode), [mode]);
-  function someRequest() {
-    //Simulates a request; makes a "promise" that'll run for 1.5 seconds
-    return new Promise((resolve) => setTimeout(() => resolve(), 1500));
-  }
 
-  useEffect(() => {
-    someRequest().then(() => {
-      const loaderElement = document.querySelector(".loader-container");
-      if (loaderElement) {
-        loaderElement.remove();
-        setLoading(!isLoading);
-      }
-    });
-  });
+  // function someRequest() {
+  //   //Simulates a request; makes a "promise" that'll run for 1.5 seconds
+  //   return new Promise((resolve) => setTimeout(() => resolve(), 1500));
+  // }
 
-  if (isLoading) {
-    return null;
-  }
+  // useEffect(() => {
+  //   someRequest().then(() => {
+  //     const loaderElement = document.querySelector(".loader-container");
+  //     if (loaderElement) {
+  //       loaderElement.remove();
+  //       setLoading(!isLoading);
+  //     }
+  //   });
+  // });
+
+  // if (isLoading) {
+  //   return null;
+  // }
 
   console.log(`CONTACT ME
 ----------------------------------------

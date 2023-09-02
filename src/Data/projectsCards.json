@@ -13,10 +13,11 @@
       "JavaScript",
       "SASS & CSS"
     ],
-    "live": "https://bhpa.vercel.app/public",
+    "live": "https://www.bostonhpa.org/",
     "readme": "",
-    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/tree/main",
-    "openNewTab": false
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
+    "openNewTab": false,
+    "dev": "frontend"
   },
   {
     "id": "2",
@@ -35,7 +36,8 @@
     "live": "https://tbardini.com/",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardiniCom",
-    "openNewTab": true
+    "openNewTab": true,
+    "dev": "frontend"
   },
 
   {
@@ -48,7 +50,8 @@
     "live": "https://mini-market-tbardini.vercel.app/",
     "readme": "",
     "github": "https://github.com/thiagobardini/mini-market-tbardini",
-    "openNewTab": false
+    "openNewTab": false,
+    "dev": "fullstack"
   },
   {
     "id": "4",
@@ -64,9 +67,10 @@
       "Redux Toolkit",
       "SASS & CSS"
     ],
-    "live": "/portfolio/lottonest",
+    "live": "https://www.tbardini.com/portfolio/lottonest",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
-    "openNewTab": true
+    "openNewTab": true,
+    "dev": "fullstack"
   }
 ]

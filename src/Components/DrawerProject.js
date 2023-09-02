@@ -16,11 +16,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeDrawer } from "../redux/drawerSlice";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import LaunchIcon from "@mui/icons-material/Launch";
+import PublicIcon from "@mui/icons-material/Public";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export default function TemporaryDrawer({
   open,
   onClose,
-  id,
   title,
   description,
   img,
@@ -31,6 +32,7 @@ export default function TemporaryDrawer({
   openNewTab,
   logo,
   index,
+  id,
 }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const dispatch = useDispatch();
@@ -41,6 +43,7 @@ export default function TemporaryDrawer({
 
   return (
     <Drawer
+      key={id}
       anchor="right"
       open={open}
       onClose={onClose}
@@ -170,21 +173,38 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
+            sx={{ display: "flex", alignItems: "flex-start" }}
           >
+            <PublicIcon sx={{ mr: 1 }} />
             Website
           </Typography>
-          <Link color="text.primary">{live}</Link>
+          <Link
+            color="text.primary"
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {live}
+          </Link>
           <Typography
             variant="h6"
             color="text.primary"
             gutterBottom
             mt={2}
             component="div"
+            sx={{ display: "flex", alignItems: "flex-start" }}
           >
+            <GitHubIcon sx={{ mr: 1 }} />
             Github
           </Typography>
-
-          <Link color="text.primary">{github}</Link>
+          <Link
+            color="text.primary"
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {github}
+          </Link>
         </Stack>
       </Paper>
       <Box

@@ -10,6 +10,8 @@ import {
   Typography,
   Paper,
   Link,
+  Breadcrumbs,
+  Badge,
 } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import projectsCards from "../../Data/projectsCards.json";
@@ -17,8 +19,9 @@ import { TypeAnimation } from "react-type-animation";
 import { keyframes } from "@emotion/react";
 import ButtonFab from "../../Components/ButtonFab";
 import CardsProjects from "../../Components/CardsProjects";
-import Masonry from "@mui/lab/Masonry";
+// import Masonry from "@mui/lab/Masonry";
 import DrawerProject from "../../Components/DrawerProject";
+import Masonry from "react-masonry-css";
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
@@ -31,68 +34,11 @@ const Projects = () => {
 
   const heights = [500, 370, 370, 500, 370];
 
-  const handleKeywordChange = (keyword) => {
-    setSelectedKeyword(keyword);
-  };
-
-  // This function gets all unique keywords from all cards
-  const getAllKeywords = () => {
-    const allKeywords = projectsCards.flatMap((card) => card.techs);
-    return Array.from(new Set(allKeywords));
-  };
-
-  const prioritizeKeywords = (keywords) => {
-    const priorityKeywords = [
-      "javascript",
-      "react-js",
-      "next-js",
-      "redux toolkit",
-      "typescript",
-    ];
-
-    return keywords.sort((a, b) => {
-      const lowerA = a.toLowerCase();
-      const lowerB = b.toLowerCase();
-
-      if (
-        priorityKeywords.includes(lowerA) &&
-        priorityKeywords.includes(lowerB)
-      ) {
-        return (
-          priorityKeywords.indexOf(lowerA) - priorityKeywords.indexOf(lowerB)
-        );
-      }
-      if (priorityKeywords.includes(lowerA)) {
-        return -1;
-      }
-      if (priorityKeywords.includes(lowerB)) {
-        return 1;
-      }
-      return lowerA.localeCompare(lowerB);
-    });
-  };
-
-  const getFilterPhrase = () => {
-    if (selectedKeyword === "show all") {
-      return (
-        <span>
-          Showing all projects. Use the filter to list them by skill or
-          technology.
-        </span>
-      );
-    } else {
-      const filteredProjects = projectsCards.filter((card) =>
-        card.techs.includes(selectedKeyword)
-      );
-      const formattedKeyword = <strong>{selectedKeyword}</strong>;
-      const phrase = (
-        <span>
-          Showing <strong>{filteredProjects.length}</strong> projects filtered
-          by {formattedKeyword}.
-        </span>
-      );
-      return phrase;
-    }
+  const breakpointColumnsObj = {
+    default: 2,
+    1100: 2,
+    960: 2,
+    880: 1,
   };
 
   const textTitle = (
@@ -117,6 +63,88 @@ const Projects = () => {
   const handleCardClick = (id) => {
     dispatch(openDrawer(id));
   };
+
+  // Calculate the counts of each dev type
+  const devCounts = {
+    frontend: 0,
+    backend: 0,
+    fullstack: 0,
+  };
+
+  if (Array.isArray(projectsCards)) {
+    projectsCards.forEach((project) => {
+      const keyword = project.dev;
+      if (keyword === "frontend") {
+        devCounts.frontend++;
+      } else if (keyword === "backend") {
+        devCounts.backend++;
+      } else if (keyword === "fullstack") {
+        devCounts.fullstack++;
+      }
+    });
+  }
+
+  const handleFilterClick = (keyword) => {
+    setSelectedKeyword(keyword);
+  };
+
+  const renderBadge = (count, keyword, selectedKeyword, label) => {
+    if (count === 0) return null;
+    return (
+      <Link
+        underline="hover"
+        color="inherit"
+        onClick={() => handleFilterClick(keyword)}
+      >
+        <Badge
+          badgeContent={count}
+          showZero
+          variant="string"
+          sx={getStyles(selectedKeyword, keyword)}
+        >
+          <Typography sx={getTypographyStyles(selectedKeyword, keyword)}>
+            {label}
+          </Typography>
+        </Badge>
+      </Link>
+    );
+  };
+
+  const getStyles = (selectedKeyword, keyword) => ({
+    cursor: "pointer",
+    fontWeight: selectedKeyword === keyword ? 700 : "none",
+    color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
+    "& .MuiBadge-badge": {
+      right: "-5px",
+    },
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  });
+
+  const getTypographyStyles = (selectedKeyword, keyword) => ({
+    fontWeight: selectedKeyword === keyword ? 700 : "none",
+    color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
+  });
+
+  const categories = [
+    { keyword: "show all", label: "Filter All", count: projectsCards.length },
+    {
+      keyword: "frontend",
+      label: "Frontend Development",
+      count: devCounts.frontend,
+    },
+    {
+      keyword: "backend",
+      label: "Backend Development",
+      count: devCounts.backend,
+    },
+    {
+      keyword: "fullstack",
+      label: "Fullstack Development",
+      count: devCounts.fullstack,
+    },
+  ];
 
   return (
     <Box
@@ -148,7 +176,7 @@ const Projects = () => {
             mb={2}
             textAlign="center"
             variant="h5"
-            sx={{ fontWeight: 700 }}
+            sx={{ fontWeight: 700, px: { xs: 2, sm: 2 } }}
           >
             Explore my latest software development projects.
           </Typography>
@@ -157,88 +185,48 @@ const Projects = () => {
               item
               xs={12}
               sx={{
-                display: "inline-block",
+                display: "flex",
+                flexDirection: "row",
                 justifyContent: "center",
                 textAlign: "center",
+                px: { xs: 2, sm: 2 },
               }}
             >
-              <Button
-                sx={{ mr: 1, textTransform: "lowercase" }}
-                variant={
-                  selectedKeyword === "show all" ? "contained" : "outlined"
-                }
-                color="secondary"
-                onClick={() => handleKeywordChange("show all")}
-                size="small"
-              >
-                <Typography
-                  sx={{ color: darkMode ? "#d6d3d1" : "" }}
-                  variant="subtitle2"
-                >
-                  show all
-                </Typography>
-              </Button>
-              {prioritizeKeywords(getAllKeywords()).map((keyword, index) => (
-                <Button
-                  key={index}
-                  color="secondary"
-                  variant={
-                    selectedKeyword === keyword ? "contained" : "outlined"
-                  }
-                  onClick={() => handleKeywordChange(keyword)}
-                  sx={{
-                    my: 1,
-                    mr: 1,
-                    display: "inline-block",
-                    textTransform: "lowercase",
-                  }}
-                  size="small"
-                >
-                  <Typography
-                    sx={{ color: darkMode ? "#d6d3d1" : "" }}
-                    variant="subtitle2"
-                  >
-                    {keyword}
-                  </Typography>
-                </Button>
-              ))}
-            </Grid>
-            <Grid item xs={12}>
-              <Typography
-                variant="subtitle2"
-                gutterBottom
-                textAlign="center"
-                sx={{
-                  mt: 1,
-                  color: (theme) => theme.palette.text.primary,
-                }}
-              >
-                {selectedKeyword === "show all" ? (
-                  "Showing all projects. Use the filter to list them by skill or technology."
-                ) : (
-                  <span>{getFilterPhrase()}</span>
+              <Breadcrumbs aria-label="breadcrumb">
+                {categories.map((cat) =>
+                  renderBadge(
+                    cat.count,
+                    cat.keyword,
+                    selectedKeyword,
+                    cat.label
+                  )
                 )}
-              </Typography>
+              </Breadcrumbs>
             </Grid>
 
-            <Box
+            <Grid
+              item
+              xs={12}
               mt={2}
               sx={{
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: "column",
                 alignItems: "center",
-                gap: "1rem",
+                px: { xs: 1, sm: 2 },
               }}
             >
-              <Masonry columns={{ xs: 1, md: 2, lg: 2, xl: 2 }}>
+              <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column"
+              >
                 {projectsCards
                   .filter((card) => {
-                    if (selectedKeyword === "show all") {
-                      return true;
-                    } else {
-                      return card.techs.includes(selectedKeyword);
-                    }
+                    return (
+                      selectedKeyword === "show all" ||
+                      card.dev.includes(selectedKeyword)
+                    );
                   })
                   .map((card, index) => (
                     <Link
@@ -246,7 +234,10 @@ const Projects = () => {
                       underline="none"
                       onClick={() => handleCardClick(index)}
                     >
-                      <Box sx={{ animation: `${fadeIn} 2s` }} key={index}>
+                      <Box
+                        sx={{ animation: `${fadeIn} 2s`, mb: "12px" }}
+                        key={index}
+                      >
                         <CardsProjects
                           id={card.id}
                           title={card.title}
@@ -265,7 +256,7 @@ const Projects = () => {
                     </Link>
                   ))}
               </Masonry>
-            </Box>
+            </Grid>
           </Grid>
         </Paper>
         <Box
@@ -296,7 +287,7 @@ const Projects = () => {
           live={card.live}
           github={card.github}
           openNewTab={card.openNewTab}
-          index={index}
+          id={card.id}
         />
       ))}
     </Box>

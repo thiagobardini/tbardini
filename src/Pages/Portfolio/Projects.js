@@ -162,7 +162,6 @@ const Projects = () => {
           elevation={3}
           sx={{
             py: 5,
-            px: 3,
             borderRadius: 3,
             backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
             backgroundColor: darkMode

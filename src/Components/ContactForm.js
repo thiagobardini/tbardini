@@ -217,6 +217,7 @@ const ContactForm = () => {
             borderStyle: "solid",
             borderRadius: "4px",
             color: darkMode ? "#eeeeee" : "#222831",
+            resize: "vertical",
           }}
         />
 

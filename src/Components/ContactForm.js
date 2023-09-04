@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { keyframes } from "@emotion/react";
 import {
-  TextField,
   Box,
   Typography,
   Link,
   Stack,
   CircularProgress,
+  TextareaAutosize,
 } from "@mui/material";
 import { db } from "../Firebase/firebaseConfig"; // Import the initialized Firestore instance
 import { collection, addDoc } from "firebase/firestore";
@@ -88,7 +88,6 @@ const ContactIconText = ({ icon, text }) => (
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      // my: 1,
     }}
   >
     <Box sx={{ mr: 0.5 }}>{icon}</Box>
@@ -125,6 +124,7 @@ const ContactForm = () => {
         name,
         email,
         message,
+        timestamp: new Date(),
       });
 
       alert("Message has been submitted 👍");
@@ -154,35 +154,72 @@ const ContactForm = () => {
           gap: 2,
         }}
       >
-        <TextField
+        <TextareaAutosize
+          minRows={1}
+          maxRows={1}
           name="name"
           label="Name"
+          placeholder="Name"
           variant="outlined"
           value={formData.name}
           onChange={handleInputChange}
           required
-          sx={{ width: "100%" }}
+          style={{
+            width: "100%",
+            padding: "12px",
+            backgroundColor: "transparent",
+            borderColor: darkMode ? "#eeeeee" : "#222831",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderRadius: "4px",
+            color: darkMode ? "#eeeeee" : "#222831",
+            resize: "none",
+          }}
         />
-        <TextField
+
+        <TextareaAutosize
+          minRows={1}
+          maxRows={1}
           name="email"
           label="Email"
+          placeholder="Email"
           variant="outlined"
           value={formData.email}
           onChange={handleInputChange}
           required
-          sx={{ width: "100%" }}
+          style={{
+            width: "100%",
+            padding: "12px",
+            backgroundColor: "transparent",
+            borderColor: darkMode ? "#eeeeee" : "#222831",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderRadius: "4px",
+            color: darkMode ? "#eeeeee" : "#222831",
+            resize: "none",
+          }}
         />
-        <TextField
-          name="message"
-          label="Message"
-          variant="outlined"
-          multiline
-          rows={6}
-          value={formData.message}
+        <TextareaAutosize
+          minRows={6}
+          maxRows={12}
           onChange={handleInputChange}
+          name="message"
+          placeholder="Message"
+          value={formData.message}
           required
-          sx={{ width: "100%" }}
+          variant="outlined"
+          style={{
+            width: "100%",
+            padding: "12px",
+            backgroundColor: "transparent",
+            borderColor: darkMode ? "#eeeeee" : "#222831",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderRadius: "4px",
+            color: darkMode ? "#eeeeee" : "#222831",
+          }}
         />
+
         <Box
           sx={{ display: "flex", justifyContent: "flex-start", width: "100%" }}
         >

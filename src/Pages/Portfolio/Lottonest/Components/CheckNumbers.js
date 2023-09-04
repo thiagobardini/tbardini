@@ -52,7 +52,6 @@ const CheckNumbers = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleCheck = useCallback(() => {
-    console.log(ticketsFirestore, "ticketsFirestore");
     const newResults = ticketsFirestore
       .map((ticket) => {
         const matches = ticket.numbers
@@ -69,8 +68,6 @@ const CheckNumbers = () => {
       })
       .filter((result) => result.count > 0 || result.megaBallMatch)
       .sort((a, b) => b.count - a.count);
-
-    console.log("newResults", newResults);
 
     dispatch(updateMatchingTickets({ results: newResults, megaBall }));
   }, [

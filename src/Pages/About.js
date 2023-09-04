@@ -53,7 +53,7 @@ const AboutMe = () => {
 
   const textTitle = (
     <TypeAnimation
-      sequence={["about me"]}
+      sequence={["About me"]}
       wrapper="span"
       speed={50}
       repeat={1}
@@ -366,16 +366,16 @@ const AboutMe = () => {
             </Typography>
           </ScrollTrigger>
           <Button
-            variant="contained"
-            color="secondary"
+            variant="outlined"
+            color="inherit"
             startIcon={<DownloadIcon />}
             size="large"
-            sx={{ textTransform: "none", mt: 2, textDecoration: "none" }}
+            sx={{ textTransform: "capitalize", mt: 2, textDecoration: "none" }}
             component="a"
             href="https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY"
             target="_blank"
           >
-            download my resume
+            Download my resume
           </Button>
         </Paper>
         <Box

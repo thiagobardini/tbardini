@@ -23,6 +23,7 @@ import myself from "../Assets/images/myselfbg.jpg";
 import ButtonFab from "../Components/ButtonFab";
 import ScrollTrigger from "react-scroll-trigger";
 import CanvasComponentMini from "../Components/Canvas/CanvasComponentMini";
+import ContactForm from "../Components/ContactForm";
 
 const fadeIn = keyframes`
 from {
@@ -50,7 +51,7 @@ const Contact = () => {
 
   const textTitle = (
     <TypeAnimation
-      sequence={["contact", 1000, "let’s work together!", 1000]}
+      sequence={["Contact", 1000, "Let’s work together!", 1000]}
       wrapper="span"
       speed={50}
       repeat={0}
@@ -150,115 +151,17 @@ const Contact = () => {
               <CanvasComponentMini />
             </Box>
           </Stack>
-          <Box sx={{ py: 3, textAlign: "center" }}>
-            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c1")}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                id="fade-slide-up-c1"
-                sx={{
-                  color: (theme) => theme.palette.text.secondary,
-                  opacity: 0,
-                  transform: "translateY(20px)",
-                  transition:
-                    "opacity 1s ease-in-out, transform 1s ease-in-out",
-                  "&.fade-slide-up-c1": {
-                    opacity: 1,
-                    transform: "translateY(0)",
-                  },
-                }}
-              >
-                Looking forward to connecting and collaborating with you. Feel
-                free to reach out!
-              </Typography>
-            </ScrollTrigger>
-            <Divider
-              sx={{ width: { xs: "100%", md: "70%" }, my: 6, mx: "auto" }}
-            />
-            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c2")}>
-              <Box
-                id="fade-slide-up-c2"
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                  justifyContent: "center",
-                  gap: 3,
-                  opacity: 0,
-                  transform: "translateY(20px)",
-                  transition:
-                    "opacity 1s ease-in-out, transform 1s ease-in-out",
-                  "&.fade-slide-up-c2": {
-                    opacity: 1,
-                    transform: "translateY(0)",
-                  },
-                }}
-              >
-                <Link
-                  href="tel:978-648-7075"
-                  color="inherit"
-                  underline="none"
-                  target="_blank"
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                    }}
-                  >
-                    <PhoneIcon />
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: (theme) => theme.palette.text.primary,
-                        animation: `${fadeIn} 2s`,
-                      }}
-                    >
-                      978-648-7075
-                    </Typography>
-                  </Box>
-                </Link>
-                <Link
-                  href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
-                  color="inherit"
-                  underline="none"
-                  target="_blank"
-                >
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <EmailIcon />
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: (theme) => theme.palette.text.primary,
-                        animation: `${fadeIn} 2s`,
-                      }}
-                    >
-                      thiagobardini@icloud.com
-                    </Typography>
-                  </Box>
-                </Link>
-
-                <Link
-                  href="https://www.linkedin.com/in/thiagobardini/"
-                  color="inherit"
-                  underline="none"
-                  target="_blank"
-                >
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <LinkedInIcon sx={{ fontSize: "2rem" }} />
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: (theme) => theme.palette.text.primary,
-                        animation: `${fadeIn} 2s`,
-                      }}
-                    >
-                      thiagobardini
-                    </Typography>
-                  </Box>
-                </Link>
-              </Box>
-            </ScrollTrigger>
+          <Box sx={{ textAlign: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <ContactForm />
+            </Box>
           </Box>
         </Paper>
         <Box
@@ -271,7 +174,7 @@ const Contact = () => {
         >
           <ButtonFab
             to="/"
-            label="Go back home"
+            label="Go Back Home"
             onClick={() => window.scrollTo(0, 0)}
           />
         </Box>

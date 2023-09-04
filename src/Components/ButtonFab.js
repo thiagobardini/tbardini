@@ -9,7 +9,7 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const commonStyles = {
     color: darkMode ? "#eeeeee" : "#282524",
-    textTransform: "none",
+    textTransform: "capitalize",
     width: "auto",
     pointerEvents: "auto",
     border: "1px solid #eeeeee",

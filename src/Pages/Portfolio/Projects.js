@@ -43,7 +43,7 @@ const Projects = () => {
 
   const textTitle = (
     <TypeAnimation
-      sequence={["projects"]}
+      sequence={["Projects"]}
       wrapper="span"
       speed={50}
       repeat={1}

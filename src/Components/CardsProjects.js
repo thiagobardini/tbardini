@@ -46,7 +46,7 @@ const CardsProjects = ({
           alt={title}
           image={img}
           sx={{
-            with: "100%",
+            width: "100%",
             // maxWidth: "770px",
             minWidth: "273px",
             objectFit: "cover",

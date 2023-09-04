@@ -15,7 +15,7 @@ import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
 import LottoNest from "./Pages/Portfolio/Lottonest/LottoNest";
 import LottoNestSignin from "./Pages/Portfolio/Lottonest/Auth/LottoNestSignin";
-import LottoNestReadme from "./Pages/Portfolio/Lottonest/Pages/LottoNestReadme";
+import LottoNestReadme from "./Pages/Portfolio/Lottonest/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
 import Projects from "./Pages/Portfolio/Projects";
 

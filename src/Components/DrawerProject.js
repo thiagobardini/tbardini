@@ -236,7 +236,7 @@ export default function TemporaryDrawer({
             }}
           >
             <Stack direction="row" alignItems="center">
-              <Typography mr={1}>Open project</Typography>
+              <Typography mr={1}>Open Project</Typography>
               <LaunchIcon />
             </Stack>
           </Link>
@@ -255,7 +255,7 @@ export default function TemporaryDrawer({
             }}
           >
             <Stack direction="row" alignItems="center">
-              <Typography mr={1}>Open project</Typography>
+              <Typography mr={1}>Open Project</Typography>
               <LaunchIcon />
             </Stack>
           </Link>

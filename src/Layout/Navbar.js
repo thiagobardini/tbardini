@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-// import { auth, onAuthStateChanged } from "../Firebase/firebaseConfig";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   Box,
@@ -10,6 +9,7 @@ import {
   Button,
   Stack,
   Typography,
+  Paper,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -173,7 +173,8 @@ to {
 
           {/* Desktop view */}
           {showHamburger && (
-            <Box
+            <Paper
+              elevation={5}
               sx={{
                 display: "flex",
                 mt: 1,
@@ -182,7 +183,8 @@ to {
                 top: "0px",
                 borderRadius: "50%",
                 backdropFilter: darkMode ? "blur(80px)" : "invert(80%)",
-                backgroundColor: darkMode ? "#0092ca" : "#1270AF",
+                backgroundColor: "#1270AF",
+                // backgroundColor: "inherit",
                 color: "#eeeeee",
                 height: "70px",
                 width: "70px",
@@ -195,7 +197,7 @@ to {
               }}
             >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
-            </Box>
+            </Paper>
           )}
 
           {/* Only show pages and icons if isNavVisible is true */}
@@ -217,7 +219,7 @@ to {
                     key={page.text}
                     sx={{
                       color: darkMode ? "#eeeeee" : "#222831",
-                      textTransform: "none",
+                      textTransform: "capitalize",
                       fontWeight: "500",
                       textDecoration: "none",
                       position: "relative",
@@ -226,7 +228,7 @@ to {
                         content: '""',
                         position: "absolute",
                         width: "60%",
-                        height: "5px",
+                        height: "3px",
                         bottom: "4px",
                         left: "50%",
                         transform: "translateX(-50%)",
@@ -244,7 +246,7 @@ to {
                       },
                     }}
                   >
-                    <Typography variant="h5">{page.text}</Typography>
+                    <Typography variant="h6">{page.text}</Typography>
                   </Button>
                 ))}
               </Box>

@@ -28,6 +28,7 @@ function HeadingTop({ text }) {
           fontWeight: "600",
           color: textColor,
           textShadow: "1px 1px 1px rgba(0, 0, 0, 0.3)",
+          textTransform: "capitalize",
         }}
       >
         {text}

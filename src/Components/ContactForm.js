@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { keyframes } from "@emotion/react";
 import {
   TextField,
-  Button,
   Box,
   Typography,
   Link,
   Stack,
   CircularProgress,
 } from "@mui/material";
-import ScrollTrigger from "react-scroll-trigger";
 import { db } from "../Firebase/firebaseConfig"; // Import the initialized Firestore instance
 import { collection, addDoc } from "firebase/firestore";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -17,13 +16,22 @@ import SendIcon from "@mui/icons-material/Send";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const ContactInfo = ({ darkMode }) => (
-  <Box sx={{ mt: 3 }}>
+const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
+
+const ContactInfo = ({ darkMode, fadeIn }) => (
+  <Box sx={{ mt: 3, animation: `${fadeIn} 3s`, position: "relative" }}>
     <Typography
       variant="h6"
       sx={{
         mb: 1,
-        textAlign: { xs: "start", md: "center" },
+        textAlign: "center",
         fontWeight: "bold",
       }}
     >
@@ -32,7 +40,7 @@ const ContactInfo = ({ darkMode }) => (
     <Stack
       direction="row"
       spacing={2}
-      justifyContent={{ xs: "flex-start", md: "center" }}
+      justifyContent="center"
       alignItems="center"
       sx={{ mb: 1 }}
     >
@@ -46,7 +54,6 @@ const ContactInfo = ({ darkMode }) => (
           icon={
             <EmailIcon
               sx={{
-                // fontSize: "1.6rem",
                 color: darkMode ? "#eeeeee" : "#222831",
               }}
             />
@@ -64,7 +71,6 @@ const ContactInfo = ({ darkMode }) => (
           icon={
             <LinkedInIcon
               sx={{
-                // fontSize: "1.6rem",
                 color: darkMode ? "#eeeeee" : "#222831",
               }}
             />
@@ -134,51 +140,9 @@ const ContactForm = () => {
     }
   };
 
-  const onEnterViewport = (animationClass) => {
-    const element = document.getElementById(animationClass);
-    if (element) {
-      element.classList.add(animationClass);
-    }
-  };
-
   return (
     <Box sx={{ width: "100%", maxWidth: "770px", minWidth: "273px" }}>
-      <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c1")}>
-        {/* <Typography
-          id="fade-slide-up-c1"
-          sx={{
-            // color: (theme) => theme.palette.text.secondary,
-            textAlign: "start",
-            my: 3,
-            opacity: 0,
-            transform: "translateY(20px)",
-            transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-            "&.fade-slide-up-c1": {
-              opacity: 1,
-              transform: "translateY(0)",
-            },
-          }}
-        >
-          <Link
-            href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
-            color="inherit"
-            underline="none"
-            target="_blank"
-          >
-            Feel free to get in touch with me via email at{" "}
-            <b>thiagobardini@icloud.com</b> or connect with me on{" "}
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/thiagobardini/"
-            color="inherit"
-            underline="none"
-            target="_blank"
-          >
-            <b>LinkedIn</b>.
-          </Link>
-        </Typography> */}
-        <ContactInfo darkMode={darkMode} />
-      </ScrollTrigger>
+      <ContactInfo darkMode={darkMode} fadeIn={fadeIn} />
 
       <Box
         component="form"

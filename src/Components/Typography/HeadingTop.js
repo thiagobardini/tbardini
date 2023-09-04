@@ -20,6 +20,7 @@ function HeadingTop({ text }) {
         variant="h2"
         component="h2"
         sx={{
+          height: "55px",
           fontSize: "3rem",
           display: "block",
           width: "100%",

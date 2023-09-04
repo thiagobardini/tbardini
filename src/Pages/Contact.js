@@ -5,9 +5,6 @@ import {
   Box,
   Container,
   CssBaseline,
-  Typography,
-  Divider,
-  Link,
   Avatar,
   styled,
   Badge,
@@ -16,12 +13,8 @@ import {
 } from "@mui/material";
 import HeadingTop from "../Components/Typography/HeadingTop";
 import { TypeAnimation } from "react-type-animation";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import myself from "../Assets/images/myselfbg.jpg";
 import ButtonFab from "../Components/ButtonFab";
-import ScrollTrigger from "react-scroll-trigger";
 import CanvasComponentMini from "../Components/Canvas/CanvasComponentMini";
 import ContactForm from "../Components/ContactForm";
 

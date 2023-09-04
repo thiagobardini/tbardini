@@ -70,10 +70,10 @@ const RouterPlannerReadme = ({ displayNone }) => {
             py: 5,
             px: 3,
             borderRadius: 3,
-            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
             backgroundColor: darkMode
               ? "transparent !important"
-              : "#eeeeee !important",
+              : "rgba(238, 238, 238, 0.7) !important",
           }}
         >
           <Box mb={6}>

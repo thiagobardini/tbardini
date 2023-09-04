@@ -7,6 +7,7 @@ import {
   styled,
   Button,
 } from "@mui/material";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import HeadingTop from "../../../Components/Typography/HeadingTop";
 
@@ -26,6 +27,8 @@ const ListItem = styled("li")(({ theme }) => ({
 }));
 
 const LottoNestReadme = ({ displayNone }) => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   const data = [
     {
       projectIdea: "LottoNest Lottery Number Checker",
@@ -55,11 +58,13 @@ const LottoNestReadme = ({ displayNone }) => {
     <Box
       mb={6}
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        minHeight: "calc(100vh - 85px)",
-        pt: "96px",
+        py: 5,
+        px: 3,
+        borderRadius: 3,
+        backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
+        backgroundColor: darkMode
+          ? "transparent !important"
+          : "rgba(238, 238, 238, 0.7) !important",
       }}
     >
       <HeadingTop text="LottoNest - Docs" />

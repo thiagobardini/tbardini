@@ -124,12 +124,12 @@ const LottoNest = () => {
           elevation={3}
           sx={{
             py: 5,
-            p: { xs: 1, sm: 3 },
+            px: 3,
             borderRadius: 3,
-            backdropFilter: darkMode ? "blur(2px)" : "blur(2px)",
+            backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
             backgroundColor: darkMode
               ? "transparent !important"
-              : "#eeeeee !important",
+              : "rgba(238, 238, 238, 0.7) !important",
           }}
         >
           <CheckNumbers />

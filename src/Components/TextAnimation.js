@@ -51,7 +51,10 @@ function TextAnimation() {
           fontWeight: 600,
           textShadow: darkMode
             ? "none"
-            : "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+            : {
+                xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+                md: "none",
+              },
 
           mr: "0.5rem",
         }}

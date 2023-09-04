@@ -18,6 +18,20 @@ import LottoNestSignin from "./Pages/Portfolio/Lottonest/Auth/LottoNestSignin";
 import LottoNestReadme from "./Pages/Portfolio/Lottonest/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
 import Projects from "./Pages/Portfolio/Projects";
+import { styled } from "@mui/system";
+import LightModeDiagonalLines from "./Assets/LightModeDiagonalLines.svg";
+import DarkModeDiagonalLines from "./Assets/DarkModeDiagonalLines.svg";
+
+const AppBackground = styled("div")(({ theme }) => ({
+  backgroundImage: `url(${
+    theme.palette.mode === "dark"
+      ? DarkModeDiagonalLines
+      : LightModeDiagonalLines
+  })`,
+  backgroundSize: "300px 300px",
+  backgroundRepeat: "repeat",
+  color: theme.palette.mode === "dark" ? "#eeeeee" : "#424242",
+}));
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -46,35 +60,37 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Box>
-          <Box sx={{ zIndex: 9999 }}>
-            <Navbar />
-            <HireMe />
-            <SoundControl />
-          </Box>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/signin" element={<Signin />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route index element={<Home />} />
-            <Route path="/aboutme" element={<AboutMe />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route
-              path="/projects/lottonest-signin"
-              element={<LottoNestSignin />}
-            />
-            <Route path="/projects/lottonest" element={<LottoNest />} />
-            <Route
-              path="/projects/lottonest/readme"
-              element={<LottoNestReadme />}
-            />
+        <AppBackground theme={theme}>
+          <CssBaseline />
+          <Box>
+            <Box sx={{ zIndex: 9999 }}>
+              <Navbar />
+              <HireMe />
+              <SoundControl />
+            </Box>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route index element={<Home />} />
+              <Route path="/aboutme" element={<AboutMe />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route
+                path="/projects/lottonest-signin"
+                element={<LottoNestSignin />}
+              />
+              <Route path="/projects/lottonest" element={<LottoNest />} />
+              <Route
+                path="/projects/lottonest/readme"
+                element={<LottoNestReadme />}
+              />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer hideOn={["/"]} />
-        </Box>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer hideOn={["/"]} />
+          </Box>
+        </AppBackground>
       </ThemeProvider>
     </>
   );

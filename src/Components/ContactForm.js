@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   TextField,
   Button,
   Box,
   Typography,
   Link,
+  Stack,
   CircularProgress,
 } from "@mui/material";
 import ScrollTrigger from "react-scroll-trigger";
@@ -12,7 +14,81 @@ import { db } from "../Firebase/firebaseConfig"; // Import the initialized Fires
 import { collection, addDoc } from "firebase/firestore";
 import LoadingButton from "@mui/lab/LoadingButton";
 import SendIcon from "@mui/icons-material/Send";
-import Stack from "@mui/material/Stack";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+const ContactInfo = ({ darkMode }) => (
+  <Box sx={{ mt: 3 }}>
+    <Typography
+      variant="h6"
+      sx={{
+        mb: 1,
+        textAlign: { xs: "start", md: "center" },
+        fontWeight: "bold",
+      }}
+    >
+      Feel free to get in touch!
+    </Typography>
+    <Stack
+      direction="row"
+      spacing={2}
+      justifyContent={{ xs: "flex-start", md: "center" }}
+      alignItems="center"
+      sx={{ mb: 1 }}
+    >
+      <Link
+        href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
+        color="inherit"
+        underline="none"
+        target="_blank"
+      >
+        <ContactIconText
+          icon={
+            <EmailIcon
+              sx={{
+                // fontSize: "1.6rem",
+                color: darkMode ? "#eeeeee" : "#222831",
+              }}
+            />
+          }
+          text="thiagobardini@icloud.com"
+        />
+      </Link>
+      <Link
+        href="https://www.linkedin.com/in/thiagobardini/"
+        color="inherit"
+        underline="none"
+        target="_blank"
+      >
+        <ContactIconText
+          icon={
+            <LinkedInIcon
+              sx={{
+                // fontSize: "1.6rem",
+                color: darkMode ? "#eeeeee" : "#222831",
+              }}
+            />
+          }
+          text="LinkedIn"
+        />
+      </Link>
+    </Stack>
+  </Box>
+);
+
+const ContactIconText = ({ icon, text }) => (
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      // my: 1,
+    }}
+  >
+    <Box sx={{ mr: 0.5 }}>{icon}</Box>
+    {text}
+  </Box>
+);
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +97,8 @@ const ContactForm = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -66,7 +144,7 @@ const ContactForm = () => {
   return (
     <Box sx={{ width: "100%", maxWidth: "770px", minWidth: "273px" }}>
       <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-c1")}>
-        <Typography
+        {/* <Typography
           id="fade-slide-up-c1"
           sx={{
             // color: (theme) => theme.palette.text.secondary,
@@ -98,7 +176,8 @@ const ContactForm = () => {
           >
             <b>LinkedIn</b>.
           </Link>
-        </Typography>
+        </Typography> */}
+        <ContactInfo darkMode={darkMode} />
       </ScrollTrigger>
 
       <Box

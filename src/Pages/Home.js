@@ -6,8 +6,6 @@ import HomeText from "../Components/HomeText";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const darkMode = useSelector((state) => state.theme.darkMode);
-
   const fadeIn = keyframes`
 from {
   opacity: 0;

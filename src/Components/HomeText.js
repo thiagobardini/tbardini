@@ -77,7 +77,10 @@ const HomeText = () => {
               backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
               textShadow: darkMode
                 ? "none"
-                : "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+                : {
+                    xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+                    md: "none",
+                  },
               fontWeight: 600,
               opacity: 0,
               transform: "translateY(20px)",

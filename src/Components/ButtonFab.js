@@ -8,17 +8,15 @@ import { useSelector } from "react-redux";
 const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const commonStyles = {
-    color: "#282524",
-    // color: darkMode ? "#eeeeee" : "#eeeeee",
+    color: darkMode ? "#eeeeee" : "#282524",
     textTransform: "capitalize",
     width: "auto",
     pointerEvents: "auto",
-    // border: "1px solid #eeeeee",
+    border: darkMode ? "1px solid #eeeeee" : "1px solid #282524",
     backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
-    backgroundColor: "#eeeeee",
+    backgroundColor: darkMode ? "transparent" : "#d6d3d1",
     "&:hover": {
-      // backdropFilter: "blur(100px)",
-      // backdropFilter: "sepia(80%)",
+      backgroundColor: darkMode ? "transparent" : "#d6d3d1",
       border: darkMode ? "2px solid #eeeeee" : "2px solid #282524",
     },
     "& .moveRight": {

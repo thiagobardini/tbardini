@@ -111,8 +111,10 @@ export default function TemporaryDrawer({
             color="text.primary"
             sx={{
               fontWeight: 900,
-              fontFamily: "Trattatello, sans-serif !important",
-              textTransform: "uppercase",
+              // fontFamily: "Trattatello, sans-serif !important",
+              // fontFamily: "TuskerGrotesk",
+              fontFamily: "PPNeueMontreal-Medium",
+              textTransform: "capitalize",
             }}
           >
             {title}
@@ -142,7 +144,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ fontFamily: "PPNeueMontreal-Medium", letterSpacing: "0.1em" }}
+            sx={{ fontFamily: "PPNeueMontreal-Medium", fontWeight: 600 }}
           >
             About
           </Typography>
@@ -155,7 +157,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ fontFamily: "PPNeueMontreal-Medium", letterSpacing: "0.1em" }}
+            sx={{ fontFamily: "PPNeueMontreal-Medium", fontWeight: 600 }}
           >
             Technologies
           </Typography>
@@ -175,7 +177,7 @@ export default function TemporaryDrawer({
                 color="secondary"
                 sx={{
                   textTransform: "capitalize",
-                  fontFamily: "PPNeueMontreal-Medium",
+                  fontFamily: "TuskerGrotesk",
                 }}
               />
             ))}
@@ -190,7 +192,7 @@ export default function TemporaryDrawer({
               display: "flex",
               alignItems: "flex-start",
               fontFamily: "PPNeueMontreal-Medium",
-              letterSpacing: "0.1em",
+              fontWeight: 600,
             }}
           >
             <PublicIcon sx={{ mr: 1 }} />
@@ -214,7 +216,7 @@ export default function TemporaryDrawer({
               display: "flex",
               alignItems: "flex-start",
               fontFamily: "PPNeueMontreal-Medium",
-              letterSpacing: "0.1em",
+              fontWeight: 600,
             }}
           >
             <GitHubIcon sx={{ mr: 1 }} />

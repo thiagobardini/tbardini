@@ -80,10 +80,10 @@ const CardsProjects = ({
             color="#eeeeee"
             sx={{
               fontWeight: 900,
-              fontFamily: "Trattatello, sans-serif !important",
+              // fontFamily: "Trattatello, sans-serif !important",
               // fontFamily: "TuskerGrotesk",
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
+              fontFamily: "PPNeueMontreal-Medium",
+              textTransform: "capitalize",
             }}
           >
             <div
@@ -117,6 +117,7 @@ const CardsProjects = ({
                 color="secondary"
                 sx={{
                   textTransform: "capitalize",
+                  fontFamily: "TuskerGrotesk",
                 }}
               />
             ))}

@@ -110,6 +110,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
                 textDecoration: "none",
                 position: "relative",
                 mr: 2,
+                my: 2,
                 "&:hover": {
                   backgroundColor: "rgba(0, 0, 0, 0.1)",
                   cursor: "pointer",

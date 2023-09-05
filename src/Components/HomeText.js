@@ -49,8 +49,8 @@ const HomeText = () => {
           position: "relative",
           borderRadius: "5px",
           fontSize: "3rem",
-          // fontFamily: "TuskerGrotesk",
-          fontFamily: "PPNeueMontreal-Medium",
+          fontFamily: "TuskerGrotesk",
+          // fontFamily: "PPNeueMontreal-Medium",
           letterSpacing: "0.1em",
         }}
       >

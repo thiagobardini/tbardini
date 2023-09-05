@@ -26,6 +26,28 @@ export const createCustomTheme = (mode) =>
         fontSize: "1.1rem",
       },
     },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          "@global": {
+            "@font-face": [
+              {
+                fontFamily: "Trattatello",
+                src: `url('./fonts/Trattatello.ttf') format('truetype')`,
+              },
+              {
+                fontFamily: "TuskerGrotesk",
+                src: `url('./fonts/TuskerGrotesk-4600Semibold.ttf') format('truetype')`,
+              },
+              {
+                fontFamily: "PPNeueMontreal-Medium",
+                src: `url('./fonts/PPNeueMontreal-Medium.otf') format('truetype')`,
+              },
+            ],
+          },
+        },
+      },
+    },
     palette: {
       mode: mode,
       ...(mode === "light"

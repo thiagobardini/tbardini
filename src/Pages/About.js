@@ -118,6 +118,9 @@ const AboutMe = () => {
                   sx={{
                     mb: 1,
                     fontWeight: 800,
+                    fontFamily: "Trattatello, sans-serif",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
                     color: (theme) => theme.palette.text.primary,
                   }}
                 >
@@ -155,6 +158,7 @@ const AboutMe = () => {
                         sx={{
                           fontWeight: 500,
                           color: (theme) => theme.palette.text.secondary,
+                          fontFamily: "PPNeueMontreal-Medium",
                         }}
                       >
                         Location:
@@ -182,6 +186,7 @@ const AboutMe = () => {
                         sx={{
                           fontWeight: 500,
                           color: (theme) => theme.palette.text.secondary,
+                          fontFamily: "PPNeueMontreal-Medium",
                         }}
                       >
                         Nationalities:
@@ -209,6 +214,7 @@ const AboutMe = () => {
                         sx={{
                           fontWeight: 500,
                           color: (theme) => theme.palette.text.secondary,
+                          fontFamily: "PPNeueMontreal-Medium",
                         }}
                       >
                         Languages:
@@ -244,6 +250,7 @@ const AboutMe = () => {
                   "&.fade-slide-down-1": {
                     opacity: 1,
                     transform: "translateY(0)",
+                    fontFamily: "PPNeueMontreal-Medium",
                   },
                 }}
               >
@@ -292,6 +299,7 @@ const AboutMe = () => {
                   "&.fade-slide-down-2": {
                     opacity: 1,
                     transform: "translateY(0)",
+                    fontFamily: "PPNeueMontreal-Medium",
                   },
                 }}
               >
@@ -335,6 +343,7 @@ const AboutMe = () => {
                   "&.fade-slide-down-3": {
                     opacity: 1,
                     transform: "translateY(0)",
+                    fontFamily: "PPNeueMontreal-Medium",
                   },
                 }}
               >
@@ -370,7 +379,13 @@ const AboutMe = () => {
             color="inherit"
             startIcon={<DownloadIcon />}
             size="large"
-            sx={{ textTransform: "capitalize", mt: 2, textDecoration: "none" }}
+            sx={{
+              textTransform: "capitalize",
+              mt: 2,
+              textDecoration: "none",
+              fontFamily: "TuskerGrotesk",
+              letterSpacing: "0.2em",
+            }}
             component="a"
             href="https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY"
             target="_blank"

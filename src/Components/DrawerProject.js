@@ -86,7 +86,11 @@ export default function TemporaryDrawer({
           </Link>
           <Typography
             color="text.third"
-            sx={{ fontWeight: "600", cursor: "pointer" }}
+            sx={{
+              fontWeight: "600",
+              cursor: "pointer",
+              fontFamily: "TuskerGrotesk",
+            }}
             onClick={handleDrawerClose}
           >
             Back to projects
@@ -104,7 +108,12 @@ export default function TemporaryDrawer({
             variant="h5"
             component="div"
             color="text.primary"
-            sx={{ fontWeight: 900 }}
+            sx={{
+              fontWeight: 900,
+              // fontFamily: "Trattatello, sans-serif !important",
+              fontFamily: "TuskerGrotesk",
+              textTransform: "uppercase",
+            }}
           >
             {title}
           </Typography>
@@ -133,6 +142,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
+            sx={{ fontFamily: "TuskerGrotesk" }}
           >
             About
           </Typography>
@@ -145,6 +155,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
+            sx={{ fontFamily: "TuskerGrotesk" }}
           >
             Technologies
           </Typography>
@@ -164,6 +175,7 @@ export default function TemporaryDrawer({
                 color="secondary"
                 sx={{
                   textTransform: "capitalize",
+                  fontFamily: "TuskerGrotesk",
                 }}
               />
             ))}
@@ -174,7 +186,11 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ display: "flex", alignItems: "flex-start" }}
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
+              fontFamily: "TuskerGrotesk",
+            }}
           >
             <PublicIcon sx={{ mr: 1 }} />
             Website
@@ -193,7 +209,11 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ display: "flex", alignItems: "flex-start" }}
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
+              fontFamily: "TuskerGrotesk",
+            }}
           >
             <GitHubIcon sx={{ mr: 1 }} />
             Github
@@ -246,6 +266,7 @@ export default function TemporaryDrawer({
             underline="none"
             sx={{
               color: "#eeeeee",
+              fontFamily: "TuskerGrotesk",
               "&:hover": {
                 textDecoration: "underline",
                 "& svg": {
@@ -255,7 +276,12 @@ export default function TemporaryDrawer({
             }}
           >
             <Stack direction="row" alignItems="center">
-              <Typography mr={1}>Open Project</Typography>
+              <Typography
+                mr={1}
+                sx={{ fontFamily: "TuskerGrotesk !important" }}
+              >
+                Open Project
+              </Typography>
               <LaunchIcon />
             </Stack>
           </Link>

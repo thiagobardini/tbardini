@@ -88,7 +88,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               alignItems: "center",
               justifyContent: "center",
               textDecoration: "none",
-              my: 2,
+              py: 3,
             }}
           >
             <LogoAnimation height={"150px"} />
@@ -104,9 +104,8 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
                 display: "flex",
                 justifyContent: "center",
                 width: "100%",
-                py: 2,
+
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
-                textTransform: "capitalize",
                 fontWeight: "500",
                 textDecoration: "none",
                 position: "relative",
@@ -117,7 +116,16 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
                 },
               }}
             >
-              <Typography variant="h4">{page.text}</Typography>
+              <Typography
+                variant="h4"
+                sx={{
+                  fontFamily: "TuskerGrotesk",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.2em",
+                }}
+              >
+                {page.text}
+              </Typography>
             </ListItem>
           ))}
         </List>
@@ -126,7 +134,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            py: 4,
+            pb: 2,
           }}
         >
           <IconButton
@@ -139,7 +147,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           >
             <LinkedInIcon
               sx={{
-                fontSize: "2rem",
+                fontSize: "2.5rem",
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
               }}
             />
@@ -151,7 +159,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           >
             <GitHubIcon
               sx={{
-                fontSize: "2rem",
+                fontSize: "2.5rem",
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
               }}
             />

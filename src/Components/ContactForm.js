@@ -33,6 +33,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
         mb: 1,
         textAlign: "center",
         fontWeight: "bold",
+        fontFamily: "PPNeueMontreal-Medium",
       }}
     >
       Feel free to get in touch!
@@ -42,7 +43,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       spacing={2}
       justifyContent="center"
       alignItems="center"
-      sx={{ mb: 1 }}
+      sx={{ mb: 1, fontFamily: "PPNeueMontreal-Medium" }}
     >
       <Link
         href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
@@ -88,6 +89,7 @@ const ContactIconText = ({ icon, text }) => (
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      letterSpacing: "0.2em",
     }}
   >
     <Box sx={{ mr: 0.5 }}>{icon}</Box>
@@ -253,7 +255,11 @@ const ContactForm = () => {
               variant="outlined"
               color="inherit"
               size="large"
-              sx={{ textTransform: "none" }}
+              sx={{
+                textTransform: "none",
+                fontFamily: "TuskerGrotesk",
+                letterSpacing: "0.2em",
+              }}
               loading={loading}
               loadingPosition="start"
               loadingIndicator={<CircularProgress color="info" size={16} />}

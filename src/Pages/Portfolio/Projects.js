@@ -18,7 +18,6 @@ import { TypeAnimation } from "react-type-animation";
 import { keyframes } from "@emotion/react";
 import ButtonFab from "../../Components/ButtonFab";
 import CardsProjects from "../../Components/CardsProjects";
-// import Masonry from "@mui/lab/Masonry";
 import DrawerProject from "../../Components/DrawerProject";
 import Masonry from "react-masonry-css";
 
@@ -188,6 +187,7 @@ const Projects = () => {
               px: { xs: 2, sm: 2 },
               animation: `${fadeIn} 2s`,
               position: "relative",
+              fontFamily: "PPNeueMontreal-Medium",
             }}
           >
             Explore my latest software development projects.

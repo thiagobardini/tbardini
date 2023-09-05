@@ -202,11 +202,7 @@ to {
 
           {/* Only show pages and icons if isNavVisible is true */}
           {isNavVisible === true && (
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="flex-end"
-            >
+            <Stack direction="row" justifyContent="center" alignItems="center">
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
@@ -219,7 +215,6 @@ to {
                     key={page.text}
                     sx={{
                       color: darkMode ? "#eeeeee" : "#222831",
-                      textTransform: "capitalize",
                       fontWeight: "500",
                       textDecoration: "none",
                       position: "relative",
@@ -229,7 +224,7 @@ to {
                         position: "absolute",
                         width: "60%",
                         height: "3px",
-                        bottom: "4px",
+                        bottom: "7px",
                         left: "50%",
                         transform: "translateX(-50%)",
                         backgroundColor: "#1270AF",
@@ -246,7 +241,17 @@ to {
                       },
                     }}
                   >
-                    <Typography variant="h6">{page.text}</Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        // fontFamily: "Trattatello, sans-serif !important",
+                        fontFamily: "TuskerGrotesk",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {page.text}
+                    </Typography>
                   </Button>
                 ))}
               </Box>

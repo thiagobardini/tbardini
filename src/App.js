@@ -19,8 +19,8 @@ import LottoNestReadme from "./Pages/Portfolio/Lottonest/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
 import Projects from "./Pages/Portfolio/Projects";
 import { styled } from "@mui/system";
-import LightModeDiagonalLines from "./Assets/LightModeDiagonalLines.svg";
-import DarkModeDiagonalLines from "./Assets/DarkModeDiagonalLines.svg";
+import LightModeDiagonalLines from "./Assets/svg/LightModeDiagonalLines.svg";
+import DarkModeDiagonalLines from "./Assets/svg/DarkModeDiagonalLines.svg";
 
 const AppBackground = styled("div")(({ theme }) => ({
   backgroundImage: `url(${

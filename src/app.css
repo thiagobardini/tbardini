@@ -7,3 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* padding-top: 124px;  */
 }
+
+@font-face {
+  font-family: "Trattatello";
+  src: url("./Assets/fonts/Trattatello.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TuskerGrotesk";
+  src: url("./Assets/fonts/TuskerGrotesk-4600Semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PPNeueMontreal-Medium";
+  src: url("./Assets/fonts/PPNeueMontreal-Medium.otf") format("truetype");
+}

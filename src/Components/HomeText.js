@@ -49,6 +49,8 @@ const HomeText = () => {
           position: "relative",
           borderRadius: "5px",
           fontSize: "3rem",
+          fontFamily: "TuskerGrotesk",
+          letterSpacing: "0.1em",
         }}
       >
         <TypeAnimation
@@ -85,6 +87,7 @@ const HomeText = () => {
               opacity: 0,
               transform: "translateY(20px)",
               transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+              fontFamily: "PPNeueMontreal-Medium",
               "&.fade-slide-up-h1": {
                 opacity: 1,
                 transform: "translateY(0)",

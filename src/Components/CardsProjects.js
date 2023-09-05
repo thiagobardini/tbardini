@@ -78,7 +78,13 @@ const CardsProjects = ({
             variant="h5"
             component="div"
             color="#eeeeee"
-            sx={{ fontWeight: 900 }}
+            sx={{
+              fontWeight: 900,
+              // fontFamily: "Trattatello, sans-serif !important",
+              fontFamily: "TuskerGrotesk",
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+            }}
           >
             <div
               style={{ display: "inline-block", backdropFilter: "blur(10px)" }}

@@ -15,6 +15,8 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
     border: darkMode ? "1px solid #eeeeee" : "1px solid #282524",
     backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
     backgroundColor: darkMode ? "transparent" : "#d6d3d1",
+    fontFamily: "TuskerGrotesk",
+    letterSpacing: "0.1em",
     "&:hover": {
       backgroundColor: darkMode ? "transparent" : "#d6d3d1",
       border: darkMode ? "2px solid #eeeeee" : "2px solid #282524",
@@ -56,43 +58,3 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
 };
 
 export default ButtonFab;
-
-// previous code
-// {
-/* <Button
-          component={Link}
-          to="/portfolio"
-          variant="contained"
-          color="secondary"
-          size="large"
-          sx={{
-            textTransform: "lowercase",
-            mr: 2,
-            width: "117px",
-            pointerEvents: "auto",
-          }}
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          portfolio
-        </Button>
-        <Button
-          component={Link}
-          to={"/aboutme"}
-          variant="outlined"
-          color="primary"
-          size="large"
-          sx={{
-            color: theme.palette.primary.main,
-            textTransform: "lowercase",
-            width: "117px",
-            pointerEvents: "auto",
-            backgroundColor: "#eeeeee",
-            "&:hover": {
-              backgroundColor: "#d6d3d1",
-            },
-          }}
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          about me
-        </Button> */
-// }

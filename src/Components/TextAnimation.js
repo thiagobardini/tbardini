@@ -21,7 +21,10 @@ function TextAnimation() {
   return (
     <Typography
       variant="h6"
-      sx={{ backdropFilter: darkMode ? "blur(2px)" : "blur(3px)" }}
+      sx={{
+        backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
+        fontFamily: "PPNeueMontreal-Medium",
+      }}
     >
       <Box
         component="span"

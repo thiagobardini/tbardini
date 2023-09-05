@@ -47,17 +47,21 @@ const Footer = ({ hideOn }) => {
             sx={{
               maxHeight: "auto",
               maxWidth: "100px",
-              width: "2rem",
+              width: "28px",
               height: "auto",
               cursor: "pointer",
               position: "absolute",
-              left: "-33px",
-              bottom: "6px",
+              left: "-29px",
+              bottom: "7px",
             }}
           />
           <Typography
             variant="subtitle1"
-            sx={{ fontWeight: 600 }}
+            sx={{
+              fontWeight: 600,
+              fontFamily: "Trattatello, sans-serif",
+              textTransform: "uppercase",
+            }}
             color={darkMode ? "#FBF8F9" : "#292725"}
           >
             ardini © {date}

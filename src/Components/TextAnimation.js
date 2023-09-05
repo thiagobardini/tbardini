@@ -23,7 +23,7 @@ function TextAnimation() {
       variant="h6"
       sx={{
         backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
-        fontFamily: "PPNeueMontreal-Medium",
+        fontFamily: "GothamSSm-Light",
       }}
     >
       <Box
@@ -51,6 +51,7 @@ function TextAnimation() {
         sx={{
           display: "inline-block",
           color: (theme) => theme.palette.text.secondary,
+          fontFamily: "GothamSSm-Light",
           fontWeight: 600,
           textShadow: darkMode
             ? "none"
@@ -65,11 +66,14 @@ function TextAnimation() {
         I build
       </Box>
       <Box sx={typeAnimationStyle}>
-        <TypeAnimation
-          sequence={["web applications", 1000, "automation tools", 1000]}
-          speed={50}
-          repeat={Infinity}
-        />
+        <Typography variant="h6" sx={{ fontFamily: "GothamSSm-Bold" }}>
+          <TypeAnimation
+            sequence={["web applications", 1000, "automation tools", 1000]}
+            speed={50}
+            repeat={Infinity}
+            style={{ fontFamily: "GothamSSm-Bold" }}
+          />
+        </Typography>
       </Box>
       <Box
         component="span"

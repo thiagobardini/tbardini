@@ -32,8 +32,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       sx={{
         mb: 1,
         textAlign: "center",
-        fontWeight: "bold",
-        fontFamily: "PPNeueMontreal-Medium",
+        fontFamily: "GothamSSm-Light",
       }}
     >
       Feel free to get in touch!
@@ -43,7 +42,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       spacing={{ xs: 0, sm: 2 }}
       justifyContent={{ xs: "flex-start", sm: "center" }}
       alignItems={{ xs: "flex-start", sm: "center" }}
-      sx={{ mb: 1, fontFamily: "PPNeueMontreal-Medium" }}
+      sx={{ mb: 1, fontFamily: "GothamSSm-Light" }}
     >
       <Link
         href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
@@ -257,8 +256,7 @@ const ContactForm = () => {
               size="large"
               sx={{
                 textTransform: "none",
-                fontFamily: "TuskerGrotesk",
-                letterSpacing: "0.2em",
+                fontFamily: "GothamSSm-Light",
               }}
               loading={loading}
               loadingPosition="start"

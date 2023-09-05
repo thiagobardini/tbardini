@@ -87,10 +87,8 @@ export default function TemporaryDrawer({
           <Typography
             color="text.third"
             sx={{
-              // fontWeight: "600",
               cursor: "pointer",
-              fontFamily: "TuskerGrotesk",
-              letterSpacing: "0.1em",
+              fontFamily: "GothamSSm-Light",
             }}
             onClick={handleDrawerClose}
           >
@@ -110,10 +108,10 @@ export default function TemporaryDrawer({
             component="div"
             color="text.primary"
             sx={{
-              fontWeight: 900,
+              // fontWeight: 900,
               // fontFamily: "Trattatello, sans-serif !important",
               // fontFamily: "TuskerGrotesk",
-              fontFamily: "PPNeueMontreal-Medium",
+              fontFamily: "GothamSSm-Bold",
               textTransform: "capitalize",
             }}
           >
@@ -144,7 +142,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ fontFamily: "PPNeueMontreal-Medium", fontWeight: 600 }}
+            sx={{ fontFamily: "GothamSSm-Light" }}
           >
             About
           </Typography>
@@ -157,7 +155,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ fontFamily: "PPNeueMontreal-Medium", fontWeight: 600 }}
+            sx={{ fontFamily: "GothamSSm-Light" }}
           >
             Technologies
           </Typography>
@@ -177,7 +175,7 @@ export default function TemporaryDrawer({
                 color="secondary"
                 sx={{
                   textTransform: "capitalize",
-                  fontFamily: "TuskerGrotesk",
+                  fontFamily: "GothamSSm-Light",
                 }}
               />
             ))}
@@ -191,8 +189,7 @@ export default function TemporaryDrawer({
             sx={{
               display: "flex",
               alignItems: "flex-start",
-              fontFamily: "PPNeueMontreal-Medium",
-              fontWeight: 600,
+              fontFamily: "GothamSSm-Light",
             }}
           >
             <PublicIcon sx={{ mr: 1 }} />
@@ -204,7 +201,7 @@ export default function TemporaryDrawer({
             target="_blank"
             rel="noopener noreferrer"
           >
-            {live}
+            <Typography variant="body2">{live}</Typography>
           </Link>
           <Typography
             variant="h6"
@@ -215,8 +212,7 @@ export default function TemporaryDrawer({
             sx={{
               display: "flex",
               alignItems: "flex-start",
-              fontFamily: "PPNeueMontreal-Medium",
-              fontWeight: 600,
+              fontFamily: "GothamSSm-Light",
             }}
           >
             <GitHubIcon sx={{ mr: 1 }} />
@@ -228,7 +224,7 @@ export default function TemporaryDrawer({
             target="_blank"
             rel="noopener noreferrer"
           >
-            {github}
+            <Typography variant="body2">{github}</Typography>
           </Link>
         </Stack>
       </Paper>
@@ -260,10 +256,7 @@ export default function TemporaryDrawer({
             }}
           >
             <Stack direction="row" alignItems="center">
-              <Typography
-                mr={1}
-                sx={{ fontFamily: "TuskerGrotesk", letterSpacing: "0.1em" }}
-              >
+              <Typography mr={1} sx={{ fontFamily: "GothamSSm-Bold" }}>
                 Open Project
               </Typography>
               <LaunchIcon />
@@ -275,7 +268,6 @@ export default function TemporaryDrawer({
             underline="none"
             sx={{
               color: "#eeeeee",
-              fontFamily: "TuskerGrotesk",
               "&:hover": {
                 textDecoration: "underline",
                 "& svg": {
@@ -288,8 +280,7 @@ export default function TemporaryDrawer({
               <Typography
                 mr={1}
                 sx={{
-                  fontFamily: "TuskerGrotesk !important",
-                  letterSpacing: "0.1em",
+                  fontFamily: "GothamSSm-Bold",
                 }}
               >
                 Open Project

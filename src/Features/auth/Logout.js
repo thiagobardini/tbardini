@@ -28,9 +28,12 @@ const Logout = ({ text, to }) => {
       component={Link}
       to={to}
       onClick={logoutOfApp}
-      sx={{ textTransform: "lowercase" }}
     >
-      <Typography>{text}</Typography>
+      <Typography
+        sx={{ textTransform: "capitalize", fontFamily: "GothamSSm-Light" }}
+      >
+        {text}
+      </Typography>
     </Button>
   );
 };

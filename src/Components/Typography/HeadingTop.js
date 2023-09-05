@@ -20,10 +20,12 @@ function HeadingTop({ text }) {
         variant="h2"
         component="h2"
         sx={{
+          fontFamily: "GothamSSm-Bold",
           // fontFamily: "Trattatello, sans-serif",
-          fontFamily: "TuskerGrotesk",
+          // fontFamily: "TuskerGrotesk",
+          // fontFamily: "YatraOne-Regular",
           textTransform: "capitalize",
-          letterSpacing: "0.1em",
+          // letterSpacing: "0.1em",
           height: "100%",
           minHeight: "55px",
           maxHeight: "115px",

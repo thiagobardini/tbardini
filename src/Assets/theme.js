@@ -43,6 +43,22 @@ export const createCustomTheme = (mode) =>
                 fontFamily: "PPNeueMontreal-Medium",
                 src: `url('./fonts/PPNeueMontreal-Medium.otf') format('truetype')`,
               },
+              {
+                fontFamily: "GothamSSm-Bold",
+                src: `url('./fonts/GothamSSm-Bold.otf') format('truetype')`,
+              },
+              {
+                fontFamily: "GothamSSm-Light",
+                src: `url('./fonts/GothamSSm-Light.otf') format('truetype')`,
+              },
+              {
+                fontFamily: "GothamNarrowOffice-Regular",
+                src: `url('./fonts/GothamNarrowOffice-Regular.otf') format('truetype')`,
+              },
+              {
+                fontFamily: "YatraOne-Regular",
+                src: `url('./fonts/YatraOne-Regular.ttf') format('truetype')`,
+              },
             ],
           },
         },
@@ -62,7 +78,7 @@ export const createCustomTheme = (mode) =>
             text: {
               primary: "#34495e", // Charcoal
               secondary: "#222831", // Dark Slate Gray
-              third: "#393635", // Light Gray
+              third: "#222831", // Light Gray
             },
             customWhite: { main: "#eeeeee" }, // Off White
           }

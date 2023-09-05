@@ -242,12 +242,15 @@ to {
                     }}
                   >
                     <Typography
-                      variant="h5"
+                      variant="h6"
                       sx={{
                         // fontFamily: "Trattatello, sans-serif",
-                        fontFamily: "TuskerGrotesk",
+                        // fontFamily: "TuskerGrotesk",
+                        // fontFamily: "YatraOne-Regular",
+                        // fontFamily: "GothamSSm-Bold",
+                        fontFamily: "GothamSSm-Light",
                         textTransform: "capitalize",
-                        letterSpacing: "0.1em",
+                        // letterSpacing: "0.1em",
                       }}
                     >
                       {page.text}
@@ -268,7 +271,7 @@ to {
                   target="_blank"
                   m={1}
                 >
-                  <LinkedInIcon sx={{ fontSize: "1.8rem" }} />
+                  <LinkedInIcon sx={{ fontSize: "1.5rem" }} />
                 </Box>
                 <Box
                   component={Link}
@@ -277,7 +280,7 @@ to {
                   target="_blank"
                   m={1}
                 >
-                  <GitHubIcon sx={{ fontSize: "1.8rem" }} />
+                  <GitHubIcon sx={{ fontSize: "1.5rem" }} />
                 </Box>
               </Box>
             </Stack>

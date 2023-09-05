@@ -75,14 +75,11 @@ const CardsProjects = ({
         >
           <Typography
             gutterBottom
-            variant="h5"
+            variant="h6"
             component="div"
             color="#eeeeee"
             sx={{
-              fontWeight: 900,
-              // fontFamily: "Trattatello, sans-serif !important",
-              // fontFamily: "TuskerGrotesk",
-              fontFamily: "PPNeueMontreal-Medium",
+              fontFamily: "GothamSSm-Bold",
               textTransform: "capitalize",
             }}
           >
@@ -117,7 +114,7 @@ const CardsProjects = ({
                 color="secondary"
                 sx={{
                   textTransform: "capitalize",
-                  fontFamily: "TuskerGrotesk",
+                  fontFamily: "GothamSSm-Light",
                 }}
               />
             ))}

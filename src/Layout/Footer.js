@@ -47,11 +47,11 @@ const Footer = ({ hideOn }) => {
             sx={{
               maxHeight: "auto",
               maxWidth: "100px",
-              width: "28px",
+              width: "25px",
               height: "auto",
               cursor: "pointer",
               position: "absolute",
-              left: "-29px",
+              left: "-25px",
               bottom: "7px",
             }}
           />
@@ -59,7 +59,8 @@ const Footer = ({ hideOn }) => {
             variant="subtitle1"
             sx={{
               fontWeight: 600,
-              fontFamily: "Trattatello, sans-serif",
+
+              fontFamily: "GothamSSm-Light",
               textTransform: "uppercase",
             }}
             color={darkMode ? "#FBF8F9" : "#292725"}

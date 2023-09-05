@@ -120,10 +120,11 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               <Typography
                 variant="h3"
                 sx={{
-                  fontFamily: "TuskerGrotesk",
+                  // fontFamily: "YatraOne-Regular",
                   // fontFamily: "Trattatello, sans-serif",
+                  fontFamily: "GothamSSm-Light",
                   textTransform: "capitalize",
-                  letterSpacing: "0.2em",
+                  // letterSpacing: "0.2em",
                 }}
               >
                 {page.text}

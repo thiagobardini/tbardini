@@ -117,10 +117,11 @@ const AboutMe = () => {
                   variant="h4"
                   sx={{
                     mb: 1,
-                    fontWeight: 800,
-                    fontFamily: "Trattatello, sans-serif",
+                    // fontWeight: 800,
+                    // fontFamily: "Trattatello, sans-serif",
+                    fontFamily: "GothamSSm-Light",
                     textTransform: "uppercase",
-                    letterSpacing: "0.1em",
+                    // letterSpacing: "0.1em",
                     color: (theme) => theme.palette.text.primary,
                   }}
                 >
@@ -150,15 +151,13 @@ const AboutMe = () => {
                       variant="body1"
                       sx={{
                         color: (theme) => theme.palette.text.primary,
-                        fontWeight: 700,
                       }}
                     >
                       <Typography
                         variant="span"
                         sx={{
-                          fontWeight: 500,
                           color: (theme) => theme.palette.text.secondary,
-                          fontFamily: "PPNeueMontreal-Medium",
+                          fontFamily: "GothamSSm-Light",
                         }}
                       >
                         Location:
@@ -178,15 +177,13 @@ const AboutMe = () => {
                       variant="body1"
                       sx={{
                         color: (theme) => theme.palette.text.primary,
-                        fontWeight: 700,
                       }}
                     >
                       <Typography
                         variant="span"
                         sx={{
-                          fontWeight: 500,
                           color: (theme) => theme.palette.text.secondary,
-                          fontFamily: "PPNeueMontreal-Medium",
+                          fontFamily: "GothamSSm-Light",
                         }}
                       >
                         Nationalities:
@@ -206,15 +203,13 @@ const AboutMe = () => {
                       variant="body1"
                       sx={{
                         color: (theme) => theme.palette.text.primary,
-                        fontWeight: 700,
                       }}
                     >
                       <Typography
                         variant="span"
                         sx={{
-                          fontWeight: 500,
                           color: (theme) => theme.palette.text.secondary,
-                          fontFamily: "PPNeueMontreal-Medium",
+                          fontFamily: "GothamSSm-Light",
                         }}
                       >
                         Languages:
@@ -241,7 +236,6 @@ const AboutMe = () => {
                 id="fade-slide-down-1"
                 variant="h5"
                 sx={{
-                  fontWeight: 700,
                   color: (theme) => theme.palette.text.primary,
                   opacity: 0,
                   transform: "translateY(-20px)",
@@ -250,7 +244,7 @@ const AboutMe = () => {
                   "&.fade-slide-down-1": {
                     opacity: 1,
                     transform: "translateY(0)",
-                    fontFamily: "PPNeueMontreal-Medium",
+                    fontFamily: "GothamSSm-Light",
                   },
                 }}
               >
@@ -290,7 +284,6 @@ const AboutMe = () => {
                 variant="h5"
                 id="fade-slide-down-2"
                 sx={{
-                  fontWeight: 700,
                   color: (theme) => theme.palette.text.primary,
                   opacity: 0,
                   transform: "translateY(-20px)",
@@ -299,7 +292,7 @@ const AboutMe = () => {
                   "&.fade-slide-down-2": {
                     opacity: 1,
                     transform: "translateY(0)",
-                    fontFamily: "PPNeueMontreal-Medium",
+                    fontFamily: "GothamSSm-Light",
                   },
                 }}
               >
@@ -334,7 +327,7 @@ const AboutMe = () => {
                 id="fade-slide-down-3"
                 variant="h5"
                 sx={{
-                  fontWeight: 700,
+                  // fontWeight: 700,
                   color: (theme) => theme.palette.text.primary,
                   opacity: 0,
                   transform: "translateY(-20px)",
@@ -343,7 +336,7 @@ const AboutMe = () => {
                   "&.fade-slide-down-3": {
                     opacity: 1,
                     transform: "translateY(0)",
-                    fontFamily: "PPNeueMontreal-Medium",
+                    fontFamily: "GothamSSm-Light",
                   },
                 }}
               >
@@ -383,8 +376,9 @@ const AboutMe = () => {
               textTransform: "capitalize",
               mt: 2,
               textDecoration: "none",
-              fontFamily: "TuskerGrotesk",
-              letterSpacing: "0.2em",
+              // fontFamily: "TuskerGrotesk",
+              fontFamily: "GothamSSm-Light",
+              // letterSpacing: "0.2em",
             }}
             component="a"
             href="https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY"

@@ -183,11 +183,10 @@ const Projects = () => {
             textAlign="center"
             variant="h5"
             sx={{
-              fontWeight: 700,
               px: { xs: 2, sm: 2 },
               animation: `${fadeIn} 2s`,
               position: "relative",
-              fontFamily: "PPNeueMontreal-Medium",
+              fontFamily: "GothamSSm-Light",
             }}
           >
             Explore my latest software development projects.

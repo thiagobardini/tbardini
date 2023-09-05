@@ -81,12 +81,12 @@ const HireMe = () => {
           variant="body1"
           sx={{
             pr: { xs: 2, md: 0 },
-            letterSpacing: "0.08em",
             color: "#1270AF",
             borderRadius: "5px",
-            fontWeight: "800",
+            // fontWeight: "800",
             transition: "all 0.3s ease-in-out",
-            textTransform: "lowercase",
+            textTransform: "capitalize",
+            fontFamily: "GothamSSm-Bold",
             "&:hover": {
               color: "#0092ca",
               textShadow:
@@ -95,7 +95,7 @@ const HireMe = () => {
             },
           }}
         >
-          hire me!
+          Hire Me!
         </Typography>
       </StickyButton>
     )

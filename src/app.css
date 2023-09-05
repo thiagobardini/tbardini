@@ -22,3 +22,23 @@ body {
   font-family: "PPNeueMontreal-Medium";
   src: url("./Assets/fonts/PPNeueMontreal-Medium.otf") format("truetype");
 }
+
+@font-face {
+  font-family: "GothamSSm-Bold";
+  src: url("./Assets/fonts/GothamSSm-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "GothamSSm-Light";
+  src: url("./Assets/fonts/GothamSSm-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "GothamNarrowOffice-Regular";
+  src: url("./Assets/fonts/GothamNarrowOffice-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "YatraOne-Regular";
+  src: url("./Assets/fonts/YatraOne-Regular.ttf") format("truetype");
+}

@@ -45,13 +45,16 @@ const HomeText = () => {
           textShadow:
             "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
           color: darkMode ? "#eeeeee" : "#eeeeee",
-          fontWeight: 800,
+          // fontWeight: 800,
           position: "relative",
           borderRadius: "5px",
           fontSize: "3rem",
-          fontFamily: "TuskerGrotesk",
+          // fontFamily: "TuskerGrotesk",
           // fontFamily: "PPNeueMontreal-Medium",
-          letterSpacing: "0.1em",
+          // fontFamily: "YatraOne-Regular",
+          // fontFamily: "GothamSSm-Bold",
+          fontFamily: "GothamSSm-Bold",
+          // letterSpacing: "0.1em",
         }}
       >
         <TypeAnimation
@@ -88,7 +91,7 @@ const HomeText = () => {
               opacity: 0,
               transform: "translateY(20px)",
               transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-              fontFamily: "PPNeueMontreal-Medium",
+              fontFamily: "GothamSSm-Light",
               "&.fade-slide-up-h1": {
                 opacity: 1,
                 transform: "translateY(0)",
@@ -98,7 +101,7 @@ const HomeText = () => {
             I'm a Boston based{" "}
             <span
               style={{
-                fontWeight: 900,
+                fontFamily: "GothamSSm-Bold",
                 color: darkMode ? "#eeeeee" : "#222831",
                 textShadow: darkMode
                   ? "none"

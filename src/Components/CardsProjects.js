@@ -80,8 +80,8 @@ const CardsProjects = ({
             color="#eeeeee"
             sx={{
               fontWeight: 900,
-              // fontFamily: "Trattatello, sans-serif !important",
-              fontFamily: "TuskerGrotesk",
+              fontFamily: "Trattatello, sans-serif !important",
+              // fontFamily: "TuskerGrotesk",
               textTransform: "uppercase",
               letterSpacing: "0.1em",
             }}

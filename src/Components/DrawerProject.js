@@ -87,9 +87,10 @@ export default function TemporaryDrawer({
           <Typography
             color="text.third"
             sx={{
-              fontWeight: "600",
+              // fontWeight: "600",
               cursor: "pointer",
               fontFamily: "TuskerGrotesk",
+              letterSpacing: "0.1em",
             }}
             onClick={handleDrawerClose}
           >
@@ -110,8 +111,7 @@ export default function TemporaryDrawer({
             color="text.primary"
             sx={{
               fontWeight: 900,
-              // fontFamily: "Trattatello, sans-serif !important",
-              fontFamily: "TuskerGrotesk",
+              fontFamily: "Trattatello, sans-serif !important",
               textTransform: "uppercase",
             }}
           >
@@ -142,7 +142,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ fontFamily: "TuskerGrotesk" }}
+            sx={{ fontFamily: "PPNeueMontreal-Medium", letterSpacing: "0.1em" }}
           >
             About
           </Typography>
@@ -155,7 +155,7 @@ export default function TemporaryDrawer({
             gutterBottom
             mt={2}
             component="div"
-            sx={{ fontFamily: "TuskerGrotesk" }}
+            sx={{ fontFamily: "PPNeueMontreal-Medium", letterSpacing: "0.1em" }}
           >
             Technologies
           </Typography>
@@ -175,7 +175,7 @@ export default function TemporaryDrawer({
                 color="secondary"
                 sx={{
                   textTransform: "capitalize",
-                  fontFamily: "TuskerGrotesk",
+                  fontFamily: "PPNeueMontreal-Medium",
                 }}
               />
             ))}
@@ -189,7 +189,8 @@ export default function TemporaryDrawer({
             sx={{
               display: "flex",
               alignItems: "flex-start",
-              fontFamily: "TuskerGrotesk",
+              fontFamily: "PPNeueMontreal-Medium",
+              letterSpacing: "0.1em",
             }}
           >
             <PublicIcon sx={{ mr: 1 }} />
@@ -212,7 +213,8 @@ export default function TemporaryDrawer({
             sx={{
               display: "flex",
               alignItems: "flex-start",
-              fontFamily: "TuskerGrotesk",
+              fontFamily: "PPNeueMontreal-Medium",
+              letterSpacing: "0.1em",
             }}
           >
             <GitHubIcon sx={{ mr: 1 }} />
@@ -256,7 +258,12 @@ export default function TemporaryDrawer({
             }}
           >
             <Stack direction="row" alignItems="center">
-              <Typography mr={1}>Open Project</Typography>
+              <Typography
+                mr={1}
+                sx={{ fontFamily: "TuskerGrotesk", letterSpacing: "0.1em" }}
+              >
+                Open Project
+              </Typography>
               <LaunchIcon />
             </Stack>
           </Link>
@@ -278,7 +285,10 @@ export default function TemporaryDrawer({
             <Stack direction="row" alignItems="center">
               <Typography
                 mr={1}
-                sx={{ fontFamily: "TuskerGrotesk !important" }}
+                sx={{
+                  fontFamily: "TuskerGrotesk !important",
+                  letterSpacing: "0.1em",
+                }}
               >
                 Open Project
               </Typography>

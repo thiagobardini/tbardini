@@ -242,10 +242,10 @@ to {
                     }}
                   >
                     <Typography
-                      variant="h6"
+                      variant="h5"
                       sx={{
-                        // fontFamily: "Trattatello, sans-serif !important",
-                        fontFamily: "TuskerGrotesk",
+                        fontFamily: "Trattatello, sans-serif",
+                        // fontFamily: "TuskerGrotesk",
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
                       }}

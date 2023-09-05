@@ -179,9 +179,9 @@ const ContactForm = () => {
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "none",
             fontSize: "16px",
-            fontFamily: "Roboto, sans-serif",
+            fontFamily: "Gotham-Book",
             "::placeholder": {
-              fontFamily: "Roboto, sans-serif",
+              fontFamily: "Gotham-Book",
             },
           }}
         />
@@ -209,9 +209,9 @@ const ContactForm = () => {
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "none",
             fontSize: "16px",
-            fontFamily: "Roboto, sans-serif",
+            fontFamily: "Gotham-Book",
             "::placeholder": {
-              fontFamily: "Roboto, sans-serif",
+              fontFamily: "Gotham-Book",
             },
           }}
         />
@@ -238,9 +238,9 @@ const ContactForm = () => {
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "vertical",
             fontSize: "16px",
-            fontFamily: "Roboto, sans-serif",
+            fontFamily: "Gotham-Book",
             "::placeholder": {
-              fontFamily: "Roboto, sans-serif",
+              fontFamily: "Gotham-Book",
             },
           }}
         />

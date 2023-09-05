@@ -119,7 +119,7 @@ const AboutMe = () => {
                     mb: 1,
                     // fontWeight: 800,
                     // fontFamily: "Trattatello, sans-serif",
-                    fontFamily: "GothamSSm-Light",
+                    fontFamily: "GothamSSm-Bold",
                     textTransform: "uppercase",
                     // letterSpacing: "0.1em",
                     color: (theme) => theme.palette.text.primary,

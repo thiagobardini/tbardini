@@ -33,7 +33,6 @@ function HeadingTop({ text }) {
           display: "block",
           width: "100%",
           textAlign: "center",
-          fontWeight: "600",
           color: textColor,
           textShadow: "1px 1px 1px rgba(0, 0, 0, 0.3)",
         }}

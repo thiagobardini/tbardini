@@ -34,8 +34,8 @@ body {
 }
 
 @font-face {
-  font-family: "GothamNarrowOffice-Regular";
-  src: url("./Assets/fonts/GothamNarrowOffice-Regular.otf") format("truetype");
+  font-family: "Gotham-Book";
+  src: url("./Assets/fonts/Gotham-Book.otf") format("truetype");
 }
 
 @font-face {

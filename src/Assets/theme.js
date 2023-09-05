@@ -52,8 +52,8 @@ export const createCustomTheme = (mode) =>
                 src: `url('./fonts/GothamSSm-Light.otf') format('truetype')`,
               },
               {
-                fontFamily: "GothamNarrowOffice-Regular",
-                src: `url('./fonts/GothamNarrowOffice-Regular.otf') format('truetype')`,
+                fontFamily: "Gotham-Book",
+                src: `url('./fonts/Gotham-Book.otf') format('truetype')`,
               },
               {
                 fontFamily: "YatraOne-Regular",
@@ -62,6 +62,12 @@ export const createCustomTheme = (mode) =>
             ],
           },
         },
+      },
+    },
+    typography: {
+      fontFamily: "Gotham-Book, Arial, sans-serif",
+      subtitle: {
+        fontSize: "1.1rem",
       },
     },
     palette: {

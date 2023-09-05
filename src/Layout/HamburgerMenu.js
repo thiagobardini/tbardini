@@ -120,10 +120,10 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               <Typography
                 variant="h3"
                 sx={{
-                  // fontFamily: "TuskerGrotesk",
-                  fontFamily: "Trattatello, sans-serif",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
+                  fontFamily: "TuskerGrotesk",
+                  // fontFamily: "Trattatello, sans-serif",
+                  textTransform: "capitalize",
+                  letterSpacing: "0.2em",
                 }}
               >
                 {page.text}
@@ -149,7 +149,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           >
             <LinkedInIcon
               sx={{
-                fontSize: "2.5rem",
+                fontSize: "3rem",
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
               }}
             />
@@ -161,7 +161,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           >
             <GitHubIcon
               sx={{
-                fontSize: "2.5rem",
+                fontSize: "3rem",
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
               }}
             />

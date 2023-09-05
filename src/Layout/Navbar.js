@@ -244,9 +244,9 @@ to {
                     <Typography
                       variant="h5"
                       sx={{
-                        fontFamily: "Trattatello, sans-serif",
-                        // fontFamily: "TuskerGrotesk",
-                        textTransform: "uppercase",
+                        // fontFamily: "Trattatello, sans-serif",
+                        fontFamily: "TuskerGrotesk",
+                        textTransform: "capitalize",
                         letterSpacing: "0.1em",
                       }}
                     >
@@ -268,7 +268,7 @@ to {
                   target="_blank"
                   m={1}
                 >
-                  <LinkedInIcon />
+                  <LinkedInIcon sx={{ fontSize: "2rem" }} />
                 </Box>
                 <Box
                   component={Link}
@@ -277,7 +277,7 @@ to {
                   target="_blank"
                   m={1}
                 >
-                  <GitHubIcon />
+                  <GitHubIcon sx={{ fontSize: "2rem" }} />
                 </Box>
               </Box>
             </Stack>

@@ -22,7 +22,7 @@ function HeadingTop({ text }) {
         sx={{
           // fontFamily: "Trattatello, sans-serif",
           fontFamily: "TuskerGrotesk",
-          textTransform: "uppercase",
+          textTransform: "capitalize",
           letterSpacing: "0.1em",
           height: "100%",
           minHeight: "55px",

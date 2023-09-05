@@ -268,7 +268,7 @@ to {
                   target="_blank"
                   m={1}
                 >
-                  <LinkedInIcon sx={{ fontSize: "2rem" }} />
+                  <LinkedInIcon sx={{ fontSize: "1.8rem" }} />
                 </Box>
                 <Box
                   component={Link}
@@ -277,7 +277,7 @@ to {
                   target="_blank"
                   m={1}
                 >
-                  <GitHubIcon sx={{ fontSize: "2rem" }} />
+                  <GitHubIcon sx={{ fontSize: "1.8rem" }} />
                 </Box>
               </Box>
             </Stack>

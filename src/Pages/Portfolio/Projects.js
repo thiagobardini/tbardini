@@ -6,7 +6,6 @@ import {
   Container,
   CssBaseline,
   Grid,
-  Button,
   Typography,
   Paper,
   Link,
@@ -22,6 +21,15 @@ import CardsProjects from "../../Components/CardsProjects";
 // import Masonry from "@mui/lab/Masonry";
 import DrawerProject from "../../Components/DrawerProject";
 import Masonry from "react-masonry-css";
+
+const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
@@ -175,7 +183,12 @@ const Projects = () => {
             mb={2}
             textAlign="center"
             variant="h5"
-            sx={{ fontWeight: 700, px: { xs: 2, sm: 2 } }}
+            sx={{
+              fontWeight: 700,
+              px: { xs: 2, sm: 2 },
+              animation: `${fadeIn} 2s`,
+              position: "relative",
+            }}
           >
             Explore my latest software development projects.
           </Typography>
@@ -189,6 +202,8 @@ const Projects = () => {
                 justifyContent: "center",
                 textAlign: "center",
                 px: { xs: 2, sm: 2 },
+                animation: `${fadeIn} 3s`,
+                position: "relative",
               }}
             >
               <Breadcrumbs aria-label="breadcrumb">

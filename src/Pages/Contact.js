@@ -150,7 +150,6 @@ const Contact = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                mb: 3,
               }}
             >
               <ContactForm />

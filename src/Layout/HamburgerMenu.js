@@ -39,13 +39,10 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         }}
         PaperProps={{
           sx: {
-            // backgroundColor: darkMode
-            //   ? theme.palette.background.paper
-            //   : "#d6d3d1",
-            backdropFilter: darkMode ? "blur(40px)" : "blur(50px)",
+            backdropFilter: darkMode ? "blur(20px)" : "blur(10px)",
             backgroundColor: darkMode
               ? "transparent !important"
-              : "#transparent !important",
+              : "rgba(238, 238, 238, 0.7) !important",
             display: "block",
             boxSizing: "border-box",
             width: "100%",
@@ -120,7 +117,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
                 },
               }}
             >
-              <Typography variant="h3">{page.text}</Typography>
+              <Typography variant="h4">{page.text}</Typography>
             </ListItem>
           ))}
         </List>
@@ -142,7 +139,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           >
             <LinkedInIcon
               sx={{
-                fontSize: "3rem",
+                fontSize: "2rem",
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
               }}
             />
@@ -154,7 +151,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           >
             <GitHubIcon
               sx={{
-                fontSize: "3rem",
+                fontSize: "2rem",
                 color: theme.palette.mode === "dark" ? "#eeeeee" : "#22313f",
               }}
             />

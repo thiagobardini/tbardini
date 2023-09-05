@@ -28,7 +28,7 @@ to {
 const ContactInfo = ({ darkMode, fadeIn }) => (
   <Box sx={{ mt: 3, animation: `${fadeIn} 3s`, position: "relative" }}>
     <Typography
-      variant="h6"
+      variant="h5"
       sx={{
         mb: 1,
         textAlign: "center",
@@ -164,6 +164,9 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleInputChange}
           required
+          inputProps={{
+            style: { fontSize: "16px", touchAction: "manipulation" },
+          }}
           style={{
             width: "100%",
             padding: "12px",
@@ -174,6 +177,11 @@ const ContactForm = () => {
             borderRadius: "4px",
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "none",
+            fontSize: "16px",
+            fontFamily: "Roboto, sans-serif",
+            "::placeholder": {
+              fontFamily: "Roboto, sans-serif",
+            },
           }}
         />
 
@@ -186,7 +194,9 @@ const ContactForm = () => {
           variant="outlined"
           value={formData.email}
           onChange={handleInputChange}
-          required
+          requiredinputProps={{
+            style: { fontSize: "16px", touchAction: "manipulation" },
+          }}
           style={{
             width: "100%",
             padding: "12px",
@@ -197,10 +207,15 @@ const ContactForm = () => {
             borderRadius: "4px",
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "none",
+            fontSize: "16px",
+            fontFamily: "Roboto, sans-serif",
+            "::placeholder": {
+              fontFamily: "Roboto, sans-serif",
+            },
           }}
         />
         <TextareaAutosize
-          minRows={6}
+          minRows={10}
           maxRows={12}
           onChange={handleInputChange}
           name="message"
@@ -208,6 +223,9 @@ const ContactForm = () => {
           value={formData.message}
           required
           variant="outlined"
+          inputProps={{
+            style: { fontSize: "16px", touchAction: "manipulation" },
+          }}
           style={{
             width: "100%",
             padding: "12px",
@@ -218,6 +236,11 @@ const ContactForm = () => {
             borderRadius: "4px",
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "vertical",
+            fontSize: "16px",
+            fontFamily: "Roboto, sans-serif",
+            "::placeholder": {
+              fontFamily: "Roboto, sans-serif",
+            },
           }}
         />
 

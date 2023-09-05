@@ -39,10 +39,10 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       Feel free to get in touch!
     </Typography>
     <Stack
-      direction="row"
-      spacing={2}
-      justifyContent="center"
-      alignItems="center"
+      direction={{ xs: "column", sm: "row" }}
+      spacing={{ xs: 0, sm: 2 }}
+      justifyContent={{ xs: "flex-start", sm: "center" }}
+      alignItems={{ xs: "flex-start", sm: "center" }}
       sx={{ mb: 1, fontFamily: "PPNeueMontreal-Medium" }}
     >
       <Link
@@ -89,7 +89,7 @@ const ContactIconText = ({ icon, text }) => (
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      letterSpacing: "0.2em",
+      letterSpacing: "0.1em",
     }}
   >
     <Box sx={{ mr: 0.5 }}>{icon}</Box>

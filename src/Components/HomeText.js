@@ -24,7 +24,7 @@ const HomeText = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
     window.scrollTo(0, 0);

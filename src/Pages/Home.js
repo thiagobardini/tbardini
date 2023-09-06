@@ -43,7 +43,7 @@ to {
         >
           <Box
             sx={{
-              pt: 2,
+              pb: { xs: "150px !important", sm: "0" },
               right: 0,
               width: { xs: "100%", sm: "90%", md: "50%" },
               height: "100%",
@@ -58,7 +58,7 @@ to {
           >
             <Box
               sx={{
-                mt: "130px",
+                pt: { xs: "250px", md: "130px" },
               }}
             >
               <HomeText />

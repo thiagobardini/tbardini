@@ -25,7 +25,7 @@ function TextAnimation() {
         sx={{
           backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
           fontFamily: "GothamSSm-Light",
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", md: "none" },
           textShadow: darkMode
             ? "none"
             : {
@@ -75,7 +75,7 @@ function TextAnimation() {
                 xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
                 md: "none",
               },
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", md: "block" },
         }}
       >
         <Box sx={{ display: "inline-block", fontWeight: 600 }}>

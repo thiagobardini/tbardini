@@ -254,6 +254,7 @@ const Projects = () => {
                         <CardsProjects
                           id={card.id}
                           title={card.title}
+                          subtitle={card.subtitle}
                           description={card.description}
                           logo={card.logo}
                           img={card.img}
@@ -292,6 +293,7 @@ const Projects = () => {
           open={isDrawerOpen && index === openedCardId}
           onClose={() => dispatch(closeDrawer())}
           title={card.title}
+          subtitle={card.subtitle}
           description={card.description}
           logo={card.logo}
           img={card.img}

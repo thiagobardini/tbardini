@@ -23,6 +23,7 @@ export default function TemporaryDrawer({
   open,
   onClose,
   title,
+  subtitle,
   description,
   img,
   techs,
@@ -117,14 +118,14 @@ export default function TemporaryDrawer({
           >
             {title}
           </Typography>
-          {/* <Typography
+          <Typography
             variant="body2"
             color="text.primary"
             mb={2}
             component="div"
           >
-            {description}
-          </Typography> */}
+            {subtitle}
+          </Typography>
           <Box
             component="img"
             alt="title"
@@ -218,14 +219,33 @@ export default function TemporaryDrawer({
             <GitHubIcon sx={{ mr: 1 }} />
             Github
           </Typography>
-          <Link
-            color="text.primary"
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography variant="body2">{github}</Typography>
-          </Link>
+          <div style={{ width: "100%" }}>
+            <Link
+              color="text.primary"
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "block",
+              }}
+            >
+              <Typography
+                variant="body2"
+                style={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  width: "100%",
+                  display: "block",
+                }}
+              >
+                {github}
+              </Typography>
+            </Link>
+          </div>
         </Stack>
       </Paper>
       <Box
@@ -256,7 +276,7 @@ export default function TemporaryDrawer({
             }}
           >
             <Stack direction="row" alignItems="center">
-              <Typography mr={1} sx={{ fontFamily: "GothamSSm-Bold" }}>
+              <Typography mr={1} sx={{ fontFamily: "GothamSSm-Light" }}>
                 Open Project
               </Typography>
               <LaunchIcon />
@@ -280,12 +300,13 @@ export default function TemporaryDrawer({
               <Typography
                 mr={1}
                 sx={{
-                  fontFamily: "GothamSSm-Bold",
+                  fontFamily: "GothamSSm-Light",
+                  color: "#eeeeee",
                 }}
               >
                 Open Project
               </Typography>
-              <LaunchIcon />
+              <LaunchIcon color="text.third" />
             </Stack>
           </Link>
         )}

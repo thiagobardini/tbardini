@@ -2,7 +2,8 @@
   {
     "id": "1",
     "title": "My Portfolio",
-    "description": "💼 This is my portfolio website where I showcase my projects and skills, documenting my learning journey through various small and large projects.",
+    "subtitle": "Showcasing My Dev Journey",
+    "description": "💼 My portfolio serves as a comprehensive display of my skills and projects, documenting my learning journey through various initiatives. In addition to showcasing the technologies I've worked with, it features a modern design aesthetic, aiming to create a visually engaging user experience.",
     "logo": "/images/myPortfolio.gif",
     "img": "/images/myPortfolio.gif",
     "techs": [
@@ -10,20 +11,20 @@
       "Redux Toolkit",
       "Material-UI",
       "JavaScript",
-      "SASS & CSS",
       "React-three-fiber"
     ],
     "live": "https://tbardini.com/",
     "localUrl": "/",
     "readme": "",
-    "github": "https://github.com/thiagobardini/tbardiniCom",
+    "github": "https://github.com/thiagobardini/tbardini",
     "openNewTab": true,
     "dev": "frontend"
   },
   {
     "id": "2",
     "title": "Boston Heat Pump Accelerator",
-    "description": "🌆 Front End Developer for Boston Heat Pump Accelerator (BHPA) project. BHPA promotes heat pump access in Boston through education and awareness efforts, independent of funding from companies or installers.",
+    "subtitle": "Green Energy in Boston",
+    "description": "🌆 As a Frontend Developer, I was responsible for implementing the public-facing pages, working closely with a team of UX and Marketing professionals. BHPA aims to increase access to heat pumps in Boston, helping reduce costs and transition to low-carbon tech, while remaining unbiased through independent funding.",
     "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
     "img": "/images/bhpaBrowserVertical.gif",
     "techs": [
@@ -31,8 +32,7 @@
       "RTK Query",
       "Redux Toolkit",
       "Material-UI",
-      "JavaScript",
-      "SASS & CSS"
+      "JavaScript"
     ],
     "live": "https://www.bostonhpa.org/",
     "localUrl": "",
@@ -44,10 +44,18 @@
   {
     "id": "3",
     "title": "Mini Market",
-    "description": "🛒 Mini Market: A modern online grocery platform with real-time updates and secure payments via Stripe API.",
+    "subtitle": "Your Online Grocery Store",
+    "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development.",
     "logo": "/images/mini-market-logo.png",
     "img": "/images/miniMarket.gif",
-    "techs": ["React-JS", "Firebase", "Stripe API", "SASS & CSS", "JavaScript"],
+    "techs": [
+      "React-JS",
+      "Firebase Realtime Database",
+      "Stripe API",
+      "SASS & CSS",
+      "JavaScript",
+      "useContext"
+    ],
     "live": "https://mini-market-tbardini.vercel.app/",
     "localUrl": "",
     "readme": "",
@@ -58,22 +66,24 @@
   {
     "id": "4",
     "title": "LottoNest",
-    "description": "🎰 LottoNest: Quickly verify Mega Millions numbers via camera or manual input. Could you be the next millionaire? Experience a seamless UI with detailed ticket views for fast and enjoyable lottery checks!",
+    "subtitle": "Lottery Number Verifier",
+    "description": "🎰 LottoNest serves as a demonstration of using Firebase Firestore Database and Firebase Authentication with React JS and the react-webcam library. Quickly verify Mega Millions numbers via camera or manual input. The project features a seamless UI with detailed ticket views, aiming to make lottery checks fast and enjoyable.",
     "logo": "/images/MegaMillions.png",
     "img": "/images/lottoNest.gif",
     "techs": [
       "React-JS",
+      "Firebase Firestore Database",
+      "Firebase Authentication",
       "Material-UI",
       "JavaScript",
-      "Firebase",
       "Redux Toolkit",
-      "SASS & CSS"
+      "react-webcam"
     ],
     "live": "https://www.tbardini.com/projects/lottonest",
-    "localUrl": "/projects/lottonest",
+    "localUrl": "projects/lottonest",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
-    "openNewTab": true,
+    "openNewTab": false,
     "dev": "fullstack"
   }
 ]

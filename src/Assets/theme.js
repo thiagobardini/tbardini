@@ -98,7 +98,7 @@ export const createCustomTheme = (mode) =>
             text: {
               primary: "#eeeeee", // Off White
               secondary: "#d6d3d1", // Almost Black
-              third: "#d6d3d1", // Almost Black
+              third: "#eeeeeeeeeeee", // Almost Black
             },
             customWhite: { main: "#eeeeee" }, // Off White
           }),

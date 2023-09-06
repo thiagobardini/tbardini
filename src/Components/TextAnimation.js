@@ -19,83 +19,96 @@ function TextAnimation() {
   );
 
   return (
-    <Typography
-      variant="h6"
-      sx={{
-        backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
-        fontFamily: "GothamSSm-Light",
-      }}
-    >
-      <Box
-        component="span"
+    <>
+      <Typography
+        variant="body1"
         sx={{
-          display: "inline-block",
-          fontWeight: 600,
-        }}
-      >
-        {"<"}
-        <Box
-          component="span"
-          sx={{
-            display: "inline-block",
-            color: "#1270AF",
-            textShadow: "none",
-          }}
-        >
-          code
-        </Box>
-        {">"}
-      </Box>
-      <Box
-        component="span"
-        sx={{
-          display: "inline-block",
-          color: (theme) => theme.palette.text.secondary,
+          backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
           fontFamily: "GothamSSm-Light",
-          fontWeight: 600,
+          display: { xs: "block", sm: "none" },
           textShadow: darkMode
             ? "none"
             : {
                 xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
                 md: "none",
               },
-
-          mr: "0.5rem",
         }}
       >
-        I build
-      </Box>
-      <Box sx={typeAnimationStyle}>
-        <Typography variant="h6" sx={{ fontFamily: "GothamSSm-Bold" }}>
+        <Box sx={{ display: "inline-block", fontWeight: 600 }}>
+          {"<"}
+          <Box sx={{ display: "inline-block", color: "#1270AF" }}>code</Box>
+          {">"}
+        </Box>
+        <Box
+          sx={{
+            display: "inline-block",
+            color: (theme) => theme.palette.text.secondary,
+            fontFamily: "GothamSSm-Light",
+            fontWeight: 600,
+            mr: "0.5rem",
+          }}
+        >
+          I build
+        </Box>
+        <Box sx={typeAnimationStyle}>
           <TypeAnimation
             sequence={["web applications", 1000, "automation tools", 1000]}
             speed={50}
             repeat={Infinity}
             style={{ fontFamily: "GothamSSm-Bold" }}
           />
-        </Typography>
-      </Box>
-      <Box
-        component="span"
+        </Box>
+        <Box sx={{ display: "inline-block", fontWeight: 600 }}>
+          {"</"}
+          <Box sx={{ display: "inline-block", color: "#1270AF" }}>code</Box>
+          {">"}
+        </Box>
+      </Typography>
+      <Typography
+        variant="h6"
         sx={{
-          display: "inline-block",
-          fontWeight: 600,
+          backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
+          fontFamily: "GothamSSm-Light",
+          textShadow: darkMode
+            ? "none"
+            : {
+                xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+                md: "none",
+              },
+          display: { xs: "none", sm: "block" },
         }}
       >
-        {"</"}
+        <Box sx={{ display: "inline-block", fontWeight: 600 }}>
+          {"<"}
+          <Box sx={{ display: "inline-block", color: "#1270AF" }}>code</Box>
+          {">"}
+        </Box>
         <Box
-          component="span"
           sx={{
             display: "inline-block",
+            color: (theme) => theme.palette.text.secondary,
+            fontFamily: "GothamSSm-Light",
             fontWeight: 600,
-            color: "#1270AF",
+            mr: "0.5rem",
           }}
         >
-          code
+          I build
         </Box>
-        {">"}
-      </Box>
-    </Typography>
+        <Box sx={typeAnimationStyle}>
+          <TypeAnimation
+            sequence={["web applications", 1000, "automation tools", 1000]}
+            speed={50}
+            repeat={Infinity}
+            style={{ fontFamily: "GothamSSm-Bold" }}
+          />
+        </Box>
+        <Box sx={{ display: "inline-block", fontWeight: 600 }}>
+          {"</"}
+          <Box sx={{ display: "inline-block", color: "#1270AF" }}>code</Box>
+          {">"}
+        </Box>
+      </Typography>
+    </>
   );
 }
 

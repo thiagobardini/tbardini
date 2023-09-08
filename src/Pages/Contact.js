@@ -44,7 +44,8 @@ const Contact = () => {
 
   const textTitle = (
     <TypeAnimation
-      sequence={["Contact", 1000, "Let’s work together!", 1000]}
+      sequence={["Contact"]}
+      // sequence={["Contact", 1000, "Let’s work together!", 1000]}
       wrapper="span"
       speed={50}
       repeat={0}
@@ -99,12 +100,12 @@ const Contact = () => {
         <HeadingTop text={textTitle} />{" "}
       </Box>
 
-      <Container>
+      <Container sx={{ px: "0px" }}>
         <Paper
           elevation={3}
           sx={{
             py: 5,
-            px: 3,
+            px: 1,
             borderRadius: 3,
             backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
             backgroundColor: darkMode

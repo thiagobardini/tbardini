@@ -73,13 +73,13 @@ const AboutMe = () => {
       }}
     >
       <HeadingTop text={textTitle} />
-      <Container>
+      <Container sx={{ px: "0px" }}>
         <CssBaseline />
         <Paper
           elevation={3}
           sx={{
             py: 5,
-            px: 3,
+            px: 2,
             borderRadius: 3,
             backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
             backgroundColor: darkMode
@@ -274,8 +274,9 @@ const AboutMe = () => {
               frontend development, and also collaborate as a Frontend Developer
               at Code for Boston. My professional journey revolves around
               creating responsive websites and managing QA automation processes.
-              In my free time, I enjoy hobbies such as playing bass guitar,
-              hiking, traveling, and surfing.
+              In my free time, I enjoy hobbies such as playing bass guitar—a
+              practice that fuels my creative problem-solving skills, hiking,
+              traveling, and surfing.
             </Typography>
           </ScrollTrigger>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
@@ -317,8 +318,9 @@ const AboutMe = () => {
               }}
             >
               Looking to connect and collaborate with a company where I can grow
-              personally and professionally. I want to be a part of a community
-              that values integrity, intelligence, and creativity.
+              personally and professionally in areas such as Sofware
+              Development. I want to be a part of a community that values
+              integrity, intelligence, and creativity.
             </Typography>
           </ScrollTrigger>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>

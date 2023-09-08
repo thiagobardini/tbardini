@@ -3,7 +3,7 @@
     "id": "1",
     "title": "My Portfolio",
     "subtitle": "Showcasing My Dev Journey",
-    "description": "💼 My portfolio serves as a comprehensive display of my skills and projects, documenting my learning journey through various initiatives. In addition to showcasing the technologies I've worked with, it features a modern design aesthetic, aiming to create a visually engaging user experience.",
+    "description": "💼 My portfolio serves as a comprehensive display of my skills and projects, documenting my learning journey through various initiatives. In addition to showcasing the technologies I've worked with, it features a modern design aesthetic, aiming to create a visually engaging user experience. Overcame challenges like optimizing page load speed, which resulted in a 20% improvement in user engagement.",
     "logo": "/images/myPortfolio.gif",
     "img": "/images/myPortfolio.gif",
     "techs": [

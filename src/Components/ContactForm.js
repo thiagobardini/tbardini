@@ -8,6 +8,8 @@ import {
   Stack,
   CircularProgress,
   TextareaAutosize,
+  Tooltip,
+  Zoom,
 } from "@mui/material";
 import { db } from "../Firebase/firebaseConfig"; // Import the initialized Firestore instance
 import { collection, addDoc } from "firebase/firestore";
@@ -26,59 +28,87 @@ to {
 `;
 
 const ContactInfo = ({ darkMode, fadeIn }) => (
-  <Box sx={{ mt: 3, animation: `${fadeIn} 3s`, position: "relative" }}>
+  <Box sx={{ mt: 4, animation: `${fadeIn} 3s`, position: "relative" }}>
     <Typography
       variant="h5"
       sx={{
-        mb: 1,
+        mb: 2,
         textAlign: "center",
         fontFamily: "GothamSSm-Light",
       }}
     >
-      Feel free to get in touch!
+      Let's Collaborate!
     </Typography>
-    <Stack
-      direction={{ xs: "column", sm: "row" }}
-      spacing={{ xs: 0, sm: 2 }}
-      justifyContent={{ xs: "flex-start", sm: "center" }}
-      alignItems={{ xs: "flex-start", sm: "center" }}
-      sx={{ mb: 1, fontFamily: "GothamSSm-Light" }}
+    <Typography
+      variant="body1"
+      sx={{
+        mb: 2,
+        // fontWeight: 600,
+        textAlign: { xs: "center", sm: "center" },
+        fontFamily: "GothamSSm-Light",
+      }}
     >
-      <Link
-        href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
-        color="inherit"
-        underline="none"
-        target="_blank"
-      >
-        <ContactIconText
-          icon={
-            <EmailIcon
-              sx={{
-                color: darkMode ? "#eeeeee" : "#222831",
-              }}
-            />
-          }
-          text="thiagobardini@icloud.com"
-        />
-      </Link>
-      <Link
-        href="https://www.linkedin.com/in/thiagobardini/"
-        color="inherit"
-        underline="none"
-        target="_blank"
-      >
-        <ContactIconText
-          icon={
-            <LinkedInIcon
-              sx={{
-                color: darkMode ? "#eeeeee" : "#222831",
-              }}
-            />
-          }
-          text="LinkedIn"
-        />
-      </Link>
+      Open for freelance work & collaborations.
+    </Typography>
+
+    <Stack
+      direction={{ xs: "row", sm: "row" }}
+      spacing={{ xs: 1, sm: 2 }}
+      justifyContent={{ xs: "center", sm: "center" }}
+      alignItems={{ xs: "flex-start", sm: "center" }}
+      sx={{ mb: 1, fontFamily: "Gotham-Book" }}
+    >
+      <Tooltip TransitionComponent={Zoom} title="thiagobardini@icloud.com">
+        <Link
+          href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
+          color="inherit"
+          underline="none"
+          target="_blank"
+        >
+          <ContactIconText
+            icon={
+              <EmailIcon
+                sx={{
+                  color: darkMode ? "#eeeeee" : "#222831",
+                  fontSize: "2rem",
+                }}
+              />
+            }
+            // text="thiagobardini@icloud.com"
+          />
+        </Link>
+      </Tooltip>
+      <Tooltip TransitionComponent={Zoom} title="LinkedIn">
+        <Link
+          href="https://www.linkedin.com/in/thiagobardini/"
+          color="inherit"
+          underline="none"
+          target="_blank"
+        >
+          <ContactIconText
+            icon={
+              <LinkedInIcon
+                sx={{
+                  color: darkMode ? "#eeeeee" : "#222831",
+                  fontSize: "2rem",
+                }}
+              />
+            }
+            // text="LinkedIn"
+          />
+        </Link>
+      </Tooltip>
     </Stack>
+
+    <Typography
+      variant="h6"
+      sx={{
+        textAlign: "start",
+        fontFamily: "GothamSSm-Light",
+      }}
+    >
+      Get in Touch
+    </Typography>
   </Box>
 );
 
@@ -144,7 +174,6 @@ const ContactForm = () => {
   return (
     <Box sx={{ width: "100%", maxWidth: "770px", minWidth: "273px" }}>
       <ContactInfo darkMode={darkMode} fadeIn={fadeIn} />
-
       <Box
         component="form"
         onSubmit={handleSendEmail}
@@ -195,7 +224,8 @@ const ContactForm = () => {
           variant="outlined"
           value={formData.email}
           onChange={handleInputChange}
-          requiredinputProps={{
+          required
+          inputProps={{
             style: { fontSize: "16px", touchAction: "manipulation" },
           }}
           style={{

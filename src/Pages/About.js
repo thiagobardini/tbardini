@@ -73,7 +73,7 @@ const AboutMe = () => {
       }}
     >
       <HeadingTop text={textTitle} />
-      <Container sx={{ px: "0px" }}>
+      <Container sx={{ px: 1 }}>
         <CssBaseline />
         <Paper
           elevation={3}

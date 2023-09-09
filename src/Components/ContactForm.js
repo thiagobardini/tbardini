@@ -28,13 +28,21 @@ to {
 `;
 
 const ContactInfo = ({ darkMode, fadeIn }) => (
-  <Box sx={{ mt: 4, animation: `${fadeIn} 3s`, position: "relative" }}>
+  <Box
+    sx={{
+      mt: 4,
+      animation: `${fadeIn} 3s`,
+      position: "relative",
+      px: 1,
+      mb: 1,
+    }}
+  >
     <Typography
       variant="h5"
       sx={{
         mb: 2,
         textAlign: "center",
-        fontFamily: "GothamSSm-Light",
+        fontFamily: "GothamSSm-Bold",
       }}
     >
       Let's Collaborate!
@@ -43,7 +51,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       variant="body1"
       sx={{
         mb: 2,
-        // fontWeight: 600,
+
         textAlign: { xs: "center", sm: "center" },
         fontFamily: "GothamSSm-Light",
       }}
@@ -101,7 +109,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
     </Stack>
 
     <Typography
-      variant="h6"
+      variant="body1"
       sx={{
         textAlign: "start",
         fontFamily: "GothamSSm-Light",
@@ -204,7 +212,7 @@ const ContactForm = () => {
             borderColor: darkMode ? "#eeeeee" : "#222831",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderRadius: "4px",
+            borderRadius: "11px",
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "none",
             fontSize: "16px",
@@ -235,7 +243,7 @@ const ContactForm = () => {
             borderColor: darkMode ? "#eeeeee" : "#222831",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderRadius: "4px",
+            borderRadius: "11px",
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "none",
             fontSize: "16px",
@@ -264,7 +272,7 @@ const ContactForm = () => {
             borderColor: darkMode ? "#eeeeee" : "#222831",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderRadius: "4px",
+            borderRadius: "11px",
             color: darkMode ? "#eeeeee" : "#222831",
             resize: "vertical",
             fontSize: "16px",

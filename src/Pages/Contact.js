@@ -100,7 +100,7 @@ const Contact = () => {
         <HeadingTop text={textTitle} />{" "}
       </Box>
 
-      <Container sx={{ px: "0px" }}>
+      <Container sx={{ px: 1 }}>
         <Paper
           elevation={3}
           sx={{

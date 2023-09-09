@@ -164,7 +164,7 @@ const Projects = () => {
       }}
     >
       <HeadingTop text={textTitle} />
-      <Container sx={{ px: "0px" }}>
+      <Container sx={{ px: 0.5 }}>
         <Paper
           elevation={3}
           sx={{
@@ -186,10 +186,10 @@ const Projects = () => {
               px: { xs: 2, sm: 2 },
               animation: `${fadeIn} 2s`,
               position: "relative",
-              fontFamily: "GothamSSm-Light",
+              fontFamily: "GothamSSm-Bold",
             }}
           >
-            Explore my latest software development projects.
+            Explore My Latest Work
           </Typography>
           <Grid container justifyContent="center" alignItems="center">
             <Grid
@@ -226,7 +226,7 @@ const Projects = () => {
                 justifyContent: "center",
                 flexDirection: "column",
                 alignItems: "center",
-                px: { xs: 1, sm: 2 },
+                px: { xs: 0.5, sm: 2 },
               }}
             >
               <Masonry

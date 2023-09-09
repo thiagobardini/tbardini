@@ -8852,10 +8852,10 @@
     "object-assign" "^4.1.1"
     "react-is" "^16.13.1"
 
-"protobufjs@^6.11.3":
-  "integrity" "sha512-xL96WDdCZYdU7Slin569tFX712BxsxslWwAfAhCYjQKGTq7dAU91Lomy6nLLhh/dyGhk/YH4TwTSRxTzhuHyZg=="
-  "resolved" "https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.3.tgz"
-  "version" "6.11.3"
+"protobufjs@^6.11.3", "protobufjs@^6.11.4":
+  "integrity" "sha512-5kQWPaJHi1WoCpjTGszzQ32PG2F4+wRY6BmAT4Vfw56Q2FZ4YZzK20xUYQH4YkfehY1e6QSICrJquM6xXZNcrw=="
+  "resolved" "https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.4.tgz"
+  "version" "6.11.4"
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"

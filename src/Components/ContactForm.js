@@ -17,6 +17,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import SendIcon from "@mui/icons-material/Send";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const fadeIn = keyframes`
 from {
@@ -66,7 +67,26 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       alignItems={{ xs: "flex-start", sm: "center" }}
       sx={{ mb: 1, fontFamily: "Gotham-Book" }}
     >
-      <Tooltip TransitionComponent={Zoom} title="thiagobardini@icloud.com">
+      <Tooltip TransitionComponent={Zoom} title="🇺🇸 978-648-7075">
+        <Link
+          href="tel:978-648-7075"
+          color="inherit"
+          underline="none"
+          target="_blank"
+        >
+          <ContactIconText
+            icon={
+              <PhoneIcon
+                sx={{
+                  color: darkMode ? "#eeeeee" : "#222831",
+                  fontSize: "2rem",
+                }}
+              />
+            }
+          />
+        </Link>
+      </Tooltip>
+      <Tooltip TransitionComponent={Zoom} title="📧 thiagobardini@icloud.com">
         <Link
           href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
           color="inherit"

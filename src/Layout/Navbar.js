@@ -10,6 +10,8 @@ import {
   Stack,
   Typography,
   Paper,
+  Tooltip,
+  Zoom,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -264,29 +266,34 @@ to {
                   display: { xs: "none", md: "inline-block" },
                 }}
               >
-                <Box
-                  component={Link}
-                  sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
-                  to={"https://www.linkedin.com/in/thiagobardini/"}
-                  target="_blank"
-                  m={1}
-                >
-                  <LinkedInIcon sx={{ fontSize: "1.5rem" }} />
-                </Box>
-                <Box
-                  component={Link}
-                  sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
-                  to={"https://github.com/thiagobardini"}
-                  target="_blank"
-                  m={1}
-                >
-                  <GitHubIcon sx={{ fontSize: "1.5rem" }} />
-                </Box>
+                <Tooltip TransitionComponent={Zoom} title="LinkedIn">
+                  <Box
+                    component={Link}
+                    sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
+                    to={"https://www.linkedin.com/in/thiagobardini/"}
+                    target="_blank"
+                    m={1}
+                  >
+                    <LinkedInIcon sx={{ fontSize: "1.5rem" }} />
+                  </Box>
+                </Tooltip>
+                <Tooltip TransitionComponent={Zoom} title="Github">
+                  <Box
+                    component={Link}
+                    sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
+                    to={"https://github.com/thiagobardini"}
+                    target="_blank"
+                    m={1}
+                  >
+                    <GitHubIcon sx={{ fontSize: "1.5rem" }} />
+                  </Box>
+                </Tooltip>
               </Box>
             </Stack>
           )}
-
-          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
+          <Tooltip TransitionComponent={Zoom} title="Theme Mode">
+            <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
+          </Tooltip>
         </Toolbar>
       </Container>
     </AppBar>

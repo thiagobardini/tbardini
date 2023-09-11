@@ -170,7 +170,7 @@ const Projects = () => {
           sx={{
             py: 5,
             borderRadius: 3,
-            backdropFilter: darkMode ? "blur(5px)" : "blur(1px)",
+            backdropFilter: darkMode ? "blur(2px)" : "blur(1px)",
             backgroundColor: darkMode
               ? "transparent !important"
               : "rgba(238, 238, 238, 0.7) !important",

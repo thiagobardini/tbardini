@@ -20,7 +20,8 @@ https://www.npmjs.com/package/react-type-animation
 2. download the animation as a gltf file
 3. add the gltf file to the public folder
 4. Drag and Drop the gltf file into this website: https://gltf.pmnd.rs/
-<!--  It is not working webistr above try it. https://sandbox.babylonjs.com/ -->
+   - https://sbtron.github.io/makeglb/
+   <!--  It is not working webistr above try it. https://sandbox.babylonjs.com/ -->
 5. Install `npx gltfjsx FILE_NAME.gltf --transform` in the terminal
    1. ref:glhttps://github.com/pmndrs/gltfjsx
 6. Copy the code from the website and paste it into the model.js file

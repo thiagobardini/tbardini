@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 import {
   Box,
   Container,
@@ -13,17 +13,25 @@ import {
   ListItemIcon,
   Grid,
   CssBaseline,
-} from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import FlagIcon from "@mui/icons-material/Flag";
-import myself from "../Assets/images/aboutme.jpg";
-import { TypeAnimation } from "react-type-animation";
-import HeadingTop from "../Components/Typography/HeadingTop";
-import LanguageIcon from "@mui/icons-material/Language";
-import { keyframes } from "@emotion/react";
-import ButtonFab from "../Components/ButtonFab";
-import ScrollTrigger from "react-scroll-trigger";
+} from "@mui/material"
+import {
+  Timeline,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+} from "@mui/lab"
+import TimelineItem, { timelineItemClasses } from "@mui/lab/TimelineItem"
+import DownloadIcon from "@mui/icons-material/Download"
+import LocationOnIcon from "@mui/icons-material/LocationOn"
+import FlagIcon from "@mui/icons-material/Flag"
+import myself from "../Assets/images/aboutme.jpg"
+import { TypeAnimation } from "react-type-animation"
+import HeadingTop from "../Components/Typography/HeadingTop"
+import LanguageIcon from "@mui/icons-material/Language"
+import { keyframes } from "@emotion/react"
+import ButtonFab from "../Components/ButtonFab"
+import ScrollTrigger from "react-scroll-trigger"
 
 const fadeIn = keyframes`
 from {
@@ -32,34 +40,35 @@ from {
 to {
   opacity: 1;
 }
-`;
+`
 
 const AboutMe = () => {
-  const [key, setKey] = useState(0);
+  const [key, setKey] = useState(0)
 
-  const darkMode = useSelector((state) => state.theme.darkMode);
+  const darkMode = useSelector(state => state.theme.darkMode)
 
   // ScrollTrigger keep the animation from running after change the theme
   useEffect(() => {
-    setKey((prevKey) => prevKey + 1);
-  }, [darkMode]);
+    setKey(prevKey => prevKey + 1)
+  }, [darkMode])
 
-  const onEnterViewport = (animationClass) => {
-    const element = document.getElementById(animationClass);
+  const onEnterViewport = animationClass => {
+    const element = document.getElementById(animationClass)
     if (element) {
-      element.classList.add(animationClass);
+      element.classList.add(animationClass)
     }
-  };
+  }
 
   const textTitle = (
     <TypeAnimation
       sequence={["About me"]}
-      wrapper="span"
+      wrapper='span'
       speed={50}
       repeat={1}
       cursor={false}
     />
-  );
+  )
+
   return (
     <Box
       key={key}
@@ -97,13 +106,13 @@ const AboutMe = () => {
               item
               xs={12}
               sm={2}
-              direction="row"
-              alignItems="center"
+              direction='row'
+              alignItems='center'
               justifyContent={{ xs: "center", md: "flex-start" }}
               sx={{ width: "100%", display: "flex" }}
             >
               <Avatar
-                alt="Thiago Bardini"
+                alt='Thiago Bardini'
                 src={myself}
                 sx={{
                   width: { xs: 150, sm: 200, md: 200 },
@@ -114,23 +123,20 @@ const AboutMe = () => {
             <Grid item xs={12} sm={8}>
               <ScrollTrigger onEnter={() => onEnterViewport("fade-in")}>
                 <Typography
-                  variant="h4"
+                  variant='h4'
                   sx={{
                     mb: 1,
-                    // fontWeight: 800,
-                    // fontFamily: "Trattatello, sans-serif",
                     fontFamily: "GothamSSm-Bold",
                     textTransform: "uppercase",
-                    // letterSpacing: "0.1em",
-                    color: (theme) => theme.palette.text.primary,
+                    color: theme => theme.palette.text.primary,
                   }}
                 >
                   Thiago Bardini
                 </Typography>
 
                 <List
-                  id="fade-in"
-                  variant="body1"
+                  id='fade-in'
+                  variant='body1'
                   sx={{
                     opacity: 0,
                     transition: "opacity 1s ease-in-out",
@@ -142,21 +148,21 @@ const AboutMe = () => {
                   <ListItem disableGutters>
                     <ListItemIcon sx={{ minWidth: "40px" }}>
                       <Typography
-                        sx={{ color: (theme) => theme.palette.text.secondary }}
+                        sx={{ color: theme => theme.palette.text.secondary }}
                       >
                         <LocationOnIcon />
                       </Typography>
                     </ListItemIcon>
                     <Typography
-                      variant="body1"
+                      variant='body1'
                       sx={{
-                        color: (theme) => theme.palette.text.primary,
+                        color: theme => theme.palette.text.primary,
                       }}
                     >
                       <Typography
-                        variant="span"
+                        variant='span'
                         sx={{
-                          color: (theme) => theme.palette.text.secondary,
+                          color: theme => theme.palette.text.secondary,
                           fontFamily: "GothamSSm-Light",
                         }}
                       >
@@ -168,21 +174,21 @@ const AboutMe = () => {
                   <ListItem disableGutters>
                     <ListItemIcon sx={{ minWidth: "40px" }}>
                       <Typography
-                        sx={{ color: (theme) => theme.palette.text.secondary }}
+                        sx={{ color: theme => theme.palette.text.secondary }}
                       >
                         <FlagIcon />
                       </Typography>
                     </ListItemIcon>
                     <Typography
-                      variant="body1"
+                      variant='body1'
                       sx={{
-                        color: (theme) => theme.palette.text.primary,
+                        color: theme => theme.palette.text.primary,
                       }}
                     >
                       <Typography
-                        variant="span"
+                        variant='span'
                         sx={{
-                          color: (theme) => theme.palette.text.secondary,
+                          color: theme => theme.palette.text.secondary,
                           fontFamily: "GothamSSm-Light",
                         }}
                       >
@@ -194,21 +200,21 @@ const AboutMe = () => {
                   <ListItem disableGutters>
                     <ListItemIcon sx={{ minWidth: "40px" }}>
                       <Typography
-                        sx={{ color: (theme) => theme.palette.text.secondary }}
+                        sx={{ color: theme => theme.palette.text.secondary }}
                       >
                         <LanguageIcon />
                       </Typography>
                     </ListItemIcon>
                     <Typography
-                      variant="body1"
+                      variant='body1'
                       sx={{
-                        color: (theme) => theme.palette.text.primary,
+                        color: theme => theme.palette.text.primary,
                       }}
                     >
                       <Typography
-                        variant="span"
+                        variant='span'
                         sx={{
-                          color: (theme) => theme.palette.text.secondary,
+                          color: theme => theme.palette.text.secondary,
                           fontFamily: "GothamSSm-Light",
                         }}
                       >
@@ -225,166 +231,394 @@ const AboutMe = () => {
             sx={{ width: { xs: "100%", md: "70%" }, my: 3, mx: "auto" }}
           />
           <Box
+            Box
             sx={{
               display: "flex",
               alignItems: "center",
               mb: 1,
             }}
+          ></Box>
+          <Box
+            Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
+            }}
           >
-            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-1")}>
-              <Typography
-                id="fade-slide-down-1"
-                variant="h5"
-                sx={{
-                  color: (theme) => theme.palette.text.primary,
-                  opacity: 0,
-                  transform: "translateY(-20px)",
-                  transition:
-                    "opacity 1s ease-in-out, transform 1s ease-in-out",
-                  "&.fade-slide-down-1": {
-                    opacity: 1,
-                    transform: "translateY(0)",
-                    fontFamily: "GothamSSm-Light",
-                  },
-                }}
-              >
-                About me
-              </Typography>
-            </ScrollTrigger>
-          </Box>
-          <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-1")}>
-            <Typography
-              id="fade-slide-up-1"
-              variant="body1"
+            <Timeline
               sx={{
-                mb: 2,
-                color: (theme) => theme.palette.text.secondary,
-                opacity: 0,
-                transform: "translateY(20px)",
-                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                "&.fade-slide-up-1": {
-                  opacity: 1,
-                  transform: "translateY(0)",
+                [`& .${timelineItemClasses.root}:before`]: {
+                  flex: 0,
+                  padding: 0,
                 },
               }}
             >
-              I am a detail-oriented software engineer specialized in
-              JavaScript, React, Redux, and modern CSS libraries. Currently
-              employed at TransPerfect, I work on QA automation tests and
-              frontend development, and also collaborate as a Frontend Developer
-              at Code for Boston. My professional journey revolves around
-              creating responsive websites and managing QA automation processes.
-              In my free time, I enjoy hobbies such as playing bass guitar—a
-              practice that fuels my creative problem-solving skills, hiking,
-              traveling, and surfing.
-            </Typography>
-          </ScrollTrigger>
-          <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-2")}>
-              <Typography
-                variant="h5"
-                id="fade-slide-down-2"
-                sx={{
-                  color: (theme) => theme.palette.text.primary,
-                  opacity: 0,
-                  transform: "translateY(-20px)",
-                  transition:
-                    "opacity 1s ease-in-out, transform 1s ease-in-out",
-                  "&.fade-slide-down-2": {
-                    opacity: 1,
-                    transform: "translateY(0)",
-                    fontFamily: "GothamSSm-Light",
-                  },
-                }}
-              >
-                Objective
-              </Typography>
-            </ScrollTrigger>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", pt: 0, px: 2 }}>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-down-1")}
+                  >
+                    <Typography
+                      id='fade-slide-down-1'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: theme => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-1": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Expertise
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-up-1")}
+                  >
+                    <Typography
+                      id='fade-slide-up-1'
+                      sx={{
+                        px: 2,
+                        transform: "translateY(20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-1": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      • Software Engineer with a focus on frontend development
+                      and proficiency in end-to-end UI QA testing.
+                    </Typography>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-down-2")}
+                  >
+                    <Typography
+                      id='fade-slide-down-2'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: theme => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-2": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Main Technologies:
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-up-2")}
+                  >
+                    <Box
+                      id='fade-slide-up-2'
+                      sx={{
+                        px: 2,
+                        transform: "translateY(20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-2": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • Expertise in JavaScript, TypeScript, React, and modern
+                        CSS libraries.
+                      </Typography>
+                      <Typography>
+                        • Proficient with Playwright for advanced UI QA testing.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-down-3")}
+                  >
+                    <Typography
+                      id='fade-slide-down-3'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: theme => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-3": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Current Role at TransPerfect:
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-up-3")}
+                  >
+                    <Box
+                      id='fade-slide-up-3'
+                      sx={{
+                        px: 2,
+                        transform: "translateY(20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-3": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • Lead rigorous end-to-end UI QA testing to ensure the
+                        highest quality of product
+                      </Typography>
+                      <Typography>
+                        • Dedicated to improving user interface design and
+                        functionality.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-down-4")}
+                  >
+                    <Typography
+                      id='fade-slide-down-4'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: theme => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-4": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Current Role at Code for Boston:
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-up-4")}
+                  >
+                    <Box
+                      id='fade-slide-up-4'
+                      sx={{
+                        px: 2,
+                        transform: "translateY(20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-4": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • Actively involved as a Frontend Developer,
+                        contributing to impactful civic tech projects.
+                      </Typography>
+                      <Typography>
+                        • Create accessible, user-friendly web applications
+                        designed for maximum impact.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-down-6")}
+                  >
+                    <Typography
+                      id='fade-slide-down-6'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: theme => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-6": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Career Objective:
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-up-6")}
+                  >
+                    <Box
+                      id='fade-slide-up-6'
+                      sx={{
+                        px: 2,
+                        transform: "translateY(20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-6": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • To grow in Software Development and testing in an
+                        environment that values and nurtures integrity,
+                        intelligence, and innovation.
+                      </Typography>
+                      <Typography>
+                        • Committed to personal and professional growth, aiming
+                        to contribute to pioneering projects and creative
+                        technological solutions.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ px: 2, pt: 0 }}>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-down-5")}
+                  >
+                    <Typography
+                      id='fade-slide-down-5'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: theme => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-5": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      What Do I Do?
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger
+                    onEnter={() => onEnterViewport("fade-slide-up-5")}
+                  >
+                    <Box
+                      id='fade-slide-up-5'
+                      sx={{
+                        px: 2,
+                        transform: "translateY(20px)",
+                        transition:
+                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-5": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • Develop cutting-edge, responsive websites with a keen
+                        eye for creative design and usability.
+                      </Typography>
+                      <Typography>
+                        • Specialize in fine-tuning user interfaces and user
+                        experiences, underscored by a solid foundation in
+                        comprehensive UI QA testing.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline>
           </Box>
-          <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-2")}>
-            <Typography
-              id="fade-slide-up-2"
-              variant="body1"
-              sx={{
-                mb: 2,
-                color: (theme) => theme.palette.text.secondary,
-                opacity: 0,
-                transform: "translateY(20px)",
-                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                "&.fade-slide-up-2": {
-                  opacity: 1,
-                  transform: "translateY(0)",
-                },
-              }}
-            >
-              Looking to connect and collaborate with a company where I can grow
-              personally and professionally in areas such as Sofware
-              Development. I want to be a part of a community that values
-              integrity, intelligence, and creativity.
-            </Typography>
-          </ScrollTrigger>
-          <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-3")}>
-              <Typography
-                id="fade-slide-down-3"
-                variant="h5"
-                sx={{
-                  // fontWeight: 700,
-                  color: (theme) => theme.palette.text.primary,
-                  opacity: 0,
-                  transform: "translateY(-20px)",
-                  transition:
-                    "opacity 1s ease-in-out, transform 1s ease-in-out",
-                  "&.fade-slide-down-3": {
-                    opacity: 1,
-                    transform: "translateY(0)",
-                    fontFamily: "GothamSSm-Light",
-                  },
-                }}
-              >
-                What do I do?
-              </Typography>
-            </ScrollTrigger>
-          </Box>
-          <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-3")}>
-            <Typography
-              id="fade-slide-up-3"
-              variant="body1"
-              sx={{
-                mb: 3,
-                color: (theme) => theme.palette.text.secondary,
-                opacity: 0,
-                transform: "translateY(20px)",
-                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                "&.fade-slide-up-3": {
-                  opacity: 1,
-                  transform: "translateY(0)",
-                },
-              }}
-            >
-              I have substantial experience in customizing or creating modern
-              responsive websites with creative design involving latest
-              frameworks. I enjoy working as a Front End/Full Stack Developer.
-              Recently, I have been interested in Mobile Applications using
-              React Native.
-            </Typography>
-          </ScrollTrigger>
+
           <Button
-            variant="outlined"
-            color="inherit"
+            variant='outlined'
+            color='inherit'
             startIcon={<DownloadIcon />}
-            size="large"
+            size='large'
             sx={{
               textTransform: "capitalize",
               mt: 2,
               textDecoration: "none",
-              // fontFamily: "TuskerGrotesk",
               fontFamily: "GothamSSm-Light",
-              // letterSpacing: "0.2em",
             }}
-            component="a"
-            href="https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY"
-            target="_blank"
+            component='a'
+            href='https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY'
+            target='_blank'
           >
             Download my resume
           </Button>
@@ -398,14 +632,14 @@ const AboutMe = () => {
           }}
         >
           <ButtonFab
-            to="/projects"
+            to='/projects'
             label="Let's continue to projects"
             onClick={() => window.scrollTo(0, 0)}
           />
         </Box>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default AboutMe;
+export default AboutMe

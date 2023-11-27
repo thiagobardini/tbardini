@@ -333,7 +333,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Main Technologies:
+                      Main Technologies
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger
@@ -391,7 +391,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Current Role at TransPerfect:
+                      Current Role at TransPerfect
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger
@@ -450,7 +450,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Current Role at Code for Boston:
+                      Current Role at Code for Boston
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger
@@ -509,7 +509,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Career Objective:
+                      Career Objective
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger

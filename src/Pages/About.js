@@ -247,6 +247,8 @@ const AboutMe = () => {
           >
             <Timeline
               sx={{
+                mr: 0,
+                pr: 0,
                 [`& .${timelineItemClasses.root}:before`]: {
                   flex: 0,
                   padding: 0,
@@ -258,7 +260,7 @@ const AboutMe = () => {
                   <TimelineDot variant='outlined' />
                   <TimelineConnector />
                 </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", pt: 0, px: 2 }}>
+                <TimelineContent sx={{ pb: "20px", pt: 0, pr: 0, pl: 2 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-1")}
                   >
@@ -289,7 +291,7 @@ const AboutMe = () => {
                     <Typography
                       id='fade-slide-up-1'
                       sx={{
-                        px: 2,
+                        pl: 2,
                         transform: "translateY(20px)",
                         transition:
                           "opacity 1s ease-in-out, transform 1s ease-in-out",
@@ -311,7 +313,7 @@ const AboutMe = () => {
                   <TimelineDot variant='outlined' />
                   <TimelineConnector />
                 </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-2")}
                   >
@@ -342,7 +344,7 @@ const AboutMe = () => {
                     <Box
                       id='fade-slide-up-2'
                       sx={{
-                        px: 2,
+                        pl: 2,
                         transform: "translateY(20px)",
                         transition:
                           "opacity 1s ease-in-out, transform 1s ease-in-out",
@@ -369,7 +371,7 @@ const AboutMe = () => {
                   <TimelineDot variant='outlined' />
                   <TimelineConnector />
                 </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-3")}
                   >
@@ -400,7 +402,7 @@ const AboutMe = () => {
                     <Box
                       id='fade-slide-up-3'
                       sx={{
-                        px: 2,
+                        pl: 2,
                         transform: "translateY(20px)",
                         transition:
                           "opacity 1s ease-in-out, transform 1s ease-in-out",
@@ -428,7 +430,7 @@ const AboutMe = () => {
                   <TimelineDot variant='outlined' />
                   <TimelineConnector />
                 </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-4")}
                   >
@@ -459,7 +461,7 @@ const AboutMe = () => {
                     <Box
                       id='fade-slide-up-4'
                       sx={{
-                        px: 2,
+                        pl: 2,
                         transform: "translateY(20px)",
                         transition:
                           "opacity 1s ease-in-out, transform 1s ease-in-out",
@@ -487,7 +489,7 @@ const AboutMe = () => {
                   <TimelineDot variant='outlined' />
                   <TimelineConnector />
                 </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", px: 2, pt: 0 }}>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-6")}
                   >
@@ -518,7 +520,7 @@ const AboutMe = () => {
                     <Box
                       id='fade-slide-up-6'
                       sx={{
-                        px: 2,
+                        pl: 2,
                         transform: "translateY(20px)",
                         transition:
                           "opacity 1s ease-in-out, transform 1s ease-in-out",
@@ -548,7 +550,7 @@ const AboutMe = () => {
                   <TimelineDot variant='outlined' />
                   <TimelineConnector />
                 </TimelineSeparator>
-                <TimelineContent sx={{ px: 2, pt: 0 }}>
+                <TimelineContent sx={{ pl: 2, pt: 0, pr: 0 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-5")}
                   >
@@ -579,7 +581,7 @@ const AboutMe = () => {
                     <Box
                       id='fade-slide-up-5'
                       sx={{
-                        px: 2,
+                        pl: 2,
                         transform: "translateY(20px)",
                         transition:
                           "opacity 1s ease-in-out, transform 1s ease-in-out",

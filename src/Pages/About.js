@@ -301,8 +301,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      • Software Engineer with a focus on frontend development
-                      and proficiency in end-to-end UI QA testing.
+                      • Software Engineer with a focus on frontend development and expertise in end-to-end UI QA testing.
                     </Typography>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -355,11 +354,7 @@ const AboutMe = () => {
                       }}
                     >
                       <Typography sx={{ pb: 1 }}>
-                        • Expertise in JavaScript, TypeScript, React, and modern
-                        CSS libraries.
-                      </Typography>
-                      <Typography>
-                        • Proficient with Playwright for advanced UI QA testing.
+                        • Expertise in JavaScript, TypeScript, React, modern CSS libraries, and Playwright for advanced UI QA testing.
                       </Typography>
                     </Box>
                   </ScrollTrigger>

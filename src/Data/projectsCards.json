@@ -68,7 +68,7 @@
     "img": "/images/playwright-automation-tests.gif",
     "techs": ["React-JS", "Playwright", "Cross-Browser Testing", "Responsive Testing", "Automated Screenshot Capturing", "CI/CD Integration", "End-to-End Testing", "Interactive Debugging"],
     "live": "https://mini-market-tbardini.vercel.app/",
-    "localUrl": "",
+    "localUrl": "https://github.com/thiagobardini/mini-market-tbardini/tree/main/playwright",
     "readme": "",
     "github": "https://github.com/thiagobardini/mini-market-tbardini/tree/main/playwright",
     "openNewTab": false,

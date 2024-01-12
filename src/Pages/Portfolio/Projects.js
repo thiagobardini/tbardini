@@ -76,6 +76,7 @@ const Projects = () => {
     frontend: 0,
     backend: 0,
     fullstack: 0,
+    automation: 0
   };
 
   if (Array.isArray(projectsCards)) {
@@ -87,6 +88,8 @@ const Projects = () => {
         devCounts.backend++;
       } else if (keyword === "fullstack") {
         devCounts.fullstack++;
+      } else if (keyword === "automation") {
+        devCounts.automation++;
       }
     });
   }
@@ -150,6 +153,11 @@ const Projects = () => {
       keyword: "fullstack",
       label: "Fullstack Development",
       count: devCounts.fullstack,
+    },
+    {
+      keyword: "automation",
+      label: "Automated Testing",
+      count: devCounts.automation,
     },
   ];
 

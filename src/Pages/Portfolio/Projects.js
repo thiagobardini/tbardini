@@ -1,17 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { openDrawer, closeDrawer } from "../../redux/drawerSlice";
-import {
-  Box,
-  Container,
-  CssBaseline,
-  Grid,
-  Typography,
-  Paper,
-  Link,
-  Breadcrumbs,
-  Badge,
-} from "@mui/material";
+import { Box, Container, CssBaseline, Grid, Typography, Paper, Link, Breadcrumbs, Badge } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import projectsCards from "../../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
@@ -44,10 +34,10 @@ const Projects = () => {
   const cardsToShow = projectsCards.filter((card) => {
     return selectedKeyword === "show all" || card.dev.includes(selectedKeyword);
   });
-  
+
   let columns = 2; // If there are more than 1 card, use 2 columns
   if (cardsToShow.length <= 1) {
-      columns = 1; // if there is only 1 card, use 1 column
+    columns = 1; // if there is only 1 card, use 1 column
   }
 
   const breakpointColumnsObj = {
@@ -57,15 +47,7 @@ const Projects = () => {
     880: 1,
   };
 
-  const textTitle = (
-    <TypeAnimation
-      sequence={["Projects"]}
-      wrapper="span"
-      speed={50}
-      repeat={1}
-      cursor={false}
-    />
-  );
+  const textTitle = <TypeAnimation sequence={["Projects"]} wrapper='span' speed={50} repeat={1} cursor={false} />;
 
   const fadeIn = keyframes`
   from {
@@ -76,8 +58,8 @@ const Projects = () => {
   }
   `;
 
-  const handleCardClick = (id) => {
-    dispatch(openDrawer(id));
+  const handleCardClick = (cardId) => {
+    dispatch(openDrawer(cardId));
   };
 
   // Calculate the counts of each dev type
@@ -85,7 +67,7 @@ const Projects = () => {
     frontend: 0,
     backend: 0,
     fullstack: 0,
-    automation: 0
+    automation: 0,
   };
 
   if (Array.isArray(projectsCards)) {
@@ -110,20 +92,9 @@ const Projects = () => {
   const renderBadge = (count, keyword, selectedKeyword, label) => {
     if (count === 0) return null;
     return (
-      <Link
-        underline="hover"
-        color="inherit"
-        onClick={() => handleFilterClick(keyword)}
-      >
-        <Badge
-          badgeContent={count}
-          showZero
-          variant="string"
-          sx={getStyles(selectedKeyword, keyword)}
-        >
-          <Typography sx={getTypographyStyles(selectedKeyword, keyword)}>
-            {label}
-          </Typography>
+      <Link underline='hover' color='inherit' onClick={() => handleFilterClick(keyword)}>
+        <Badge badgeContent={count} showZero variant='string' sx={getStyles(selectedKeyword, keyword)}>
+          <Typography sx={getTypographyStyles(selectedKeyword, keyword)}>{label}</Typography>
         </Badge>
       </Link>
     );
@@ -188,17 +159,15 @@ const Projects = () => {
             py: 5,
             borderRadius: 3,
             backdropFilter: darkMode ? "blur(2px)" : "blur(1px)",
-            backgroundColor: darkMode
-              ? "transparent !important"
-              : "rgba(238, 238, 238, 0.7) !important",
+            backgroundColor: darkMode ? "transparent !important" : "rgba(238, 238, 238, 0.7) !important",
           }}
         >
           <CssBaseline />
           <Typography
-            color="text.primary"
+            color='text.primary'
             mb={2}
-            textAlign="center"
-            variant="h5"
+            textAlign='center'
+            variant='h5'
             sx={{
               px: { xs: 2, sm: 2 },
               animation: `${fadeIn} 2s`,
@@ -208,7 +177,7 @@ const Projects = () => {
           >
             Explore My Latest Work
           </Typography>
-          <Grid container justifyContent="center" alignItems="center">
+          <Grid container justifyContent='center' alignItems='center'>
             <Grid
               item
               xs={12}
@@ -222,16 +191,7 @@ const Projects = () => {
                 position: "relative",
               }}
             >
-              <Breadcrumbs aria-label="breadcrumb">
-                {categories.map((cat) =>
-                  renderBadge(
-                    cat.count,
-                    cat.keyword,
-                    selectedKeyword,
-                    cat.label
-                  )
-                )}
-              </Breadcrumbs>
+              <Breadcrumbs aria-label='breadcrumb'>{categories.map((cat) => renderBadge(cat.count, cat.keyword, selectedKeyword, cat.label))}</Breadcrumbs>
             </Grid>
 
             <Grid
@@ -246,28 +206,14 @@ const Projects = () => {
                 px: { xs: 0.5, sm: 2 },
               }}
             >
-              <Masonry
-                breakpointCols={breakpointColumnsObj}
-                className="my-masonry-grid"
-                columnClassName="my-masonry-grid_column"
-              >
+              <Masonry breakpointCols={breakpointColumnsObj} className='my-masonry-grid' columnClassName='my-masonry-grid_column'>
                 {projectsCards
                   .filter((card) => {
-                    return (
-                      selectedKeyword === "show all" ||
-                      card.dev.includes(selectedKeyword)
-                    );
+                    return selectedKeyword === "show all" || card.dev.includes(selectedKeyword);
                   })
                   .map((card, index) => (
-                    <Link
-                      key={index}
-                      underline="none"
-                      onClick={() => handleCardClick(index)}
-                    >
-                      <Box
-                        sx={{ animation: `${fadeIn} 2s`, mb: "12px" }}
-                        key={index}
-                      >
+                    <Link key={card.id} underline='none' onClick={() => handleCardClick(card.id)}>
+                      <Box sx={{ animation: `${fadeIn} 2s`, mb: "12px" }} key={index}>
                         <CardsProjects
                           id={card.id}
                           title={card.title}
@@ -298,16 +244,12 @@ const Projects = () => {
             my: 3,
           }}
         >
-          <ButtonFab
-            to="/contact"
-            label="Let's work together, go to contact"
-            onClick={() => window.scrollTo(0, 0)}
-          />
+          <ButtonFab to='/contact' label="Let's work together, go to contact" onClick={() => window.scrollTo(0, 0)} />
         </Box>
       </Container>
       {projectsCards.map((card, index) => (
         <DrawerProject
-          open={isDrawerOpen && index === openedCardId}
+          open={isDrawerOpen && card.id === openedCardId}
           onClose={() => dispatch(closeDrawer())}
           title={card.title}
           subtitle={card.subtitle}

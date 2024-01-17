@@ -41,10 +41,19 @@ const Projects = () => {
 
   const heights = [500, 370, 370, 500, 370];
 
+  const cardsToShow = projectsCards.filter((card) => {
+    return selectedKeyword === "show all" || card.dev.includes(selectedKeyword);
+  });
+  
+  let columns = 2; // If there are more than 1 card, use 2 columns
+  if (cardsToShow.length <= 1) {
+      columns = 1; // if there is only 1 card, use 1 column
+  }
+
   const breakpointColumnsObj = {
-    default: 2,
-    1100: 2,
-    960: 2,
+    default: columns,
+    1100: columns,
+    960: columns,
     880: 1,
   };
 

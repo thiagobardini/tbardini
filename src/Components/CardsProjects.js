@@ -59,7 +59,7 @@ const CardsProjects = ({
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
-            opacity: { xs: 1, md: 0 },
+            opacity: { xs: 1, md: 1 },
             background:
               "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9))",
             transition: "opacity 0.3s ease-in-out, background 0.3s ease-in-out",

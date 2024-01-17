@@ -136,7 +136,7 @@ const Projects = () => {
     },
     {
       keyword: "automation",
-      label: "Automated Testing",
+      label: "QA Automation",
       count: devCounts.automation,
     },
   ];

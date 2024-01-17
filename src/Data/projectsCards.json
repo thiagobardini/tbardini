@@ -62,7 +62,7 @@
   {
     "id": "5",
     "title": "Playwright Testing: Mini Market",
-    "subtitle": "E-Commerce Automation Demo - Working in Progress...",
+    "subtitle": "Playwright Demo: E-commerce Automation (In Progress)",
     "description": "⚙️ Delve into the Mini Market's advanced e-commerce capabilities through Playwright's automated testing suite. This demo highlights Playwright's seamless integration for end-to-end testing, featuring cross-browser compatibility checks, mobile responsiveness assessments, and automated snapshot capturing for a comprehensive quality assurance process. Experience a meticulously tested application, demonstrating the effectiveness of Playwright in modern web development.",
     "logo": "/images/mini-market-logo.png",
     "img": "/images/playwright-automation-tests.gif",

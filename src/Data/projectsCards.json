@@ -66,7 +66,17 @@
     "description": "⚙️ Delve into the Mini Market's advanced e-commerce capabilities through Playwright's automated testing suite. This demo highlights Playwright's seamless integration for end-to-end testing, featuring cross-browser compatibility checks, mobile responsiveness assessments, and automated snapshot capturing for a comprehensive quality assurance process. Experience a meticulously tested application, demonstrating the effectiveness of Playwright in modern web development.",
     "logo": "/images/mini-market-logo.png",
     "img": "/images/playwright-automation-tests.gif",
-    "techs": ["React-JS", "Playwright", "Cross-Browser Testing", "Responsive Testing", "Automated Screenshot Capturing", "CI/CD Integration", "End-to-End Testing", "Interactive Debugging"],
+    "techs": [
+      "Playwright",
+      "TypeScript",
+      "Node.js",
+      "Cross-Browser Testing",
+      "Responsive Testing",
+      "Automated Screenshot Capturing",
+      "CI/CD Integration",
+      "End-to-End Testing",
+      "Interactive Debugging"
+    ],
     "live": "https://mini-market-tbardini.vercel.app/",
     "localUrl": "https://github.com/thiagobardini/mini-market-tbardini/tree/main/playwright",
     "readme": "",

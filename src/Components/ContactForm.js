@@ -1,16 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { keyframes } from "@emotion/react";
-import {
-  Box,
-  Typography,
-  Link,
-  Stack,
-  CircularProgress,
-  TextareaAutosize,
-  Tooltip,
-  Zoom,
-} from "@mui/material";
+import { Box, Typography, Link, Stack, CircularProgress, TextareaAutosize, Tooltip, Zoom } from "@mui/material";
 import { db } from "../Firebase/firebaseConfig"; // Import the initialized Firestore instance
 import { collection, addDoc } from "firebase/firestore";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -39,7 +30,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
     }}
   >
     <Typography
-      variant="h5"
+      variant='h5'
       sx={{
         mb: 2,
         textAlign: "center",
@@ -49,7 +40,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       Let's Collaborate!
     </Typography>
     <Typography
-      variant="body1"
+      variant='body1'
       sx={{
         mb: 2,
 
@@ -67,13 +58,8 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       alignItems={{ xs: "flex-start", sm: "center" }}
       sx={{ mb: 1, fontFamily: "Gotham-Book" }}
     >
-      <Tooltip TransitionComponent={Zoom} title="🇺🇸 978-648-7075">
-        <Link
-          href="tel:978-648-7075"
-          color="inherit"
-          underline="none"
-          target="_blank"
-        >
+      <Tooltip TransitionComponent={Zoom} title='🇺🇸 978-648-7075'>
+        <Link href='tel:978-648-7075' color='inherit' underline='none' target='_blank'>
           <ContactIconText
             icon={
               <PhoneIcon
@@ -86,13 +72,8 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
           />
         </Link>
       </Tooltip>
-      <Tooltip TransitionComponent={Zoom} title="📧 thiagobardini@icloud.com">
-        <Link
-          href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you"
-          color="inherit"
-          underline="none"
-          target="_blank"
-        >
+      <Tooltip TransitionComponent={Zoom} title='📧 thiagobardini@icloud.com'>
+        <Link href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you" color='inherit' underline='none' target='_blank'>
           <ContactIconText
             icon={
               <EmailIcon
@@ -106,13 +87,8 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
           />
         </Link>
       </Tooltip>
-      <Tooltip TransitionComponent={Zoom} title="LinkedIn">
-        <Link
-          href="https://www.linkedin.com/in/thiagobardini/"
-          color="inherit"
-          underline="none"
-          target="_blank"
-        >
+      <Tooltip TransitionComponent={Zoom} title='LinkedIn'>
+        <Link href='https://www.linkedin.com/in/thiagobardini/' color='inherit' underline='none' target='_blank'>
           <ContactIconText
             icon={
               <LinkedInIcon
@@ -129,7 +105,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
     </Stack>
 
     <Typography
-      variant="body1"
+      variant='body1'
       sx={{
         textAlign: "start",
         fontFamily: "GothamSSm-Light",
@@ -180,9 +156,15 @@ const ContactForm = () => {
     try {
       const emailsCollection = collection(db, "emails");
       await addDoc(emailsCollection, {
-        name,
-        email,
-        message,
+        to: "thiagobardini85@gmail.com",
+        message: {
+          subject: "Portfolio message from " + name,
+          text: message,
+          html: `<div>
+          <p>${email} - ${name}</p>
+          <p>${message}</p>
+          </div>`,
+        },
         timestamp: new Date(),
       });
 
@@ -203,7 +185,7 @@ const ContactForm = () => {
     <Box sx={{ width: "100%", maxWidth: "770px", minWidth: "273px" }}>
       <ContactInfo darkMode={darkMode} fadeIn={fadeIn} />
       <Box
-        component="form"
+        component='form'
         onSubmit={handleSendEmail}
         sx={{
           display: "flex",
@@ -215,10 +197,10 @@ const ContactForm = () => {
         <TextareaAutosize
           minRows={1}
           maxRows={1}
-          name="name"
-          label="Name"
-          placeholder="Name"
-          variant="outlined"
+          name='name'
+          label='Name'
+          placeholder='Name'
+          variant='outlined'
           value={formData.name}
           onChange={handleInputChange}
           required
@@ -246,10 +228,10 @@ const ContactForm = () => {
         <TextareaAutosize
           minRows={1}
           maxRows={1}
-          name="email"
-          label="Email"
-          placeholder="Email"
-          variant="outlined"
+          name='email'
+          label='Email'
+          placeholder='Email'
+          variant='outlined'
           value={formData.email}
           onChange={handleInputChange}
           required
@@ -277,11 +259,11 @@ const ContactForm = () => {
           minRows={10}
           maxRows={12}
           onChange={handleInputChange}
-          name="message"
-          placeholder="Message"
+          name='message'
+          placeholder='Message'
           value={formData.message}
           required
-          variant="outlined"
+          variant='outlined'
           inputProps={{
             style: { fontSize: "16px", touchAction: "manipulation" },
           }}
@@ -303,22 +285,20 @@ const ContactForm = () => {
           }}
         />
 
-        <Box
-          sx={{ display: "flex", justifyContent: "flex-start", width: "100%" }}
-        >
-          <Stack direction="row" spacing={2}>
+        <Box sx={{ display: "flex", justifyContent: "flex-start", width: "100%" }}>
+          <Stack direction='row' spacing={2}>
             <LoadingButton
-              type="submit"
-              variant="outlined"
-              color="inherit"
-              size="large"
+              type='submit'
+              variant='outlined'
+              color='inherit'
+              size='large'
               sx={{
                 textTransform: "none",
                 fontFamily: "GothamSSm-Light",
               }}
               loading={loading}
-              loadingPosition="start"
-              loadingIndicator={<CircularProgress color="info" size={16} />}
+              loadingPosition='start'
+              loadingIndicator={<CircularProgress color='info' size={16} />}
               startIcon={<SendIcon />}
             >
               <span>Send Message</span>

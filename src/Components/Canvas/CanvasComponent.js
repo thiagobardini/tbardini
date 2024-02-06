@@ -7,6 +7,7 @@ import { LightCanvas } from "./LightCanvas";
 import { Box } from "@mui/material";
 import { keyframes } from "@emotion/react";
 import { Model } from "./Model";
+import Loading from "../Loading";
 
 const CanvasComponent = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -83,8 +84,8 @@ const CanvasComponent = () => {
         animation: `${fadeIn} 2s`,
       }}
     >
-      <Canvas>
-        <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
+        <Canvas>
           {!darkMode ? (
             <>
               <pointLight position={[5, 5, 5]} intensity={0.5} />
@@ -93,14 +94,9 @@ const CanvasComponent = () => {
           ) : (
             <ModelContainerDark />
           )}
-        </Suspense>
-        <OrbitControls
-          enablePan={false}
-          enableZoom={false}
-          minPolarAngle={Math.PI / 2}
-          maxPolarAngle={Math.PI / 2}
-        />
-      </Canvas>
+          <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
+        </Canvas>
+      </Suspense>
     </Box>
   );
 };

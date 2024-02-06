@@ -3,7 +3,6 @@ import CanvasComponent from "../Components/Canvas/CanvasComponent";
 import { Box, Container } from "@mui/material";
 import { keyframes } from "@emotion/react";
 import HomeText from "../Components/HomeText";
-import { useSelector } from "react-redux";
 
 const Home = () => {
   const fadeIn = keyframes`
@@ -16,7 +15,7 @@ to {
 `;
 
   return (
-    <Container maxWidth="false" sx={{ padding: 0 }}>
+    <Container maxWidth='false' sx={{ padding: 0 }}>
       <Box
         sx={{
           position: "relative",
@@ -38,9 +37,7 @@ to {
         >
           <CanvasComponent />
         </Box>
-        <Box
-          sx={{ height: "100vh", display: "flex", justifyContent: "flex-end" }}
-        >
+        <Box sx={{ height: "100vh", display: "flex", justifyContent: "flex-end" }}>
           <Box
             sx={{
               pb: { xs: "150px !important", sm: "0" },

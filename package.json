@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.24.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mediapipe/tasks-vision": "^0.10.2",
@@ -10,6 +11,7 @@
     "@react-three/drei": "^9.78.1",
     "@react-three/fiber": "^8.13.4",
     "@reduxjs/toolkit": "^1.9.5",
+    "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -34,11 +36,13 @@
     "three": "^0.154.0",
     "use-sound": "^4.0.1",
     "vite": "^5.2.8",
+    "vite-plugin-svgr": "^4.2.0",
     "web-vitals": "^3.0.4"
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [

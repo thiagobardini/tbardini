@@ -19,19 +19,17 @@ import LottoNestReadme from "./Pages/Portfolio/Lottonest/LottoNestReadme";
 import SoundControl from "./Components/SoundControl";
 import Projects from "./Pages/Portfolio/Projects";
 import { styled } from "@mui/system";
-import LightModeDiagonalLines from "./Assets/svg/LightModeDiagonalLines.svg";
-import DarkModeDiagonalLines from "./Assets/svg/DarkModeDiagonalLines.svg";
+import LightModeDiagonalLinesUrl from "/LightModeDiagonalLines.svg?url";
+import DarkModeDiagonalLinesUrl from "/DarkModeDiagonalLines.svg?url";
+
 
 const AppBackground = styled("div")(({ theme }) => ({
-  backgroundImage: `url(${
-    theme.palette.mode === "dark"
-      ? DarkModeDiagonalLines
-      : LightModeDiagonalLines
-  })`,
+  backgroundImage: `url(${theme.palette.mode === "dark" ? DarkModeDiagonalLinesUrl : LightModeDiagonalLinesUrl})`,
   backgroundSize: "300px 300px",
   backgroundRepeat: "repeat",
   color: theme.palette.mode === "dark" ? "#eeeeee" : "#424242",
 }));
+
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -70,23 +68,17 @@ function App() {
             </Box>
             <ScrollToTop />
             <Routes>
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path='/signin' element={<Signin />} />
+              <Route path='/signup' element={<Signup />} />
               <Route index element={<Home />} />
-              <Route path="/aboutme" element={<AboutMe />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route
-                path="/projects/lottonest-signin"
-                element={<LottoNestSignin />}
-              />
-              <Route path="/projects/lottonest" element={<LottoNest />} />
-              <Route
-                path="/projects/lottonest/readme"
-                element={<LottoNestReadme />}
-              />
+              <Route path='/aboutme' element={<AboutMe />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/projects' element={<Projects />} />
+              <Route path='/projects/lottonest-signin' element={<LottoNestSignin />} />
+              <Route path='/projects/lottonest' element={<LottoNest />} />
+              <Route path='/projects/lottonest/readme' element={<LottoNestReadme />} />
 
-              <Route path="*" element={<NotFound />} />
+              <Route path='*' element={<NotFound />} />
             </Routes>
             <Footer hideOn={["/"]} />
           </Box>

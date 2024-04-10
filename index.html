@@ -15,104 +15,6 @@
   
   <script referrerpolicy="no-referrer-when-downgrade" type="text/javascript" src="https://www.onelink-edge.com/moxie.min.js" data-oljs="P2B6E-1189-5536-34EB"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" />
-
-  <style>
-    .loader-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  
-    .loader {
-      width: 48px;
-      height: 40px;
-      margin-top: 30px;
-      display: inline-block;
-      position: relative;
-      background: #1270AF;
-      border-radius: 15% 15% 35% 35%;
-      margin-bottom: 10px;
-    }
-  
-    .loader::after {
-      content: '';
-      box-sizing: border-box;
-      position: absolute;
-      left: 45px;
-      top: 8px;
-      border: 4px solid #1270AF;
-      width: 16px;
-      height: 20px;
-      border-radius: 0 4px 4px 0;
-    }
-  
-    .loader::before {
-      content: '';
-      position: absolute;
-      width: 1px;
-      height: 10px;
-      color: rgb(0, 146, 202);
-      top: -15px;
-      left: 11px;
-      box-sizing: border-box;
-      animation: animloader 1s ease infinite;
-    }
-  
-    @keyframes animloader {
-      0% {
-        box-shadow: 2px 0px rgba(0, 146, 202, 0), 12px 0px rgba(0, 146, 202, 0.3), 20px 0px rgba(0, 146, 202, 0);
-      }
-  
-      50% {
-        box-shadow: 2px -5px rgba(0, 146, 202, 0.5), 12px -3px rgba(0, 146, 202, 0.5), 20px -2px rgba(0, 146, 202, 0.6);
-      }
-  
-      100% {
-        box-shadow: 2px -8px rgba(0, 146, 202, 0), 12px -5px rgba(0, 146, 202, 0), 20px -5px rgba(0, 146, 202, 0);
-      }
-    }
-  
-    .loading {
-      font-size: 28px;
-      display: inline-block;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      color: #263238;
-      box-sizing: border-box;
-      text-shadow: 0 0 2px #1270AF, 0 0 1px #1270AF, 0 0 1px #1270AF;
-      letter-spacing: 2px;
-      position: relative;
-  
-    }
-  
-    .loading::after {
-      content: 'loading';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #1270AF;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      box-sizing: border-box;
-      animation: animloading 1.7s linear infinite;
-    }
-  
-    @keyframes animloading {
-      0% {
-        width: 0%;
-      }
-  
-      100% {
-        width: 100%;
-      }
-    }
-  </style>
 </head>
 
 
@@ -123,11 +25,6 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/index.jsx"></script>
-
-  <!-- Loading Spinner Div -->
-  <!-- <div class="loader-container">
-    <div class="loader"></div>
-    <div class="loading">loading</div> -->
   </div>
 </body>
 

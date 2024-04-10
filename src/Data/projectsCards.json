@@ -11,7 +11,7 @@
     "localUrl": "/",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini",
-    "openNewTab": true,
+    "openNewTab": false,
     "dev": "frontend"
   },
   {

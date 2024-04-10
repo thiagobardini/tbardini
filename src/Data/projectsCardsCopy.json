@@ -16,7 +16,7 @@
     "live": "/",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardiniCom",
-    "openNewTab": true
+    "openNewTab": false
   },
   {
     "id": "2",
@@ -35,7 +35,7 @@
     "live": "/projects/lottonest",
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
-    "openNewTab": true
+    "openNewTab": false
   },
   {
     "id": "3",

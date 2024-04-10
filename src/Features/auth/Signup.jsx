@@ -20,7 +20,7 @@ import {
 } from "../../Firebase/firebaseConfig.js";
 import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../redux/authSlices.js";
-import ButtonFab from "../../Components/ButtonFab";
+import ButtonFab from "../../Components/ButtonFab.jsx";
 import shirtTbardini from "../../Assets/images/shirt.png";
 
 export default function SignUp() {

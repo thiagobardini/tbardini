@@ -42,3 +42,14 @@ body {
   font-family: "YatraOne-Regular";
   src: url("./Assets/fonts/YatraOne-Regular.ttf") format("truetype");
 }
+
+.dot {
+  animation: dotFlashing 1.0s infinite linear alternate;
+  font-size: 1.5rem;
+}
+
+@keyframes dotFlashing {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

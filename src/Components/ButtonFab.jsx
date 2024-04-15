@@ -11,13 +11,13 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
     color: darkMode ? "#eeeeee" : "#282524",
     textTransform: "capitalize",
     width: "auto",
+    height: "auto",
     pointerEvents: "auto",
     border: darkMode ? "1px solid #eeeeee" : "1px solid #282524",
     backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
     backgroundColor: darkMode ? "transparent" : "#d6d3d1",
-    // fontFamily: "YatraOne-Regular",
+
     fontFamily: "GothamSSm-Light",
-    // letterSpacing: "0.1em",
     "&:hover": {
       backgroundColor: darkMode ? "transparent" : "#d6d3d1",
       border: darkMode ? "2px solid #eeeeee" : "2px solid #282524",

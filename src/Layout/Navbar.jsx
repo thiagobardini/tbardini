@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Container,
-  Button,
-  Stack,
-  Typography,
-  Paper,
-  Tooltip,
-  Zoom,
-} from "@mui/material";
+import { Box, AppBar, Toolbar, Container, Button, Stack, Typography, Card, Tooltip, Zoom } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import HamburgerMenu from "./HamburgerMenu";
 import { keyframes } from "@emotion/react";
 import LogoAnimation from "../Components/LogoAnimation";
+import SoundControl from "../Components/Audio/SoundControl";
 
 const pages = [
   {
@@ -40,21 +30,21 @@ const pages = [
 ];
 
 function Navbar() {
+  const location = useLocation();
   const [isOpen, setOpen] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [oldScrollPos, setOldScrollPos] = useState(0);
   const [showHamburger, setShowHamburger] = useState(false);
-
+  const [previousPath, setPreviousPath] = useState(location.pathname);
   const darkMode = useSelector((state) => state.theme.darkMode);
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
-      let currentScrollPos = window.pageYOffset;
+      let currentScrollPos = window.scrollY;
       if (currentScrollPos > oldScrollPos && currentScrollPos > 50) {
-        setTimeout(() => setIsNavVisible(false), 10); // Esconde elementos selecionados
+        setTimeout(() => setIsNavVisible(false), 10);
       } else if (currentScrollPos < 200) {
-        setTimeout(() => setIsNavVisible(true), 10); // Mostra todo o menu
+        setTimeout(() => setIsNavVisible(true), 10);
       }
       setOldScrollPos(currentScrollPos);
     };
@@ -63,9 +53,15 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [oldScrollPos]);
 
-  const toggleHamburger = () => {
-    setOpen(!isOpen);
-  };
+  useEffect(() => {
+    setPreviousPath(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (location.pathname !== previousPath && isOpen) {
+      setOpen(false);
+    }
+  }, [location.pathname, previousPath, isOpen]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -92,35 +88,26 @@ to {
 
   return location.pathname !== "/" ? (
     <AppBar
-      position="fixed"
+      position='fixed'
       sx={{
         py: "2px",
         top: "26px",
         left: 0,
         right: 0,
-        backgroundColor: !isNavVisible
-          ? "transparent"
-          : darkMode
-          ? "transparent !important"
-          : "#eeeeee !important",
-        backdropFilter: !isNavVisible
-          ? "none"
-          : darkMode
-          ? "blur(10px)"
-          : "blur(10px)",
+        backgroundColor: !isNavVisible ? "transparent" : darkMode ? "transparent !important" : "#eeeeee !important",
+        backdropFilter: !isNavVisible ? "none" : darkMode ? "blur(10px)" : "blur(10px)",
         backgroundImage: !isNavVisible && "none",
         boxShadow: !isNavVisible && "none",
-        transition:
-          "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear, backgroundColor  200ms linear",
+        transition: "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear, backgroundColor  200ms linear",
         animation: `${fadeIn} 2s`,
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
           {isNavVisible === true && (
             <Box
               component={Link}
-              to="/"
+              to='/'
               sx={{
                 display: { xs: "none", md: "flex" },
                 justifyContent: "center",
@@ -136,7 +123,6 @@ to {
           {/* Mobile view */}
           {isNavVisible === true && (
             <Box
-              onClick={toggleHamburger}
               sx={{
                 display: { xs: "flex", md: "none" },
                 zIndex: 9999,
@@ -149,16 +135,16 @@ to {
           {/* Only show logo if isNavVisible is true */}
           {isNavVisible === true && (
             <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
+              direction='row'
+              justifyContent='center'
+              alignItems='center'
               sx={{
                 flexGrow: 1,
               }}
             >
               <Box
                 component={Link}
-                to="/"
+                to='/'
                 sx={{
                   display: { xs: "flex", md: "none" },
                   alignItems: "center",
@@ -175,21 +161,16 @@ to {
 
           {/* Desktop view */}
           {showHamburger && (
-            <Paper
-              elevation={5}
+            <Card
               sx={{
                 display: "flex",
                 mt: 1,
                 position: "absolute",
                 left: "-12px",
                 top: "0px",
-                borderRadius: "50%",
-                backdropFilter: darkMode ? "blur(80px)" : "invert(80%)",
-                backgroundColor: "#1270AF",
-                // backgroundColor: "inherit",
-                color: "#eeeeee",
-                height: "70px",
-                width: "70px",
+                // backdropFilter: darkMode ? "blur(30px)" : "invert(50%)",
+                backdropFilter: "invert(50%)",
+                color: "primary",
                 justifyContent: "center",
                 alignItems: "center",
                 opacity: isNavVisible ? 0 : 1,
@@ -199,12 +180,12 @@ to {
               }}
             >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
-            </Paper>
+            </Card>
           )}
 
           {/* Only show pages and icons if isNavVisible is true */}
           {isNavVisible === true && (
-            <Stack direction="row" justifyContent="center" alignItems="center">
+            <Stack direction='row' justifyContent='center' alignItems='center'>
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
@@ -244,15 +225,10 @@ to {
                     }}
                   >
                     <Typography
-                      variant="h6"
+                      variant='h6'
                       sx={{
-                        // fontFamily: "Trattatello, sans-serif",
-                        // fontFamily: "TuskerGrotesk",
-                        // fontFamily: "YatraOne-Regular",
-                        // fontFamily: "GothamSSm-Bold",
                         fontFamily: "GothamSSm-Light",
                         textTransform: "capitalize",
-                        // letterSpacing: "0.1em",
                       }}
                     >
                       {page.text}
@@ -263,35 +239,32 @@ to {
 
               <Box
                 sx={{
-                  display: { xs: "none", md: "inline-block" },
+                  display: { xs: "none", md: "flex" },
                 }}
               >
-                <Tooltip TransitionComponent={Zoom} title="LinkedIn">
-                  <Box
-                    component={Link}
-                    sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
-                    to={"https://www.linkedin.com/in/thiagobardini/"}
-                    target="_blank"
-                    m={1}
-                  >
+                <Tooltip TransitionComponent={Zoom} title='LinkedIn'>
+                  <Box component={Link} sx={{ color: darkMode ? "#eeeeee" : "#222831" }} to={"https://www.linkedin.com/in/thiagobardini/"} target='_blank' m={1}>
                     <LinkedInIcon sx={{ fontSize: "1.5rem" }} />
                   </Box>
                 </Tooltip>
-                <Tooltip TransitionComponent={Zoom} title="Github">
-                  <Box
-                    component={Link}
-                    sx={{ color: darkMode ? "#eeeeee" : "#222831" }}
-                    to={"https://github.com/thiagobardini"}
-                    target="_blank"
-                    m={1}
-                  >
+                <Tooltip TransitionComponent={Zoom} title='Github'>
+                  <Box component={Link} sx={{ color: darkMode ? "#eeeeee" : "#222831" }} to={"https://github.com/thiagobardini"} target='_blank' m={1}>
                     <GitHubIcon sx={{ fontSize: "1.5rem" }} />
                   </Box>
                 </Tooltip>
+                <Box
+                  sx={{
+                    display: { xs: "none", md: "block" },
+                  }}
+                >
+                  <Tooltip TransitionComponent={Zoom} title='Sound Control'>
+                    <SoundControl />
+                  </Tooltip>
+                </Box>
               </Box>
             </Stack>
           )}
-          <Tooltip TransitionComponent={Zoom} title="Theme Mode">
+          <Tooltip TransitionComponent={Zoom} title='Theme Mode'>
             <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
           </Tooltip>
         </Toolbar>
@@ -299,30 +272,22 @@ to {
     </AppBar>
   ) : (
     <AppBar
-      position="fixed"
+      position='fixed'
       sx={{
         py: "2px",
         top: "26px",
         left: 0,
         right: 0,
         backgroundColor: "transparent",
-        backdropFilter: !isNavVisible
-          ? "none"
-          : darkMode
-          ? "blur(5px)"
-          : "blur(5px)",
-        backgroundImage: !isNavVisible && "none",
-        boxShadow: !isNavVisible && "none",
-        transition:
-          "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
+        backdropFilter: darkMode ? "blur(5px)" : "blur(5px)",
+        transition: "backdropFilterr 200ms linear, boxShadow 200ms linear, backgroundImage 200ms linear",
         animation: `${fadeIn} 2s`,
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          {isNavVisible === true && (
+          <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2} sx={{ width: "100vw" }}>
             <Box
-              onClick={toggleHamburger}
               sx={{
                 display: { xs: "flex" },
                 zIndex: 9999,
@@ -331,54 +296,28 @@ to {
             >
               <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
             </Box>
-          )}
-          {/* Only show logo if isNavVisible is true */}
-          {isNavVisible === true && (
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                flexGrow: 1,
-              }}
-            >
-              <Box
-                component={Link}
-                to="/"
-                sx={{
-                  position: "fixed",
-                }}
-              >
+
+            <Box sx={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
+              <Link to='/' sx={{ textDecoration: "none" }}>
                 <LogoAnimation height={"120px"} />
-              </Box>
-            </Stack>
-          )}
-          {showHamburger && (
+              </Link>
+            </Box>
+
             <Box
               sx={{
-                display: "flex",
-                mt: 1,
-                position: "absolute",
-                left: "-12px",
-                top: "0px",
-                borderRadius: "50%",
-                backdropFilter: darkMode ? "blur(80px)" : "invert(80%)",
-                backgroundColor: darkMode ? "#0092ca" : "#1270AF",
-                color: "#eeeeee",
-                height: "70px",
-                width: "70px",
-                justifyContent: "center",
-                alignItems: "center",
-                opacity: isNavVisible ? 0 : 1,
-                visibility: isNavVisible ? "hidden" : "visible",
-                transition: "opacity 2000ms linear, visibility 2000ms linear",
-                animation: `${fadeIn} 2s`,
+                display: { xs: "none", md: "block" },
               }}
             >
-              <HamburgerMenu isOpen={isOpen} setOpen={setOpen} pages={pages} />
+              {isNavVisible && (
+                <Tooltip TransitionComponent={Zoom} title='Sound Control'>
+                  <SoundControl />
+                </Tooltip>
+              )}
             </Box>
-          )}
-          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
+            <Box display={{ xs: "block", md: "none" }}>
+              <ToggleThemeMode />
+            </Box>
+          </Stack>
         </Toolbar>
       </Container>
     </AppBar>

@@ -204,7 +204,7 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleInputChange}
           required
-          inputProps={{
+          InputProps={{
             style: { fontSize: "16px", touchAction: "manipulation" },
           }}
           style={{
@@ -235,7 +235,7 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleInputChange}
           required
-          inputProps={{
+          InputProps={{
             style: { fontSize: "16px", touchAction: "manipulation" },
           }}
           style={{
@@ -264,7 +264,7 @@ const ContactForm = () => {
           value={formData.message}
           required
           variant='outlined'
-          inputProps={{
+          InputProps={{
             style: { fontSize: "16px", touchAction: "manipulation" },
           }}
           style={{

@@ -16,12 +16,11 @@ import Footer from "./Layout/Footer";
 import LottoNest from "./Pages/Portfolio/Lottonest/LottoNest";
 import LottoNestSignin from "./Pages/Portfolio/Lottonest/Auth/LottoNestSignin";
 import LottoNestReadme from "./Pages/Portfolio/Lottonest/LottoNestReadme";
-import SoundControl from "./Components/SoundControl";
 import Projects from "./Pages/Portfolio/Projects";
 import { styled } from "@mui/system";
 import LightModeDiagonalLinesUrl from "/LightModeDiagonalLines.svg?url";
 import DarkModeDiagonalLinesUrl from "/DarkModeDiagonalLines.svg?url";
-
+import ChatBot from "./Components/ChatBot";
 
 const AppBackground = styled("div")(({ theme }) => ({
   backgroundImage: `url(${theme.palette.mode === "dark" ? DarkModeDiagonalLinesUrl : LightModeDiagonalLinesUrl})`,
@@ -63,8 +62,8 @@ function App() {
           <Box>
             <Box sx={{ zIndex: 9999 }}>
               <Navbar />
+              <ChatBot />
               <HireMe />
-              <SoundControl />
             </Box>
             <ScrollToTop />
             <Routes>

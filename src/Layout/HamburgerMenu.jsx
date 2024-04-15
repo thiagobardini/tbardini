@@ -1,15 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Hamburger from "hamburger-react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Drawer,
-  List,
-  ListItem,
-  Box,
-  IconButton,
-  useTheme,
-  Typography,
-} from "@mui/material";
+import { Drawer, List, ListItem, Box, IconButton, useTheme, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
@@ -20,10 +12,17 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();
   const darkMode = useSelector((state) => state.theme.darkMode);
   const location = useLocation();
+  const [previousPath, setPreviousPath] = useState(location.pathname);
 
   useEffect(() => {
-    setOpen(false);
-  }, [location]);
+    setPreviousPath(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (location.pathname !== previousPath && isOpen) {
+      setOpen(false);
+    }
+  }, [location.pathname, previousPath, isOpen]);
 
   return (
     <Box>
@@ -31,7 +30,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </Box>
       <Drawer
-        anchor="left"
+        anchor='left'
         open={isOpen}
         onClose={() => setOpen(false)}
         ModalProps={{
@@ -40,9 +39,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         PaperProps={{
           sx: {
             backdropFilter: darkMode ? "blur(20px)" : "blur(10px)",
-            backgroundColor: darkMode
-              ? "transparent !important"
-              : "rgba(238, 238, 238, 0.7) !important",
+            backgroundColor: darkMode ? "transparent !important" : "rgba(238, 238, 238, 0.7) !important",
             display: "block",
             boxSizing: "border-box",
             width: "100%",
@@ -68,21 +65,13 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
             justifyContent: "center",
           }}
         >
-          <Box
-            color={
-              !isOpen
-                ? "#eeeeee"
-                : isOpen && theme.palette.mode === "light"
-                ? "#22313f"
-                : "#eeeeee"
-            }
-            sx={{ position: "absolute", left: 0, pt: 5, pl: 3 }}
-          >
+          <Box color={!isOpen ? "#eeeeee" : isOpen && theme.palette.mode === "light" ? "#22313f" : "#eeeeee"} sx={{ position: "absolute", left: 0, pt: 5, pl: 3 }}>
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </Box>
           <Box
             component={Link}
-            to="/"
+            to='/'
+            onClick={() => setOpen(false)}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -95,7 +84,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           </Box>
         </Box>
         <List>
-          {pages.map((page, index) => (
+          {pages.map((page) => (
             <ListItem
               component={Link}
               to={page.to}
@@ -118,13 +107,10 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               }}
             >
               <Typography
-                variant="h3"
+                variant='h3'
                 sx={{
-                  // fontFamily: "YatraOne-Regular",
-                  // fontFamily: "Trattatello, sans-serif",
                   fontFamily: "GothamSSm-Light",
                   textTransform: "capitalize",
-                  // letterSpacing: "0.2em",
                 }}
               >
                 {page.text}
@@ -141,9 +127,9 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
           }}
         >
           <IconButton
-            component="a"
+            component='a'
             href={"https://www.linkedin.com/in/thiagobardini/"}
-            target="_blank"
+            target='_blank'
             sx={{
               mr: 2,
             }}
@@ -155,11 +141,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               }}
             />
           </IconButton>
-          <IconButton
-            component="a"
-            href={"https://github.com/thiagobardini"}
-            target="_blank"
-          >
+          <IconButton component='a' href={"https://github.com/thiagobardini"} target='_blank'>
             <GitHubIcon
               sx={{
                 fontSize: "3rem",

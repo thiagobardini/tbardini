@@ -12,11 +12,11 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
     textTransform: "capitalize",
     width: "auto",
     height: "auto",
+    padding: "0.5rem 1rem",
     pointerEvents: "auto",
     border: darkMode ? "1px solid #eeeeee" : "1px solid #282524",
     backdropFilter: darkMode ? "blur(2px)" : "blur(50px)",
     backgroundColor: darkMode ? "transparent" : "#d6d3d1",
-
     fontFamily: "GothamSSm-Light",
     "&:hover": {
       backgroundColor: darkMode ? "transparent" : "#d6d3d1",
@@ -42,6 +42,7 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
       sx={commonStyles}
       className="hoverEffect"
       onClick={onClick}
+  
     >
       {backArrow ? (
         <>

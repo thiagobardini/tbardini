@@ -12,8 +12,11 @@ function TextAnimation() {
       fontWeight: 600,
       color: darkMode ? "rgb(214, 211, 209)" : "#222831",
       textShadow: darkMode
-        ? "none"
-        : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+      ? "none"
+      : {
+          xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+          md: "none",
+        },
     }),
     [darkMode]
   );
@@ -27,11 +30,11 @@ function TextAnimation() {
           fontFamily: "GothamSSm-Light",
           display: { xs: "block", md: "none" },
           textShadow: darkMode
-            ? "none"
-            : {
-                xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
-                md: "none",
-              },
+          ? "none"
+          : {
+              xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+              md: "none",
+            },
         }}
       >
         <Box sx={{ display: "inline-block", fontWeight: 600 }}>
@@ -72,7 +75,7 @@ function TextAnimation() {
           textShadow: darkMode
             ? "none"
             : {
-                xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+                xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
                 md: "none",
               },
           display: { xs: "none", md: "block" },

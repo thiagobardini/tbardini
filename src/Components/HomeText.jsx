@@ -80,11 +80,11 @@ const HomeText = () => {
                 color: (theme) => theme.palette.text.secondary,
                 backdropFilter: darkMode ? "blur(2px)" : "blur(3px)",
                 textShadow: darkMode
-                  ? "none"
-                  : {
-                      xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
-                      md: "none",
-                    },
+                ? "none"
+                : {
+                    xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+                    md: "none",
+                  },
                 fontWeight: 600,
                 opacity: 0,
                 transform: "translateY(20px)",
@@ -102,8 +102,11 @@ const HomeText = () => {
                   fontFamily: "GothamSSm-Bold",
                   color: darkMode ? "#eeeeee" : "#222831",
                   textShadow: darkMode
-                    ? "none"
-                    : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+                  ? "none"
+                  : {
+                      xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+                      md: "none",
+                    },
                 }}
               >
                 software engineer
@@ -121,7 +124,7 @@ const HomeText = () => {
                 textShadow: darkMode
                   ? "none"
                   : {
-                      xs: "0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1, 0 0 5px #d6d3d1",
+                      xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
                       md: "none",
                     },
                 fontWeight: 600,
@@ -141,9 +144,13 @@ const HomeText = () => {
                   fontFamily: "GothamSSm-Bold",
                   color: darkMode ? "#eeeeee" : "#222831",
                   textShadow: darkMode
-                    ? "none"
-                    : "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
-                }}
+                  ? "none"
+                  : {
+                      xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+                      md: "none",
+                    },
+                }
+              }
               >
                 software engineer
               </span>{" "}

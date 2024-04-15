@@ -264,9 +264,8 @@ to {
               </Box>
             </Stack>
           )}
-          <Tooltip TransitionComponent={Zoom} title='Theme Mode'>
-            <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
-          </Tooltip>
+
+          <Box>{isNavVisible === true && <ToggleThemeMode />}</Box>
         </Toolbar>
       </Container>
     </AppBar>

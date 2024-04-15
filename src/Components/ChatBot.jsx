@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { styled, Typography, Button, Box, Popper, Fade, ClickAwayListener, Stack, TextField, IconButton } from "@mui/material";
+import { styled, Typography, Button, Box, Popper, Fade, ClickAwayListener, Stack, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import LoadingDots from "./LoadingDots";
 import chatbot from "/chatbotai.svg?url";

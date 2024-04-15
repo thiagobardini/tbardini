@@ -11,7 +11,6 @@ const StickyButton = styled(Button)({
   right: 0,
   bottom: 0,
   textTransform: "none",
-  // padding: 0,
   paddingRight: "8px",
   paddingBottom: "4px",
 });
@@ -39,6 +38,7 @@ const ChatBot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const darkMode = useSelector((state) => state.theme.darkMode);
   const chatBoxRef = useRef(null);
+  const popperRef = useRef(null);
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"; // API URL
 
@@ -61,6 +61,12 @@ const ChatBot = () => {
     }
   }, [chatHistory]);
 
+  useEffect(() => {
+    if (open && popperRef.current) {
+      popperRef.current.setAttribute('tabIndex', '-1');
+    }
+  }, [open]);
+
   const handleClose = () => {
     setOpen(false);
     setChatHistory([]);
@@ -73,6 +79,12 @@ const ChatBot = () => {
       handleClose();
     }
   }, []);
+
+  const handleTextFieldFocus = () => {
+    if (popperRef.current) {
+      popperRef.current.focus();
+    }
+  };
 
   const getResponse = async () => {
     if (!msg) {
@@ -145,7 +157,7 @@ const ChatBot = () => {
       <StickyButton aria-describedby={id} onClick={handleAIClick} sx={{ zIndex: 2 }}>
         <img src={chatbot} alt='Chat Icon' style={{ width: 60, height: 60 }} />
       </StickyButton>
-      <Popper id={id} open={open} anchorEl={anchorEl} transition placement='top-end' disablePortal={false} sx={{ zIndex: 1300 }}>
+      <Popper id={id} ref={popperRef} open={open} anchorEl={anchorEl} transition placement='top-end' disablePortal={false} sx={{ zIndex: 1300 }}>
         {({ TransitionProps }) => (
           <ClickAwayListener onClickAway={handleClose}>
             <Fade {...TransitionProps} timeout={350}>
@@ -189,12 +201,12 @@ const ChatBot = () => {
                   <Stack direction='row' spacing={1} alignItems='center'>
                     <TextField
                       color='chat'
-                      focused
                       variant='filled'
                       label='Ask a question...'
                       fullWidth
                       value={msg}
                       size='small'
+                      onFocus={handleTextFieldFocus}
                       onChange={(e) => setMsg(e.target.value)}
                       InputLabelProps={{
                         shrink: true,

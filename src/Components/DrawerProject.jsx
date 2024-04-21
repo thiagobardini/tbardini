@@ -1,41 +1,52 @@
-import React, { useState } from "react";
-import {
-  Drawer,
-  Paper,
-  Button,
-  Link,
-  Stack,
-  Divider,
-  Typography,
-  Box,
-  Chip,
-  BottomNavigation,
-  BottomNavigationAction,
-} from "@mui/material";
+import React from "react";
+import { Drawer, Paper, Link, Stack, Divider, Typography, Box, Chip, Tooltip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { closeDrawer } from "../redux/drawerSlice";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import LaunchIcon from "@mui/icons-material/Launch";
 import PublicIcon from "@mui/icons-material/Public";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
+import javascript from "../Assets/icons/icons8-javascript-30.png";
+import react from "../Assets/icons/icons8-react-30.png";
+import materialui from "../Assets/icons/materialui-original.svg?url";
+import reactThree from "../Assets/icons/Threejs-logo.svg?url";
+import gemini from "../Assets/icons/google-gemini-icon.png";
+import i18n from "../Assets/icons/i18n.png";
+import rtkQuery from "../Assets/icons/rtk-query.svg?url";
+import firebase from "../Assets/icons/firebase-30.png";
+import expressjs from "../Assets/icons/express-js-30.png";
+import nodejs from "../Assets/icons/icons8-nodejs-30.png";
+import stripe from "../Assets/icons/icons8-stripe-30.png";
+import sass from "../Assets/icons/icons8-sass-30.png";
+import globalLinkGO from "../Assets/icons/globalLinkGO.png";
+import playwright from "../Assets/icons/playwright-logo.png";
+import nextjs from "../Assets/icons/icons8-next.js-30.png";
+import typescript from "../Assets/icons/icons8-typescript-30.png";
+import mongodb from "../Assets/icons/icons8-mongodb-30.png";
 
-export default function TemporaryDrawer({
-  open,
-  onClose,
-  title,
-  subtitle,
-  description,
-  img,
-  techs,
-  live,
-  readme,
-  github,
-  openNewTab,
-  logo,
-  index,
-  localUrl,
-  id,
-}) {
+const techIcons = {
+  reactjs: react,
+  javascript: javascript,
+  "redux toolkit": redux,
+  "material-ui": materialui,
+  "react three js": reactThree,
+  "gemini-ai": gemini,
+  i18n: i18n,
+  "rtk query": rtkQuery,
+  firebase: firebase,
+  "express js": expressjs,
+  "node js": nodejs,
+  stripe: stripe,
+  sass: sass,
+  "globallink go": globalLinkGO,
+  playwright: playwright,
+  "next js": nextjs,
+  typescript: typescript,
+  mongodb: mongodb,
+};
+
+export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, techs, live, readme, github, openNewTab, logo, index, localUrl, id }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const dispatch = useDispatch();
 
@@ -46,16 +57,14 @@ export default function TemporaryDrawer({
   return (
     <Drawer
       key={id}
-      anchor="right"
+      anchor='right'
       open={open}
       onClose={onClose}
       PaperProps={{
         sx: {
           display: "flex",
           flexDirection: "column",
-          backgroundColor: darkMode
-            ? "transparent !important"
-            : "#transparent !important",
+          backgroundColor: darkMode ? "transparent !important" : "#transparent !important",
           width: { xs: "100vw", sm: "544px" },
           height: "100%",
           overflowY: "auto",
@@ -65,9 +74,7 @@ export default function TemporaryDrawer({
       <Paper
         elevation={3}
         sx={{
-          backgroundColor: darkMode
-            ? "transparent !important"
-            : "#transparent !important",
+          backgroundColor: darkMode ? "transparent !important" : "#transparent !important",
           display: "block",
           backdropFilter: darkMode ? "blur(40px)" : "blur(50px)",
           height: "100%",
@@ -76,17 +83,12 @@ export default function TemporaryDrawer({
           py: 3,
         }}
       >
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="flex-start"
-          spacing={0}
-        >
-          <Link variant="text" onClick={handleDrawerClose} color="text.third">
+        <Stack direction='row' justifyContent='space-between' alignItems='flex-start' spacing={0}>
+          <Link variant='text' onClick={handleDrawerClose} color='text.third'>
             <ArrowCircleLeftIcon />
           </Link>
           <Typography
-            color="text.third"
+            color='text.third'
             sx={{
               cursor: "pointer",
               fontFamily: "GothamSSm-Light",
@@ -97,38 +99,25 @@ export default function TemporaryDrawer({
           </Typography>
         </Stack>
         <Divider sx={{ my: 2, px: 2 }} />
-        <Stack
-          direction="column"
-          justifyContent="flex-start"
-          alignItems="flex-start"
-          spacing={0}
-        >
+        <Stack direction='column' justifyContent='flex-start' alignItems='flex-start' spacing={0}>
           <Typography
             gutterBottom
-            variant="h5"
-            component="div"
-            color="text.primary"
+            variant='h5'
+            component='div'
+            color='text.primary'
             sx={{
-              // fontWeight: 900,
-              // fontFamily: "Trattatello, sans-serif !important",
-              // fontFamily: "TuskerGrotesk",
               fontFamily: "GothamSSm-Bold",
               textTransform: "capitalize",
             }}
           >
             {title}
           </Typography>
-          <Typography
-            variant="body2"
-            color="text.primary"
-            mb={2}
-            component="div"
-          >
+          <Typography variant='body2' color='text.primary' mb={2} component='div'>
             {subtitle}
           </Typography>
           <Box
-            component="img"
-            alt="title"
+            component='img'
+            alt='title'
             src={img}
             sx={{
               height: "300px",
@@ -137,56 +126,51 @@ export default function TemporaryDrawer({
               borderRadius: "11px",
             }}
           />
-          <Typography
-            variant="h6"
-            color="text.primary"
-            gutterBottom
-            mt={2}
-            component="div"
-            sx={{ fontFamily: "GothamSSm-Light" }}
-          >
+          <Typography variant='h6' color='text.primary' gutterBottom mt={2} component='div' sx={{ fontFamily: "GothamSSm-Light" }}>
             About
           </Typography>
-          <Typography variant="body2" color="text.primary" component="div">
+          <Typography variant='body2' color='text.primary' component='div'>
             {description}
           </Typography>
-          <Typography
-            variant="h6"
-            color="text.primary"
-            gutterBottom
-            mt={2}
-            component="div"
-            sx={{ fontFamily: "GothamSSm-Light" }}
-          >
+          <Typography variant='h6' color='text.primary' gutterBottom mt={2} component='div' sx={{ fontFamily: "GothamSSm-Light" }}>
             Technologies
           </Typography>
           <Stack
-            direction="row"
+            direction='row'
             sx={{
               flexWrap: "wrap",
-              gap: "4px",
+              gap: "10px",
               rowGap: "8px",
             }}
           >
-            {techs.map((tech, index) => (
-              <Chip
-                key={index}
-                label={tech}
-                size="small"
-                color="secondary"
-                sx={{
-                  textTransform: "capitalize",
-                  fontFamily: "GothamSSm-Light",
-                }}
-              />
-            ))}
+            {techs.map((tech, index) => {
+              const techKey = tech.toLowerCase();
+              const TechIcon = techIcons[techKey];
+
+              return TechIcon ? (
+                <Tooltip key={index} title={tech}>
+                  <img src={TechIcon} alt={tech} style={{ height: "30px", width: "auto" }} />
+                </Tooltip>
+              ) : (
+                <Chip
+                  key={index}
+                  label={tech}
+                  size='small'
+                  color='secondary'
+                  sx={{
+                    textTransform: "capitalize",
+                    fontFamily: "GothamSSm-Light",
+                  }}
+                />
+              );
+            })}
           </Stack>
           <Typography
-            variant="h6"
-            color="text.primary"
+            variant='h6'
+            color='text.primary'
             gutterBottom
             mt={2}
-            component="div"
+            component='div'
             sx={{
               display: "flex",
               alignItems: "flex-start",
@@ -196,20 +180,15 @@ export default function TemporaryDrawer({
             <PublicIcon sx={{ mr: 1 }} />
             Website
           </Typography>
-          <Link
-            color="text.primary"
-            href={live}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography variant="body2">{live}</Typography>
+          <Link color='text.primary' href={live} target='_blank' rel='noopener noreferrer'>
+            <Typography variant='body2'>{live}</Typography>
           </Link>
           <Typography
-            variant="h6"
-            color="text.primary"
+            variant='h6'
+            color='text.primary'
             gutterBottom
             mt={2}
-            component="div"
+            component='div'
             sx={{
               display: "flex",
               alignItems: "flex-start",
@@ -221,10 +200,10 @@ export default function TemporaryDrawer({
           </Typography>
           <div style={{ width: "100%" }}>
             <Link
-              color="text.primary"
+              color='text.primary'
               href={github}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
               style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden",
@@ -233,7 +212,7 @@ export default function TemporaryDrawer({
               }}
             >
               <Typography
-                variant="body2"
+                variant='body2'
                 style={{
                   whiteSpace: "nowrap",
                   overflow: "hidden",
@@ -262,9 +241,9 @@ export default function TemporaryDrawer({
         {localUrl === "" ? (
           <Link
             href={live}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="none"
+            target='_blank'
+            rel='noopener noreferrer'
+            underline='none'
             sx={{
               color: "#eeeeee",
               "&:hover": {
@@ -275,7 +254,7 @@ export default function TemporaryDrawer({
               },
             }}
           >
-            <Stack direction="row" alignItems="center">
+            <Stack direction='row' alignItems='center'>
               <Typography mr={1} sx={{ fontFamily: "GothamSSm-Light" }}>
                 Open Project
               </Typography>
@@ -285,7 +264,7 @@ export default function TemporaryDrawer({
         ) : (
           <Link
             href={localUrl}
-            underline="none"
+            underline='none'
             sx={{
               color: "#eeeeee",
               "&:hover": {
@@ -296,7 +275,7 @@ export default function TemporaryDrawer({
               },
             }}
           >
-            <Stack direction="row" alignItems="center">
+            <Stack direction='row' alignItems='center'>
               <Typography
                 mr={1}
                 sx={{
@@ -306,7 +285,7 @@ export default function TemporaryDrawer({
               >
                 Open Project
               </Typography>
-              <LaunchIcon color="text.third" />
+              <LaunchIcon color='text.third' />
             </Stack>
           </Link>
         )}

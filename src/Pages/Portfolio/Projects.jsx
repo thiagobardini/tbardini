@@ -102,9 +102,12 @@ const Projects = () => {
 
   const getStyles = (selectedKeyword, keyword) => ({
     cursor: "pointer",
-    fontWeight: selectedKeyword === keyword ? 700 : "none",
-    color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
+    // color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
+    // color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
     "& .MuiBadge-badge": {
+      color: selectedKeyword === keyword ? "text.primary" : "text.secondary",
+      fontFamily: selectedKeyword === keyword ? "GothamSSm-Bold" : "GothamSSm-Light",
+      fontWeight: selectedKeyword === keyword ? "900" : "normal",
       right: "-5px",
     },
     "&:hover": {
@@ -113,8 +116,10 @@ const Projects = () => {
   });
 
   const getTypographyStyles = (selectedKeyword, keyword) => ({
-    fontWeight: selectedKeyword === keyword ? 700 : "none",
-    color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
+    textDecoration: selectedKeyword === keyword ? "underline" : "none",
+    fontFamily: selectedKeyword === keyword ? "GothamSSm-Bold" : "GothamSSm-Light",
+    fontWeight: selectedKeyword === keyword ? "900" : "normal",
+    color: selectedKeyword === keyword ? "text.primary" : "text.secondary",
   });
 
   const categories = [

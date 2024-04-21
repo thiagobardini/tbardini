@@ -1,25 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { FormControl, styled, Typography, Button, Box, Popper, Fade, ClickAwayListener, Stack, TextField, Drawer, IconButton, Divider } from "@mui/material";
+import { styled, Typography, Button, Box, Popper, Fade, ClickAwayListener, TextField, Drawer, IconButton, Divider } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
-import LoadingDots from "./LoadingDots";
+import LoadingDots from "../LoadingDots";
 import chatbot from "/chatbotai.svg?url";
 import user from "/userchat.svg?url";
 import email from "/email.svg?url";
 import emailDark from "/email-dark.svg?url";
 import emailDisabledDark from "/email-disabled-dark.svg?url";
 import CloseIcon from "@mui/icons-material/Close";
+import Lottie from "lottie-react";
+import Chatting from "./animation/Chatting-white.json";
 
-const StickyButton = styled(Button)({
-  position: "fixed",
-  right: 0,
-  bottom: 0,
-  textTransform: "none",
-  paddingRight: "8px",
-  paddingBottom: "4px",
-});
-
-const ChatBox = styled(Box)({
+const ChatDiv = styled(Box)({
   "::-webkit-scrollbar": {
     width: "10px",
   },
@@ -33,7 +26,7 @@ const ChatBox = styled(Box)({
   },
 });
 
-const ChatBot = () => {
+const ChatBox = () => {
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [msg, setMsg] = useState("");
@@ -42,7 +35,7 @@ const ChatBot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const darkMode = useSelector((state) => state.theme.darkMode);
   const chatBoxRef = useRef(null);
-  const popperRef = useRef(null);
+  const drawerRef = useRef(null);
   const buttonRef = useRef(null);
 
   const theme = useTheme();
@@ -70,8 +63,8 @@ const ChatBot = () => {
   }, [chatHistory]);
 
   useEffect(() => {
-    if (open && popperRef.current) {
-      popperRef.current.setAttribute("tabIndex", "-1");
+    if (open && drawerRef.current) {
+      drawerRef.current.setAttribute("tabIndex", "-1");
     }
   }, [open]);
 
@@ -91,14 +84,12 @@ const ChatBot = () => {
     }
   };
   const handleTextFieldFocus = () => {
-    if (popperRef.current) {
-      popperRef.current.focus();
+    if (drawerRef.current) {
+      drawerRef.current.focus();
     }
   };
 
   const getResponse = async () => {
-    // console.log("chatHistory", chatHistory);
-
     if (!msg) {
       setError(
         <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
@@ -165,13 +156,26 @@ const ChatBot = () => {
 
   const renderChatContent = () => (
     <Box>
-      <Box sx={{  px: 2, pt:2}}>
+      <Box sx={{ px: 2, pt: 2 }}>
         <Typography gutterBottom variant='h6' component='div'>
           How can I help you?
         </Typography>
-      <Divider />
+        <IconButton
+          onClick={handleCloseDrawer}
+          sx={{
+            position: "absolute",
+            right: { xs: 10, md: 20 },
+            top: 8,
+            padding: 1,
+            color: (theme) => theme.palette.grey[500],
+          }}
+          aria-label='close'
+        >
+          <CloseIcon />
+        </IconButton>
+        <Divider />
       </Box>
-      <ChatBox ref={chatBoxRef} sx={{ maxHeight: "50vh", m: 1, overflow: "auto", px: 2, pb:2 }}>
+      <ChatDiv ref={chatBoxRef} sx={{ maxHeight: "50vh", m: 1, overflow: "auto", px: 2, pb: 2 }}>
         <Typography variant='subtitle2' sx={{ mb: 2, fontWeight: 600 }} gutterBottom>
           {error ? (
             error
@@ -204,63 +208,87 @@ const ChatBot = () => {
           ))}
           {isLoading && <LoadingDots />}
         </Box>
-      </ChatBox>
+      </ChatDiv>
 
-      <Box sx={{ pl: 2, pb: 2, pr: 1 }}>
-        <Stack direction='row' spacing={1} alignItems='center' sx={{ width: "100%" }}>
-          <FormControl variant='filled' sx={{ flex: 1, mr: 1 }}>
-            <TextField
-              color='chat'
-              label='Ask a question...'
-              fullWidth
-              value={msg}
-              size='small'
-              onFocus={handleTextFieldFocus}
-              onChange={(e) => setMsg(e.target.value)}
-              InputLabelProps={{
-                shrink: true,
-                sx: {
-                  color: darkMode ? "#eeeeee" : "#34495e",
-                  "& label.Mui-focused": {
-                    color: "#d6d3d1",
-                  },
-                },
-              }}
-              sx={{
-                "& .MuiInputBase-input": {
-                  fontSize: "0.875rem",
-                  mt: 0.5,
-                },
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && msg.trim()) {
-                  e.preventDefault();
-                  getResponse();
-                }
-              }}
-            />
-          </FormControl>
-          <IconButton disabled={!msg.trim()} sx={{ color: darkMode ? "#eeeeee" : "#34495e" }} aria-label='send' onClick={getResponse}>
-            {!msg.trim() ? (
-              <img src={emailDisabledDark} alt='user icon' style={{ width: 20, height: 20 }} />
-            ) : !darkMode ? (
-              <img src={emailDark} alt='user icon' style={{ width: 20, height: 20 }} />
-            ) : (
-              <img src={email} alt='user icon' style={{ width: 20, height: 20 }} />
-            )}
-          </IconButton>
-        </Stack>
+      <Box sx={{ pl: 2, pb: 2, pr: 1, display: "flex", alignItems: "center", width: "100%" }}>
+        <TextField
+          color='chat'
+          label='Ask a question...'
+          fullWidth={true}
+          value={msg}
+          size='small'
+          InputProps={{
+            onFocus: handleTextFieldFocus,
+          }}
+          onChange={(e) => setMsg(e.target.value)}
+          InputLabelProps={{
+            sx: {
+              color: darkMode ? "#eeeeee" : "#34495e",
+              "& label.Mui-focused": {
+                color: "#d6d3d1",
+              },
+              "& .MuiInputBase-input": {
+                fontSize: "0.875rem",
+                mt: 0.5,
+              },
+            },
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && msg.trim()) {
+              e.preventDefault();
+              getResponse();
+            }
+          }}
+        />
+
+        <IconButton disabled={!msg.trim()} sx={{ color: darkMode ? "#eeeeee" : "#34495e" }} aria-label='send' onClick={getResponse}>
+          {!msg.trim() ? (
+            <img src={emailDisabledDark} alt='user icon' style={{ width: 20, height: 20 }} />
+          ) : !darkMode ? (
+            <img src={emailDark} alt='user icon' style={{ width: 20, height: 20 }} />
+          ) : (
+            <img src={email} alt='user icon' style={{ width: 20, height: 20 }} />
+          )}
+        </IconButton>
       </Box>
     </Box>
   );
 
   return (
     <Box>
-      <StickyButton ref={buttonRef} aria-describedby={id} onClick={handleAIClick} sx={{ zIndex: 2 }}>
-        <img src={chatbot} alt='Chat Icon' style={{ width: 60, height: 60 }} />
-      </StickyButton>
+      <Button
+        ref={buttonRef}
+        aria-describedby={id}
+        onClick={handleAIClick}
+        variant='contained'
+        sx={{
+          width: "50px !important",
+          height: "60px !important",
+          position: "fixed",
+          right: 10,
+          bottom: 5,
+          p: 0,
+          textTransform: "none",
+          borderRadius: "100%",
+          zIndex: 2,
+          backgroundColor: "rgba(204, 204, 204, 0.8)",
+          border: darkMode ? "1px solid #282524" : "1px solid #282524",
+          "&:hover": {
+            backgroundColor: "#d6d3d1 !important",
+            border: darkMode ? "1px solid #282524" : "1px solid #282524",
+          },
+        }}
+      >
+        <Lottie
+          animationData={Chatting}
+          style={{
+            height: "45px",
+            width: "45px",
+          }}
+        />
+      </Button>
       {isMedium ? (
-        <Popper id={id} ref={popperRef} open={open} anchorEl={anchorEl} transition placement='top-end' disablePortal={false} display={{ xs: "none", sm: "block" }} sx={{ zIndex: 1300 }}>
+        <Popper id={id} open={open} anchorEl={anchorEl} transition placement='top-end' disablePortal={false} display={{ xs: "none", sm: "block" }} sx={{ zIndex: 1300, pb: 2 }}>
           {({ TransitionProps }) => (
             <ClickAwayListener onClickAway={handleClose}>
               <Fade in={open} {...TransitionProps} timeout={350}>
@@ -270,20 +298,7 @@ const ChatBot = () => {
           )}
         </Popper>
       ) : (
-        <Drawer anchor='bottom' open={open} onClose={handleCloseDrawer} sx={{ zIndex: 1300 }}>
-          {/* <IconButton
-            onClick={handleCloseDrawer}
-            sx={{
-              position: "absolute",
-              right: 8,
-              top: 8,
-              color: (theme) => theme.palette.grey[500],
-            }}
-            aria-label='close'
-          >
-            <CloseIcon />
-          </IconButton> */}
-
+        <Drawer ref={drawerRef} anchor='bottom' open={open} onClose={handleCloseDrawer} sx={{ zIndex: 1300 }}>
           <Box sx={{ borderTop: 3, borderLeft: 2, borderRight: 2, bgcolor: "background.chat" }}>{renderChatContent()}</Box>
         </Drawer>
       )}
@@ -291,4 +306,4 @@ const ChatBot = () => {
   );
 };
 
-export default ChatBot;
+export default ChatBox;

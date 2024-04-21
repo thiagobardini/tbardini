@@ -27,6 +27,7 @@
     "firebase": "^9.23.0",
     "hamburger-react": "^2.5.0",
     "howler": "^2.2.3",
+    "lottie-react": "^2.4.0",
     "nth-check": "^2.1.1",
     "protobufjs": "^6.11.4",
     "react": "^18.2.0",

@@ -76,12 +76,13 @@ export const createCustomTheme = (mode) =>
         ? {
             primary: { main: "#22313f" }, // Dark Slate Gray
             secondary: { main: "#0092ca" }, // Bright Blue
-            chat: { main: "#" }, // Bright Blue
+            chat: { main: "#22313f" }, // Bright Blue
             primaryDark: { main: "#1270AF" }, // Medium Blue
             background: {
               default: "#d6d3d1", // Light Gray
               box: "#d6d3d1", // Charcoal
-            },
+              chat: "#eeeeee", // Off White
+             },
             text: {
               primary: "#34495e", // Charcoal
               secondary: "#222831", // Dark Slate Gray
@@ -96,6 +97,7 @@ export const createCustomTheme = (mode) =>
             background: {
               default: "#2A2525", // Very Dark Brown
               box: "#34495e", // Charcoal
+              chat: "#22313f", // Dark Slate Gray
             },
             text: {
               primary: "#eeeeee", // Off White

@@ -1,11 +1,14 @@
-import { Box, CircularProgress } from "@mui/material";
+import Lottie from "lottie-react";
+import dots from "../Assets/animations/dots.json"
 
 export default function LoadingDots() {
   return (
-    <Box span sx={{fontSize: "3rem"}}>
-      <span className='dot'>.</span>
-      <span className='dot'>.</span>
-      <span className='dot'>.</span>
-    </Box>
+    <Lottie
+      animationData={dots}
+      style={{
+        height: "20px",
+        width: "auto",
+      }}
+    />
   );
 }

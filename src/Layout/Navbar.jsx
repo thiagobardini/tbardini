@@ -166,7 +166,7 @@ to {
                 display: "flex",
                 mt: 1,
                 position: "absolute",
-                left: "-12px",
+                left: "-8px",
                 top: "0px",
                 // backdropFilter: darkMode ? "blur(30px)" : "invert(50%)",
                 backdropFilter: "invert(50%)",

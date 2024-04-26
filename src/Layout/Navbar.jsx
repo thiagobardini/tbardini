@@ -117,7 +117,7 @@ to {
                 mr: 2,
               }}
             >
-              <LogoAnimation height={"120px"} />
+              <LogoAnimation height={"120px"} pathname={location.pathname} />
             </Box>
           )}
           {/* Mobile view */}
@@ -154,7 +154,7 @@ to {
                   position: "fixed",
                 }}
               >
-                <LogoAnimation height={"120px"} />
+                <LogoAnimation height={"120px"} pathname={location.pathname} />
               </Box>
             </Stack>
           )}
@@ -298,7 +298,7 @@ to {
 
             <Box sx={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
               <Link to='/' sx={{ textDecoration: "none" }}>
-                <LogoAnimation height={"120px"} />
+                <LogoAnimation height={"120px"} pathname={location.pathname} />
               </Link>
             </Box>
 

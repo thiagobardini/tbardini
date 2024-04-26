@@ -80,7 +80,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               py: 3,
             }}
           >
-            <LogoAnimation height={"150px"} />
+            <LogoAnimation height={"150px"} pathname={location.pathname} />
           </Box>
         </Box>
         <List>

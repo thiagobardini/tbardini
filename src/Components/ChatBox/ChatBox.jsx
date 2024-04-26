@@ -298,8 +298,20 @@ const ChatBox = () => {
           )}
         </Popper>
       ) : (
-        <Drawer ref={drawerRef} anchor='bottom' open={open} onClose={handleCloseDrawer} sx={{ zIndex: 1300 }}>
-          <Box sx={{ borderTop: 3, borderLeft: 2, borderRight: 2, bgcolor: "background.chat" }}>{renderChatContent()}</Box>
+        <Drawer
+          ref={drawerRef}
+          anchor='bottom'
+          open={open}
+          onClose={handleCloseDrawer}
+          PaperProps={{
+            sx: {
+              zIndex: 1300,
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
+            },
+          }}
+        >
+          <Box sx={{ borderTop: 3, borderLeft: 3, borderRight: 3, bgcolor: "background.chat", borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}>{renderChatContent()}</Box>
         </Drawer>
       )}
     </Box>

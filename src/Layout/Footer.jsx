@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Typography, Divider, Paper, Stack } from "@mui/material";
+import { Box, Typography, Divider, Paper, Stack, Link } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import tbLogo from "../Assets/images/tbLogo.png";
-import tbDark from "../Assets/images/tbDark.png";
+import tBardiniDotLight from "../Assets/images/TBardini-dot-light.png";
+import tBardiniDotDark from "../Assets/images/TBardini-dot-dark.png";
 
 const Footer = ({ hideOn }) => {
   const location = useLocation();
@@ -34,38 +34,30 @@ const Footer = ({ hideOn }) => {
           backdropFilter: darkMode ? "blur(200px)" : "blur(20px)",
         }}
       >
-        <Stack
-          direction="row"
-          justifyContent="center"
-          alignItems="flex-end"
-          sx={{ position: "relative" }}
-        >
-          <Box
-            component="img"
-            alt="tbLogo"
-            src={darkMode ? tbLogo : tbDark}
-            sx={{
-              maxHeight: "auto",
-              maxWidth: "100px",
-              width: "25px",
-              height: "auto",
-              cursor: "pointer",
-              position: "absolute",
-              left: "-25px",
-              bottom: "7px",
-            }}
-          />
+        <Stack direction='row' justifyContent='center' alignItems='center' spacing={1} sx={{ position: "relative" }}>
+          <Link href='https://www.tbardini.com/' color='inherit' underline='none' target='_blank'>
+            <Box
+              component='img'
+              alt='tbLogo'
+              src={darkMode ? tBardiniDotLight : tBardiniDotDark}
+              sx={{
+                maxWidth: "100px",
+                height: "auto",
+                cursor: "pointer",
+                position: "relative",
+                bottom: "2px",
+              }}
+            />
+          </Link>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
-              fontWeight: 600,
-
-              fontFamily: "GothamSSm-Light",
+              fontWeight: 900,
               textTransform: "uppercase",
             }}
             color={darkMode ? "#FBF8F9" : "#292725"}
           >
-            ardini © {date}
+            © {date}
           </Typography>
         </Stack>
       </Paper>

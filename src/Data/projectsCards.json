@@ -16,8 +16,8 @@
   },
   {
     "id": "2",
-    "title": "Demo Report: Customized Testing Solutions",
-    "subtitle": "Advanced Automation in Software Testing (In Progress)",
+    "title": "Custom Report",
+    "subtitle": "Playwright and Next.js Driven Custom Reporting Scripts",
     "description": "⚙️ As a demonstration of cutting-edge testing technologies, 'Demo Report' utilizes Playwright, Next.js, Prisma, and TypeScript to offer robust and flexible testing solutions. This project underscores the integration of automated testing scripts with MongoDB for dynamic data handling and customized report generation, highlighting innovations in software quality assurance.",
     "logo": "/images/mini-market-logo.png",
     "img": "/images/playwright-automation-tests.gif",

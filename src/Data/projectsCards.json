@@ -12,10 +12,25 @@
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini",
     "openNewTab": false,
-    "dev": "frontend"
+    "dev": ["frontend"]
   },
   {
     "id": "2",
+    "title": "Demo Report: Customized Testing Solutions",
+    "subtitle": "Advanced Automation in Software Testing (In Progress)",
+    "description": "⚙️ As a demonstration of cutting-edge testing technologies, 'Demo Report' utilizes Playwright, Next.js, Prisma, and TypeScript to offer robust and flexible testing solutions. This project underscores the integration of automated testing scripts with MongoDB for dynamic data handling and customized report generation, highlighting innovations in software quality assurance.",
+    "logo": "/images/mini-market-logo.png",
+    "img": "/images/playwright-automation-tests.gif",
+    "techs": ["Playwright", "Next JS", "ReactJS", "TypeScript", "Node JS", "MongoDB", "Prisma"],
+    "live": "https://playwright-test-report-thiagobardini-thiagobardinis-projects.vercel.app/",
+    "localUrl": "",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/Demo-Custom-Report",
+    "openNewTab": false,
+    "dev": ["automation", "fullstack"]
+  },
+  {
+    "id": "3",
     "title": "Boston Heat Pump Accelerator",
     "subtitle": "Green Energy in Boston",
 
@@ -28,10 +43,10 @@
     "readme": "",
     "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
     "openNewTab": false,
-    "dev": "frontend"
+    "dev": ["frontend"]
   },
   {
-    "id": "3",
+    "id": "4",
     "title": "Mini Market",
     "subtitle": "Your Online Grocery Store",
     "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development. Recently enhanced with the GlobalLink GO script for website translation, it provides a multilingual shopping experience while also serving as a platform for QA automation testing at TransPerfect.",
@@ -43,10 +58,10 @@
     "readme": "",
     "github": "https://github.com/thiagobardini/mini-market-tbardini",
     "openNewTab": false,
-    "dev": "fullstack"
+    "dev": ["fullstack"]
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "LottoNest",
     "subtitle": "Lottery Number Verifier",
     "description": "🎰 LottoNest serves as a demonstration of using Firebase Firestore Database and Firebase Authentication with React JS and the react-webcam library. Quickly verify Mega Millions numbers via camera or manual input. The project features a seamless UI with detailed ticket views, aiming to make lottery checks fast and enjoyable.",
@@ -58,21 +73,6 @@
     "readme": "",
     "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Pages/lottonest",
     "openNewTab": false,
-    "dev": "fullstack"
-  },
-  {
-    "id": "5",
-    "title": "Playwright Testing: Mini Market",
-    "subtitle": "Playwright Demo: E-commerce Automation (In Progress)",
-    "description": "⚙️ Delve into the Mini Market's advanced e-commerce capabilities through Playwright's automated testing suite. This demo highlights Playwright's seamless integration for end-to-end testing, featuring cross-browser compatibility checks, mobile responsiveness assessments, and automated snapshot capturing for a comprehensive quality assurance process. Experience a meticulously tested application, demonstrating the effectiveness of Playwright in modern web development.",
-    "logo": "/images/mini-market-logo.png",
-    "img": "/images/playwright-automation-tests.gif",
-    "techs": ["Playwright", "Next JS", "ReactJS", "TypeScript", "Node JS", "MongoDB"],
-    "live": "https://mini-market-tbardini.vercel.app/",
-    "localUrl": "https://github.com/thiagobardini/mini-market-tbardini/tree/main/playwright",
-    "readme": "",
-    "github": "https://github.com/thiagobardini/mini-market-tbardini/tree/main/playwright",
-    "openNewTab": false,
-    "dev": "automation"
+    "dev": ["fullstack"]
   }
 ]

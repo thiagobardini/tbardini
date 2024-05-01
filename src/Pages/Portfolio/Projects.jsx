@@ -72,14 +72,16 @@ const Projects = () => {
 
   if (Array.isArray(projectsCards)) {
     projectsCards.forEach((project) => {
-      const keyword = project.dev;
-      if (keyword === "frontend") {
+      if (project.dev.includes("frontend")) {
         devCounts.frontend++;
-      } else if (keyword === "backend") {
+      }
+      if (project.dev.includes("backend")) {
         devCounts.backend++;
-      } else if (keyword === "fullstack") {
+      }
+      if (project.dev.includes("fullstack")) {
         devCounts.fullstack++;
-      } else if (keyword === "automation") {
+      }
+      if (project.dev.includes("automation")) {
         devCounts.automation++;
       }
     });

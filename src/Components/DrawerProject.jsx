@@ -25,6 +25,7 @@ import nextjs from "../Assets/icons/icons8-next.js-30.png";
 import typescript from "../Assets/icons/icons8-typescript-30.png";
 import mongodb from "../Assets/icons/icons8-mongodb-30.png";
 import prisma from "../Assets/icons/icons8-prisma-orm-30.png";
+import ae from "../Assets/icons/icons8-after-effects-30.png";
 import mantine from "../Assets/icons/mantine-ui-30.png";
 
 const techIcons = {
@@ -47,6 +48,7 @@ const techIcons = {
   typescript: typescript,
   mongodb: mongodb,
   prisma: prisma,
+  "after-effects": ae,
   "mantine-ui": mantine,
 };
 

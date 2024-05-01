@@ -6,7 +6,7 @@
     "description": "💼 My portfolio serves as a comprehensive display of my skills and projects, documenting my learning journey through various initiatives. In addition to showcasing the technologies I've worked with, it features a modern design aesthetic, aiming to create a visually engaging user experience.",
     "logo": "/images/myPortfolio.gif",
     "img": "/images/myPortfolio.gif",
-    "techs": ["ReactJS", "Redux Toolkit", "Material-UI", "JavaScript", "React Three JS", "Gemini-AI", "Express JS", "Node JS"],
+    "techs": ["ReactJS", "Redux Toolkit", "Material-UI", "JavaScript", "React Three JS", "after-effects"],
     "live": "https://tbardini.com/",
     "localUrl": "/",
     "readme": "",
@@ -21,7 +21,7 @@
     "description": "⚙️ As a demonstration of cutting-edge testing technologies, 'Demo Report' utilizes Playwright, Next.js, Prisma, and TypeScript to offer robust and flexible testing solutions. This project underscores the integration of automated testing scripts with MongoDB for dynamic data handling and customized report generation, highlighting innovations in software quality assurance.",
     "logo": "/images/mini-market-logo.png",
     "img": "/images/playwright-automation-tests.gif",
-    "techs": ["Playwright", "Next JS", "ReactJS", "TypeScript", "Node JS", "MongoDB", "Prisma"],
+    "techs": ["Playwright", "Next JS", "ReactJS", "TypeScript", "Node JS", "MongoDB", "Prisma", "mantine-ui"],
     "live": "https://playwright-test-report-thiagobardini-thiagobardinis-projects.vercel.app/",
     "localUrl": "",
     "readme": "",
@@ -47,6 +47,21 @@
   },
   {
     "id": "4",
+    "title": "Gemini AI Chatbot",
+    "subtitle": "Specialized Predictive Support for Professional Endeavors",
+    "description": "🤖 The Gemini AI Chatbot is a cutting-edge tool designed to provide specialized support for inquiries related to Thiago Bardini's professional career. Engineered with Gemini AI, this chatbot analyzes queries to deliver precise and relevant information efficiently. If a query is outside the scope of provided data, the chatbot is programmed not just to refer back to guidelines but to guide users towards obtaining the necessary assistance.",
+    "logo": "/images/mini-market-logo.png",
+    "img": "/images/chatbox.gif",
+    "techs": ["Gemini-AI", "Express JS", "Node JS", "ReactJS", "Material-UI", "JavaScript"],
+    "live": "https://www.tbardini.com/",
+    "localUrl": "",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/tbardini/tree/main/src/Components/ChatBox",
+    "openNewTab": false,
+    "dev": ["fullstack"]
+  },
+  {
+    "id": "5",
     "title": "Mini Market",
     "subtitle": "Your Online Grocery Store",
     "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development. Recently enhanced with the GlobalLink GO script for website translation, it provides a multilingual shopping experience while also serving as a platform for QA automation testing at TransPerfect.",
@@ -61,7 +76,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "5",
+    "id": "6",
     "title": "LottoNest",
     "subtitle": "Lottery Number Verifier",
     "description": "🎰 LottoNest serves as a demonstration of using Firebase Firestore Database and Firebase Authentication with React JS and the react-webcam library. Quickly verify Mega Millions numbers via camera or manual input. The project features a seamless UI with detailed ticket views, aiming to make lottery checks fast and enjoyable.",

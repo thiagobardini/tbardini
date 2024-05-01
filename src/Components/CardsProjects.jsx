@@ -21,6 +21,8 @@ import nextjs from "../Assets/icons/icons8-next.js-30.png";
 import typescript from "../Assets/icons/icons8-typescript-30.png";
 import mongodb from "../Assets/icons/icons8-mongodb-30.png";
 import prisma from "../Assets/icons/icons8-prisma-orm-30.png";
+import ae from "../Assets/icons/icons8-after-effects-30.png";
+import mantine from "../Assets/icons/mantine-ui-30.png";
 
 const techIcons = {
   reactjs: react,
@@ -34,7 +36,7 @@ const techIcons = {
   firebase: firebase,
   "express js": expressjs,
   "node js": nodejs,
-  "stripe": stripe,
+  stripe: stripe,
   sass: sass,
   "globallink go": globalLinkGO,
   playwright: playwright,
@@ -42,6 +44,8 @@ const techIcons = {
   typescript: typescript,
   mongodb: mongodb,
   prisma: prisma,
+  "after-effects": ae,
+  "mantine-ui": mantine,
 };
 
 const CardsProjects = ({ id, title, description, subtitle, img, techs, height }) => {
@@ -120,7 +124,7 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
             }}
           >
             {techs.map((tech, index) => {
-              const techKey = tech.toLowerCase()
+              const techKey = tech.toLowerCase();
               const TechIcon = techIcons[techKey];
 
               return TechIcon ? (

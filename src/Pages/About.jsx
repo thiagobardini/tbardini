@@ -1,37 +1,18 @@
-import React, { useState, useEffect } from "react"
-import { useSelector } from "react-redux"
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Divider,
-  Avatar,
-  Paper,
-  List,
-  ListItem,
-  ListItemIcon,
-  Grid,
-  CssBaseline,
-} from "@mui/material"
-import {
-  Timeline,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-} from "@mui/lab"
-import TimelineItem, { timelineItemClasses } from "@mui/lab/TimelineItem"
-import DownloadIcon from "@mui/icons-material/Download"
-import LocationOnIcon from "@mui/icons-material/LocationOn"
-import FlagIcon from "@mui/icons-material/Flag"
-import myself from "../Assets/images/aboutme.jpg"
-import { TypeAnimation } from "react-type-animation"
-import HeadingTop from "../Components/Typography/HeadingTop"
-import LanguageIcon from "@mui/icons-material/Language"
-import { keyframes } from "@emotion/react"
-import ButtonFab from "../Components/ButtonFab"
-import ScrollTrigger from "react-scroll-trigger"
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Box, Container, Typography, Button, Divider, Avatar, Paper, List, ListItem, ListItemIcon, Grid, CssBaseline } from "@mui/material";
+import { Timeline, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from "@mui/lab";
+import TimelineItem, { timelineItemClasses } from "@mui/lab/TimelineItem";
+import DownloadIcon from "@mui/icons-material/Download";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import FlagIcon from "@mui/icons-material/Flag";
+import myself from "../Assets/images/aboutme.jpg";
+import { TypeAnimation } from "react-type-animation";
+import HeadingTop from "../Components/Typography/HeadingTop";
+import LanguageIcon from "@mui/icons-material/Language";
+import { keyframes } from "@emotion/react";
+import ButtonFab from "../Components/ButtonFab";
+import ScrollTrigger from "react-scroll-trigger";
 
 const fadeIn = keyframes`
 from {
@@ -40,34 +21,26 @@ from {
 to {
   opacity: 1;
 }
-`
+`;
 
 const AboutMe = () => {
-  const [key, setKey] = useState(0)
+  const [key, setKey] = useState(0);
 
-  const darkMode = useSelector(state => state.theme.darkMode)
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   // ScrollTrigger keep the animation from running after change the theme
   useEffect(() => {
-    setKey(prevKey => prevKey + 1)
-  }, [darkMode])
+    setKey((prevKey) => prevKey + 1);
+  }, [darkMode]);
 
-  const onEnterViewport = animationClass => {
-    const element = document.getElementById(animationClass)
+  const onEnterViewport = (animationClass) => {
+    const element = document.getElementById(animationClass);
     if (element) {
-      element.classList.add(animationClass)
+      element.classList.add(animationClass);
     }
-  }
+  };
 
-  const textTitle = (
-    <TypeAnimation
-      sequence={["About me"]}
-      wrapper='span'
-      speed={50}
-      repeat={1}
-      cursor={false}
-    />
-  )
+  const textTitle = <TypeAnimation sequence={["About me"]} wrapper='span' speed={50} repeat={1} cursor={false} />;
 
   return (
     <Box
@@ -91,26 +64,11 @@ const AboutMe = () => {
             px: 2,
             borderRadius: 3,
             backdropFilter: darkMode ? "blur(2px)" : "blur(1px)",
-            backgroundColor: darkMode
-              ? "transparent !important"
-              : "rgba(238, 238, 238, 0.7) !important",
+            backgroundColor: darkMode ? "transparent !important" : "rgba(238, 238, 238, 0.7) !important",
           }}
         >
-          <Grid
-            container
-            spacing={3}
-            direction={{ xs: "column", sm: "row" }}
-            sx={{ animation: `${fadeIn} 2s` }}
-          >
-            <Grid
-              item
-              xs={12}
-              sm={2}
-              direction='row'
-              alignItems='center'
-              justifyContent={{ xs: "center", md: "flex-start" }}
-              sx={{ width: "100%", display: "flex" }}
-            >
+          <Grid container spacing={3} direction={{ xs: "column", sm: "row" }} sx={{ animation: `${fadeIn} 2s` }}>
+            <Grid item xs={12} sm={2} direction='row' alignItems='center' justifyContent={{ xs: "center", md: "flex-start" }} sx={{ width: "100%", display: "flex" }}>
               <Avatar
                 alt='Thiago Bardini'
                 src={myself}
@@ -128,7 +86,7 @@ const AboutMe = () => {
                     mb: 1,
                     fontFamily: "GothamSSm-Bold",
                     textTransform: "uppercase",
-                    color: theme => theme.palette.text.primary,
+                    color: (theme) => theme.palette.text.primary,
                   }}
                 >
                   Thiago Bardini
@@ -147,22 +105,20 @@ const AboutMe = () => {
                 >
                   <ListItem disableGutters>
                     <ListItemIcon sx={{ minWidth: "40px" }}>
-                      <Typography
-                        sx={{ color: theme => theme.palette.text.secondary }}
-                      >
+                      <Typography sx={{ color: (theme) => theme.palette.text.secondary }}>
                         <LocationOnIcon />
                       </Typography>
                     </ListItemIcon>
                     <Typography
                       variant='body1'
                       sx={{
-                        color: theme => theme.palette.text.primary,
+                        color: (theme) => theme.palette.text.primary,
                       }}
                     >
                       <Typography
                         variant='span'
                         sx={{
-                          color: theme => theme.palette.text.secondary,
+                          color: (theme) => theme.palette.text.secondary,
                           fontFamily: "GothamSSm-Light",
                         }}
                       >
@@ -173,22 +129,20 @@ const AboutMe = () => {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemIcon sx={{ minWidth: "40px" }}>
-                      <Typography
-                        sx={{ color: theme => theme.palette.text.secondary }}
-                      >
+                      <Typography sx={{ color: (theme) => theme.palette.text.secondary }}>
                         <FlagIcon />
                       </Typography>
                     </ListItemIcon>
                     <Typography
                       variant='body1'
                       sx={{
-                        color: theme => theme.palette.text.primary,
+                        color: (theme) => theme.palette.text.primary,
                       }}
                     >
                       <Typography
                         variant='span'
                         sx={{
-                          color: theme => theme.palette.text.secondary,
+                          color: (theme) => theme.palette.text.secondary,
                           fontFamily: "GothamSSm-Light",
                         }}
                       >
@@ -199,22 +153,20 @@ const AboutMe = () => {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemIcon sx={{ minWidth: "40px" }}>
-                      <Typography
-                        sx={{ color: theme => theme.palette.text.secondary }}
-                      >
+                      <Typography sx={{ color: (theme) => theme.palette.text.secondary }}>
                         <LanguageIcon />
                       </Typography>
                     </ListItemIcon>
                     <Typography
                       variant='body1'
                       sx={{
-                        color: theme => theme.palette.text.primary,
+                        color: (theme) => theme.palette.text.primary,
                       }}
                     >
                       <Typography
                         variant='span'
                         sx={{
-                          color: theme => theme.palette.text.secondary,
+                          color: (theme) => theme.palette.text.secondary,
                           fontFamily: "GothamSSm-Light",
                         }}
                       >
@@ -227,9 +179,7 @@ const AboutMe = () => {
               </ScrollTrigger>
             </Grid>
           </Grid>
-          <Divider
-            sx={{ width: { xs: "100%", md: "70%" }, my: 3, mx: "auto" }}
-          />
+          <Divider sx={{ width: { xs: "100%", md: "70%" }, my: 3, mx: "auto" }} />
           <Box
             Box
             sx={{
@@ -261,20 +211,17 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pt: 0, pr: 0, pl: 2 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-1")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-1")}>
                     <Typography
                       id='fade-slide-down-1'
                       variant='h6'
                       component='span'
                       sx={{
-                        color: theme => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.secondary,
                         fontFamily: "GothamSSm-Light",
                         opacity: 0,
                         transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-down-1": {
                           opacity: 1,
                           transform: "translateY(0)",
@@ -285,16 +232,13 @@ const AboutMe = () => {
                       Expertise
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-1")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-1")}>
                     <Typography
                       id='fade-slide-up-1'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-up-1": {
                           opacity: 1,
                           transform: "translateY(0)",
@@ -313,20 +257,17 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-2")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-2")}>
                     <Typography
                       id='fade-slide-down-2'
                       variant='h6'
                       component='span'
                       sx={{
-                        color: theme => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.secondary,
                         fontFamily: "GothamSSm-Light",
                         opacity: 0,
                         transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-down-2": {
                           opacity: 1,
                           transform: "translateY(0)",
@@ -337,25 +278,20 @@ const AboutMe = () => {
                       Main Technologies
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-2")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-2")}>
                     <Box
                       id='fade-slide-up-2'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-up-2": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>
-                        • Expertise in JavaScript, TypeScript, React, modern CSS libraries, and Playwright for advanced UI QA testing.
-                      </Typography>
+                      <Typography sx={{ pb: 1 }}>• Expertise in JavaScript, TypeScript, React, modern CSS libraries, and Playwright for advanced UI QA testing.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -367,79 +303,17 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-3")}
-                  >
-                    <Typography
-                      id='fade-slide-down-3'
-                      variant='h6'
-                      component='span'
-                      sx={{
-                        color: theme => theme.palette.text.secondary,
-                        fontFamily: "GothamSSm-Light",
-                        opacity: 0,
-                        transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-3": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                          fontFamily: "GothamSSm-Light",
-                        },
-                      }}
-                    >
-                      Current Role at TransPerfect
-                    </Typography>
-                  </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-3")}
-                  >
-                    <Box
-                      id='fade-slide-up-3'
-                      sx={{
-                        pl: 2,
-                        transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-3": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                        },
-                      }}
-                    >
-                      <Typography sx={{ pb: 1 }}>
-                        • Lead rigorous end-to-end UI QA testing to ensure the
-                        highest quality of product
-                      </Typography>
-                      <Typography>
-                        • Dedicated to improving user interface design and
-                        functionality.
-                      </Typography>
-                    </Box>
-                  </ScrollTrigger>
-                </TimelineContent>
-              </TimelineItem>
-
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant='outlined' />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-4")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-4")}>
                     <Typography
                       id='fade-slide-down-4'
                       variant='h6'
                       component='span'
                       sx={{
-                        color: theme => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.secondary,
                         fontFamily: "GothamSSm-Light",
                         opacity: 0,
                         transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-down-4": {
                           opacity: 1,
                           transform: "translateY(0)",
@@ -450,30 +324,21 @@ const AboutMe = () => {
                       Current Role at Code for Boston
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-4")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-4")}>
                     <Box
                       id='fade-slide-up-4'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-up-4": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>
-                        • Actively involved as a Frontend Developer,
-                        contributing to impactful civic tech projects.
-                      </Typography>
-                      <Typography>
-                        • Create accessible, user-friendly web applications
-                        designed for maximum impact.
-                      </Typography>
+                      <Typography sx={{ pb: 1 }}>• Actively involved as a Frontend Developer, contributing to impactful civic tech projects.</Typography>
+                      <Typography>• Create accessible, user-friendly web applications designed for maximum impact.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -485,20 +350,65 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-6")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-3")}>
+                    <Typography
+                      id='fade-slide-down-3'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: (theme) => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-3": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Recent Role at TransPerfect
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-3")}>
+                    <Box
+                      id='fade-slide-up-3'
+                      sx={{
+                        pl: 2,
+                        transform: "translateY(20px)",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-3": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>• Led rigorous end-to-end UI QA testing to ensure the highest quality of product.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Contributed to frontend development using React, JavaScript, and TypeScript.</Typography>
+                      <Typography>• Implemented and maintained RESTful APIs and developed backend functionalities with Node.js.</Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-6")}>
                     <Typography
                       id='fade-slide-down-6'
                       variant='h6'
                       component='span'
                       sx={{
-                        color: theme => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.secondary,
                         fontFamily: "GothamSSm-Light",
                         opacity: 0,
                         transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-down-6": {
                           opacity: 1,
                           transform: "translateY(0)",
@@ -509,32 +419,21 @@ const AboutMe = () => {
                       Career Objective
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-6")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-6")}>
                     <Box
                       id='fade-slide-up-6'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-up-6": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>
-                        • To grow in Software Development and testing in an
-                        environment that values and nurtures integrity,
-                        intelligence, and innovation.
-                      </Typography>
-                      <Typography>
-                        • Committed to personal and professional growth, aiming
-                        to contribute to pioneering projects and creative
-                        technological solutions.
-                      </Typography>
+                      <Typography sx={{ pb: 1 }}>• To grow in Software Development and testing in an environment that values and nurtures integrity, intelligence, and innovation.</Typography>
+                      <Typography>• Committed to personal and professional growth, aiming to contribute to pioneering projects and creative technological solutions.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -546,20 +445,17 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-5")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-5")}>
                     <Typography
                       id='fade-slide-down-5'
                       variant='h6'
                       component='span'
                       sx={{
-                        color: theme => theme.palette.text.secondary,
+                        color: (theme) => theme.palette.text.secondary,
                         fontFamily: "GothamSSm-Light",
                         opacity: 0,
                         transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-down-5": {
                           opacity: 1,
                           transform: "translateY(0)",
@@ -570,31 +466,21 @@ const AboutMe = () => {
                       What Do I Do?
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-5")}
-                  >
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-5")}>
                     <Box
                       id='fade-slide-up-5'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                         "&.fade-slide-up-5": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>
-                        • Develop cutting-edge, responsive websites with a keen
-                        eye for creative design and usability.
-                      </Typography>
-                      <Typography>
-                        • Specialize in fine-tuning user interfaces and user
-                        experiences, underscored by a solid foundation in
-                        comprehensive UI QA testing.
-                      </Typography>
+                      <Typography sx={{ pb: 1 }}>• Develop cutting-edge, responsive websites with a keen eye for creative design and usability.</Typography>
+                      <Typography>• Specialize in fine-tuning user interfaces and user experiences, underscored by a solid foundation in comprehensive UI QA testing.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -628,15 +514,11 @@ const AboutMe = () => {
             my: 3,
           }}
         >
-          <ButtonFab
-            to='/projects'
-            label="Let's continue to projects"
-            onClick={() => window.scrollTo(0, 0)}
-          />
+          <ButtonFab to='/projects' label="Let's continue to projects" onClick={() => window.scrollTo(0, 0)} />
         </Box>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;

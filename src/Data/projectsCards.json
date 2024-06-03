@@ -31,6 +31,21 @@
   },
   {
     "id": "3",
+    "title": "GeoDev",
+    "subtitle": "Designing Digital Tools for Urban Planning and Public Policy",
+    "description": "🌍 GeoDev is a cutting-edge project showcasing the integration of Mapbox and D3.js with Next.js and TypeScript. It allows users to interact with geospatial data, visualize routes, and toggle various map layers for enhanced urban planning and policy analysis.",
+    "logo": "/images/geoDevLogo.png",
+    "img": "/images/geodev.gif",
+    "techs": ["ReactJS", "Next JS", "Mapbox", "D3js", "TypeScript", "Prisma", "postgresql"],
+    "live": "https://geodev-demo.vercel.app/",
+    "localUrl": "",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/geodev-demo",
+    "openNewTab": false,
+    "dev": ["fullstack"]
+  },
+  {
+    "id": "4",
     "title": "Boston Heat Pump Accelerator",
     "subtitle": "Green Energy in Boston",
 
@@ -46,7 +61,7 @@
     "dev": ["frontend"]
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "Gemini AI Chatbot",
     "subtitle": "Specialized Predictive Support for Professional Endeavors",
     "description": "🤖 The Gemini AI Chatbot is a cutting-edge tool designed to provide specialized support for inquiries related to Thiago Bardini's professional career. Engineered with Gemini AI, this chatbot analyzes queries to deliver precise and relevant information efficiently. If a query is outside the scope of provided data, the chatbot is programmed not just to refer back to guidelines but to guide users towards obtaining the necessary assistance.",
@@ -61,7 +76,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "5",
+    "id": "6",
     "title": "Mini Market",
     "subtitle": "Your Online Grocery Store",
     "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development. Recently enhanced with the GlobalLink GO script for website translation, it provides a multilingual shopping experience while also serving as a platform for QA automation testing at TransPerfect.",
@@ -76,7 +91,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "6",
+    "id": "7",
     "title": "LottoNest",
     "subtitle": "Lottery Number Verifier",
     "description": "🎰 LottoNest serves as a demonstration of using Firebase Firestore Database and Firebase Authentication with React JS and the react-webcam library. Quickly verify Mega Millions numbers via camera or manual input. The project features a seamless UI with detailed ticket views, aiming to make lottery checks fast and enjoyable.",

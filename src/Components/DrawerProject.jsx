@@ -27,6 +27,9 @@ import mongodb from "../Assets/icons/icons8-mongodb-30.png";
 import prisma from "../Assets/icons/icons8-prisma-orm-30.png";
 import ae from "../Assets/icons/icons8-after-effects-30.png";
 import mantine from "../Assets/icons/mantine-ui-30.png";
+import postgreSQL from "../Assets/icons/postgresql-30.png";
+import d3js from "../Assets/icons/icons8-d3js.png";
+import mapbox from "../Assets/icons/mapbox.svg?url";
 
 const techIcons = {
   reactjs: react,
@@ -50,6 +53,9 @@ const techIcons = {
   prisma: prisma,
   "after-effects": ae,
   "mantine-ui": mantine,
+  postgresql: postgreSQL,
+  d3js: d3js,
+  mapbox: mapbox,
 };
 
 export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, techs, live, readme, github, openNewTab, logo, index, localUrl, id }) {
@@ -149,27 +155,29 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
               rowGap: "8px",
             }}
           >
-            {techs.map((tech, index) => {
-              const techKey = tech.toLowerCase();
-              const TechIcon = techIcons[techKey];
+            {techs
+              .sort((a, b) => a.localeCompare(b))
+              .map((tech, index) => {
+                const techKey = tech.toLowerCase();
+                const TechIcon = techIcons[techKey];
 
-              return TechIcon ? (
-                <Tooltip key={index} title={tech}>
-                  <img src={TechIcon} alt={tech} style={{ height: "30px", width: "auto" }} />
-                </Tooltip>
-              ) : (
-                <Chip
-                  key={index}
-                  label={tech}
-                  size='small'
-                  color='secondary'
-                  sx={{
-                    textTransform: "capitalize",
-                    fontFamily: "GothamSSm-Light",
-                  }}
-                />
-              );
-            })}
+                return TechIcon ? (
+                  <Tooltip key={index} title={tech}>
+                    <img src={TechIcon} alt={tech} style={{ height: "30px", width: "auto" }} />
+                  </Tooltip>
+                ) : (
+                  <Chip
+                    key={index}
+                    label={tech}
+                    size='small'
+                    color='secondary'
+                    sx={{
+                      textTransform: "capitalize",
+                      fontFamily: "GothamSSm-Light",
+                    }}
+                  />
+                );
+              })}
           </Stack>
           <Typography
             variant='h6'

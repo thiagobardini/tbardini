@@ -1,6 +1,5 @@
 import React from "react";
-import Lottie from "lottie-react";
-import { Card, CardActions, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip } from "@mui/material";
+import { Card, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip } from "@mui/material";
 import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
 // import javascript from "../Assets/icons/icons8-javascript.json";
 import javascript from "../Assets/icons/icons8-javascript-30.png";
@@ -23,6 +22,9 @@ import mongodb from "../Assets/icons/icons8-mongodb-30.png";
 import prisma from "../Assets/icons/icons8-prisma-orm-30.png";
 import ae from "../Assets/icons/icons8-after-effects-30.png";
 import mantine from "../Assets/icons/mantine-ui-30.png";
+import postgreSQL from "../Assets/icons/postgresql-30.png";
+import d3js from "../Assets/icons/icons8-d3js.png";
+import mapbox from "../Assets/icons/mapbox.svg?url";
 
 const techIcons = {
   reactjs: react,
@@ -46,6 +48,9 @@ const techIcons = {
   prisma: prisma,
   "after-effects": ae,
   "mantine-ui": mantine,
+  postgresql: postgreSQL,
+  d3js: d3js,
+  mapbox: mapbox,
 };
 
 const CardsProjects = ({ id, title, description, subtitle, img, techs, height }) => {
@@ -123,7 +128,9 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
               rowGap: "8px",
             }}
           >
-            {techs.map((tech, index) => {
+            {techs
+            .sort((a, b) => a.localeCompare(b))
+            .map((tech, index) => {
               const techKey = tech.toLowerCase();
               const TechIcon = techIcons[techKey];
 

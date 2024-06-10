@@ -127,17 +127,19 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
           <Typography variant='body2' color='text.primary' mb={2} component='div'>
             {subtitle}
           </Typography>
-          <Box
-            component='img'
-            alt='title'
-            src={img}
-            sx={{
-              height: "300px",
-              width: "100%",
-              objectFit: "cover",
-              borderRadius: "11px",
-            }}
-          />
+          <Link color='text.primary' href={live} target='_blank' rel='noopener noreferrer'>
+            <Box
+              component='img'
+              alt='title'
+              src={img}
+              sx={{
+                height: "300px",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "11px",
+              }}
+            />
+          </Link>
           <Typography variant='h6' color='text.primary' gutterBottom mt={2} component='div' sx={{ fontFamily: "GothamSSm-Light" }}>
             About
           </Typography>

@@ -41,8 +41,8 @@ const ChatBox = () => {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.up("md"));
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"; // API URL
-  // const API_URL = import.meta.env.VITE_VERCEL_API_URL || "http://localhost:3000"; // API URL
+  // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"; // API URL
+  const API_URL = "http://localhost:3000"; // API URL
 
   useEffect(() => {
     if (error) {

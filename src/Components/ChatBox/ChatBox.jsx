@@ -11,6 +11,7 @@ import emailDisabledDark from "/email-disabled-dark.svg?url";
 import CloseIcon from "@mui/icons-material/Close";
 import Lottie from "lottie-react";
 import Chatting from "./animation/Chatting-white.json";
+import { track } from "@vercel/analytics";
 
 const ChatDiv = styled(Box)({
   "::-webkit-scrollbar": {
@@ -81,8 +82,10 @@ const ChatBox = () => {
     setOpen((prevOpen) => !prevOpen);
     if (!open) {
       setAnchorEl(buttonRef.current);
+      track('Chat Button Clicked', { location: 'bottom-right' }); // Track chat button click
     }
   };
+  
   const handleTextFieldFocus = () => {
     if (drawerRef.current) {
       drawerRef.current.focus();
@@ -137,6 +140,7 @@ const ChatBox = () => {
         setChatHistory((oldChatHistory) => [...oldChatHistory, { role: "AI", parts: data }]);
       }
 
+      track('Message Sent', { message: msg }); // Track message sent
       setMsg("");
     } catch (error) {
       setError(

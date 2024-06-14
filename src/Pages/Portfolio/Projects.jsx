@@ -10,6 +10,7 @@ import ButtonFab from "../../Components/ButtonFab";
 import CardsProjects from "../../Components/CardsProjects";
 import DrawerProject from "../../Components/DrawerProject";
 import Masonry from "react-masonry-css";
+import { track } from "@vercel/analytics";
 
 const fadeIn = keyframes`
 from {
@@ -60,6 +61,7 @@ const Projects = () => {
 
   const handleCardClick = (cardId) => {
     dispatch(openDrawer(cardId));
+    track('Project Clicked', { project: cardId }); // Track the project clicked 
   };
 
   // Calculate the counts of each dev type

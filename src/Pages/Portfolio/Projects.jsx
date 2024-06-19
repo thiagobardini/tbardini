@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { openDrawer, closeDrawer } from "../../redux/drawerSlice";
 import { Box, Container, CssBaseline, Grid, Typography, Paper, Link, Breadcrumbs, Badge } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
@@ -30,6 +31,21 @@ const Projects = () => {
   const isDrawerOpen = useSelector((state) => state.drawerProject.isOpen);
   const openedCardId = useSelector((state) => state.drawerProject.openedCardId);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const projectTitle = queryParams.get('project');
+
+    if (projectTitle) {
+      const project = projectsCards.find(card => card.title === projectTitle);
+      if (project) {
+        dispatch(openDrawer(project.id));
+      }
+    }
+  }, [location.search, dispatch]);
+
   const heights = [500, 370, 370, 500, 370];
 
   const cardsToShow = projectsCards.filter((card) => {
@@ -50,18 +66,15 @@ const Projects = () => {
 
   const textTitle = <TypeAnimation sequence={["Projects"]} wrapper='span' speed={50} repeat={1} cursor={false} />;
 
-  const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-  `;
-
-  const handleCardClick = (cardId) => {
+  const handleCardClick = (cardId, cardTitle) => {
     dispatch(openDrawer(cardId));
     track('Project Clicked', { project: cardId }); // Track the project clicked 
+    navigate(`?project=${encodeURIComponent(cardTitle)}`);
+  };
+
+  const handleCloseDrawer = () => {
+    dispatch(closeDrawer());
+    navigate(location.pathname);
   };
 
   // Calculate the counts of each dev type
@@ -106,8 +119,6 @@ const Projects = () => {
 
   const getStyles = (selectedKeyword, keyword) => ({
     cursor: "pointer",
-    // color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
-    // color: selectedKeyword === keyword ? "#0092ca" : "text.secondary",
     "& .MuiBadge-badge": {
       color: selectedKeyword === keyword ? "text.primary" : "text.secondary",
       fontFamily: selectedKeyword === keyword ? "GothamSSm-Bold" : "GothamSSm-Light",
@@ -221,7 +232,7 @@ const Projects = () => {
                     return selectedKeyword === "show all" || card.dev.includes(selectedKeyword);
                   })
                   .map((card, index) => (
-                    <Link key={card.id} underline='none' onClick={() => handleCardClick(card.id)}>
+                    <Link key={card.id} underline='none' onClick={() => handleCardClick(card.id, card.title)}>
                       <Box sx={{ animation: `${fadeIn} 2s`, mb: "12px" }} key={index}>
                         <CardsProjects
                           id={card.id}
@@ -258,8 +269,9 @@ const Projects = () => {
       </Container>
       {projectsCards.map((card, index) => (
         <DrawerProject
+          key={index}
           open={isDrawerOpen && card.id === openedCardId}
-          onClose={() => dispatch(closeDrawer())}
+          onClose={handleCloseDrawer} 
           title={card.title}
           subtitle={card.subtitle}
           description={card.description}

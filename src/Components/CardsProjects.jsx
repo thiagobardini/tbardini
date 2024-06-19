@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip } from "@mui/material";
 import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
-// import javascript from "../Assets/icons/icons8-javascript.json";
+import { useNavigate } from "react-router-dom";
 import javascript from "../Assets/icons/icons8-javascript-30.png";
 import react from "../Assets/icons/icons8-react-30.png";
 import materialui from "../Assets/icons/materialui-original.svg?url";
@@ -54,8 +54,14 @@ const techIcons = {
 };
 
 const CardsProjects = ({ id, title, description, subtitle, img, techs, height }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`?project=${encodeURIComponent(title)}`); 
+  };
+
   return (
-    <Box key={id}>
+    <Box key={id} onClick={handleClick}>
       <Card
         sx={{
           height: "100%",

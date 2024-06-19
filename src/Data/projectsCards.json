@@ -69,7 +69,7 @@
     "img": "/images/chatbox.gif",
     "techs": ["Gemini-AI", "Express JS", "Node JS", "ReactJS", "Material-UI", "JavaScript", "MongoDB"],
     "live": "https://www.tbardini.com/",
-    "localUrl": "https://www.tbardini.com/chatbox",
+    "localUrl": "https://www.tbardini.com",
     "readme": "https://github.com/thiagobardini/tbardini/tree/main/src/Components/ChatBox",
     "github": "https://github.com/thiagobardini/api-chat-server",
     "openNewTab": true,

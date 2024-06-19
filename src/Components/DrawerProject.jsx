@@ -1,6 +1,7 @@
 import React from "react";
 import { Drawer, Paper, Link, Stack, Divider, Typography, Box, Chip, Tooltip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { closeDrawer } from "../redux/drawerSlice";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -61,10 +62,12 @@ const techIcons = {
 export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, techs, live, readme, github, openNewTab, logo, index, localUrl, id }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleDrawerClose = () => {
     dispatch(closeDrawer());
-  };
+    navigate(location.pathname);
+  }
 
   return (
     <Drawer

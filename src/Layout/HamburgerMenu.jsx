@@ -6,7 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import { useSelector } from "react-redux";
-import LogoAnimation from "../Components/LogoAnimation";
+import tBardiniLogo from "../Assets/images/logoNav.png";
 
 const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();
@@ -80,7 +80,7 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
               py: 3,
             }}
           >
-            <LogoAnimation height={"150px"} pathname={location.pathname} />
+            <Box component='img' alt='logo' src={tBardiniLogo} sx={{ height: "150px" }} />
           </Box>
         </Box>
         <List>

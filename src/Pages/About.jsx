@@ -33,6 +33,17 @@ const AboutMe = () => {
     setKey((prevKey) => prevKey + 1);
   }, [darkMode]);
 
+  const boldTextStyles = {
+    fontFamily: "GothamSSm-Bold",
+    color: darkMode ? "#eeeeee" : "#222831",
+    textShadow: darkMode
+    ? "none"
+    : {
+        xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
+        md: "none",
+      },
+  }
+
   const onEnterViewport = (animationClass) => {
     const element = document.getElementById(animationClass);
     if (element) {
@@ -124,7 +135,9 @@ const AboutMe = () => {
                       >
                         Location:
                       </Typography>{" "}
+                      <span style={boldTextStyles}>
                       Greater Boston, MA
+                      </span>
                     </Typography>
                   </ListItem>
                   <ListItem disableGutters>
@@ -148,7 +161,9 @@ const AboutMe = () => {
                       >
                         Nationalities:
                       </Typography>{" "}
+                      <span style={boldTextStyles}>
                       American, Brazilian
+                      </span>
                     </Typography>
                   </ListItem>
                   <ListItem disableGutters>
@@ -172,7 +187,9 @@ const AboutMe = () => {
                       >
                         Languages:
                       </Typography>{" "}
+                      <span style={boldTextStyles}>
                       English, Portuguese
+                      </span>
                     </Typography>
                   </ListItem>
                 </List>
@@ -245,7 +262,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      • Software Engineer with a focus on frontend development and expertise in end-to-end UI QA testing.
+                      • Software Engineer with a focus on <span style={boldTextStyles}>frontend development</span> and expertise in <span style={boldTextStyles}>end-to-end UI QA testing</span>.
                     </Typography>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -291,7 +308,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Expertise in JavaScript, TypeScript, React, modern CSS libraries, and Playwright for advanced UI QA testing.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Expertise in <span style={boldTextStyles}>JavaScript, TypeScript, React, modern CSS libraries,</span> and <span style={boldTextStyles}>Playwright</span> for advanced <span style={boldTextStyles}>UI QA testing</span>.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -337,8 +354,8 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Actively involved as a Frontend Developer, contributing to impactful civic tech projects.</Typography>
-                      <Typography>• Create accessible, user-friendly web applications designed for maximum impact.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Actively involved as a <span style={boldTextStyles}>Frontend Developer</span>, contributing to impactful <span style={boldTextStyles}>civic tech projects</span>.</Typography>
+                      <Typography>• Create <span style={boldTextStyles}>accessible, user-friendly web applications</span> designed for maximum impact.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -384,9 +401,9 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Led rigorous end-to-end UI QA testing to ensure the highest quality of product.</Typography>
-                      <Typography sx={{ pb: 1 }}>• Contributed to frontend development using React, JavaScript, and TypeScript.</Typography>
-                      <Typography>• Implemented and maintained RESTful APIs and developed backend functionalities with Node.js.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Led rigorous <span style={boldTextStyles}>end-to-end UI QA testing</span> to ensure the highest quality of product.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Contributed to <span style={boldTextStyles}>frontend development</span> using <span style={boldTextStyles}>React, JavaScript,</span> and <span style={boldTextStyles}>TypeScript</span>.</Typography>
+                      <Typography>• Implemented and maintained <span style={boldTextStyles}>RESTful APIs</span> and developed backend functionalities with <span style={boldTextStyles}>Node.js</span>.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -432,7 +449,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• To grow in Software Development and testing in an environment that values and nurtures integrity, intelligence, and innovation.</Typography>
+                      <Typography sx={{ pb: 1 }}>• To grow in <span style={boldTextStyles}>Software Development</span> and testing in an environment that values and nurtures <span style={boldTextStyles}>integrity, intelligence,</span> and <span style={boldTextStyles}>innovation</span>.</Typography>
                       <Typography>• Committed to personal and professional growth, aiming to contribute to pioneering projects and creative technological solutions.</Typography>
                     </Box>
                   </ScrollTrigger>
@@ -479,8 +496,8 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Develop cutting-edge, responsive websites with a keen eye for creative design and usability.</Typography>
-                      <Typography>• Specialize in fine-tuning user interfaces and user experiences, underscored by a solid foundation in comprehensive UI QA testing.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Develop <span style={boldTextStyles}>cutting-edge, responsive websites</span> with a keen eye for <span style={boldTextStyles}>creative design</span> and usability.</Typography>
+                      <Typography>• Specialize in fine-tuning <span style={boldTextStyles}>user interfaces</span> and <span style={boldTextStyles}>user experiences</span>, underscored by a solid foundation in <span style={boldTextStyles}>comprehensive UI QA testing</span>.</Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>

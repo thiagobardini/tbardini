@@ -35,13 +35,7 @@ const AboutMe = () => {
 
   const boldTextStyles = {
     fontFamily: "GothamSSm-Bold",
-    color: darkMode ? "#eeeeee" : "#222831",
-    textShadow: darkMode
-    ? "none"
-    : {
-        xs: "0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff",
-        md: "none",
-      },
+    color: (theme) => theme.palette.text.primary,
   }
 
   const onEnterViewport = (animationClass) => {
@@ -94,10 +88,13 @@ const AboutMe = () => {
                 <Typography
                   variant='h4'
                   sx={{
-                    mb: 1,
-                    fontFamily: "GothamSSm-Bold",
+                    // mb: 1,
+                    fontFamily: "Trattatello",
+                    // fontFamily: "GothamSSm-Bold",
                     textTransform: "uppercase",
                     color: (theme) => theme.palette.text.primary,
+                    letterSpacing: "0.1em", 
+                    // lineHeight: 1.5, 
                   }}
                 >
                   Thiago Bardini

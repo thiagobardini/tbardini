@@ -6,7 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import { useSelector } from "react-redux";
-import tBardiniLogo from "../Assets/images/logoNav.png";
+import tBardiniLogo from "../Assets/images/logoNav250.png";
 
 const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();

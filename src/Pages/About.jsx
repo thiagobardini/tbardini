@@ -36,7 +36,7 @@ const AboutMe = () => {
   const boldTextStyles = {
     fontFamily: "GothamSSm-Bold",
     color: (theme) => theme.palette.text.primary,
-  }
+  };
 
   const onEnterViewport = (animationClass) => {
     const element = document.getElementById(animationClass);
@@ -93,8 +93,8 @@ const AboutMe = () => {
                     // fontFamily: "GothamSSm-Bold",
                     textTransform: "uppercase",
                     color: (theme) => theme.palette.text.primary,
-                    letterSpacing: "0.1em", 
-                    // lineHeight: 1.5, 
+                    letterSpacing: "0.1em",
+                    // lineHeight: 1.5,
                   }}
                 >
                   Thiago Bardini
@@ -132,9 +132,7 @@ const AboutMe = () => {
                       >
                         Location:
                       </Typography>{" "}
-                      <span style={boldTextStyles}>
-                      Greater Boston, MA
-                      </span>
+                      <span style={boldTextStyles}>Greater Boston, MA</span>
                     </Typography>
                   </ListItem>
                   <ListItem disableGutters>
@@ -158,9 +156,7 @@ const AboutMe = () => {
                       >
                         Nationalities:
                       </Typography>{" "}
-                      <span style={boldTextStyles}>
-                      American, Brazilian
-                      </span>
+                      <span style={boldTextStyles}>American, Brazilian</span>
                     </Typography>
                   </ListItem>
                   <ListItem disableGutters>
@@ -184,9 +180,7 @@ const AboutMe = () => {
                       >
                         Languages:
                       </Typography>{" "}
-                      <span style={boldTextStyles}>
-                      English, Portuguese
-                      </span>
+                      <span style={boldTextStyles}>English, Portuguese</span>
                     </Typography>
                   </ListItem>
                 </List>
@@ -305,7 +299,10 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Expertise in <span style={boldTextStyles}>JavaScript, TypeScript, React, modern CSS libraries,</span> and <span style={boldTextStyles}>Playwright</span> for advanced <span style={boldTextStyles}>UI QA testing</span>.</Typography>
+                      <Typography sx={{ pb: 1 }}>
+                        • Expertise in <span style={boldTextStyles}>JavaScript, TypeScript, React, modern CSS libraries,</span> and <span style={boldTextStyles}>Playwright</span> for advanced{" "}
+                        <span style={boldTextStyles}>UI QA testing</span>.
+                      </Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -351,8 +348,12 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Actively involved as a <span style={boldTextStyles}>Frontend Developer</span>, contributing to impactful <span style={boldTextStyles}>civic tech projects</span>.</Typography>
-                      <Typography>• Create <span style={boldTextStyles}>accessible, user-friendly web applications</span> designed for maximum impact.</Typography>
+                      <Typography sx={{ pb: 1 }}>
+                        • Actively involved as a <span style={boldTextStyles}>Frontend Developer</span>, contributing to impactful <span style={boldTextStyles}>civic tech projects</span>.
+                      </Typography>
+                      <Typography>
+                        • Create <span style={boldTextStyles}>accessible, user-friendly web applications</span> designed for maximum impact.
+                      </Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -398,9 +399,69 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Led rigorous <span style={boldTextStyles}>end-to-end UI QA testing</span> to ensure the highest quality of product.</Typography>
-                      <Typography sx={{ pb: 1 }}>• Contributed to <span style={boldTextStyles}>frontend development</span> using <span style={boldTextStyles}>React, JavaScript,</span> and <span style={boldTextStyles}>TypeScript</span>.</Typography>
-                      <Typography>• Implemented and maintained <span style={boldTextStyles}>RESTful APIs</span> and developed backend functionalities with <span style={boldTextStyles}>Node.js</span>.</Typography>
+                      <Typography sx={{ pb: 1 }}>
+                        • Led rigorous <span style={boldTextStyles}>end-to-end UI QA testing</span> to ensure the highest quality of product.
+                      </Typography>
+                      <Typography sx={{ pb: 1 }}>
+                        • Contributed to <span style={boldTextStyles}>frontend development</span> using <span style={boldTextStyles}>React, JavaScript,</span> and{" "}
+                        <span style={boldTextStyles}>TypeScript</span>.
+                      </Typography>
+                      <Typography>
+                        • Implemented and maintained <span style={boldTextStyles}>RESTful APIs</span> and developed backend functionalities with <span style={boldTextStyles}>Node.js</span>.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-5")}>
+                    <Typography
+                      id='fade-slide-down-5'
+                      variant='h6'
+                      component='span'
+                      sx={{
+                        color: (theme) => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-5": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Founder of BidHired
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-5")}>
+                    <Box
+                      id='fade-slide-up-5'
+                      sx={{
+                        pl: 2,
+                        transform: "translateY(20px)",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-5": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • Leading the technical development and user experience of a <span style={boldTextStyles}>competitive bidding platform</span>, as a side project.
+                      </Typography>
+                      <Typography sx={{ pb: 1 }}>• Overseeing all stages of the software development lifecycle.</Typography>
+                      <Typography>
+                        • Utilize a versatile tech stack, including, but not limited to, <span style={boldTextStyles}>Next.js, TypeScript, Node.js, Prisma, Tailwind CSS,</span> and{" "}
+                        <span style={boldTextStyles}>PostgreSQL</span>.
+                      </Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -446,7 +507,10 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• To grow in <span style={boldTextStyles}>Software Development</span> and testing in an environment that values and nurtures <span style={boldTextStyles}>integrity, intelligence,</span> and <span style={boldTextStyles}>innovation</span>.</Typography>
+                      <Typography sx={{ pb: 1 }}>
+                        • To grow in <span style={boldTextStyles}>Software Development</span> and testing in an environment that values and nurtures{" "}
+                        <span style={boldTextStyles}>integrity, intelligence,</span> and <span style={boldTextStyles}>innovation</span>.
+                      </Typography>
                       <Typography>• Committed to personal and professional growth, aiming to contribute to pioneering projects and creative technological solutions.</Typography>
                     </Box>
                   </ScrollTrigger>
@@ -493,8 +557,13 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>• Develop <span style={boldTextStyles}>cutting-edge, responsive websites</span> with a keen eye for <span style={boldTextStyles}>creative design</span> and usability.</Typography>
-                      <Typography>• Specialize in fine-tuning <span style={boldTextStyles}>user interfaces</span> and <span style={boldTextStyles}>user experiences</span>, underscored by a solid foundation in <span style={boldTextStyles}>comprehensive UI QA testing</span>.</Typography>
+                      <Typography sx={{ pb: 1 }}>
+                        • Develop <span style={boldTextStyles}>cutting-edge, responsive websites</span> with a keen eye for <span style={boldTextStyles}>creative design</span> and usability.
+                      </Typography>
+                      <Typography>
+                        • Specialize in fine-tuning <span style={boldTextStyles}>user interfaces</span> and <span style={boldTextStyles}>user experiences</span>, underscored by a solid foundation in{" "}
+                        <span style={boldTextStyles}>comprehensive UI QA testing</span>.
+                      </Typography>
                     </Box>
                   </ScrollTrigger>
                 </TimelineContent>

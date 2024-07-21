@@ -88,13 +88,10 @@ const AboutMe = () => {
                 <Typography
                   variant='h4'
                   sx={{
-                    // mb: 1,
                     fontFamily: "Trattatello",
-                    // fontFamily: "GothamSSm-Bold",
                     textTransform: "uppercase",
                     color: (theme) => theme.palette.text.primary,
                     letterSpacing: "0.1em",
-                    // lineHeight: 1.5,
                   }}
                 >
                   Thiago Bardini
@@ -253,7 +250,8 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      • Software Engineer with a focus on <span style={boldTextStyles}>frontend development</span> and expertise in <span style={boldTextStyles}>end-to-end UI QA testing</span>.
+                      • <span style={boldTextStyles}>Software Engineer</span> with a focus on <span style={boldTextStyles}>frontend development</span> and expertise in{" "}
+                      <span style={boldTextStyles}>end-to-end UI QA testing</span>.
                     </Typography>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -314,9 +312,9 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-4")}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-3")}>
                     <Typography
-                      id='fade-slide-down-4'
+                      id='fade-slide-down-3'
                       variant='h6'
                       component='span'
                       sx={{
@@ -325,7 +323,7 @@ const AboutMe = () => {
                         opacity: 0,
                         transform: "translateY(-20px)",
                         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-4": {
+                        "&.fade-slide-down-3": {
                           opacity: 1,
                           transform: "translateY(0)",
                           fontFamily: "GothamSSm-Light",
@@ -335,14 +333,14 @@ const AboutMe = () => {
                       Current Role at Code for Boston
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-4")}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-3")}>
                     <Box
-                      id='fade-slide-up-4'
+                      id='fade-slide-up-3'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
                         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-4": {
+                        "&.fade-slide-up-3": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },
@@ -365,9 +363,9 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-3")}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-4")}>
                     <Typography
-                      id='fade-slide-down-3'
+                      id='fade-slide-down-4'
                       variant='h6'
                       component='span'
                       sx={{
@@ -376,7 +374,7 @@ const AboutMe = () => {
                         opacity: 0,
                         transform: "translateY(-20px)",
                         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-3": {
+                        "&.fade-slide-down-4": {
                           opacity: 1,
                           transform: "translateY(0)",
                           fontFamily: "GothamSSm-Light",
@@ -386,14 +384,14 @@ const AboutMe = () => {
                       Recent Role at TransPerfect
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-3")}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-4")}>
                     <Box
-                      id='fade-slide-up-3'
+                      id='fade-slide-up-4'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
                         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-3": {
+                        "&.fade-slide-up-4": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },
@@ -455,11 +453,12 @@ const AboutMe = () => {
                       }}
                     >
                       <Typography sx={{ pb: 1 }}>
-                        • Leading the technical development and user experience of a <span style={boldTextStyles}>competitive bidding platform</span>, as a side project.
+                        • As a side project, leading the development and user experience of a <span style={boldTextStyles}>competitive bidding platform</span>, overseeing all stages of the{" "}
+                        <span style={boldTextStyles}>software development lifecycle</span>.
                       </Typography>
-                      <Typography sx={{ pb: 1 }}>• Overseeing all stages of the software development lifecycle.</Typography>
+                      <Typography sx={{ pb: 1 }}>• Currently developing a trial/demo version to facilitate entry into a startup incubator and gather user feedback.</Typography>
                       <Typography>
-                        • Utilize a versatile tech stack, including, but not limited to, <span style={boldTextStyles}>Next.js, TypeScript, Node.js, Prisma, Tailwind CSS,</span> and{" "}
+                        • Utilizing a versatile tech stack, including <span style={boldTextStyles}>Next.js, TypeScript, Node.js, Prisma, Tailwind CSS, Shadcn/ui, Stripe, Zustand</span>, and{" "}
                         <span style={boldTextStyles}>PostgreSQL</span>.
                       </Typography>
                     </Box>
@@ -523,9 +522,9 @@ const AboutMe = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-5")}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-7")}>
                     <Typography
-                      id='fade-slide-down-5'
+                      id='fade-slide-down-7'
                       variant='h6'
                       component='span'
                       sx={{
@@ -534,7 +533,7 @@ const AboutMe = () => {
                         opacity: 0,
                         transform: "translateY(-20px)",
                         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-5": {
+                        "&.fade-slide-down-7": {
                           opacity: 1,
                           transform: "translateY(0)",
                           fontFamily: "GothamSSm-Light",
@@ -544,14 +543,14 @@ const AboutMe = () => {
                       What Do I Do?
                     </Typography>
                   </ScrollTrigger>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-5")}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-7")}>
                     <Box
-                      id='fade-slide-up-5'
+                      id='fade-slide-up-7'
                       sx={{
                         pl: 2,
                         transform: "translateY(20px)",
                         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-5": {
+                        "&.fade-slide-up-7": {
                           opacity: 1,
                           transform: "translateY(0)",
                         },

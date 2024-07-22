@@ -21,13 +21,13 @@
     "description": "🧳 BidHired is an innovative platform that connects users with local service providers through a competitive bidding process. Users post their service needs and receive bids from providers, selecting the best offer to complete the service. This ensures fair pricing and accessibility for users, while providers gain a steady stream of job opportunities.",
     "logo": "/images/BidHiredLogoIcon.png",
     "img": "/images/bidhired.gif",
-    "techs": ["Playwright", "Next JS", "ReactJS", "TypeScript", "Node JS", "postgresql", "Prisma", "Node JS", "i18n"],
+    "techs": ["Playwright","Next JS", "ReactJS", "TypeScript", "Node JS", "postgresql", "Prisma", "i18n"],
     "live": "https://bidhired.com",
     "localUrl": "https://bidhired.com",
     "readme": "",
     "github": "https://www.instagram.com/bidhired",
     "openNewTab": false,
-    "dev": ["automation", "fullstack"]
+    "dev": ["fullstack"]
   },
   {
     "id": "3",
@@ -42,7 +42,7 @@
     "readme": "",
     "github": "https://github.com/thiagobardini/demo-custom-report",
     "openNewTab": false,
-    "dev": ["automation", "fullstack"]
+    "dev": ["automation"]
   },
   {
     "id": "4",

@@ -71,10 +71,6 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
 
-              {/* <Route path='/projects/lottonest-signin' element={<LottoNestSignin />} />
-              <Route path='/projects/lottonest' element={<LottoNest />} />
-              <Route path='/projects/lottonest/readme' element={<LottoNestReadme />} /> */}
-
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer hideOn={["/"]} />

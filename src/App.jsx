@@ -13,9 +13,6 @@ import HireMe from "./Components/HireMe";
 import ScrollToTop from "./Components/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Footer from "./Layout/Footer";
-import LottoNest from "./Pages/Portfolio/Lottonest/LottoNest";
-import LottoNestSignin from "./Pages/Portfolio/Lottonest/Auth/LottoNestSignin";
-import LottoNestReadme from "./Pages/Portfolio/Lottonest/LottoNestReadme";
 import Projects from "./Pages/Portfolio/Projects";
 import { styled } from "@mui/system";
 import LightModeDiagonalLinesUrl from "/LightModeDiagonalLines.svg?url";
@@ -67,17 +64,18 @@ function App() {
             </Box>
             <ScrollToTop />
             <Routes>
-              <Route path='/signin' element={<Signin />} />
-              <Route path='/signup' element={<Signup />} />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/signup" element={<Signup />} />
               <Route index element={<Home />} />
-              <Route path='/aboutme' element={<AboutMe />} />
-              <Route path='/contact' element={<Contact />} />
-              <Route path='/projects' element={<Projects />} />
-              <Route path='/projects/lottonest-signin' element={<LottoNestSignin />} />
-              <Route path='/projects/lottonest' element={<LottoNest />} />
-              <Route path='/projects/lottonest/readme' element={<LottoNestReadme />} />
+              <Route path="/aboutme" element={<AboutMe />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/projects" element={<Projects />} />
 
-              <Route path='*' element={<NotFound />} />
+              {/* <Route path='/projects/lottonest-signin' element={<LottoNestSignin />} />
+              <Route path='/projects/lottonest' element={<LottoNest />} />
+              <Route path='/projects/lottonest/readme' element={<LottoNestReadme />} /> */}
+
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer hideOn={["/"]} />
           </Box>

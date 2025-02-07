@@ -101,24 +101,56 @@ const ChatBox = () => {
     }
   }, [open]);
 
+  useEffect(() => {
+    // wait until buttonRef is assigned to avoid null anchorEl
+    if (!buttonRef.current) return;
+
+    const searchParams = new URLSearchParams(location.search);
+    if (searchParams.get("chat") === "true") {
+      setAnchorEl(buttonRef.current);
+      setOpen(true);
+    }
+  }, [location.search]);
+
   const handleClose = () => {
+    const newSearchParams = new URLSearchParams(location.search);
+    newSearchParams.delete("chat");
+    navigate({
+      pathname: location.pathname,
+      search: newSearchParams.toString(),
+    });
     setOpen(false);
     setChatHistory([]);
   };
 
   const handleCloseDrawer = () => {
+    const newSearchParams = new URLSearchParams(location.search);
+    newSearchParams.delete("chat");
+    navigate({
+      pathname: location.pathname,
+      search: newSearchParams.toString(),
+    });
     setOpen(false);
   };
 
   const handleAIClick = () => {
+    const newSearchParams = new URLSearchParams(location.search);
     if (!open) {
-      navigate(`?chat=true`); // set chat true on open
+      newSearchParams.set("chat", "true");
+      navigate({
+        pathname: location.pathname,
+        search: newSearchParams.toString(),
+      });
       setAnchorEl(buttonRef.current);
-      track("Chat Button Clicked", { location: "bottom-right" });
     } else {
-      navigate(location.pathname); // remove the query parameter on close
+      newSearchParams.delete("chat");
+      navigate({
+        pathname: location.pathname,
+        search: newSearchParams.toString(),
+      });
     }
     setOpen((prevOpen) => !prevOpen);
+    track("Chat Button Clicked", { location: "bottom-right" });
   };
 
   const handleTextFieldFocus = () => {

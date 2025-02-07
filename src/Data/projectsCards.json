@@ -121,8 +121,8 @@
       "JavaScript",
       "MongoDB"
     ],
-    "live": "https://www.tbardini.com/",
-    "localUrl": "https://www.tbardini.com",
+    "live": "https://www.tbardini.com/?chat=true",
+    "localUrl": "https://www.tbardini.com/?chat=true",
     "readme": "https://github.com/thiagobardini/tbardini/tree/main/src/Components/ChatBox",
     "github": "https://github.com/thiagobardini/api-chat-server",
     "openNewTab": true,

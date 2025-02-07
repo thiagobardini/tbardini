@@ -1,6 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { styled, Typography, Button, Box, Popper, Fade, ClickAwayListener, TextField, Drawer, IconButton, Divider } from "@mui/material";
+import {
+  styled,
+  Typography,
+  Button,
+  Box,
+  Popper,
+  Fade,
+  ClickAwayListener,
+  TextField,
+  Drawer,
+  IconButton,
+  Divider,
+} from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
 import LoadingDots from "../LoadingDots";
 import chatbot from "/chatbotai.svg?url";
@@ -12,6 +24,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Lottie from "lottie-react";
 import Chatting from "./animation/Chatting-white.json";
 import { track } from "@vercel/analytics";
+import { useLocation, useNavigate } from "react-router-dom"; // added import
 
 const ChatDiv = styled(Box)({
   "::-webkit-scrollbar": {
@@ -44,13 +57,32 @@ const ChatBox = () => {
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"; // API URL
 
+  const location = useLocation(); // added hook to get current location
+  const navigate = useNavigate(); // added hook to navigate
+
   useEffect(() => {
     if (error) {
       setTimeout(() => {
         setError(
-          <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-            <img src={chatbot} alt='Chat Icon' style={{ width: 28, height: 28, marginRight: "7px", position: "relative", top: "5px" }} />
-            <span>Oops, something went wrong. How can I assist you further?</span>
+          <Typography
+            component="span"
+            variant="body2"
+            sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+          >
+            <img
+              src={chatbot}
+              alt="Chat Icon"
+              style={{
+                width: 28,
+                height: 28,
+                marginRight: "7px",
+                position: "relative",
+                top: "5px",
+              }}
+            />
+            <span>
+              Oops, something went wrong. How can I assist you further?
+            </span>
           </Typography>
         );
       }, 5000);
@@ -79,13 +111,16 @@ const ChatBox = () => {
   };
 
   const handleAIClick = () => {
-    setOpen((prevOpen) => !prevOpen);
     if (!open) {
+      navigate(`?chat=true`); // set chat true on open
       setAnchorEl(buttonRef.current);
-      track('Chat Button Clicked', { location: 'bottom-right' }); // Track chat button click
+      track("Chat Button Clicked", { location: "bottom-right" });
+    } else {
+      navigate(location.pathname); // remove the query parameter on close
     }
+    setOpen((prevOpen) => !prevOpen);
   };
-  
+
   const handleTextFieldFocus = () => {
     if (drawerRef.current) {
       drawerRef.current.focus();
@@ -95,15 +130,32 @@ const ChatBox = () => {
   const getResponse = async () => {
     if (!msg) {
       setError(
-        <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-          <img src={chatbot} alt='Chat Icon' style={{ width: 28, height: 28, marginRight: "7px", position: "relative", top: "5px" }} />
+        <Typography
+          component="span"
+          variant="body2"
+          sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+        >
+          <img
+            src={chatbot}
+            alt="Chat Icon"
+            style={{
+              width: 28,
+              height: 28,
+              marginRight: "7px",
+              position: "relative",
+              top: "5px",
+            }}
+          />
           <span>Please enter a message before sending.</span>
         </Typography>
       );
       return;
     }
 
-    setChatHistory((oldChatHistory) => [...oldChatHistory, { role: "user", parts: msg }]);
+    setChatHistory((oldChatHistory) => [
+      ...oldChatHistory,
+      { role: "user", parts: msg },
+    ]);
 
     setIsLoading(true);
     try {
@@ -130,22 +182,47 @@ const ChatBox = () => {
           {
             role: "AI",
             parts: (
-              <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-                <span>It seems there was an error in processing your request. Could you please rephrase your question to focus on aspects of Thiago Bardini's professional career?</span>
+              <Typography
+                component="span"
+                variant="body2"
+                sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+              >
+                <span>
+                  It seems there was an error in processing your request. Could
+                  you please rephrase your question to focus on aspects of
+                  Thiago Bardini's professional career?
+                </span>
               </Typography>
             ),
           },
         ]);
       } else {
-        setChatHistory((oldChatHistory) => [...oldChatHistory, { role: "AI", parts: data }]);
+        setChatHistory((oldChatHistory) => [
+          ...oldChatHistory,
+          { role: "AI", parts: data },
+        ]);
       }
 
-      track('Message Sent', { message: msg }); // Track message sent
+      track("Message Sent", { message: msg }); // Track message sent
       setMsg("");
     } catch (error) {
       setError(
-        <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-          <img src={chatbot} alt='Chat Icon' style={{ width: 28, height: 28, marginRight: "7px", position: "relative", top: "5px" }} />
+        <Typography
+          component="span"
+          variant="body2"
+          sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+        >
+          <img
+            src={chatbot}
+            alt="Chat Icon"
+            style={{
+              width: 28,
+              height: 28,
+              marginRight: "7px",
+              position: "relative",
+              top: "5px",
+            }}
+          />
           <span>Sorry, there was a problem processing your request.</span>
         </Typography>
       );
@@ -161,7 +238,7 @@ const ChatBox = () => {
   const renderChatContent = () => (
     <Box>
       <Box sx={{ px: 2, pt: 2 }}>
-        <Typography gutterBottom variant='h6' component='div'>
+        <Typography gutterBottom variant="h6" component="div">
           How can I help you?
         </Typography>
         <IconButton
@@ -173,20 +250,44 @@ const ChatBox = () => {
             padding: 1,
             color: (theme) => theme.palette.grey[500],
           }}
-          aria-label='close'
+          aria-label="close"
         >
           <CloseIcon />
         </IconButton>
         <Divider />
       </Box>
-      <ChatDiv ref={chatBoxRef} sx={{ maxHeight: "50vh", m: 1, overflow: "auto", px: 2, pb: 2 }}>
-        <Typography variant='subtitle2' sx={{ mb: 2, fontWeight: 600 }} gutterBottom>
+      <ChatDiv
+        ref={chatBoxRef}
+        sx={{ maxHeight: "50vh", m: 1, overflow: "auto", px: 2, pb: 2 }}
+      >
+        <Typography
+          variant="subtitle2"
+          sx={{ mb: 2, fontWeight: 600 }}
+          gutterBottom
+        >
           {error ? (
             error
           ) : (
-            <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-              <img src={chatbot} alt='Chat Icon' style={{ width: 28, height: 28, marginRight: "7px", position: "relative", top: "5px" }} />
-              <span>I am an AI designed to help you with questions about Thiago Bardini's professional endeavors.</span>
+            <Typography
+              component="span"
+              variant="body2"
+              sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+            >
+              <img
+                src={chatbot}
+                alt="Chat Icon"
+                style={{
+                  width: 28,
+                  height: 28,
+                  marginRight: "7px",
+                  position: "relative",
+                  top: "5px",
+                }}
+              />
+              <span>
+                I am an AI designed to help you with questions about Thiago
+                Bardini's professional endeavors.
+              </span>
             </Typography>
           )}
         </Typography>
@@ -194,16 +295,53 @@ const ChatBox = () => {
           {chatHistory.map((chatItem, _index) => (
             <Box key={_index} sx={{ mb: 2 }}>
               {chatItem.role === "AI" ? (
-                <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-                  <img src={chatbot} alt='Robot Icon' style={{ width: 28, height: 28, marginRight: "7px", position: "relative", top: "5px" }} />
-                  <Typography component='span' variant='body2' sx={{ display: "inline" }}>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+                >
+                  <img
+                    src={chatbot}
+                    alt="Robot Icon"
+                    style={{
+                      width: 28,
+                      height: 28,
+                      marginRight: "7px",
+                      position: "relative",
+                      top: "5px",
+                    }}
+                  />
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    sx={{ display: "inline" }}
+                  >
                     {chatItem.parts}
                   </Typography>
                 </Typography>
               ) : (
-                <Typography component='span' variant='body2' sx={{ mb: 1, fontWeight: "bold", display: "inline" }}>
-                  <img src={user} alt='user icon' style={{ width: 20, height: 20, marginRight: "11px", position: "relative", top: "2px", left: "3px" }} />
-                  <Typography component='span' variant='body2' sx={{ display: "inline" }}>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  sx={{ mb: 1, fontWeight: "bold", display: "inline" }}
+                >
+                  <img
+                    src={user}
+                    alt="user icon"
+                    style={{
+                      width: 20,
+                      height: 20,
+                      marginRight: "11px",
+                      position: "relative",
+                      top: "2px",
+                      left: "3px",
+                    }}
+                  />
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    sx={{ display: "inline" }}
+                  >
                     {chatItem.parts}
                   </Typography>
                 </Typography>
@@ -214,13 +352,22 @@ const ChatBox = () => {
         </Box>
       </ChatDiv>
 
-      <Box sx={{ pl: 2, pb: 2, pr: 1, display: "flex", alignItems: "center", width: "100%" }}>
+      <Box
+        sx={{
+          pl: 2,
+          pb: 2,
+          pr: 1,
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
         <TextField
-          color='chat'
-          label='Ask a question...'
+          color="chat"
+          label="Ask a question..."
           fullWidth={true}
           value={msg}
-          size='small'
+          size="small"
           InputProps={{
             onFocus: handleTextFieldFocus,
           }}
@@ -245,13 +392,30 @@ const ChatBox = () => {
           }}
         />
 
-        <IconButton disabled={!msg.trim()} sx={{ color: darkMode ? "#eeeeee" : "#34495e" }} aria-label='send' onClick={getResponse}>
+        <IconButton
+          disabled={!msg.trim()}
+          sx={{ color: darkMode ? "#eeeeee" : "#34495e" }}
+          aria-label="send"
+          onClick={getResponse}
+        >
           {!msg.trim() ? (
-            <img src={emailDisabledDark} alt='user icon' style={{ width: 20, height: 20 }} />
+            <img
+              src={emailDisabledDark}
+              alt="user icon"
+              style={{ width: 20, height: 20 }}
+            />
           ) : !darkMode ? (
-            <img src={emailDark} alt='user icon' style={{ width: 20, height: 20 }} />
+            <img
+              src={emailDark}
+              alt="user icon"
+              style={{ width: 20, height: 20 }}
+            />
           ) : (
-            <img src={email} alt='user icon' style={{ width: 20, height: 20 }} />
+            <img
+              src={email}
+              alt="user icon"
+              style={{ width: 20, height: 20 }}
+            />
           )}
         </IconButton>
       </Box>
@@ -264,7 +428,7 @@ const ChatBox = () => {
         ref={buttonRef}
         aria-describedby={id}
         onClick={handleAIClick}
-        variant='contained'
+        variant="contained"
         sx={{
           width: "50px !important",
           height: "60px !important",
@@ -292,11 +456,30 @@ const ChatBox = () => {
         />
       </Button>
       {isMedium ? (
-        <Popper id={id} open={open} anchorEl={anchorEl} transition placement='top-end' disablePortal={false} display={{ xs: "none", sm: "block" }} sx={{ zIndex: 1300, pb: 2 }}>
+        <Popper
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          transition
+          placement="top-end"
+          disablePortal={false}
+          display={{ xs: "none", sm: "block" }}
+          sx={{ zIndex: 1300, pb: 2 }}
+        >
           {({ TransitionProps }) => (
             <ClickAwayListener onClickAway={handleClose}>
               <Fade in={open} {...TransitionProps} timeout={350}>
-                <Box sx={{ maxWidth: { xs: "90vw", md: "40vw" }, mx: 2, border: 2, borderRadius: "10px", bgcolor: "background.box" }}>{renderChatContent()}</Box>
+                <Box
+                  sx={{
+                    maxWidth: { xs: "90vw", md: "40vw" },
+                    mx: 2,
+                    border: 2,
+                    borderRadius: "10px",
+                    bgcolor: "background.box",
+                  }}
+                >
+                  {renderChatContent()}
+                </Box>
               </Fade>
             </ClickAwayListener>
           )}
@@ -304,7 +487,7 @@ const ChatBox = () => {
       ) : (
         <Drawer
           ref={drawerRef}
-          anchor='bottom'
+          anchor="bottom"
           open={open}
           onClose={handleCloseDrawer}
           PaperProps={{
@@ -315,7 +498,18 @@ const ChatBox = () => {
             },
           }}
         >
-          <Box sx={{ borderTop: 3, borderLeft: 3, borderRight: 3, bgcolor: "background.chat", borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}>{renderChatContent()}</Box>
+          <Box
+            sx={{
+              borderTop: 3,
+              borderLeft: 3,
+              borderRight: 3,
+              bgcolor: "background.chat",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
+            }}
+          >
+            {renderChatContent()}
+          </Box>
         </Drawer>
       )}
     </Box>

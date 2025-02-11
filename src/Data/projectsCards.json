@@ -38,6 +38,26 @@
   },
   {
     "id": "3",
+    "title": "Call George",
+    "subtitle": "Your Privacy-First Voice AI Assistant",
+   "description": "📞 Call George is an AI-powered voice assistant designed for service-based businesses like inspections, plumbing, and technician services. It was developed at Sundai Club, an open community for AI enthusiasts, including MIT and Harvard students, as well as independent developers and professionals. Built in an intensive 24-hour development sprint, Call George automates incoming calls and appointment bookings, freeing up valuable time. Key features include instant answering, smart scheduling, automated confirmations, and seamless integrations with Calendly. Prioritizing privacy, it manages customer interactions securely.",
+    "logo":"/images/call-george-logo.png",
+    "img": "/images/call-george-preview.gif",
+    "techs": [
+      "Next.js 15",
+      "VAPI",
+      "Calendly API",
+      "Real-time Transcription"
+    ],
+    "live": "https://callgeorge.vercel.app/",
+    "localUrl": "",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/george-voice-assistant",
+    "openNewTab": false,
+    "dev": ["fullstack"]
+  },
+  {
+    "id": "4",
     "title": "Custom Report",
     "subtitle": "Playwright and Next.js Driven Custom Reporting Scripts",
     "description": "⚙️ As a demonstration of cutting-edge testing technologies, 'Demo Report' utilizes Playwright, Next.js, Prisma, and TypeScript to offer robust and flexible testing solutions. This project underscores the integration of automated testing scripts with MongoDB for dynamic data handling and customized report generation, highlighting innovations in software quality assurance.",
@@ -61,7 +81,7 @@
     "dev": ["automation"]
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "GeoDev",
     "subtitle": "Designing Digital Tools for Urban Planning and Public Policy",
     "description": "🌍 GeoDev is a cutting-edge project showcasing the integration of Mapbox with Next.js and TypeScript. This interactive map allows users to visualize routes, toggle various map layers, and access information about trail entrances. Key features include user authentication, search inputs for start and end points, route display options (driving, walking, cycling), and a button to open routes in Google Maps. The app is optimized for both mobile and desktop views.",
@@ -83,7 +103,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "5",
+    "id": "6",
     "title": "Boston Heat Pump Accelerator",
     "subtitle": "Green Energy in Boston",
 
@@ -106,7 +126,7 @@
     "dev": ["frontend"]
   },
   {
-    "id": "6",
+    "id": "7",
     "title": "Gemini AI Chatbot",
     "subtitle": "Specialized Predictive Support for Thiago Bardini's Professional Career",
     "description": "🤖 The Gemini AI Chatbot is a cutting-edge tool designed to provide specialized support for inquiries related to Thiago Bardini's professional career. Engineered with Gemini AI, this chatbot analyzes queries to deliver precise and relevant information efficiently. It connects to a MongoDB database to retrieve initial data and is configured to run in a Node.js environment. If a query is outside the scope of provided data, the chatbot is programmed not just to refer back to guidelines but to guide users towards obtaining the necessary assistance.",
@@ -129,7 +149,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "7",
+    "id": "8",
     "title": "Mini Market",
     "subtitle": "Your Online Grocery Store",
     "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development. Recently enhanced with the GlobalLink GO script for website translation, it provides a multilingual shopping experience while also serving as a platform for QA automation testing at TransPerfect.",

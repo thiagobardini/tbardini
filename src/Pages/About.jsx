@@ -318,6 +318,56 @@ const AboutMe = () => {
                   </ScrollTrigger>
                 </TimelineContent>
               </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot variant="outlined" />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-5")}>
+                    <Typography
+                      id="fade-slide-down-5"
+                      variant="h6"
+                      component="span"
+                      sx={{
+                        color: (theme) => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        opacity: 0,
+                        transform: "translateY(-20px)",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-down-5": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                          fontFamily: "GothamSSm-Light",
+                        },
+                      }}
+                    >
+                      Projects I Founded
+                    </Typography>
+                  </ScrollTrigger>
+                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-5")}>
+                    <Box
+                      id="fade-slide-up-5"
+                      sx={{
+                        pl: 2,
+                        transform: "translateY(20px)",
+                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        "&.fade-slide-up-5": {
+                          opacity: 1,
+                          transform: "translateY(0)",
+                        },
+                      }}
+                    >
+                      <Typography sx={{ pb: 1 }}>
+                        • <span style={boldTextStyles}>FlowQuantic</span>: Voice AI app for small businesses, featuring smart call routing and automation.
+                      </Typography>
+                      <Typography>
+                        • <span style={boldTextStyles}>PetQuantic</span>: Booking and service platform tailored for pet shops and grooming services.
+                      </Typography>
+                    </Box>
+                  </ScrollTrigger>
+                </TimelineContent>
+              </TimelineItem>
 
               <TimelineItem>
                 <TimelineSeparator>

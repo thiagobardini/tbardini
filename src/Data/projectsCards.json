@@ -23,6 +23,29 @@
   },
   {
     "id": "2",
+    "title": "PetQuantic",
+    "subtitle": "Smart Booking Platform for Pet Services",
+    "description": "🐾 PetQuantic is a digital solution tailored for pet shops and grooming services, streamlining appointment booking and client management. Designed with a focus on simplicity and automation, it helps small businesses optimize customer engagement and scheduling without complex systems.",
+    "logo": "/images/petquantic-logo.png",
+    "img": "/images/petquantic-preview.gif",
+    "techs": [
+      "React Native",
+      "Next JS",
+      "N8N",
+      "Voice AI",
+      "Node.js",
+      "Twilio",
+      "stripe"
+    ],
+    "live": "https://petquantic.com/",
+    "localUrl": "",
+    "readme": "https://petquantic.com/",
+    "github": "https://petquantic.com/",
+    "openNewTab": false,
+    "dev": ["fullstack"]
+  },
+  {
+    "id": "3",
     "title": "GlobalLink WEB",
     "subtitle": "Automated Website Translation",
     "description": "🧳 GlobalLink WEB simplifies website translation with a one-line integration, making multilingual sites accessible without developers. Backed by TransPerfect, it ensures seamless, high-quality translations for global reach.",
@@ -37,18 +60,13 @@
     "dev": ["automation", "frontend"]
   },
   {
-    "id": "3",
+    "id": "4",
     "title": "Call George",
     "subtitle": "Your Privacy-First Voice AI Assistant",
-   "description": "📞 Call George is an AI-powered voice assistant designed for service-based businesses like inspections, plumbing, and technician services. It was developed at Sundai Club, an open community for AI enthusiasts, including MIT and Harvard students, as well as independent developers and professionals. Built in an intensive 24-hour development sprint, Call George automates incoming calls and appointment bookings, freeing up valuable time. Key features include instant answering, smart scheduling, automated confirmations, and seamless integrations with Calendly. Prioritizing privacy, it manages customer interactions securely.",
-    "logo":"/images/call-george-logo.png",
+    "description": "📞 Call George is an AI-powered voice assistant designed for service-based businesses like inspections, plumbing, and technician services. It was developed at Sundai Club, an open community for AI enthusiasts, including MIT and Harvard students, as well as independent developers and professionals. Built in an intensive 24-hour development sprint, Call George automates incoming calls and appointment bookings, freeing up valuable time. Key features include instant answering, smart scheduling, automated confirmations, and seamless integrations with Calendly. Prioritizing privacy, it manages customer interactions securely.",
+    "logo": "/images/call-george-logo.png",
     "img": "/images/call-george-preview.gif",
-    "techs": [
-      "Next.js 15",
-      "VAPI",
-      "Calendly API",
-      "Real-time Transcription"
-    ],
+    "techs": ["Next JS", "VAPI", "Calendly API", "Real-time Transcription"],
     "live": "https://www.sundai.club/projects/d403e849-b040-4656-adbb-45379f582d73",
     "localUrl": "",
     "readme": "",
@@ -57,7 +75,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "Custom Report",
     "subtitle": "Playwright and Next.js Driven Custom Reporting Scripts",
     "description": "⚙️ As a demonstration of cutting-edge testing technologies, 'Demo Report' utilizes Playwright, Next.js, Prisma, and TypeScript to offer robust and flexible testing solutions. This project underscores the integration of automated testing scripts with MongoDB for dynamic data handling and customized report generation, highlighting innovations in software quality assurance.",
@@ -81,7 +99,7 @@
     "dev": ["automation"]
   },
   {
-    "id": "5",
+    "id": "6",
     "title": "GeoDev",
     "subtitle": "Designing Digital Tools for Urban Planning and Public Policy",
     "description": "🌍 GeoDev is a cutting-edge project showcasing the integration of Mapbox with Next.js and TypeScript. This interactive map allows users to visualize routes, toggle various map layers, and access information about trail entrances. Key features include user authentication, search inputs for start and end points, route display options (driving, walking, cycling), and a button to open routes in Google Maps. The app is optimized for both mobile and desktop views.",
@@ -103,10 +121,9 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "6",
+    "id": "7",
     "title": "Boston Heat Pump Accelerator",
     "subtitle": "Green Energy in Boston",
-
     "description": "🌆 As a Frontend Developer, I was tasked with implementing the public-facing pages, collaborating closely with a team of UX and Marketing professionals. The BHPA project is dedicated to increasing access to heat pumps in Boston, aiding in cost reduction and the shift towards low-carbon technology, all while maintaining an unbiased stance through independent funding. I have recently integrated internationalization features to enhance accessibility and user experience across various languages.",
     "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
     "img": "/images/bhpaBrowserVertical.gif",
@@ -126,7 +143,7 @@
     "dev": ["frontend"]
   },
   {
-    "id": "7",
+    "id": "8",
     "title": "Gemini AI Chatbot",
     "subtitle": "Specialized Predictive Support for Thiago Bardini's Professional Career",
     "description": "🤖 The Gemini AI Chatbot is a cutting-edge tool designed to provide specialized support for inquiries related to Thiago Bardini's professional career. Engineered with Gemini AI, this chatbot analyzes queries to deliver precise and relevant information efficiently. It connects to a MongoDB database to retrieve initial data and is configured to run in a Node.js environment. If a query is outside the scope of provided data, the chatbot is programmed not just to refer back to guidelines but to guide users towards obtaining the necessary assistance.",
@@ -149,7 +166,7 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "8",
+    "id": "9",
     "title": "Mini Market",
     "subtitle": "Your Online Grocery Store",
     "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development. Recently enhanced with the GlobalLink GO script for website translation, it provides a multilingual shopping experience while also serving as a platform for QA automation testing at TransPerfect.",

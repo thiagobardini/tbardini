@@ -164,6 +164,7 @@ const AboutMe = () => {
                 <Stack spacing={1}>
                   <Typography
                     variant="h4"
+                    component="h1"
                     sx={{
                       fontFamily: "GothamSSm-Bold",
                       color: (theme) => theme.palette.text.primary,
@@ -176,6 +177,7 @@ const AboutMe = () => {
 
                   <Typography
                     variant="h5"
+                    component="h2"
                     sx={{
                       ...gradientTextStyles,
                       mb: 1,
@@ -373,6 +375,7 @@ const AboutMe = () => {
             >
               <Typography
                 variant="h5"
+                component="h2"
                 sx={{
                   fontFamily: "GothamSSm-Bold",
                   color: (theme) => theme.palette.text.primary,
@@ -420,6 +423,7 @@ const AboutMe = () => {
                   >
                     <Typography
                       variant="h6"
+                      component="h3"
                       sx={{ ...gradientTextStyles, mb: 1 }}
                     >
                       PetQuantic
@@ -471,6 +475,7 @@ const AboutMe = () => {
                   >
                     <Typography
                       variant="h6"
+                      component="h3"
                       sx={{ ...gradientTextStyles, mb: 1 }}
                     >
                       CrewQuantic

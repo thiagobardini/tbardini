@@ -7,6 +7,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import ToggleThemeMode from "../Components/ToggleThemeMode";
 import { useSelector } from "react-redux";
 import tBardiniLogo from "../Assets/images/logoNav250.png";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
   const theme = useTheme();
@@ -86,8 +87,12 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
         <List>
           {pages.map((page) => (
             <ListItem
-              component={Link}
-              to={page.to}
+              component={page.isExternal ? "a" : Link}
+              to={!page.isExternal ? page.to : undefined}
+              href={page.isExternal ? page.to : undefined}
+              target={page.isExternal ? "_blank" : undefined}
+              rel={page.isExternal ? "noopener noreferrer" : undefined}
+              onClick={page.isExternal ? undefined : () => setOpen(false)}
               key={page.text}
               sx={{
                 display: "flex",
@@ -111,9 +116,20 @@ const HamburgerMenu = ({ isOpen, setOpen, pages }) => {
                 sx={{
                   fontFamily: "GothamSSm-Light",
                   textTransform: "capitalize",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
                 }}
               >
                 {page.text}
+                {page.isExternal && (
+                  <OpenInNewIcon 
+                    sx={{ 
+                      fontSize: "2rem",
+                      opacity: 0.7,
+                    }} 
+                  />
+                )}
               </Typography>
             </ListItem>
           ))}

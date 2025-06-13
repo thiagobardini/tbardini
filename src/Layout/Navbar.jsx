@@ -9,6 +9,7 @@ import HamburgerMenu from "./HamburgerMenu";
 import { keyframes } from "@emotion/react";
 import LogoAnimation from "../Components/LogoAnimation";
 import SoundControl from "../Components/Audio/SoundControl";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const pages = [
   {
@@ -22,6 +23,11 @@ const pages = [
   {
     text: "projects",
     to: "/projects",
+  },
+  {
+    text: "blog",
+    to: "https://www.flowquantic.ai/blog",
+    isExternal: true,
   },
   {
     text: "contact",
@@ -193,8 +199,11 @@ to {
               >
                 {pages.map((page) => (
                   <Button
-                    component={NavLink}
-                    to={page.to}
+                    component={page.isExternal ? "a" : NavLink}
+                    to={!page.isExternal ? page.to : undefined}
+                    href={page.isExternal ? page.to : undefined}
+                    target={page.isExternal ? "_blank" : undefined}
+                    rel={page.isExternal ? "noopener noreferrer" : undefined}
                     key={page.text}
                     sx={{
                       color: darkMode ? "#eeeeee" : "#222831",
@@ -229,9 +238,20 @@ to {
                       sx={{
                         fontFamily: "GothamSSm-Light",
                         textTransform: "capitalize",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
                       }}
                     >
                       {page.text}
+                      {page.isExternal && (
+                        <OpenInNewIcon 
+                          sx={{ 
+                            fontSize: "0.9rem",
+                            opacity: 0.7,
+                          }} 
+                        />
+                      )}
                     </Typography>
                   </Button>
                 ))}

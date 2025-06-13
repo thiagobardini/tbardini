@@ -1,0 +1,29 @@
+{
+  "short_name": "TB Portfolio",
+  "name": "Thiago Bardini - Software Engineer Portfolio",
+  "description": "Portfolio of Thiago Bardini - Software Engineer and Founder specializing in React, TypeScript, and AI integration",
+  "icons": [
+    {
+      "src": "/tbtag.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/logoNav250.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logoNav250.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#1a1a1a",
+  "categories": ["portfolio", "developer", "software", "engineering"],
+  "lang": "en-US",
+  "orientation": "portrait-primary"
+} 

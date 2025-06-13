@@ -19,6 +19,7 @@ import LightModeDiagonalLinesUrl from "/LightModeDiagonalLines.svg?url";
 import DarkModeDiagonalLinesUrl from "/DarkModeDiagonalLines.svg?url";
 import ChatBox from "./Components/ChatBox/ChatBox";
 import BackgroundBeamsWithCollision from "./Components/BackgroundBeamsWithCollision";
+import SEO from "./Components/SEO";
 
 const AppBackground = styled("div")(({ theme }) => ({
   backgroundImage: `url(${theme.palette.mode === "dark" ? DarkModeDiagonalLinesUrl : LightModeDiagonalLinesUrl})`,
@@ -72,14 +73,14 @@ function App() {
               </Box>
               <ScrollToTop />
               <Routes>
-                <Route path="/signin" element={<Signin />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route index element={<Home />} />
-                <Route path="/aboutme" element={<AboutMe />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/projects" element={<Projects />} />
+                <Route path="/signin" element={<><SEO title="Sign In" description="Sign in to your account" /><Signin /></>} />
+                <Route path="/signup" element={<><SEO title="Sign Up" description="Create a new account" /><Signup /></>} />
+                <Route index element={<><SEO /><Home /></>} />
+                <Route path="/aboutme" element={<><SEO title="About Me" description="Learn more about Thiago Bardini - Software Engineer, Founder of FlowQuantic, and passionate developer building innovative solutions." keywords="Thiago Bardini, About, Software Engineer, FlowQuantic, PetQuantic, CrewQuantic, React Developer, TypeScript Developer" /><AboutMe /></>} />
+                <Route path="/contact" element={<><SEO title="Contact" description="Get in touch with Thiago Bardini. Let's discuss your project or collaboration opportunities." keywords="Contact Thiago Bardini, Hire Software Engineer, React Developer Contact, FlowQuantic Contact" /><Contact /></>} />
+                <Route path="/projects" element={<><SEO title="Projects" description="Explore my portfolio of projects including FlowQuantic, PetQuantic, CrewQuantic, and other innovative solutions." keywords="Thiago Bardini Projects, Portfolio, FlowQuantic, PetQuantic, CrewQuantic, React Projects, TypeScript Projects" /><Projects /></>} />
 
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<><SEO title="404 - Page Not Found" description="The page you're looking for doesn't exist." /><NotFound /></>} />
               </Routes>
               <Footer hideOn={["/"]} />
             </Box>

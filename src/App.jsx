@@ -18,12 +18,15 @@ import { styled } from "@mui/system";
 import LightModeDiagonalLinesUrl from "/LightModeDiagonalLines.svg?url";
 import DarkModeDiagonalLinesUrl from "/DarkModeDiagonalLines.svg?url";
 import ChatBox from "./Components/ChatBox/ChatBox";
+import BackgroundBeamsWithCollision from "./Components/BackgroundBeamsWithCollision";
 
 const AppBackground = styled("div")(({ theme }) => ({
   backgroundImage: `url(${theme.palette.mode === "dark" ? DarkModeDiagonalLinesUrl : LightModeDiagonalLinesUrl})`,
   backgroundSize: "300px 300px",
   backgroundRepeat: "repeat",
   color: theme.palette.mode === "dark" ? "#eeeeee" : "#424242",
+  minHeight: "100vh",
+  backgroundColor: "transparent",
 }));
 
 
@@ -54,28 +57,34 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <AppBackground theme={theme}>
-          <CssBaseline />
-          <Box>
-            <Box sx={{ zIndex: 9999 }}>
-              <Navbar />
-              <ChatBox />
-              <HireMe />
-            </Box>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route index element={<Home />} />
-              <Route path="/aboutme" element={<AboutMe />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
+        <Box sx={{ position: "relative", minHeight: "100vh" }}>
+          {/* Background Beams Layer */}
+          <BackgroundBeamsWithCollision />
+          
+          {/* Diagonal Lines Pattern Layer */}
+          <AppBackground theme={theme} sx={{ position: "relative", zIndex: 1 }}>
+            <CssBaseline />
+            <Box sx={{ position: "relative", zIndex: 2 }}>
+              <Box sx={{ position: "relative", zIndex: 9999 }}>
+                <Navbar />
+                <ChatBox />
+                <HireMe />
+              </Box>
+              <ScrollToTop />
+              <Routes>
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route index element={<Home />} />
+                <Route path="/aboutme" element={<AboutMe />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/projects" element={<Projects />} />
 
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer hideOn={["/"]} />
-          </Box>
-        </AppBackground>
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer hideOn={["/"]} />
+            </Box>
+          </AppBackground>
+        </Box>
       </ThemeProvider>
     </>
   );

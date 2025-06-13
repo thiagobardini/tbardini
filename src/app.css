@@ -112,3 +112,117 @@ a {
   background: rgba(102, 126, 234, 0.3);
   color: inherit;
 }
+
+/* Tailwind-like utility classes for BackgroundBeams */
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.w-px {
+  width: 1px;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-1 {
+  height: 0.25rem;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.blur-sm {
+  filter: blur(4px);
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.top-20 {
+  top: 5rem;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.inset-x-0 {
+  left: 0;
+  right: 0;
+}
+
+.-inset-x-10 {
+  left: -2.5rem;
+  right: -2.5rem;
+}

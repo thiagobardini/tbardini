@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 
 const SEO = ({ 
-  title = "Thiago Bardini | Software Engineer & Founder", 
+  title = "Thiago Bardini", 
   description = "Software engineer and founder specializing in React, TypeScript, and AI integration. Building innovative solutions at FlowQuantic.",
   keywords = "Thiago Bardini, Software Engineer, React Developer, TypeScript, AI Integration, FlowQuantic, PetQuantic, CrewQuantic",
   image = "https://thiagobardini.com/logoNav250.png", // TODO: Change to og-image.png after generating it (see TODO-OG-IMAGE.md)
@@ -12,10 +12,26 @@ const SEO = ({
   const location = useLocation();
   const currentUrl = `https://thiagobardini.com${location.pathname}`;
   
-  // Add page-specific suffix to title
+  // Map routes to proper page names
+  const getPageTitle = (pathname) => {
+    const pageMap = {
+      '/': 'Portfolio',
+      '/aboutme': 'About Me',
+      '/about': 'About Me',
+      '/contact': 'Contact',
+      '/projects': 'Projects',
+      '/signin': 'Sign In',
+      '/signup': 'Sign Up'
+    };
+    
+    return pageMap[pathname] || pathname.slice(1).charAt(0).toUpperCase() + pathname.slice(2);
+  };
+  
+  // Create proper title structure: "Page Name | Thiago Bardini" (except for homepage)
+  const pageTitle = getPageTitle(location.pathname);
   const fullTitle = location.pathname === '/' 
-    ? `${title} | Portfolio` 
-    : `${title} | ${location.pathname.slice(1).charAt(0).toUpperCase() + location.pathname.slice(2)}`;
+    ? `${title} | ${pageTitle}` 
+    : `${pageTitle} | ${title}`;
 
   return (
     <Helmet>

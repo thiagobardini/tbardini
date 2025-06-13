@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="georgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004499;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#georgeGradient)"/>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="white">📞</text>
+  <text x="200" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">Call George</text>
+  <text x="200" y="210" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white" opacity="0.8">Privacy-First Voice AI Assistant</text>
+</svg> 

@@ -44,13 +44,13 @@ to {
               right: 0,
               width: { xs: "100%", sm: "90%", md: "50%" },
               height: "100%",
-
               display: "flex",
               flexDirection: "column",
               justifyContent: { xs: "center", sm: "center" },
               alignItems: "center",
               px: { xs: 1, lg: 4 },
-              pointerEvents: "none",
+              position: "relative",
+              zIndex: 10,
             }}
           >
             <Box

@@ -470,7 +470,7 @@ const ChatBox = () => {
           p: 0,
           textTransform: "none",
           borderRadius: "100%",
-          zIndex: 2,
+          zIndex: 1000,
           backgroundColor: "rgba(204, 204, 204, 0.8)",
           border: darkMode ? "1px solid #282524" : "1px solid #282524",
           "&:hover": {

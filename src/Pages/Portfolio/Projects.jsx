@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { openDrawer, closeDrawer } from "../../redux/drawerSlice";
-import { Box, Container, CssBaseline, Grid, Typography, Paper, Link, Breadcrumbs, Badge } from "@mui/material";
+import { Box, Container, CssBaseline, Grid, Typography, Paper, Link, Chip, Stack } from "@mui/material";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import projectsCards from "../../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
@@ -52,9 +52,9 @@ const Projects = () => {
     return selectedKeyword === "show all" || card.dev.includes(selectedKeyword);
   });
 
-  let columns = 2; // If there are more than 1 card, use 2 columns
+  let columns = 2;
   if (cardsToShow.length <= 1) {
-    columns = 1; // if there is only 1 card, use 1 column
+    columns = 1;
   }
 
   const breakpointColumnsObj = {
@@ -68,7 +68,7 @@ const Projects = () => {
 
   const handleCardClick = (cardId, cardTitle) => {
     dispatch(openDrawer(cardId));
-    track('Project Clicked', { project: cardId }); // Track the project clicked 
+    track('Project Clicked', { project: cardId });
     navigate(`?project=${encodeURIComponent(cardTitle)}`);
   };
 
@@ -109,50 +109,54 @@ const Projects = () => {
   const renderBadge = (count, keyword, selectedKeyword, label) => {
     if (count === 0) return null;
     return (
-      <Link underline='hover' color='inherit' onClick={() => handleFilterClick(keyword)}>
-        <Badge badgeContent={count} showZero variant='string' sx={getStyles(selectedKeyword, keyword)}>
-          <Typography sx={getTypographyStyles(selectedKeyword, keyword)}>{label}</Typography>
-        </Badge>
-      </Link>
+      <Chip
+        label={`${label} (${count})`}
+        onClick={() => handleFilterClick(keyword)}
+        variant={selectedKeyword === keyword ? "filled" : "outlined"}
+        sx={{
+          cursor: "pointer",
+          borderColor: selectedKeyword === keyword 
+            ? 'transparent' 
+            : darkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+          background: selectedKeyword === keyword 
+            ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
+            : 'transparent',
+          color: selectedKeyword === keyword 
+            ? 'white' 
+            : (theme) => theme.palette.text.secondary,
+          fontFamily: selectedKeyword === keyword ? "GothamSSm-Bold" : "GothamSSm-Light",
+          fontWeight: selectedKeyword === keyword ? "bold" : "normal",
+          transition: 'all 0.3s ease',
+          '&:hover': {
+            transform: 'translateY(-2px)',
+            boxShadow: selectedKeyword === keyword 
+              ? '0 4px 15px rgba(102, 126, 234, 0.3)'
+              : '0 2px 8px rgba(0, 0, 0, 0.1)',
+            borderColor: selectedKeyword === keyword 
+              ? 'transparent'
+              : '#667eea',
+          }
+        }}
+      />
     );
   };
 
-  const getStyles = (selectedKeyword, keyword) => ({
-    cursor: "pointer",
-    "& .MuiBadge-badge": {
-      color: selectedKeyword === keyword ? "text.primary" : "text.secondary",
-      fontFamily: selectedKeyword === keyword ? "GothamSSm-Bold" : "GothamSSm-Light",
-      fontWeight: selectedKeyword === keyword ? "900" : "normal",
-      right: "-5px",
-    },
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  });
-
-  const getTypographyStyles = (selectedKeyword, keyword) => ({
-    textDecoration: selectedKeyword === keyword ? "underline" : "none",
-    fontFamily: selectedKeyword === keyword ? "GothamSSm-Bold" : "GothamSSm-Light",
-    fontWeight: selectedKeyword === keyword ? "900" : "normal",
-    color: selectedKeyword === keyword ? "text.primary" : "text.secondary",
-  });
-
   const categories = [
-    { keyword: "show all", label: "Filter All", count: projectsCards.length },
+    { keyword: "show all", label: "All Projects", count: projectsCards.length },
+    {
+      keyword: "fullstack",
+      label: "Fullstack",
+      count: devCounts.fullstack,
+    },
     {
       keyword: "frontend",
-      label: "Frontend Development",
+      label: "Frontend",
       count: devCounts.frontend,
     },
     {
       keyword: "backend",
-      label: "Backend Development",
+      label: "Backend",
       count: devCounts.backend,
-    },
-    {
-      keyword: "fullstack",
-      label: "Fullstack Development",
-      count: devCounts.fullstack,
     },
     {
       keyword: "automation",
@@ -174,18 +178,24 @@ const Projects = () => {
       <HeadingTop text={textTitle} />
       <Container sx={{ px: 1 }}>
         <Paper
-          elevation={3}
+          elevation={0}
           sx={{
             py: 5,
             borderRadius: 3,
-            backdropFilter: darkMode ? "blur(2px)" : "blur(1px)",
-            backgroundColor: darkMode ? "transparent !important" : "rgba(238, 238, 238, 0.7) !important",
+            backdropFilter: darkMode ? "blur(10px)" : "blur(5px)",
+            backgroundColor: darkMode
+              ? "rgba(255, 255, 255, 0.02)"
+              : "rgba(255, 255, 255, 0.7)",
+            border: darkMode 
+              ? "1px solid rgba(255, 255, 255, 0.1)"
+              : "1px solid rgba(0, 0, 0, 0.05)",
           }}
         >
           <CssBaseline />
+          
           <Typography
             color='text.primary'
-            mb={2}
+            mb={3}
             textAlign='center'
             variant='h5'
             sx={{
@@ -197,21 +207,24 @@ const Projects = () => {
           >
             Explore My Latest Work
           </Typography>
+          
           <Grid container justifyContent='center' alignItems='center'>
             <Grid
               item
               xs={12}
               sx={{
                 display: "flex",
-                flexDirection: "row",
                 justifyContent: "center",
                 textAlign: "center",
                 px: { xs: 2, sm: 2 },
+                mb: 3,
                 animation: `${fadeIn} 3s`,
                 position: "relative",
               }}
             >
-              <Breadcrumbs aria-label='breadcrumb'>{categories.map((cat) => renderBadge(cat.count, cat.keyword, selectedKeyword, cat.label))}</Breadcrumbs>
+              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center">
+                {categories.map((cat) => renderBadge(cat.count, cat.keyword, selectedKeyword, cat.label))}
+              </Stack>
             </Grid>
 
             <Grid

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="geodevGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bf8f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#001510;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#geodevGradient)"/>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="white">🌍</text>
+  <text x="200" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">GeoDev</text>
+  <text x="200" y="210" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white" opacity="0.8">Digital Tools for Urban Planning</text>
+</svg> 

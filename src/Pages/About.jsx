@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   Grid,
   CssBaseline,
+  Stack,
 } from "@mui/material";
 import {
   Timeline,
@@ -32,6 +33,9 @@ import LanguageIcon from "@mui/icons-material/Language";
 import { keyframes } from "@emotion/react";
 import ButtonFab from "../Components/ButtonFab";
 import ScrollTrigger from "react-scroll-trigger";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import CodeIcon from '@mui/icons-material/Code';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const fadeIn = keyframes`
 from {
@@ -55,6 +59,14 @@ const AboutMe = () => {
   const boldTextStyles = {
     fontFamily: "GothamSSm-Bold",
     color: (theme) => theme.palette.text.primary,
+  };
+
+  const gradientTextStyles = {
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    fontFamily: "GothamSSm-Bold",
   };
 
   const onEnterViewport = (animationClass) => {
@@ -90,15 +102,18 @@ const AboutMe = () => {
       <Container sx={{ px: 1 }}>
         <CssBaseline />
         <Paper
-          elevation={3}
+          elevation={0}
           sx={{
             py: 5,
-            px: 2,
+            px: { xs: 2, md: 4 },
             borderRadius: 3,
-            backdropFilter: darkMode ? "blur(2px)" : "blur(1px)",
+            backdropFilter: darkMode ? "blur(10px)" : "blur(5px)",
             backgroundColor: darkMode
-              ? "transparent !important"
-              : "rgba(238, 238, 238, 0.7) !important",
+              ? "rgba(255, 255, 255, 0.02)"
+              : "rgba(255, 255, 255, 0.7)",
+            border: darkMode 
+              ? "1px solid rgba(255, 255, 255, 0.1)"
+              : "1px solid rgba(0, 0, 0, 0.05)",
           }}
         >
           <Grid
@@ -116,28 +131,71 @@ const AboutMe = () => {
               justifyContent={{ xs: "center", md: "flex-start" }}
               sx={{ width: "100%", display: "flex" }}
             >
-              <Avatar
-                alt="Thiago Bardini"
-                src={myself}
+              <Box
                 sx={{
-                  width: { xs: 150, sm: 200, md: 200 },
-                  height: { xs: 150, sm: 200, md: 200 },
+                  position: 'relative',
+                  width: { xs: 156, sm: 206, md: 206 },
+                  height: { xs: 156, sm: 206, md: 206 },
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  p: '3px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: darkMode 
+                    ? '0 10px 40px rgba(102, 126, 234, 0.4)' 
+                    : '0 10px 40px rgba(102, 126, 234, 0.25)',
                 }}
-              />
+              >
+                <Avatar
+                  alt="Thiago Bardini"
+                  src={myself}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    border: '3px solid',
+                    borderColor: darkMode ? '#1a1a1a' : '#ffffff',
+                  }}
+                />
+              </Box>
             </Grid>
             <Grid item xs={12} sm={8}>
               <ScrollTrigger onEnter={() => onEnterViewport("fade-in")}>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontFamily: "Trattatello",
-                    textTransform: "uppercase",
-                    color: (theme) => theme.palette.text.primary,
-                    letterSpacing: "0.1em",
-                  }}
-                >
-                  Thiago Bardini
-                </Typography>
+                <Stack spacing={1}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontFamily: "GothamSSm-Bold",
+                      color: (theme) => theme.palette.text.primary,
+                      letterSpacing: "-0.02em",
+                      mb: 2,
+                    }}
+                  >
+                    Thiago Bardini
+                  </Typography>
+
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      ...gradientTextStyles,
+                      mb: 1,
+                    }}
+                  >
+                    Founder & Software Engineer
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: (theme) => theme.palette.text.secondary,
+                      fontFamily: "GothamSSm-Light",
+                      mb: 2,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    Brazilian-born software developer and founder based in Massachusetts
+                  </Typography>
+                </Stack>
 
                 <List
                   id="fade-in"
@@ -232,19 +290,209 @@ const AboutMe = () => {
               </ScrollTrigger>
             </Grid>
           </Grid>
+          
           <Divider
-            sx={{ width: { xs: "100%", md: "70%" }, my: 3, mx: "auto" }}
-          />
-          <Box
-            Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              mb: 1,
+            sx={{ 
+              width: { xs: "100%", md: "70%" }, 
+              my: 4, 
+              mx: "auto",
+              borderColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.08)',
             }}
-          ></Box>
+          />
+
+          {/* New modern intro section */}
+          <ScrollTrigger onEnter={() => onEnterViewport("fade-intro")}>
+            <Box
+              id="fade-intro"
+              sx={{
+                mb: 4,
+                p: 3,
+                borderRadius: 2,
+                backgroundColor: darkMode 
+                  ? 'rgba(102, 126, 234, 0.05)'
+                  : 'rgba(102, 126, 234, 0.02)',
+                border: '1px solid',
+                borderColor: darkMode 
+                  ? 'rgba(102, 126, 234, 0.2)'
+                  : 'rgba(102, 126, 234, 0.1)',
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                "&.fade-intro": {
+                  opacity: 1,
+                  transform: "translateY(0)",
+                },
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{
+                  color: (theme) => theme.palette.text.primary,
+                  fontFamily: "GothamSSm-Light",
+                  lineHeight: 1.8,
+                  fontSize: '1.1rem',
+                }}
+              >
+                After years working across frontend development, QA automation, and AI integration, 
+                I now lead{" "}
+                <Box 
+                  component="a" 
+                  href="https://www.flowquantic.ai/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  sx={{
+                    ...gradientTextStyles,
+                    textDecoration: 'none',
+                    transition: 'opacity 0.3s ease',
+                    '&:hover': {
+                      opacity: 0.8,
+                    }
+                  }}
+                >
+                  FlowQuantic
+                </Box>
+                : a platform company building modular, AI-powered solutions for real-world service businesses.
+              </Typography>
+            </Box>
+          </ScrollTrigger>
+
+          {/* Current Focus with Icons */}
+          <ScrollTrigger onEnter={() => onEnterViewport("fade-focus")}>
+            <Box
+              id="fade-focus"
+              sx={{
+                mb: 4,
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
+                "&.fade-focus": {
+                  opacity: 1,
+                  transform: "translateY(0)",
+                },
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{
+                  fontFamily: "GothamSSm-Bold",
+                  color: (theme) => theme.palette.text.primary,
+                  mb: 3,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                }}
+              >
+                <RocketLaunchIcon sx={{ color: '#667eea' }} />
+                My Current Focus
+              </Typography>
+
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={6}>
+                  <Paper
+                    component="a"
+                    href="https://petquantic.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    elevation={0}
+                    sx={{
+                      p: 3,
+                      borderRadius: 2,
+                      border: '1px solid',
+                      borderColor: darkMode 
+                        ? 'rgba(102, 126, 234, 0.3)'
+                        : 'rgba(102, 126, 234, 0.2)',
+                      backgroundColor: darkMode 
+                        ? 'rgba(102, 126, 234, 0.05)'
+                        : 'rgba(102, 126, 234, 0.02)',
+                      height: '100%',
+                      transition: 'all 0.3s ease',
+                      display: 'block',
+                      textDecoration: 'none',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        borderColor: '#667eea',
+                        transform: 'translateY(-4px)',
+                        boxShadow: darkMode 
+                          ? '0 10px 30px rgba(102, 126, 234, 0.2)'
+                          : '0 10px 30px rgba(102, 126, 234, 0.1)',
+                      }
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{ ...gradientTextStyles, mb: 1 }}
+                    >
+                      PetQuantic
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: (theme) => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      AI automation for pet shops and clinics — voice assistants, 
+                      booking systems, upselling & CRM tools.
+                    </Typography>
+                  </Paper>
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                  <Paper
+                    component="a"
+                    href="https://www.crewquantic.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    elevation={0}
+                    sx={{
+                      p: 3,
+                      borderRadius: 2,
+                      border: '1px solid',
+                      borderColor: darkMode 
+                        ? 'rgba(118, 75, 162, 0.3)'
+                        : 'rgba(118, 75, 162, 0.2)',
+                      backgroundColor: darkMode 
+                        ? 'rgba(118, 75, 162, 0.05)'
+                        : 'rgba(118, 75, 162, 0.02)',
+                      height: '100%',
+                      transition: 'all 0.3s ease',
+                      display: 'block',
+                      textDecoration: 'none',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        borderColor: '#764ba2',
+                        transform: 'translateY(-4px)',
+                        boxShadow: darkMode 
+                          ? '0 10px 30px rgba(118, 75, 162, 0.2)'
+                          : '0 10px 30px rgba(118, 75, 162, 0.1)',
+                      }
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{ ...gradientTextStyles, mb: 1 }}
+                    >
+                      CrewQuantic
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: (theme) => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      Smart dashboards for field teams — scheduling, SMS automation, 
+                      check-ins, and payment workflows.
+                    </Typography>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Box>
+          </ScrollTrigger>
+
           <Box
-            Box
             sx={{
               display: "flex",
               alignItems: "flex-start",
@@ -262,7 +510,12 @@ const AboutMe = () => {
             >
               <TimelineItem>
                 <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
+                  <TimelineDot 
+                    sx={{ 
+                      backgroundColor: 'transparent',
+                      border: '2px solid #667eea',
+                    }} 
+                  />
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pt: 0, pr: 0, pl: 2 }}>
@@ -287,7 +540,10 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Expertise
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <CodeIcon sx={{ fontSize: 20, color: '#667eea' }} />
+                        Technical Background
+                      </Box>
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger
@@ -306,72 +562,22 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      • <span style={boldTextStyles}>Software Engineer</span>{" "}
-                      with a focus on{" "}
-                      <span style={boldTextStyles}>frontend development</span>{" "}
-                      and expertise in{" "}
-                      <span style={boldTextStyles}>
-                        end-to-end UI QA testing
-                      </span>
-                      .
+                      • Hands-on experience with{" "}
+                      <span style={boldTextStyles}>React, TypeScript, Node.js</span>,
+                      and modern AI integration frameworks
                     </Typography>
-                  </ScrollTrigger>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-down-5")}>
-                    <Typography
-                      id="fade-slide-down-5"
-                      variant="h6"
-                      component="span"
-                      sx={{
-                        color: (theme) => theme.palette.text.secondary,
-                        fontFamily: "GothamSSm-Light",
-                        opacity: 0,
-                        transform: "translateY(-20px)",
-                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-5": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                          fontFamily: "GothamSSm-Light",
-                        },
-                      }}
-                    >
-                      Projects I Founded
-                    </Typography>
-                  </ScrollTrigger>
-                  <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-5")}>
-                    <Box
-                      id="fade-slide-up-5"
-                      sx={{
-                        pl: 2,
-                        transform: "translateY(20px)",
-                        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-5": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                        },
-                      }}
-                    >
-                      <Typography sx={{ pb: 1 }}>
-                        • <span style={boldTextStyles}>FlowQuantic</span>: Voice AI app for small businesses, featuring smart call routing and automation.
-                      </Typography>
-                      <Typography>
-                        • <span style={boldTextStyles}>PetQuantic</span>: Booking and service platform tailored for pet shops and grooming services.
-                      </Typography>
-                    </Box>
                   </ScrollTrigger>
                 </TimelineContent>
               </TimelineItem>
 
               <TimelineItem>
                 <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
+                  <TimelineDot 
+                    sx={{ 
+                      backgroundColor: 'transparent',
+                      border: '2px solid #764ba2',
+                    }} 
+                  />
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
@@ -396,7 +602,10 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Main Technologies
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <GroupsIcon sx={{ fontSize: 20, color: '#764ba2' }} />
+                        Current Role at Code for Boston
+                      </Box>
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger
@@ -416,13 +625,9 @@ const AboutMe = () => {
                       }}
                     >
                       <Typography sx={{ pb: 1 }}>
-                        • Expertise in{" "}
-                        <span style={boldTextStyles}>
-                          JavaScript, TypeScript, React, modern CSS libraries,
-                        </span>{" "}
-                        and <span style={boldTextStyles}>Playwright</span> for
-                        advanced{" "}
-                        <span style={boldTextStyles}>UI QA testing</span>.
+                        • Contributing to impactful{" "}
+                        <span style={boldTextStyles}>civic tech projects</span>{" "}
+                        that serve the community
                       </Typography>
                     </Box>
                   </ScrollTrigger>
@@ -431,10 +636,14 @@ const AboutMe = () => {
 
               <TimelineItem>
                 <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
-                  <TimelineConnector />
+                  <TimelineDot 
+                    sx={{ 
+                      backgroundColor: 'transparent',
+                      border: '2px solid #667eea',
+                    }} 
+                  />
                 </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
+                <TimelineContent sx={{ pl: 2, pt: 0, pr: 0 }}>
                   <ScrollTrigger
                     onEnter={() => onEnterViewport("fade-slide-down-3")}
                   >
@@ -456,7 +665,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      Current Role at Code for Boston
+                      Mission
                     </Typography>
                   </ScrollTrigger>
                   <ScrollTrigger
@@ -475,224 +684,12 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      <Typography sx={{ pb: 1 }}>
-                        • Actively involved as a{" "}
-                        <span style={boldTextStyles}>Frontend Developer</span>,
-                        contributing to impactful{" "}
-                        <span style={boldTextStyles}>civic tech projects</span>.
-                      </Typography>
                       <Typography>
-                        • Create{" "}
-                        <span style={boldTextStyles}>
-                          accessible, user-friendly web applications
-                        </span>{" "}
-                        designed for maximum impact.
-                      </Typography>
-                    </Box>
-                  </ScrollTrigger>
-                </TimelineContent>
-              </TimelineItem>
-
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-4")}
-                  >
-                    <Typography
-                      id="fade-slide-down-4"
-                      variant="h6"
-                      component="span"
-                      sx={{
-                        color: (theme) => theme.palette.text.secondary,
-                        fontFamily: "GothamSSm-Light",
-                        opacity: 0,
-                        transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-4": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                          fontFamily: "GothamSSm-Light",
-                        },
-                      }}
-                    >
-                      Recent Role at TransPerfect
-                    </Typography>
-                  </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-4")}
-                  >
-                    <Box
-                      id="fade-slide-up-4"
-                      sx={{
-                        pl: 2,
-                        transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-4": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                        },
-                      }}
-                    >
-                      <Typography sx={{ pb: 1 }}>
-                        • Led rigorous{" "}
-                        <span style={boldTextStyles}>
-                          end-to-end UI QA testing
-                        </span>{" "}
-                        to ensure the highest quality of product.
-                      </Typography>
-                      <Typography sx={{ pb: 1 }}>
-                        • Contributed to{" "}
-                        <span style={boldTextStyles}>frontend development</span>{" "}
-                        using{" "}
-                        <span style={boldTextStyles}>React, JavaScript,</span>{" "}
-                        and <span style={boldTextStyles}>TypeScript</span>.
-                      </Typography>
-                      <Typography>
-                        • Implemented and maintained{" "}
-                        <span style={boldTextStyles}>RESTful APIs</span> and
-                        developed backend functionalities with{" "}
-                        <span style={boldTextStyles}>Node.js</span>.
-                      </Typography>
-                    </Box>
-                  </ScrollTrigger>
-                </TimelineContent>
-              </TimelineItem>
-
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ pb: "20px", pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-6")}
-                  >
-                    <Typography
-                      id="fade-slide-down-6"
-                      variant="h6"
-                      component="span"
-                      sx={{
-                        color: (theme) => theme.palette.text.secondary,
-                        fontFamily: "GothamSSm-Light",
-                        opacity: 0,
-                        transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-6": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                          fontFamily: "GothamSSm-Light",
-                        },
-                      }}
-                    >
-                      Career Objective
-                    </Typography>
-                  </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-6")}
-                  >
-                    <Box
-                      id="fade-slide-up-6"
-                      sx={{
-                        pl: 2,
-                        transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-6": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                        },
-                      }}
-                    >
-                      <Typography sx={{ pb: 1 }}>
-                        • To grow in{" "}
-                        <span style={boldTextStyles}>Software Development</span>{" "}
-                        and testing in an environment that values and nurtures{" "}
-                        <span style={boldTextStyles}>
-                          integrity, intelligence,
-                        </span>{" "}
-                        and <span style={boldTextStyles}>innovation</span>.
-                      </Typography>
-                      <Typography>
-                        • Committed to personal and professional growth, aiming
-                        to contribute to pioneering projects and creative
-                        technological solutions.
-                      </Typography>
-                    </Box>
-                  </ScrollTrigger>
-                </TimelineContent>
-              </TimelineItem>
-
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot variant="outlined" />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ pl: 2, pt: 0, pr: 0 }}>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-down-7")}
-                  >
-                    <Typography
-                      id="fade-slide-down-7"
-                      variant="h6"
-                      component="span"
-                      sx={{
-                        color: (theme) => theme.palette.text.secondary,
-                        fontFamily: "GothamSSm-Light",
-                        opacity: 0,
-                        transform: "translateY(-20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-down-7": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                          fontFamily: "GothamSSm-Light",
-                        },
-                      }}
-                    >
-                      What Do I Do?
-                    </Typography>
-                  </ScrollTrigger>
-                  <ScrollTrigger
-                    onEnter={() => onEnterViewport("fade-slide-up-7")}
-                  >
-                    <Box
-                      id="fade-slide-up-7"
-                      sx={{
-                        pl: 2,
-                        transform: "translateY(20px)",
-                        transition:
-                          "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        "&.fade-slide-up-7": {
-                          opacity: 1,
-                          transform: "translateY(0)",
-                        },
-                      }}
-                    >
-                      <Typography sx={{ pb: 1 }}>
-                        • Develop{" "}
-                        <span style={boldTextStyles}>
-                          cutting-edge, responsive websites
-                        </span>{" "}
-                        with a keen eye for{" "}
-                        <span style={boldTextStyles}>creative design</span> and
-                        usability.
-                      </Typography>
-                      <Typography>
-                        • Specialize in fine-tuning{" "}
-                        <span style={boldTextStyles}>user interfaces</span> and{" "}
-                        <span style={boldTextStyles}>user experiences</span>,
-                        underscored by a solid foundation in{" "}
-                        <span style={boldTextStyles}>
-                          comprehensive UI QA testing
-                        </span>
-                        .
+                        I combine{" "}
+                        <span style={boldTextStyles}>hands-on development</span>{" "}
+                        with <span style={boldTextStyles}>business strategy</span>{" "}
+                        to help small and mid-sized companies grow through{" "}
+                        <span style={gradientTextStyles}>automation and efficiency</span>.
                       </Typography>
                     </Box>
                   </ScrollTrigger>
@@ -701,23 +698,48 @@ const AboutMe = () => {
             </Timeline>
           </Box>
 
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<DownloadIcon />}
-            size="large"
-            sx={{
-              textTransform: "capitalize",
-              mt: 2,
-              textDecoration: "none",
-              fontFamily: "GothamSSm-Light",
-            }}
-            component="a"
-            href="https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY"
-            target="_blank"
+          <Stack 
+            direction={{ xs: "column", sm: "row" }} 
+            spacing={2} 
+            sx={{ mt: 4 }}
+            alignItems="center"
           >
-            Download my resume
-          </Button>
+            <Button
+              variant="contained"
+              startIcon={<DownloadIcon />}
+              size="large"
+              sx={{
+                textTransform: "capitalize",
+                textDecoration: "none",
+                fontFamily: "GothamSSm-Light",
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: 'white',
+                border: 'none',
+                px: 3,
+                py: 1.5,
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5a67d8 0%, #6b46a3 100%)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 10px 20px rgba(102, 126, 234, 0.3)',
+                }
+              }}
+              component="a"
+              href="https://drive.google.com/uc?export=download&id=1Ar7FXtFt2h2sMjF1Chr9xdxyLNZqobbY"
+              target="_blank"
+            >
+              Download my resume
+            </Button>
+
+            <Typography
+              variant="body2"
+              sx={{
+                color: (theme) => theme.palette.text.secondary,
+                fontFamily: "GothamSSm-Light",
+              }}
+            >
+              Let's connect or explore what I'm building.
+            </Typography>
+          </Stack>
         </Paper>
         <Box
           sx={{

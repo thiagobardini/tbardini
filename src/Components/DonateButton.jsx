@@ -12,7 +12,7 @@ function DonateButton() {
       target="_blank"
     >
       <input type="hidden" name="cmd" value="_donations" />
-      <input type="hidden" name="business" value="thiagobardini@icloud.com" />
+      <input type="hidden" name="business" value="hello@flowquantic.ai" />
       <input type="hidden" name="currency_code" value="USD" />
       <Button
         type="submit"

@@ -8,12 +8,13 @@ import { createTheme } from "@mui/material";
 // https://mui.com/material-ui/customization/dark-mode/
 // https://medium.com/@mokshi/how-to-persist-custom-material-ui-theme-light-dark-using-redux-toolkit-and-local-storage-in-481f4399eb4b
 
+// Modern theme with sophisticated colors and gradients
 export const createCustomTheme = (mode) =>
   createTheme({
     breakpoints: {
       values: {
         xs: 0,
-        xxs: 400, // Custom breakpoint
+        xxs: 400,
         sm: 600,
         md: 960,
         lg: 1280,
@@ -21,7 +22,6 @@ export const createCustomTheme = (mode) =>
       },
     },
     typography: {
-      // subtitle
       subtitle: {
         fontSize: "1.1rem",
       },
@@ -61,6 +61,13 @@ export const createCustomTheme = (mode) =>
               },
             ],
           },
+          body: {
+            backgroundImage: mode === 'light' 
+              ? 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)'
+              : 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
+            minHeight: '100vh',
+            transition: 'background-image 0.5s ease-in-out',
+          },
         },
       },
     },
@@ -74,39 +81,69 @@ export const createCustomTheme = (mode) =>
       mode: mode,
       ...(mode === "light"
         ? {
-            primary: { main: "#22313f" }, // Dark Slate Gray
-            secondary: { main: "#0092ca" }, // Bright Blue
-            chat: { main: "#22313f" }, // Bright Blue
-            primaryDark: { main: "#1270AF" }, // Medium Blue
-            background: {
-              default: "#d6d3d1", // Light Gray
-              box: "#d6d3d1", // Charcoal
-              chat: "#eeeeee", // Off White
-             },
-            text: {
-              primary: "#34495e", // Charcoal
-              secondary: "#222831", // Dark Slate Gray
-              third: "#222831", // Light Gray
-              fourth: "#0D0D0D", // Almost Black
+            // Light mode - Better contrast and visibility
+            primary: { 
+              main: "#1a1a1a", // Very dark for better contrast
+              light: "#4a4a4a",
+              dark: "#000000",
             },
-            customWhite: { main: "#eeeeee" }, // Off White
+            secondary: { 
+              main: "#6c5ce7", // Modern purple
+              light: "#a29bfe",
+              dark: "#5f3dc4",
+            },
+            chat: { main: "#1a1a1a" },
+            primaryDark: { main: "#1a1a1a" },
+            background: {
+              default: "transparent", // Will use gradient from body
+              paper: "rgba(255, 255, 255, 0.95)", // More opaque white
+              box: "rgba(255, 255, 255, 0.9)",
+              chat: "#ffffff",
+            },
+            text: {
+              primary: "#1a1a1a", // Very dark for maximum contrast
+              secondary: "#4a4a4a", // Dark gray
+              third: "#6c5ce7", // Purple accent
+              fourth: "#1a1a1a",
+            },
+            customWhite: { main: "#ffffff" },
+            gradients: {
+              primary: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              secondary: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+              accent: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+            }
           }
         : {
-            primary: { main: "#424242" }, // Dark Gray
-            secondary: { main: "#0092ca" }, // Bright Blue
-            chat: { main: "#eeeeee" }, // Bright Blue
+            // Dark mode - Deep, rich, modern
+            primary: { 
+              main: "#dfe6e9", // Light gray
+              light: "#ffffff",
+              dark: "#b2bec3",
+            },
+            secondary: { 
+              main: "#a29bfe", // Lighter purple
+              light: "#d6a2e8",
+              dark: "#6c5ce7",
+            },
+            chat: { main: "#dfe6e9" },
             background: {
-              default: "#2A2525", // Very Dark Brown
-              box: "#34495e", // Charcoal
-              chat: "#22313f", // Dark Slate Gray
+              default: "transparent", // Will use gradient from body
+              paper: "rgba(30, 30, 40, 0.9)", // Semi-transparent dark
+              box: "rgba(40, 40, 55, 0.7)",
+              chat: "#1e1e2e",
             },
             text: {
-              primary: "#eeeeee", // Off White
-              secondary: "#d6d3d1", // Almost Black
-              third: "#eeeeeeeeeeee", // Almost Black
-              fourth: "#d6d3d1", // Off White
+              primary: "#f5f6fa", // Almost white
+              secondary: "#dfe6e9", // Light gray
+              third: "#74b9ff", // Accent blue
+              fourth: "#f5f6fa",
             },
-            customWhite: { main: "#eeeeee" }, // Off White
+            customWhite: { main: "#f5f6fa" },
+            gradients: {
+              primary: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              secondary: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+              accent: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
+            }
           }),
     },
   });

@@ -210,7 +210,7 @@ to {
                         bottom: "7px",
                         left: "50%",
                         transform: "translateX(-50%)",
-                        backgroundColor: "#1270AF",
+                        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                         visibility: "hidden",
                         transition: "all 0.2s ease-in-out",
                       },

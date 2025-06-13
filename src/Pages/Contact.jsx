@@ -109,19 +109,19 @@ const Contact = () => {
     {
       icon: <EmailIcon />,
       label: "Email",
-      href: "mailto:thiago@flowquantic.ai",
+      href: "mailto:hello@flowquantic.ai",
       color: "#EA4335",
     },
     {
       icon: <LinkedInIcon />,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/tbardini/",
+      href: "https://www.linkedin.com/in/thiagobardini/",
       color: "#0077B5",
     },
     {
       icon: <GitHubIcon />,
       label: "GitHub",
-      href: "https://github.com/tbardini",
+      href: "https://github.com/thiagobardini",
       color: darkMode ? "#fff" : "#000",
     },
   ];

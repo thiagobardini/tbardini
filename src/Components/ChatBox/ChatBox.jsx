@@ -14,6 +14,7 @@ import {
   Divider,
 } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { keyframes } from "@emotion/react";
 import LoadingDots from "../LoadingDots";
 import chatbot from "/chatbotai.svg?url";
 import user from "/userchat.svg?url";
@@ -26,19 +27,38 @@ import Chatting from "./animation/Chatting-white.json";
 import { track } from "@vercel/analytics";
 import { useLocation, useNavigate } from "react-router-dom"; // added import
 
-const ChatDiv = styled(Box)({
+const pulse = keyframes`
+  0% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(102, 126, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+  }
+`;
+
+const ChatDiv = styled(Box)(({ theme }) => ({
   "::-webkit-scrollbar": {
-    width: "10px",
+    width: "8px",
   },
   "::-webkit-scrollbar-track": {
-    // backgroundColor: 'background.paper',
+    backgroundColor: "transparent",
   },
   "::-webkit-scrollbar-thumb": {
-    // backgroundColor: 'background.paper',
+    backgroundColor: theme.palette.mode === 'dark' 
+      ? "rgba(102, 126, 234, 0.3)" 
+      : "rgba(102, 126, 234, 0.2)",
     borderRadius: "10px",
-    border: "2px solid #ffffff",
+    transition: "background-color 0.3s ease",
+    "&:hover": {
+      backgroundColor: theme.palette.mode === 'dark' 
+        ? "rgba(102, 126, 234, 0.5)" 
+        : "rgba(102, 126, 234, 0.3)",
+    },
   },
-});
+}));
 
 const ChatBox = () => {
   const [open, setOpen] = useState(false);
@@ -269,8 +289,19 @@ const ChatBox = () => {
 
   const renderChatContent = () => (
     <Box>
-      <Box sx={{ px: 2, pt: 2 }}>
-        <Typography gutterBottom variant="h6" component="div">
+      <Box sx={{ px: 3, pt: 3, pb: 2, position: "relative" }}>
+        <Typography 
+          gutterBottom 
+          variant="h6" 
+          component="div"
+          sx={{
+            fontFamily: "GothamSSm-Bold",
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
           How can I help you?
         </Typography>
         <IconButton
@@ -278,19 +309,41 @@ const ChatBox = () => {
           sx={{
             position: "absolute",
             right: { xs: 10, md: 20 },
-            top: 8,
+            top: 15,
             padding: 1,
-            color: (theme) => theme.palette.grey[500],
+            color: darkMode ? "#eeeeee" : "#667eea",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              backgroundColor: darkMode 
+                ? "rgba(102, 126, 234, 0.1)" 
+                : "rgba(102, 126, 234, 0.05)",
+              color: "#667eea",
+            },
           }}
           aria-label="close"
         >
           <CloseIcon />
         </IconButton>
-        <Divider />
+        <Divider sx={{ 
+          mt: 2,
+          borderColor: darkMode 
+            ? "rgba(102, 126, 234, 0.2)" 
+            : "rgba(102, 126, 234, 0.1)" 
+        }} />
       </Box>
       <ChatDiv
         ref={chatBoxRef}
-        sx={{ maxHeight: "50vh", m: 1, overflow: "auto", px: 2, pb: 2 }}
+        sx={{ 
+          maxHeight: "50vh", 
+          mx: 1, 
+          overflow: "auto", 
+          px: 3, 
+          pb: 2,
+          borderRadius: "12px",
+          backgroundColor: darkMode 
+            ? "rgba(255, 255, 255, 0.02)" 
+            : "rgba(102, 126, 234, 0.01)",
+        }}
       >
         <Typography
           variant="subtitle2"
@@ -386,33 +439,54 @@ const ChatBox = () => {
 
       <Box
         sx={{
-          pl: 2,
-          pb: 2,
-          pr: 1,
+          px: 3,
+          pb: 3,
+          pt: 1,
           display: "flex",
           alignItems: "center",
           width: "100%",
+          gap: 1,
         }}
       >
         <TextField
-          color="chat"
           label="Ask a question..."
           fullWidth={true}
           value={msg}
           size="small"
           InputProps={{
             onFocus: handleTextFieldFocus,
+            sx: {
+              borderRadius: "12px",
+              backgroundColor: darkMode 
+                ? "rgba(255, 255, 255, 0.05)" 
+                : "rgba(102, 126, 234, 0.03)",
+              "&:hover": {
+                backgroundColor: darkMode 
+                  ? "rgba(255, 255, 255, 0.08)" 
+                  : "rgba(102, 126, 234, 0.05)",
+              },
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: darkMode 
+                  ? "rgba(102, 126, 234, 0.2)" 
+                  : "rgba(102, 126, 234, 0.15)",
+              },
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: darkMode 
+                  ? "rgba(102, 126, 234, 0.3)" 
+                  : "rgba(102, 126, 234, 0.25)",
+              },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#667eea",
+                borderWidth: "1px",
+              },
+            },
           }}
           onChange={(e) => setMsg(e.target.value)}
           InputLabelProps={{
             sx: {
-              color: darkMode ? "#eeeeee" : "#34495e",
-              "& label.Mui-focused": {
-                color: "#d6d3d1",
-              },
-              "& .MuiInputBase-input": {
-                fontSize: "0.875rem",
-                mt: 0.5,
+              color: darkMode ? "#eeeeee" : "#667eea",
+              "&.Mui-focused": {
+                color: "#667eea",
               },
             },
           }}
@@ -426,7 +500,28 @@ const ChatBox = () => {
 
         <IconButton
           disabled={!msg.trim()}
-          sx={{ color: darkMode ? "#eeeeee" : "#34495e" }}
+          sx={{ 
+            color: !msg.trim() 
+              ? (darkMode ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)")
+              : "#667eea",
+            backgroundColor: !msg.trim()
+              ? "transparent"
+              : darkMode 
+                ? "rgba(102, 126, 234, 0.1)" 
+                : "rgba(102, 126, 234, 0.05)",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              backgroundColor: !msg.trim()
+                ? "transparent"
+                : darkMode 
+                  ? "rgba(102, 126, 234, 0.2)" 
+                  : "rgba(102, 126, 234, 0.1)",
+              transform: !msg.trim() ? "none" : "scale(1.1)",
+            },
+            "&:disabled": {
+              color: darkMode ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)",
+            },
+          }}
           aria-label="send"
           onClick={getResponse}
         >
@@ -462,28 +557,37 @@ const ChatBox = () => {
         onClick={handleAIClick}
         variant="contained"
         sx={{
-          width: "50px !important",
+          width: "60px !important",
           height: "60px !important",
           position: "fixed",
-          right: 10,
-          bottom: 5,
+          right: 20,
+          bottom: 20,
           p: 0,
           textTransform: "none",
-          borderRadius: "100%",
+          borderRadius: "50%",
           zIndex: 1000,
-          backgroundColor: "rgba(204, 204, 204, 0.8)",
-          border: darkMode ? "1px solid #282524" : "1px solid #282524",
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          boxShadow: darkMode 
+            ? "0 8px 32px rgba(102, 126, 234, 0.5)" 
+            : "0 8px 32px rgba(102, 126, 234, 0.3)",
+          border: "none",
+          transition: "all 0.3s ease",
+          animation: !open ? `${pulse} 2s infinite` : "none",
           "&:hover": {
-            backgroundColor: "#d6d3d1 !important",
-            border: darkMode ? "1px solid #282524" : "1px solid #282524",
+            background: "linear-gradient(135deg, #5a67d8 0%, #6b46a3 100%)",
+            transform: "translateY(-2px)",
+            boxShadow: darkMode 
+              ? "0 12px 40px rgba(102, 126, 234, 0.6)" 
+              : "0 12px 40px rgba(102, 126, 234, 0.4)",
           },
         }}
       >
         <Lottie
           animationData={Chatting}
           style={{
-            height: "45px",
-            width: "45px",
+            height: "50px",
+            width: "50px",
+            filter: darkMode ? "brightness(1.2)" : "brightness(1)",
           }}
         />
       </Button>
@@ -505,9 +609,16 @@ const ChatBox = () => {
                   sx={{
                     maxWidth: { xs: "90vw", md: "40vw" },
                     mx: 2,
-                    border: 2,
-                    borderRadius: "10px",
-                    bgcolor: "background.box",
+                    borderRadius: "20px",
+                    bgcolor: darkMode ? "rgba(30, 30, 30, 0.95)" : "rgba(255, 255, 255, 0.98)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid",
+                    borderColor: darkMode 
+                      ? "rgba(102, 126, 234, 0.2)" 
+                      : "rgba(102, 126, 234, 0.1)",
+                    boxShadow: darkMode
+                      ? "0 20px 60px rgba(102, 126, 234, 0.3)"
+                      : "0 20px 60px rgba(102, 126, 234, 0.15)",
                   }}
                 >
                   {renderChatContent()}
@@ -525,21 +636,20 @@ const ChatBox = () => {
           PaperProps={{
             sx: {
               zIndex: 1300,
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
+              borderTopLeftRadius: "30px",
+              borderTopRightRadius: "30px",
+              bgcolor: darkMode ? "rgba(30, 30, 30, 0.98)" : "rgba(255, 255, 255, 0.98)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid",
+              borderColor: darkMode 
+                ? "rgba(102, 126, 234, 0.2)" 
+                : "rgba(102, 126, 234, 0.1)",
+              borderBottom: "none",
+              boxShadow: "0 -10px 40px rgba(102, 126, 234, 0.2)",
             },
           }}
         >
-          <Box
-            sx={{
-              borderTop: 3,
-              borderLeft: 3,
-              borderRight: 3,
-              bgcolor: "background.chat",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
-            }}
-          >
+          <Box>
             {renderChatContent()}
           </Box>
         </Drawer>

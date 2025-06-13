@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import ButtonFab from "./ButtonFab";
 import ScrollTrigger from "react-scroll-trigger";
 import { useTheme } from "@mui/material/styles";
+import CodeIcon from '@mui/icons-material/Code';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 const CustomBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -48,9 +51,7 @@ const HomeText = () => {
           variant="h1"
           component="h1"
           sx={{
-            background: darkMode 
-              ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
-              : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -58,6 +59,10 @@ const HomeText = () => {
             fontSize: { xs: "2.5rem", md: "3.5rem" },
             fontFamily: "GothamSSm-Bold",
             fontWeight: 800,
+            filter: darkMode ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' : {
+              xs: 'drop-shadow(0 0 8px rgba(255,255,255,1)) drop-shadow(0 0 16px rgba(255,255,255,0.8)) drop-shadow(2px 2px 4px rgba(255,255,255,1))',
+              md: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+            },
           }}
         >
           <TypeAnimation
@@ -81,6 +86,10 @@ const HomeText = () => {
               transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
               fontFamily: "GothamSSm-Bold",
               mb: 2,
+              textShadow: darkMode ? 'none' : { 
+                xs: '0 0 8px rgba(255,255,255,1), 0 0 16px rgba(255,255,255,1), 2px 2px 6px rgba(255,255,255,1), -2px -2px 6px rgba(255,255,255,1)', 
+                md: 'none' 
+              },
               "&.fade-slide-up-h1": {
                 opacity: 1,
                 transform: "translateY(0)",
@@ -100,6 +109,16 @@ const HomeText = () => {
                 WebkitTextFillColor: 'transparent',
                 textDecoration: 'none',
                 transition: 'all 0.3s ease',
+                textShadow: (!darkMode) ? { 
+                  xs: '0 1px 2px rgba(0,0,0,0.1)', 
+                  md: 'none' 
+                } : 'none',
+                padding: (!darkMode) ? { xs: '2px 6px', md: 0 } : 0,
+                backgroundColor: (!darkMode) ? { 
+                  xs: 'rgba(255, 255, 255, 0.1)', 
+                  md: 'transparent' 
+                } : 'transparent',
+                borderRadius: (!darkMode) ? { xs: '6px', md: 0 } : 0,
                 '&:hover': {
                   opacity: 0.8,
                 }
@@ -115,7 +134,7 @@ const HomeText = () => {
             variant="h6"
             id="fade-slide-up-h2"
             sx={{
-              color: (theme) => theme.palette.text.secondary,
+              color: (theme) => theme.palette.text.primary,
               fontWeight: 400,
               opacity: 0,
               transform: "translateY(20px)",
@@ -123,6 +142,10 @@ const HomeText = () => {
               fontFamily: "GothamSSm-Light",
               maxWidth: { xs: "100%", md: "600px" },
               px: 2,
+              textShadow: (!darkMode) ? { 
+                xs: '0 0 6px rgba(255,255,255,1), 0 0 12px rgba(255,255,255,1), 1px 1px 3px rgba(255,255,255,1), -1px -1px 3px rgba(255,255,255,1)', 
+                md: 'none' 
+              } : 'none',
               "&.fade-slide-up-h2": {
                 opacity: 1,
                 transform: "translateY(0)",
@@ -134,9 +157,7 @@ const HomeText = () => {
         </ScrollTrigger>
 
         <ScrollTrigger onEnter={() => onEnterViewport("fade-slide-up-h3")}>
-          <Stack 
-            direction={{ xs: "column", sm: "row" }} 
-            spacing={2}
+          <Box
             id="fade-slide-up-h3"
             sx={{
               opacity: 0,
@@ -146,72 +167,146 @@ const HomeText = () => {
                 opacity: 1,
                 transform: "translateY(0)",
               },
+              mt: 3,
+              display: "flex",
+              gap: 2,
+              flexWrap: "wrap",
+              justifyContent: "center",
             }}
           >
-            <Chip
-              label="PetQuantic"
-              component="a"
-              href="https://petquantic.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              clickable
-              variant="outlined"
+            <Box
               sx={{
-                borderColor: darkMode ? 'rgba(102, 126, 234, 0.5)' : 'rgba(102, 126, 234, 0.5)',
-                color: (theme) => theme.palette.text.primary,
-                fontFamily: "GothamSSm-Light",
-                fontWeight: 500,
-                fontSize: "0.9rem",
-                py: 2.5,
-                px: 1,
-                backdropFilter: 'blur(10px)',
-                backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                textDecoration: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  borderColor: '#667eea',
-                  backgroundColor: darkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 5px 15px rgba(102, 126, 234, 0.3)',
-                }
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                px: 2.5,
+                py: 1.2,
+                borderRadius: "30px",
+                background: darkMode 
+                  ? "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)"
+                  : "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+                border: "1px solid",
+                borderColor: darkMode 
+                  ? "rgba(102, 126, 234, 0.2)"
+                  : "rgba(102, 126, 234, 0.1)",
+                backdropFilter: "blur(10px)",
+                transition: "all 0.3s ease",
+                cursor: "default",
+                "&:hover": {
+                  borderColor: darkMode 
+                    ? "rgba(102, 126, 234, 0.4)"
+                    : "rgba(102, 126, 234, 0.2)",
+                  transform: "translateY(-2px)",
+                },
               }}
-            />
-            <Chip
-              label="CrewQuantic"
-              component="a"
-              href="https://www.crewquantic.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              clickable
-              variant="outlined"
+            >
+              <CodeIcon sx={{ 
+                fontSize: 20, 
+                color: "#667eea",
+              }} />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontFamily: "GothamSSm-Light",
+                  fontWeight: 500,
+                  color: (theme) => theme.palette.text.primary,
+                }}
+              >
+                Full-Stack Developer
+              </Typography>
+            </Box>
+
+            <Box
               sx={{
-                borderColor: darkMode ? 'rgba(118, 75, 162, 0.5)' : 'rgba(118, 75, 162, 0.5)',
-                color: (theme) => theme.palette.text.primary,
-                fontFamily: "GothamSSm-Light",
-                fontWeight: 500,
-                fontSize: "0.9rem",
-                py: 2.5,
-                px: 1,
-                backdropFilter: 'blur(10px)',
-                backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                textDecoration: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  borderColor: '#764ba2',
-                  backgroundColor: darkMode ? 'rgba(118, 75, 162, 0.1)' : 'rgba(118, 75, 162, 0.05)',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 5px 15px rgba(118, 75, 162, 0.3)',
-                }
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                px: 2.5,
+                py: 1.2,
+                borderRadius: "30px",
+                background: darkMode 
+                  ? "linear-gradient(135deg, rgba(118, 75, 162, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%)"
+                  : "linear-gradient(135deg, rgba(118, 75, 162, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%)",
+                border: "1px solid",
+                borderColor: darkMode 
+                  ? "rgba(118, 75, 162, 0.2)"
+                  : "rgba(118, 75, 162, 0.1)",
+                backdropFilter: "blur(10px)",
+                transition: "all 0.3s ease",
+                cursor: "default",
+                "&:hover": {
+                  borderColor: darkMode 
+                    ? "rgba(118, 75, 162, 0.4)"
+                    : "rgba(118, 75, 162, 0.2)",
+                  transform: "translateY(-2px)",
+                },
               }}
-            />
-          </Stack>
+            >
+              <AutoAwesomeIcon sx={{ 
+                fontSize: 20, 
+                color: "#764ba2",
+              }} />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontFamily: "GothamSSm-Light",
+                  fontWeight: 500,
+                  color: (theme) => theme.palette.text.primary,
+                }}
+              >
+                AI Integration
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                px: 2.5,
+                py: 1.2,
+                borderRadius: "30px",
+                background: darkMode 
+                  ? "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)"
+                  : "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+                border: "1px solid",
+                borderColor: darkMode 
+                  ? "rgba(102, 126, 234, 0.2)"
+                  : "rgba(102, 126, 234, 0.1)",
+                backdropFilter: "blur(10px)",
+                transition: "all 0.3s ease",
+                cursor: "default",
+                "&:hover": {
+                  borderColor: darkMode 
+                    ? "rgba(102, 126, 234, 0.4)"
+                    : "rgba(102, 126, 234, 0.2)",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              <RocketLaunchIcon sx={{ 
+                fontSize: 20, 
+                color: "#667eea",
+              }} />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontFamily: "GothamSSm-Light",
+                  fontWeight: 500,
+                  color: (theme) => theme.palette.text.primary,
+                }}
+              >
+                Startup Founder
+              </Typography>
+            </Box>
+          </Box>
         </ScrollTrigger>
       </Stack>
 
       <Box mt={4} sx={{ width: "auto", position: "relative", zIndex: 20 }}>
-        <Box sx={{ "& > :not(style)": { m: 1 } }}>
+        <Box sx={{ 
+          "& > :not(style)": { m: 1 },
+        }}>
           <ButtonFab
             to="/aboutme"
             label="See more about me"

@@ -5,7 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
   /* padding-top: 124px;  */
+}
+
+/* Modern scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46a3 100%);
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 @font-face {
@@ -52,4 +77,38 @@ body {
   0% { opacity: 0; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* Fade animations for scroll trigger */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern link styles */
+a {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: inherit;
 }

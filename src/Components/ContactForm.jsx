@@ -72,8 +72,8 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
           />
         </Link>
       </Tooltip>
-      <Tooltip TransitionComponent={Zoom} title='📧 thiagobardini@icloud.com'>
-        <Link href="mailto:thiagobardini@icloud.com?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you" color='inherit' underline='none' target='_blank'>
+      <Tooltip TransitionComponent={Zoom} title='📧 hello@flowquantic.ai'>
+        <Link href="mailto:hello@flowquantic.ai?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you" color='inherit' underline='none' target='_blank'>
           <ContactIconText
             icon={
               <EmailIcon
@@ -83,7 +83,7 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
                 }}
               />
             }
-            // text="thiagobardini@icloud.com"
+            // text="hello@flowquantic.ai"
           />
         </Link>
       </Tooltip>

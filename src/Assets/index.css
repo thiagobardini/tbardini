@@ -1,80 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 
+/* Modern CSS variables for additional styling */
 :root {
-  /* Font Families */
-  --font-family-1: "Lora", sans-serif;
-
-  /* Colors text*/
-  --color-text-1: #f7f7f7; /* text: navbar, footer, special cases */
-  --color-text-2: #00497a; /* titles */
-  --color-text-3: #0a0b0b; /* text body */
-  --color-text-4: #0000ff; /* links */
-
-  --color-text-5: #caf0f6; /* Hero Page */
-  --color-text-6: #90e0ef;
-  --color-text-7: #23b5d3; /* Hero Page */
-
-  --color-text-8: #66d6ff; /* Hero Page */
-  --color-text-9: #fcfdfe; /* Hero Page */
-  --color-text-10: #d0312d; /* Hero Page */
-
-  /* Background colors */
-  --bgColor-1: #2a2a2a; /* Background /* Navbar, Footer, Button */
-  --bgColor-2: #f7f7ff; /* Background Button */
-  --bgColor-3: #0a0b0b; /* Background HeadingTop*/
-  --bgColor-4: #00497a; /* Background /* Navbar, Footer, Button */
-  --bgColor-5: #f9f9f9; /* Background Cards */
-  --bgColor-6: #fcfdfe; /* Background */
-
-  /* Accent colors */
-  --accent-1: rgba(0, 0, 0, 0.4); /* image overlay */
-  --accent-2: rgba(202, 240, 254, 0.8); /* Divider color */
-
-  /* Box shadow */
-  --box-shadow-1: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Button Scroll Up Shadow */
-
-  /* Border */
-  --boder-color-1: 1px solid rgba(0, 0, 0, 0.12); /* Border color cards */
-
-  /* Pallete Colors */
-  /* Dark Mode */
-  .first-color {
-    background: #222831;
-  }
-
-  .second-color {
-    background: #393e46;
-  }
-
-  .third-color {
-    background: #0092ca;
-  }
-
-  .fourth-color {
-    background: #eeeeee;
-  }
-
-  /* Light Mode */
-  .first-color {
-    background: #eeeeee;
-  }
-
-  .second-color {
-    background: #8dc6ff;
-  }
-
-  .third-color {
-    background: #22313f;
-  }
-
-  .fourth-color {
-    background: #34495e;
-  }
+  /* Modern shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Modern blur effects */
+  --blur-sm: blur(4px);
+  --blur-md: blur(12px);
+  --blur-lg: blur(24px);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
 }
 
+/* Modern glassmorphism effects */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-effect-dark {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Lottery ball styling with modern design */
 .lotto-ball {
-  color: #22313f;
-  background-color: #f4d03f;
+  color: #2d3436;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
   width: 40px;
   height: 40px;
   border-radius: 50% !important;
@@ -82,29 +45,25 @@
   align-items: center !important;
   justify-content: center !important;
   font-size: 16px !important;
-  transition: background-color 0.3s, color 0.3s !important;
+  font-weight: bold;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .lotto-ball:hover {
-  background-color: #f4a261 !important;
-  color: #2a9d8f !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);
 }
 
 .lotto-ball.Mui-selected {
-  background-color: #e76f51 !important;
-  color: #264653 !important;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: #ffffff !important;
+  box-shadow: 0 6px 12px rgba(238, 90, 111, 0.3);
 }
 
-.lotto-ball.dark-mode {
-  color: #22313f;
-  background-color: #f4d03f;
-}
-
-.lotto-ball.light-mode {
-  color: #22313f;
-  background-color: #f4d03f;
-}
-
+/* Modern animations */
 @keyframes moveRight {
   0% {
     transform: translateX(0px);
@@ -117,22 +76,69 @@
   }
 }
 
-.hoverEffect:hover {
-  background-color: #ddd;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Masonry grid styling */
 .my-masonry-grid {
   display: flex;
-  margin-left: -12px; /* Ajustar o valor do espaçamento entre as colunas aqui */
+  margin-left: -12px;
   width: auto;
 }
 
 .my-masonry-grid_column {
-  padding-left: 12px; /* Ajustar o valor do espaçamento entre as colunas aqui */
+  padding-left: 12px;
   background-clip: padding-box;
 }
 
-/* Estilo para os itens dentro das colunas, caso necessário */
 .my-masonry-grid_column > div {
-  margin-bottom: 30px; /* Ajustar o valor do espaçamento entre os itens aqui */
+  margin-bottom: 24px;
+}
+
+/* Modern card styling */
+.modern-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Dark mode card */
+.modern-card-dark {
+  background: rgba(30, 30, 40, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

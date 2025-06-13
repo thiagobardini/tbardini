@@ -54,7 +54,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-og": "node generate-og-image.js",
+    "generate-og:manual": "echo 'Open http://localhost:5173/og-image-generator.html in your browser'"
   },
   "eslintConfig": {
     "extends": [

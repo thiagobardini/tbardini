@@ -6,7 +6,7 @@ const SEO = ({
   title = "Thiago Bardini | Software Engineer & Founder", 
   description = "Software engineer and founder specializing in React, TypeScript, and AI integration. Building innovative solutions at FlowQuantic.",
   keywords = "Thiago Bardini, Software Engineer, React Developer, TypeScript, AI Integration, FlowQuantic, PetQuantic, CrewQuantic",
-  image = "https://thiagobardini.com/og-image.png",
+  image = "https://thiagobardini.com/logoNav250.png", // TODO: Change to og-image.png after generating it (see TODO-OG-IMAGE.md)
   type = "website"
 }) => {
   const location = useLocation();
@@ -31,6 +31,9 @@ const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="250" />
+      <meta property="og:image:height" content="250" />
+      <meta property="og:image:alt" content="Thiago Bardini Logo" />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -38,6 +41,10 @@ const SEO = ({
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
+      
+      {/* WhatsApp and other messaging apps */}
+      <meta property="og:image:secure_url" content={image} />
+      <meta property="og:locale" content="en_US" />
       
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />

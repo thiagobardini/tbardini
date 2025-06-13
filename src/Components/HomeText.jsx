@@ -184,12 +184,26 @@ const HomeText = () => {
                 borderRadius: "30px",
                 background: darkMode 
                   ? "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)"
-                  : "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+                  : {
+                    xs: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%)",
+                    md: "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)"
+                  },
                 border: "1px solid",
                 borderColor: darkMode 
                   ? "rgba(102, 126, 234, 0.2)"
-                  : "rgba(102, 126, 234, 0.1)",
-                backdropFilter: "blur(10px)",
+                  : {
+                    xs: "rgba(102, 126, 234, 0.3)",
+                    md: "rgba(102, 126, 234, 0.1)"
+                  },
+                backdropFilter: darkMode ? "blur(10px)" : { xs: "blur(20px)", md: "blur(10px)" },
+                backgroundColor: darkMode ? "transparent" : { 
+                  xs: "rgba(255, 255, 255, 0.8)", 
+                  md: "transparent" 
+                },
+                boxShadow: darkMode ? "none" : { 
+                  xs: "0 4px 12px rgba(102, 126, 234, 0.15)", 
+                  md: "none" 
+                },
                 transition: "all 0.3s ease",
                 cursor: "default",
                 "&:hover": {
@@ -202,7 +216,7 @@ const HomeText = () => {
             >
               <CodeIcon sx={{ 
                 fontSize: 20, 
-                color: "#667eea",
+                color: darkMode ? "#667eea" : { xs: "#5a67d8", md: "#667eea" },
               }} />
               <Typography
                 variant="body2"
@@ -226,12 +240,26 @@ const HomeText = () => {
                 borderRadius: "30px",
                 background: darkMode 
                   ? "linear-gradient(135deg, rgba(118, 75, 162, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%)"
-                  : "linear-gradient(135deg, rgba(118, 75, 162, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%)",
+                  : {
+                    xs: "linear-gradient(135deg, rgba(118, 75, 162, 0.15) 0%, rgba(102, 126, 234, 0.15) 100%)",
+                    md: "linear-gradient(135deg, rgba(118, 75, 162, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%)"
+                  },
                 border: "1px solid",
                 borderColor: darkMode 
                   ? "rgba(118, 75, 162, 0.2)"
-                  : "rgba(118, 75, 162, 0.1)",
-                backdropFilter: "blur(10px)",
+                  : {
+                    xs: "rgba(118, 75, 162, 0.3)",
+                    md: "rgba(118, 75, 162, 0.1)"
+                  },
+                backdropFilter: darkMode ? "blur(10px)" : { xs: "blur(20px)", md: "blur(10px)" },
+                backgroundColor: darkMode ? "transparent" : { 
+                  xs: "rgba(255, 255, 255, 0.8)", 
+                  md: "transparent" 
+                },
+                boxShadow: darkMode ? "none" : { 
+                  xs: "0 4px 12px rgba(118, 75, 162, 0.15)", 
+                  md: "none" 
+                },
                 transition: "all 0.3s ease",
                 cursor: "default",
                 "&:hover": {
@@ -244,7 +272,7 @@ const HomeText = () => {
             >
               <AutoAwesomeIcon sx={{ 
                 fontSize: 20, 
-                color: "#764ba2",
+                color: darkMode ? "#764ba2" : { xs: "#6b46a3", md: "#764ba2" },
               }} />
               <Typography
                 variant="body2"
@@ -268,12 +296,26 @@ const HomeText = () => {
                 borderRadius: "30px",
                 background: darkMode 
                   ? "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)"
-                  : "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+                  : {
+                    xs: "linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%)",
+                    md: "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)"
+                  },
                 border: "1px solid",
                 borderColor: darkMode 
                   ? "rgba(102, 126, 234, 0.2)"
-                  : "rgba(102, 126, 234, 0.1)",
-                backdropFilter: "blur(10px)",
+                  : {
+                    xs: "rgba(102, 126, 234, 0.3)",
+                    md: "rgba(102, 126, 234, 0.1)"
+                  },
+                backdropFilter: darkMode ? "blur(10px)" : { xs: "blur(20px)", md: "blur(10px)" },
+                backgroundColor: darkMode ? "transparent" : { 
+                  xs: "rgba(255, 255, 255, 0.8)", 
+                  md: "transparent" 
+                },
+                boxShadow: darkMode ? "none" : { 
+                  xs: "0 4px 12px rgba(102, 126, 234, 0.15)", 
+                  md: "none" 
+                },
                 transition: "all 0.3s ease",
                 cursor: "default",
                 "&:hover": {
@@ -286,7 +328,7 @@ const HomeText = () => {
             >
               <RocketLaunchIcon sx={{ 
                 fontSize: 20, 
-                color: "#667eea",
+                color: darkMode ? "#667eea" : { xs: "#5a67d8", md: "#667eea" },
               }} />
               <Typography
                 variant="body2"

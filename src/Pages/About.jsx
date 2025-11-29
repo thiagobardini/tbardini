@@ -36,6 +36,7 @@ import ScrollTrigger from "react-scroll-trigger";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import CodeIcon from '@mui/icons-material/Code';
 import GroupsIcon from '@mui/icons-material/Groups';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const fadeIn = keyframes`
 from {
@@ -183,7 +184,7 @@ const AboutMe = () => {
                       mb: 1,
                     }}
                   >
-                    Founder & Software Engineer
+                    Full-Stack Engineer
                   </Typography>
 
                   <Typography
@@ -335,8 +336,8 @@ const AboutMe = () => {
                   fontSize: '1.1rem',
                 }}
               >
-                After years working across frontend development, QA automation, and AI integration, 
-                I now lead{" "}
+                Full-stack engineer building production applications — from frontend to backend, databases, and AI integration. 
+                Working on{" "}
                 <Box 
                   component="a" 
                   href="https://www.flowquantic.ai/" 
@@ -353,7 +354,7 @@ const AboutMe = () => {
                 >
                   FlowQuantic
                 </Box>
-                : a platform company building modular, AI-powered solutions for real-world service businesses.
+                {" "}— a platform creating modular, AI-powered solutions for service businesses.
               </Typography>
             </Box>
           </ScrollTrigger>
@@ -386,7 +387,7 @@ const AboutMe = () => {
                 }}
               >
                 <RocketLaunchIcon sx={{ color: '#667eea' }} />
-                My Current Focus
+                Featured Projects
               </Typography>
 
               <Grid container spacing={3}>
@@ -421,13 +422,35 @@ const AboutMe = () => {
                       }
                     }}
                   >
-                    <Typography
-                      variant="h6"
-                      component="h3"
-                      sx={{ ...gradientTextStyles, mb: 1 }}
-                    >
-                      PetQuantic
-                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{ ...gradientTextStyles }}
+                      >
+                        PetQuantic
+                      </Typography>
+                      <Box
+                        component="a"
+                        href="https://www.instagram.com/petquantic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          textDecoration: 'none',
+                          color: (theme) => theme.palette.text.secondary,
+                          transition: 'color 0.3s ease, transform 0.3s ease',
+                          '&:hover': {
+                            color: '#E4405F',
+                            transform: 'scale(1.1)',
+                          }
+                        }}
+                      >
+                        <InstagramIcon sx={{ fontSize: 20 }} />
+                      </Box>
+                    </Box>
                     <Typography
                       variant="body2"
                       sx={{
@@ -436,8 +459,7 @@ const AboutMe = () => {
                         lineHeight: 1.6,
                       }}
                     >
-                      AI automation for pet shops and clinics — voice assistants, 
-                      booking systems, upselling & CRM tools.
+                      All-in-one platform for pet groomers and daycares — booking, payments, SMS, and AI insights.
                     </Typography>
                   </Paper>
                 </Grid>
@@ -473,13 +495,35 @@ const AboutMe = () => {
                       }
                     }}
                   >
-                    <Typography
-                      variant="h6"
-                      component="h3"
-                      sx={{ ...gradientTextStyles, mb: 1 }}
-                    >
-                      CrewQuantic
-                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{ ...gradientTextStyles }}
+                      >
+                        CrewQuantic
+                      </Typography>
+                      <Box
+                        component="a"
+                        href="https://www.instagram.com/crewquantic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          textDecoration: 'none',
+                          color: (theme) => theme.palette.text.secondary,
+                          transition: 'color 0.3s ease, transform 0.3s ease',
+                          '&:hover': {
+                            color: '#E4405F',
+                            transform: 'scale(1.1)',
+                          }
+                        }}
+                      >
+                        <InstagramIcon sx={{ fontSize: 20 }} />
+                      </Box>
+                    </Box>
                     <Typography
                       variant="body2"
                       sx={{
@@ -567,9 +611,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      • Hands-on experience with{" "}
-                      <span style={boldTextStyles}>React, TypeScript, Node.js</span>,
-                      and modern AI integration frameworks
+                      • <span style={boldTextStyles}>Full-stack development</span>, <span style={boldTextStyles}>system architecture</span>, <span style={boldTextStyles}>cloud infrastructure</span>, <span style={boldTextStyles}>databases</span>, <span style={boldTextStyles}>APIs</span>, <span style={boldTextStyles}>AI/ML</span>, <span style={boldTextStyles}>payment systems</span>, and <span style={boldTextStyles}>end-to-end product delivery</span>
                     </Typography>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -609,7 +651,7 @@ const AboutMe = () => {
                     >
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <GroupsIcon sx={{ fontSize: 20, color: '#764ba2' }} />
-                        Current Role at Code for Boston
+                        Open Source Contributor & Community Builder
                       </Box>
                     </Typography>
                   </ScrollTrigger>
@@ -630,9 +672,7 @@ const AboutMe = () => {
                       }}
                     >
                       <Typography sx={{ pb: 1 }}>
-                        • Contributing to impactful{" "}
-                        <span style={boldTextStyles}>civic tech projects</span>{" "}
-                        that serve the community
+                        • Contributing to <span style={boldTextStyles}>open source projects</span> and <span style={boldTextStyles}>civic tech initiatives</span> that serve the community
                       </Typography>
                     </Box>
                   </ScrollTrigger>
@@ -693,7 +733,7 @@ const AboutMe = () => {
                         I combine{" "}
                         <span style={boldTextStyles}>hands-on development</span>{" "}
                         with <span style={boldTextStyles}>business strategy</span>{" "}
-                        to help small and mid-sized companies grow through{" "}
+                        to help teams grow through{" "}
                         <span style={gradientTextStyles}>automation and efficiency</span>.
                       </Typography>
                     </Box>

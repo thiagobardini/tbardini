@@ -68,7 +68,7 @@ function App() {
             <Box sx={{ position: "relative", zIndex: 2 }}>
               <Box sx={{ position: "relative", zIndex: 9999 }}>
                 <Navbar />
-                <ChatBox />
+                {/* <ChatBox /> */}
                 <HireMe />
               </Box>
               <ScrollToTop />

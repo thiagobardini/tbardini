@@ -17,14 +17,14 @@
   {
     "id": "petquantic",
     "title": "PetQuantic",
-    "subtitle": "AI Revenue Engine for Pet Grooming",
-    "description": "🐾 AI-powered platform designed specifically for pet businesses. We help grooming salons and pet shops increase revenue through smart automation and personalized customer experiences.",
+    "subtitle": "All-in-One for Grooming & Daycare",
+    "description": "🐾 All-in-one platform for pet groomers and daycares. Online booking, payments, SMS notifications, and AI-powered insights — built to help pet businesses grow.",
     "logo": "/images/petquantic-logo.png",
     "img": "/images/petquantic-preview.gif",
     "techs": [],
     "live": "https://petquantic.com",
     "localUrl": "",
-    "readme": "",
+    "readme": "https://www.instagram.com/petquantic",
     "github": "",
     "openNewTab": false,
     "dev": ["fullstack"]

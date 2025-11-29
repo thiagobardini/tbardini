@@ -184,7 +184,7 @@ const AboutMe = () => {
                       mb: 1,
                     }}
                   >
-                    Full-Stack Engineer
+                    Founder & Software Engineer
                   </Typography>
 
                   <Typography

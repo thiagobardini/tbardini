@@ -1,5 +1,8 @@
 import React from "react";
-import { Card, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip } from "@mui/material";
+import { Card, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip, Button } from "@mui/material";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
 import { useNavigate } from "react-router-dom";
 import javascript from "../Assets/icons/icons8-javascript-30.png";
@@ -99,6 +102,12 @@ const IconComponent = ({ iconType, tech }) => {
     "calendly api": <CalendarIcon sx={{ fontSize: 30, color: '#006BFF' }} />,
     vapi: <VoiceIcon sx={{ fontSize: 30, color: '#764ba2' }} />,
     "real-time transcription": <VoiceIcon sx={{ fontSize: 30, color: '#667eea' }} />,
+    trpc: <CodeIcon sx={{ fontSize: 30, color: '#2596BE' }} />,
+    supabase: <StorageIcon sx={{ fontSize: 30, color: '#3ECF8E' }} />,
+    "next.js 15": <CloudIcon sx={{ fontSize: 30, color: '#000' }} />,
+    zustand: <StorageIcon sx={{ fontSize: 30, color: '#453F39' }} />,
+    "real-time analytics": <TrendingUpIcon sx={{ fontSize: 30, color: '#667eea' }} />,
+    openai: <SmartToyIcon sx={{ fontSize: 30, color: '#412991' }} />,
   };
 
   return (
@@ -110,12 +119,12 @@ const IconComponent = ({ iconType, tech }) => {
   );
 };
 
-const CardsProjects = ({ id, title, description, subtitle, img, techs, height }) => {
+const CardsProjects = ({ id, title, description, subtitle, img, techs, height, isMainFeature = false, live, github, instagram }) => {
   const navigate = useNavigate();
   const isBusinessProject = ["flowquantic", "petquantic", "crewquantic", "pinkdog-website"].includes(id);
 
   const handleClick = () => {
-    navigate(`?project=${encodeURIComponent(title)}`); 
+    navigate(`?project=${encodeURIComponent(title)}`);
   };
 
   // Custom badges for business projects
@@ -128,13 +137,13 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
     ],
     petquantic: [
       { icon: <PetsIcon sx={{ fontSize: 16 }} />, label: "Pet Business", color: "#667eea" },
-      { icon: <PhoneIcon sx={{ fontSize: 16 }} />, label: "Voice AI", color: "#764ba2" },
-      { icon: <AttachMoneyIcon sx={{ fontSize: 16 }} />, label: "Revenue+", color: "#667eea" },
+      { icon: <SmartToyIcon sx={{ fontSize: 16 }} />, label: "FlowStaff AI", color: "#764ba2" },
+      { icon: <PhoneIcon sx={{ fontSize: 16 }} />, label: "Voice AI", color: "#667eea" },
       { icon: <CalendarIcon sx={{ fontSize: 16 }} />, label: "Bookings", color: "#764ba2" },
     ],
     crewquantic: [
       { icon: <LandscapeIcon sx={{ fontSize: 16 }} />, label: "Landscaping", color: "#667eea" },
-      { icon: <CheckCircleIcon sx={{ fontSize: 16 }} />, label: "Check-ins", color: "#764ba2" },
+      { icon: <SmartToyIcon sx={{ fontSize: 16 }} />, label: "FlowStaff AI", color: "#764ba2" },
       { icon: <PaymentIcon sx={{ fontSize: 16 }} />, label: "Payments", color: "#667eea" },
       { icon: <TextsmsIcon sx={{ fontSize: 16 }} />, label: "SMS Auto", color: "#764ba2" },
     ],
@@ -146,6 +155,313 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
     ],
   };
 
+  // Featured Project Layout - Horizontal with description
+  if (isMainFeature) {
+    // Remove emoji from description for cleaner display
+    const cleanDescription = description?.replace(/^[^\w\s]+\s*/, '') || '';
+
+    return (
+      <Box key={id}>
+        <Card
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            borderRadius: '20px',
+            overflow: 'hidden',
+            transition: 'all 0.4s ease',
+            border: '2px solid rgba(102, 126, 234, 0.3)',
+            background: (theme) => theme.palette.mode === 'dark'
+              ? 'linear-gradient(135deg, rgba(30, 30, 40, 0.95) 0%, rgba(20, 20, 30, 0.98) 100%)'
+              : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 250, 0.98) 100%)',
+            boxShadow: '0 8px 32px rgba(102, 126, 234, 0.15)',
+            position: 'relative',
+            '&:hover': {
+              transform: 'translateY(-8px)',
+              boxShadow: '0 20px 60px rgba(102, 126, 234, 0.25)',
+              borderColor: '#667eea',
+              '& .featured-image': {
+                transform: 'scale(1.05)',
+              }
+            },
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              zIndex: 2,
+            },
+          }}
+        >
+          {/* Image Section */}
+          <Box
+            sx={{
+              width: { xs: '100%', md: '55%' },
+              minHeight: { xs: '280px', md: '400px' },
+              position: 'relative',
+              overflow: 'hidden',
+              cursor: 'pointer',
+            }}
+            onClick={handleClick}
+          >
+            <CardMedia
+              component='img'
+              alt={title}
+              image={img}
+              loading="eager"
+              className="featured-image"
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                transition: 'transform 0.4s ease',
+              }}
+            />
+            {/* Featured Badge */}
+            <Chip
+              icon={<StarIcon sx={{ fontSize: 16 }} />}
+              label="Featured Project"
+              size="small"
+              sx={{
+                position: 'absolute',
+                top: 16,
+                left: 16,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: '#fff',
+                fontFamily: 'GothamSSm-Bold',
+                fontSize: '0.75rem',
+                boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
+                '& .MuiChip-icon': {
+                  color: '#ffd700',
+                },
+              }}
+            />
+          </Box>
+
+          {/* Content Section */}
+          <Box
+            sx={{
+              width: { xs: '100%', md: '45%' },
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              p: { xs: 3, md: 4 },
+            }}
+          >
+            <Typography
+              variant='h4'
+              component='div'
+              sx={{
+                fontFamily: "GothamSSm-Bold",
+                mb: 1,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontSize: { xs: '1.5rem', md: '1.8rem' },
+              }}
+            >
+              {title}
+            </Typography>
+
+            <Typography
+              variant='subtitle1'
+              sx={{
+                fontFamily: "GothamSSm-Light",
+                color: 'text.secondary',
+                mb: 2,
+              }}
+            >
+              {subtitle}
+            </Typography>
+
+            <Typography
+              variant='body2'
+              sx={{
+                color: 'text.secondary',
+                mb: 3,
+                lineHeight: 1.7,
+                display: '-webkit-box',
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }}
+            >
+              {cleanDescription}
+            </Typography>
+
+            {/* Business Badges */}
+            {businessBadges[id] && (
+              <Stack
+                direction='row'
+                sx={{
+                  flexWrap: "wrap",
+                  gap: "8px",
+                  mb: 2,
+                }}
+              >
+                {businessBadges[id].map((badge, index) => (
+                  <Chip
+                    key={index}
+                    icon={badge.icon}
+                    label={badge.label}
+                    size="small"
+                    sx={{
+                      backgroundColor: (theme) => theme.palette.mode === 'dark'
+                        ? 'rgba(102, 126, 234, 0.1)'
+                        : 'rgba(102, 126, 234, 0.08)',
+                      color: 'text.primary',
+                      border: '1px solid',
+                      borderColor: badge.color + '30',
+                      fontFamily: 'GothamSSm-Light',
+                      fontSize: '0.75rem',
+                      transition: 'all 0.3s ease',
+                      '& .MuiChip-icon': {
+                        color: badge.color,
+                      },
+                      '&:hover': {
+                        backgroundColor: badge.color + '20',
+                        borderColor: badge.color,
+                        transform: 'translateY(-2px)',
+                      }
+                    }}
+                  />
+                ))}
+              </Stack>
+            )}
+
+            {/* Tech Stack */}
+            {techs && techs.length > 0 && (
+              <Stack
+                direction='row'
+                sx={{
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  mb: 3,
+                }}
+              >
+                {techs.map((tech, index) => {
+                  const techKey = tech.toLowerCase();
+                  const TechIcon = techIcons[techKey];
+
+                  return TechIcon ? (
+                    <Tooltip key={index} title={tech}>
+                      <img src={TechIcon} alt={tech} style={{ height: "24px", width: "auto", opacity: 0.9 }} />
+                    </Tooltip>
+                  ) : (
+                    <IconComponent key={index} iconType={techKey} tech={tech} />
+                  );
+                })}
+              </Stack>
+            )}
+
+            {/* Action Buttons */}
+            <Stack direction="row" spacing={2}>
+              <Button
+                variant="contained"
+                size="medium"
+                onClick={handleClick}
+                sx={{
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  fontFamily: 'GothamSSm-Bold',
+                  textTransform: 'none',
+                  borderRadius: '10px',
+                  px: 3,
+                  boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
+                    boxShadow: '0 6px 20px rgba(102, 126, 234, 0.4)',
+                  }
+                }}
+              >
+                View Details
+              </Button>
+              {live && (
+                <Button
+                  variant="outlined"
+                  size="medium"
+                  endIcon={<OpenInNewIcon />}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(live, '_blank');
+                  }}
+                  sx={{
+                    borderColor: '#667eea',
+                    color: '#667eea',
+                    fontFamily: 'GothamSSm-Light',
+                    textTransform: 'none',
+                    borderRadius: '10px',
+                    px: 3,
+                    '&:hover': {
+                      borderColor: '#764ba2',
+                      backgroundColor: 'rgba(102, 126, 234, 0.08)',
+                    }
+                  }}
+                >
+                  Live
+                </Button>
+              )}
+              {github && (
+                <Button
+                  variant="outlined"
+                  size="medium"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(github, '_blank');
+                  }}
+                  sx={{
+                    borderColor: 'text.secondary',
+                    color: 'text.secondary',
+                    fontFamily: 'GothamSSm-Light',
+                    textTransform: 'none',
+                    borderRadius: '10px',
+                    minWidth: 'auto',
+                    px: 2,
+                    '&:hover': {
+                      borderColor: '#667eea',
+                      color: '#667eea',
+                    }
+                  }}
+                >
+                  <GitHubIcon />
+                </Button>
+              )}
+              {instagram && (
+                <Button
+                  variant="outlined"
+                  size="medium"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(instagram, '_blank');
+                  }}
+                  sx={{
+                    borderColor: '#E4405F',
+                    color: '#E4405F',
+                    fontFamily: 'GothamSSm-Light',
+                    textTransform: 'none',
+                    borderRadius: '10px',
+                    minWidth: 'auto',
+                    px: 2,
+                    '&:hover': {
+                      borderColor: '#C13584',
+                      backgroundColor: 'rgba(228, 64, 95, 0.08)',
+                      color: '#C13584',
+                    }
+                  }}
+                >
+                  <InstagramIcon />
+                </Button>
+              )}
+            </Stack>
+          </Box>
+        </Card>
+      </Box>
+    );
+  }
+
+  // Regular Card Layout
   return (
     <Box key={id} onClick={handleClick}>
       <Card
@@ -163,15 +479,15 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
           overflow: 'hidden',
           transition: 'all 0.3s ease',
           border: isBusinessProject ? '2px solid' : '1px solid',
-          borderColor: isBusinessProject 
-            ? 'rgba(102, 126, 234, 0.3)' 
+          borderColor: isBusinessProject
+            ? 'rgba(102, 126, 234, 0.3)'
             : 'rgba(255, 255, 255, 0.1)',
           '&:hover': {
             transform: 'translateY(-4px)',
-            boxShadow: isBusinessProject 
+            boxShadow: isBusinessProject
               ? '0 10px 30px rgba(102, 126, 234, 0.3)'
               : '0 5px 20px rgba(0, 0, 0, 0.2)',
-            borderColor: isBusinessProject 
+            borderColor: isBusinessProject
               ? '#667eea'
               : 'rgba(255, 255, 255, 0.2)',
           },
@@ -215,13 +531,13 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
             flexDirection: "column",
             justifyContent: "flex-end",
             opacity: { xs: 1, md: 1 },
-            background: isBusinessProject 
+            background: isBusinessProject
               ? "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85))"
               : "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9))",
             transition: "opacity 0.3s ease-in-out, background 0.3s ease-in-out",
             "&:hover": {
               opacity: 1,
-              background: isBusinessProject 
+              background: isBusinessProject
                 ? "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9))"
                 : "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9))",
             },
@@ -234,10 +550,10 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
             sx={{
               fontFamily: "GothamSSm-Bold",
               textTransform: "capitalize",
-              color: isBusinessProject 
+              color: isBusinessProject
                 ? '#ffffff'
                 : '#eeeeee',
-              background: isBusinessProject 
+              background: isBusinessProject
                 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
                 : 'none',
               backgroundClip: isBusinessProject ? 'text' : 'unset',
@@ -253,48 +569,74 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height })
           </Typography>
 
           {isBusinessProject ? (
-            <Stack
-              mb={2}
-              direction='row'
-              sx={{
-                flexWrap: "wrap",
-                gap: "8px",
-                rowGap: "8px",
-              }}
-            >
-              {businessBadges[id]?.map((badge, index) => (
-                <Chip
-                  key={index}
-                  icon={badge.icon}
-                  label={badge.label}
-                  size="small"
-                  sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    color: '#ffffff',
-                    border: '1px solid',
-                    borderColor: badge.color + '40',
-                    backdropFilter: 'blur(10px)',
-                    fontFamily: 'GothamSSm-Light',
-                    fontSize: '0.75rem',
-                    padding: '2px 4px',
-                    transition: 'all 0.3s ease',
-                    '& .MuiChip-icon': {
-                      color: badge.color,
-                      filter: 'brightness(1.2)',
-                    },
-                    '&:hover': {
-                      backgroundColor: badge.color + '30',
-                      borderColor: badge.color,
-                      transform: 'translateY(-2px) scale(1.05)',
-                      boxShadow: `0 4px 12px ${badge.color}40`,
+            <>
+              <Stack
+                mb={1}
+                direction='row'
+                sx={{
+                  flexWrap: "wrap",
+                  gap: "8px",
+                  rowGap: "8px",
+                }}
+              >
+                {businessBadges[id]?.map((badge, index) => (
+                  <Chip
+                    key={index}
+                    icon={badge.icon}
+                    label={badge.label}
+                    size="small"
+                    sx={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      color: '#ffffff',
+                      border: '1px solid',
+                      borderColor: badge.color + '40',
+                      backdropFilter: 'blur(10px)',
+                      fontFamily: 'GothamSSm-Light',
+                      fontSize: '0.75rem',
+                      padding: '2px 4px',
+                      transition: 'all 0.3s ease',
                       '& .MuiChip-icon': {
-                        filter: 'brightness(1.5)',
+                        color: badge.color,
+                        filter: 'brightness(1.2)',
                       },
-                    }
+                      '&:hover': {
+                        backgroundColor: badge.color + '30',
+                        borderColor: badge.color,
+                        transform: 'translateY(-2px) scale(1.05)',
+                        boxShadow: `0 4px 12px ${badge.color}40`,
+                        '& .MuiChip-icon': {
+                          filter: 'brightness(1.5)',
+                        },
+                      }
+                    }}
+                  />
+                ))}
+              </Stack>
+              {techs && techs.length > 0 && (
+                <Stack
+                  mb={2}
+                  direction='row'
+                  sx={{
+                    flexWrap: "wrap",
+                    gap: "8px",
+                    rowGap: "6px",
                   }}
-                />
-              ))}
-            </Stack>
+                >
+                  {techs.slice(0, 6).map((tech, index) => {
+                    const techKey = tech.toLowerCase();
+                    const TechIcon = techIcons[techKey];
+
+                    return TechIcon ? (
+                      <Tooltip key={index} title={tech}>
+                        <img src={TechIcon} alt={tech} style={{ height: "22px", width: "auto", opacity: 0.85 }} />
+                      </Tooltip>
+                    ) : (
+                      <IconComponent key={index} iconType={techKey} tech={tech} />
+                    );
+                  })}
+                </Stack>
+              )}
+            </>
           ) : (
             <Stack
               mb={2}

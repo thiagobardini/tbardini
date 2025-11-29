@@ -239,11 +239,35 @@ const Projects = () => {
                 px: { xs: 0.5, sm: 2 },
               }}
             >
+              {/* Featured Projects - Full Width */}
+              {cardsToShow
+                .filter((card) => card.isMainFeature)
+                .map((card, index) => (
+                  <Box key={card.id} sx={{ mb: 3, width: '100%', animation: `${fadeIn} 2s` }}>
+                    <CardsProjects
+                      id={card.id}
+                      title={card.title}
+                      subtitle={card.subtitle}
+                      description={card.description}
+                      logo={card.logo}
+                      img={card.img}
+                      techs={card.techs}
+                      readme={card.readme}
+                      live={card.live}
+                      github={card.github}
+                      instagram={card.instagram}
+                      openNewTab={card.openNewTab}
+                      index={index}
+                      height={500}
+                      isMainFeature={true}
+                    />
+                  </Box>
+                ))}
+
+              {/* Regular Projects - Masonry Grid */}
               <Masonry breakpointCols={breakpointColumnsObj} className='my-masonry-grid' columnClassName='my-masonry-grid_column'>
-                {projectsCards
-                  .filter((card) => {
-                    return selectedKeyword === "show all" || card.dev.includes(selectedKeyword);
-                  })
+                {cardsToShow
+                  .filter((card) => !card.isMainFeature)
                   .map((card, index) => (
                     <Link key={card.id} underline='none' onClick={() => handleCardClick(card.id, card.title)}>
                       <Box sx={{ animation: `${fadeIn} 2s`, mb: "12px" }} key={index}>
@@ -261,6 +285,7 @@ const Projects = () => {
                           openNewTab={card.openNewTab}
                           index={index}
                           height={heights[index % heights.length]}
+                          isMainFeature={false}
                         />
                       </Box>
                     </Link>
@@ -284,7 +309,7 @@ const Projects = () => {
         <DrawerProject
           key={index}
           open={isDrawerOpen && card.id === openedCardId}
-          onClose={handleCloseDrawer} 
+          onClose={handleCloseDrawer}
           title={card.title}
           subtitle={card.subtitle}
           description={card.description}
@@ -294,6 +319,7 @@ const Projects = () => {
           readme={card.readme}
           live={card.live}
           github={card.github}
+          instagram={card.instagram}
           openNewTab={card.openNewTab}
           id={card.id}
           localUrl={card.localUrl}

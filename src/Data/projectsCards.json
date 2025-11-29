@@ -3,7 +3,7 @@
     "id": "petquantic",
     "title": "PetQuantic - 2025",
     "subtitle": "All-in-One for Grooming & Daycare",
-    "description": "🐾 All-in-one platform for pet groomers and daycares — built solo from scratch. Online booking, Stripe payments, SMS notifications, and complete pet profiles. Features smart insights and Voice AI booking (beta) — evolving into FlowStaff AI for revenue optimization. Currently serving pet businesses in Massachusetts and Florida.",
+    "description": "🐾 All-in-one platform for pet groomers and daycares — built solo from scratch. Online booking, Online + in-store payments (Stripe/Helcim POS), SMS notifications, and complete pet profiles. Features smart insights and Voice AI booking (beta) — evolving into FlowStaff AI for revenue optimization. Currently serving pet businesses in Massachusetts and Florida.",
     "isMainFeature": true,
     "instagram": "https://www.instagram.com/petquantic",
     "logo": "/images/petquantic-logo.png",

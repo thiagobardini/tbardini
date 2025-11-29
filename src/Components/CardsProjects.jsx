@@ -199,7 +199,8 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
           <Box
             sx={{
               width: { xs: '100%', md: '55%' },
-              minHeight: { xs: '280px', md: '400px' },
+              minHeight: { xs: '220px', md: '400px' },
+              maxHeight: { xs: '280px', md: 'none' },
               position: 'relative',
               overflow: 'hidden',
               cursor: 'pointer',
@@ -247,7 +248,8 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              p: { xs: 3, md: 4 },
+              p: { xs: 2, md: 4 },
+              pt: { xs: 1.5, md: 4 },
             }}
           >
             <Typography
@@ -255,12 +257,12 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
               component='div'
               sx={{
                 fontFamily: "GothamSSm-Bold",
-                mb: 1,
+                mb: { xs: 0.5, md: 1 },
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                fontSize: { xs: '1.5rem', md: '1.8rem' },
+                fontSize: { xs: '1.3rem', md: '1.8rem' },
               }}
             >
               {title}
@@ -271,7 +273,8 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
               sx={{
                 fontFamily: "GothamSSm-Light",
                 color: 'text.secondary',
-                mb: 2,
+                mb: { xs: 1, md: 2 },
+                fontSize: { xs: '0.9rem', md: '1rem' },
               }}
             >
               {subtitle}
@@ -281,12 +284,13 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
               variant='body2'
               sx={{
                 color: 'text.secondary',
-                mb: 3,
-                lineHeight: 1.7,
+                mb: { xs: 1.5, md: 3 },
+                lineHeight: 1.6,
                 display: '-webkit-box',
-                WebkitLineClamp: 4,
+                WebkitLineClamp: { xs: 3, md: 4 },
                 WebkitBoxOrient: 'vertical',
                 overflow: 'hidden',
+                fontSize: { xs: '0.8rem', md: '0.875rem' },
               }}
             >
               {cleanDescription}
@@ -298,8 +302,8 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
                 direction='row'
                 sx={{
                   flexWrap: "wrap",
-                  gap: "8px",
-                  mb: 2,
+                  gap: { xs: '6px', md: '8px' },
+                  mb: { xs: 1, md: 2 },
                 }}
               >
                 {businessBadges[id].map((badge, index) => (
@@ -338,8 +342,8 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
                 direction='row'
                 sx={{
                   flexWrap: "wrap",
-                  gap: "10px",
-                  mb: 3,
+                  gap: { xs: '8px', md: '10px' },
+                  mb: { xs: 1.5, md: 3 },
                 }}
               >
                 {techs.map((tech, index) => {
@@ -358,17 +362,19 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
             )}
 
             {/* Action Buttons */}
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={{ xs: 1, md: 2 }} flexWrap="wrap" useFlexGap>
               <Button
                 variant="contained"
-                size="medium"
+                size="small"
                 onClick={handleClick}
                 sx={{
                   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                   fontFamily: 'GothamSSm-Bold',
                   textTransform: 'none',
-                  borderRadius: '10px',
-                  px: 3,
+                  borderRadius: '8px',
+                  px: { xs: 2, md: 3 },
+                  py: { xs: 0.75, md: 1 },
+                  fontSize: { xs: '0.8rem', md: '0.875rem' },
                   boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)',
                   '&:hover': {
                     background: 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
@@ -381,8 +387,8 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
               {live && (
                 <Button
                   variant="outlined"
-                  size="medium"
-                  endIcon={<OpenInNewIcon />}
+                  size="small"
+                  endIcon={<OpenInNewIcon sx={{ fontSize: { xs: 16, md: 20 } }} />}
                   onClick={(e) => {
                     e.stopPropagation();
                     window.open(live, '_blank');
@@ -392,8 +398,10 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
                     color: '#667eea',
                     fontFamily: 'GothamSSm-Light',
                     textTransform: 'none',
-                    borderRadius: '10px',
-                    px: 3,
+                    borderRadius: '8px',
+                    px: { xs: 2, md: 3 },
+                    py: { xs: 0.75, md: 1 },
+                    fontSize: { xs: '0.8rem', md: '0.875rem' },
                     '&:hover': {
                       borderColor: '#764ba2',
                       backgroundColor: 'rgba(102, 126, 234, 0.08)',
@@ -406,7 +414,7 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
               {github && (
                 <Button
                   variant="outlined"
-                  size="medium"
+                  size="small"
                   onClick={(e) => {
                     e.stopPropagation();
                     window.open(github, '_blank');
@@ -416,22 +424,23 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
                     color: 'text.secondary',
                     fontFamily: 'GothamSSm-Light',
                     textTransform: 'none',
-                    borderRadius: '10px',
+                    borderRadius: '8px',
                     minWidth: 'auto',
-                    px: 2,
+                    px: { xs: 1.5, md: 2 },
+                    py: { xs: 0.75, md: 1 },
                     '&:hover': {
                       borderColor: '#667eea',
                       color: '#667eea',
                     }
                   }}
                 >
-                  <GitHubIcon />
+                  <GitHubIcon sx={{ fontSize: { xs: 18, md: 22 } }} />
                 </Button>
               )}
               {instagram && (
                 <Button
                   variant="outlined"
-                  size="medium"
+                  size="small"
                   onClick={(e) => {
                     e.stopPropagation();
                     window.open(instagram, '_blank');
@@ -441,9 +450,10 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
                     color: '#E4405F',
                     fontFamily: 'GothamSSm-Light',
                     textTransform: 'none',
-                    borderRadius: '10px',
+                    borderRadius: '8px',
                     minWidth: 'auto',
-                    px: 2,
+                    px: { xs: 1.5, md: 2 },
+                    py: { xs: 0.75, md: 1 },
                     '&:hover': {
                       borderColor: '#C13584',
                       backgroundColor: 'rgba(228, 64, 95, 0.08)',
@@ -451,7 +461,7 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
                     }
                   }}
                 >
-                  <InstagramIcon />
+                  <InstagramIcon sx={{ fontSize: { xs: 18, md: 22 } }} />
                 </Button>
               )}
             </Stack>

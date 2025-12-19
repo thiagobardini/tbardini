@@ -1,7 +1,7 @@
 import React from "react";
 import { Drawer, Paper, Link, Stack, Divider, Typography, Box, Chip, Tooltip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { closeDrawer } from "../redux/drawerSlice";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -19,6 +19,9 @@ import VoiceIcon from '@mui/icons-material/RecordVoiceOver';
 import CalendarIcon from '@mui/icons-material/CalendarMonth';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TableChartIcon from '@mui/icons-material/TableChart';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import PaletteIcon from '@mui/icons-material/Palette';
 
 import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
 import javascript from "../Assets/icons/icons8-javascript-30.png";
@@ -92,10 +95,16 @@ const IconComponent = ({ iconType, tech }) => {
     "real-time transcription": <VoiceIcon sx={{ fontSize: 30, color: '#667eea' }} />,
     trpc: <CodeIcon sx={{ fontSize: 30, color: '#2596BE' }} />,
     supabase: <StorageIcon sx={{ fontSize: 30, color: '#3ECF8E' }} />,
+    "supabase postgres": <StorageIcon sx={{ fontSize: 30, color: '#3ECF8E' }} />,
     "next.js 15": <CloudIcon sx={{ fontSize: 30, color: '#000' }} />,
     zustand: <StorageIcon sx={{ fontSize: 30, color: '#453F39' }} />,
     "real-time analytics": <TrendingUpIcon sx={{ fontSize: 30, color: '#667eea' }} />,
     openai: <SmartToyIcon sx={{ fontSize: 30, color: '#412991' }} />,
+    "drizzle orm": <TableChartIcon sx={{ fontSize: 30, color: '#2E7D32' }} />,
+    "shadcn/ui": <PaletteIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    "shadcn": <PaletteIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    zod: <VerifiedIcon sx={{ fontSize: 30, color: '#3B82F6' }} />,
+    "retell ai": <VoiceIcon sx={{ fontSize: 30, color: '#FF6B6B' }} />,
   };
 
   const icon = iconMap[iconType.toLowerCase()];
@@ -113,10 +122,11 @@ const IconComponent = ({ iconType, tech }) => {
   return null;
 };
 
-export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, techs, live, readme, github, instagram, openNewTab, logo, index, localUrl, id }) {
+export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, video, techs, live, readme, github, instagram, openNewTab, logo, index, localUrl, id }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDrawerClose = () => {
     dispatch(closeDrawer());
@@ -184,29 +194,63 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
           <Typography variant='body2' color='text.primary' mb={2} component='div'>
             {subtitle}
           </Typography>
-          <Link
-            color='text.primary'
-            href={live}
-            target='_blank'
-            rel='noopener noreferrer'
-            sx={{
-              height: "300px",
-              width: "100%",
-              textDecoration: "none",
-            }}
-          >
+          {video && video.trim() !== "" ? (
             <Box
-              component='img'
-              alt='title'
-              src={img}
+              sx={{
+                width: "100%",
+                position: "relative",
+                paddingBottom: "56.25%", // 16:9 aspect ratio
+                height: 0,
+                borderRadius: "11px",
+                overflow: "hidden",
+                mb: 2,
+                backgroundColor: darkMode ? "rgba(255, 255, 255, 0.02)" : "rgba(0, 0, 0, 0.05)",
+              }}
+            >
+              <iframe
+                src={video}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; encrypted-media; fullscreen"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                  borderRadius: "11px",
+                }}
+                title={`${title} video`}
+              />
+            </Box>
+          ) : (
+            <Link
+              color='text.primary'
+              href={live}
+              target='_blank'
+              rel='noopener noreferrer'
               sx={{
                 height: "300px",
                 width: "100%",
-                objectFit: "cover",
-                borderRadius: "11px",
+                textDecoration: "none",
               }}
-            />
-          </Link>
+            >
+              <Box
+                component='img'
+                alt='title'
+                src={img}
+                sx={{
+                  height: "300px",
+                  width: "100%",
+                  objectFit: "cover",
+                  borderRadius: "11px",
+                }}
+              />
+            </Link>
+          )}
           <Typography variant='h6' color='text.primary' gutterBottom mt={2} component='div' sx={{ fontFamily: "GothamSSm-Light" }}>
             About
           </Typography>
@@ -242,8 +286,8 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
                 const hasIconComponent = [
                   'twilio', 'voice ai', 'n8n', 'sms api', 'tailwind css',
                   'framer motion', 'vercel', 'calendly api', 'vapi',
-                  'real-time transcription', 'trpc', 'supabase', 'next.js 15',
-                  'zustand', 'real-time analytics', 'openai'
+                  'real-time transcription', 'trpc', 'supabase', 'supabase postgres', 'next.js 15',
+                  'zustand', 'real-time analytics', 'openai', 'drizzle orm', 'shadcn/ui', 'shadcn', 'zod', 'retell ai'
                 ].includes(techKey);
 
                 if (hasIconComponent) {

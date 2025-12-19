@@ -56,6 +56,9 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import SpaIcon from '@mui/icons-material/Spa';
 import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
+import TableChartIcon from '@mui/icons-material/TableChart';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import PaletteIcon from '@mui/icons-material/Palette';
 
 const techIcons = {
   react: react,
@@ -104,10 +107,16 @@ const IconComponent = ({ iconType, tech }) => {
     "real-time transcription": <VoiceIcon sx={{ fontSize: 30, color: '#667eea' }} />,
     trpc: <CodeIcon sx={{ fontSize: 30, color: '#2596BE' }} />,
     supabase: <StorageIcon sx={{ fontSize: 30, color: '#3ECF8E' }} />,
+    "supabase postgres": <StorageIcon sx={{ fontSize: 30, color: '#3ECF8E' }} />,
     "next.js 15": <CloudIcon sx={{ fontSize: 30, color: '#000' }} />,
     zustand: <StorageIcon sx={{ fontSize: 30, color: '#453F39' }} />,
     "real-time analytics": <TrendingUpIcon sx={{ fontSize: 30, color: '#667eea' }} />,
     openai: <SmartToyIcon sx={{ fontSize: 30, color: '#412991' }} />,
+    "drizzle orm": <TableChartIcon sx={{ fontSize: 30, color: '#2E7D32' }} />,
+    "shadcn/ui": <PaletteIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    "shadcn": <PaletteIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    zod: <VerifiedIcon sx={{ fontSize: 30, color: '#3B82F6' }} />,
+    "retell ai": <VoiceIcon sx={{ fontSize: 30, color: '#FF6B6B' }} />,
   };
 
   return (
@@ -119,9 +128,9 @@ const IconComponent = ({ iconType, tech }) => {
   );
 };
 
-const CardsProjects = ({ id, title, description, subtitle, img, techs, height, isMainFeature = false, live, github, instagram }) => {
+const CardsProjects = ({ id, title, description, subtitle, img, video, techs, height, isMainFeature = false, live, github, instagram }) => {
   const navigate = useNavigate();
-  const isBusinessProject = ["flowquantic", "petquantic", "crewquantic", "pinkdog-website"].includes(id);
+  const isBusinessProject = ["flowquantic", "petquantic"].includes(id);
 
   const handleClick = () => {
     navigate(`?project=${encodeURIComponent(title)}`);
@@ -195,7 +204,7 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
             },
           }}
         >
-          {/* Image Section */}
+          {/* Image/Video Section */}
           <Box
             sx={{
               width: { xs: '100%', md: '55%' },
@@ -207,19 +216,48 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
             }}
             onClick={handleClick}
           >
-            <CardMedia
-              component='img'
-              alt={title}
-              image={img}
-              loading="eager"
-              className="featured-image"
-              sx={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.4s ease',
-              }}
-            />
+            {video && video.trim() !== "" ? (
+              <Box
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative',
+                  paddingBottom: '56.25%', // 16:9 aspect ratio
+                }}
+              >
+                <iframe
+                  src={video}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="autoplay; encrypted-media; fullscreen"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                  }}
+                  title={`${title} video`}
+                />
+              </Box>
+            ) : (
+              <CardMedia
+                component='img'
+                alt={title}
+                image={img}
+                loading="eager"
+                className="featured-image"
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  transition: 'transform 0.4s ease',
+                }}
+              />
+            )}
             {/* Featured Badge */}
             <Chip
               icon={<StarIcon sx={{ fontSize: 16 }} />}
@@ -513,24 +551,56 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
           } : {},
         }}
       >
-        <CardMedia
-          component='img'
-          alt={title}
-          image={img}
-          loading="eager"
-          sx={{
-            width: "100%",
-            minWidth: "273px",
-            objectFit: "cover",
-            height: { xs: "100%", md: height },
-            minHeight: { xs: "350px", height: "none" },
-            maxHeight: { xs: "500px", height: "none" },
-            transition: 'transform 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-            }
-          }}
-        />
+        {video && video.trim() !== "" ? (
+          <Box
+            sx={{
+              width: "100%",
+              minWidth: "273px",
+              height: { xs: "100%", md: height },
+              minHeight: { xs: "350px", md: height },
+              maxHeight: { xs: "500px", md: "none" },
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <iframe
+              src={video}
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; encrypted-media; fullscreen"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 'none',
+              }}
+              title={`${title} video`}
+            />
+          </Box>
+        ) : (
+          <CardMedia
+            component='img'
+            alt={title}
+            image={img}
+            loading="eager"
+            sx={{
+              width: "100%",
+              minWidth: "273px",
+              objectFit: "cover",
+              height: { xs: "100%", md: height },
+              minHeight: { xs: "350px", height: "none" },
+              maxHeight: { xs: "500px", height: "none" },
+              transition: 'transform 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.05)',
+              }
+            }}
+          />
+        )}
 
         <CardContent
           sx={{
@@ -553,27 +623,37 @@ const CardsProjects = ({ id, title, description, subtitle, img, techs, height, i
             },
           }}
         >
-          <Typography
-            gutterBottom
-            variant='h6'
-            component='div'
+          <Box
             sx={{
-              fontFamily: "GothamSSm-Bold",
-              textTransform: "capitalize",
-              color: isBusinessProject
-                ? '#ffffff'
-                : '#eeeeee',
-              background: isBusinessProject
-                ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-                : 'none',
-              backgroundClip: isBusinessProject ? 'text' : 'unset',
-              WebkitBackgroundClip: isBusinessProject ? 'text' : 'unset',
-              WebkitTextFillColor: isBusinessProject ? 'transparent' : 'unset',
-              filter: isBusinessProject ? 'brightness(1.2)' : 'none',
+              position: 'relative',
+              zIndex: 1,
+              display: 'inline-block',
+              backdropFilter: 'blur(10px)',
+              mb: 1,
             }}
           >
-            <div style={{ display: "inline-block", backdropFilter: "blur(10px)" }}>{title}</div>
-          </Typography>
+            <Typography
+              gutterBottom
+              variant='h6'
+              component='div'
+              sx={{
+                fontFamily: "GothamSSm-Bold",
+                textTransform: "capitalize",
+                color: isBusinessProject ? '#ffffff' : '#eeeeee',
+                background: isBusinessProject
+                  ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                  : 'none',
+                backgroundClip: isBusinessProject ? 'text' : 'unset',
+                WebkitBackgroundClip: isBusinessProject ? 'text' : 'unset',
+                WebkitTextFillColor: isBusinessProject ? 'transparent' : 'unset',
+                filter: isBusinessProject ? 'brightness(1.2)' : 'none',
+                // Ensure text is visible even if gradient fails
+                textShadow: isBusinessProject ? '0 0 2px rgba(255, 255, 255, 0.3)' : 'none',
+              }}
+            >
+              {title}
+            </Typography>
+          </Box>
           <Typography variant='body2' color='#eeeeee' mb={2} component='div'>
             <div style={{ display: "inline-block", backdropFilter: "blur(10px)" }}>{subtitle}</div>
           </Typography>

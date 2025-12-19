@@ -251,6 +251,7 @@ const Projects = () => {
                       description={card.description}
                       logo={card.logo}
                       img={card.img}
+                      video={card.video}
                       techs={card.techs}
                       readme={card.readme}
                       live={card.live}
@@ -278,6 +279,7 @@ const Projects = () => {
                           description={card.description}
                           logo={card.logo}
                           img={card.img}
+                          video={card.video}
                           techs={card.techs}
                           readme={card.readme}
                           live={card.live}
@@ -315,6 +317,7 @@ const Projects = () => {
           description={card.description}
           logo={card.logo}
           img={card.img}
+          video={card.video}
           techs={card.techs}
           readme={card.readme}
           live={card.live}

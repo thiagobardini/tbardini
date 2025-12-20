@@ -1,5 +1,6 @@
 import React from "react";
 import { Drawer, Paper, Link, Stack, Divider, Typography, Box, Chip, Tooltip } from "@mui/material";
+import MermaidDiagram from "./MermaidDiagram";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { closeDrawer } from "../redux/drawerSlice";
@@ -22,6 +23,8 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import PaletteIcon from '@mui/icons-material/Palette';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
 import javascript from "../Assets/icons/icons8-javascript-30.png";
@@ -105,6 +108,9 @@ const IconComponent = ({ iconType, tech }) => {
     "shadcn": <PaletteIcon sx={{ fontSize: 30, color: '#000000' }} />,
     zod: <VerifiedIcon sx={{ fontSize: 30, color: '#3B82F6' }} />,
     "retell ai": <VoiceIcon sx={{ fontSize: 30, color: '#FF6B6B' }} />,
+    expo: <PhoneAndroidIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    "twilio voice sdk": <VoiceIcon sx={{ fontSize: 30, color: '#F22F46' }} />,
+    "push notifications": <NotificationsIcon sx={{ fontSize: 30, color: '#FF9500' }} />,
   };
 
   const icon = iconMap[iconType.toLowerCase()];
@@ -122,7 +128,7 @@ const IconComponent = ({ iconType, tech }) => {
   return null;
 };
 
-export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, video, techs, live, readme, github, instagram, openNewTab, logo, index, localUrl, id }) {
+export default function TemporaryDrawer({ open, onClose, title, subtitle, description, img, video, mermaid, techs, live, testflight, readme, github, instagram, openNewTab, logo, index, localUrl, id }) {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -227,29 +233,29 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
               />
             </Box>
           ) : (
-            <Link
-              color='text.primary'
-              href={live}
-              target='_blank'
-              rel='noopener noreferrer'
+          <Link
+            color='text.primary'
+            href={live}
+            target='_blank'
+            rel='noopener noreferrer'
+            sx={{
+              height: "300px",
+              width: "100%",
+              textDecoration: "none",
+            }}
+          >
+            <Box
+              component='img'
+              alt='title'
+              src={img}
               sx={{
                 height: "300px",
                 width: "100%",
-                textDecoration: "none",
+                objectFit: "cover",
+                borderRadius: "11px",
               }}
-            >
-              <Box
-                component='img'
-                alt='title'
-                src={img}
-                sx={{
-                  height: "300px",
-                  width: "100%",
-                  objectFit: "cover",
-                  borderRadius: "11px",
-                }}
-              />
-            </Link>
+            />
+          </Link>
           )}
           <Typography variant='h6' color='text.primary' gutterBottom mt={2} component='div' sx={{ fontFamily: "GothamSSm-Light" }}>
             About
@@ -257,6 +263,14 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
           <Typography variant='body2' color='text.primary' component='div'>
             {description}
           </Typography>
+          {mermaid && (
+            <Box sx={{ my: 3 }}>
+              <Typography variant='h6' color='text.primary' gutterBottom sx={{ fontFamily: "GothamSSm-Light" }}>
+                How It Works
+              </Typography>
+              <MermaidDiagram diagram={mermaid} id={id} />
+            </Box>
+          )}
           <Typography variant='h6' color='text.primary' gutterBottom mt={2} component='div' sx={{ fontFamily: "GothamSSm-Light" }}>
             Technologies
           </Typography>
@@ -287,7 +301,8 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
                   'twilio', 'voice ai', 'n8n', 'sms api', 'tailwind css',
                   'framer motion', 'vercel', 'calendly api', 'vapi',
                   'real-time transcription', 'trpc', 'supabase', 'supabase postgres', 'next.js 15',
-                  'zustand', 'real-time analytics', 'openai', 'drizzle orm', 'shadcn/ui', 'shadcn', 'zod', 'retell ai'
+                  'zustand', 'real-time analytics', 'openai', 'drizzle orm', 'shadcn/ui', 'shadcn', 'zod', 'retell ai',
+                  'expo', 'twilio voice sdk', 'push notifications'
                 ].includes(techKey);
 
                 if (hasIconComponent) {
@@ -308,24 +323,49 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
                 );
               })}
           </Stack>
-          <Typography
-            variant='h6'
-            color='text.primary'
-            gutterBottom
-            mt={2}
-            component='div'
-            sx={{
-              display: "flex",
-              alignItems: "flex-start",
-              fontFamily: "GothamSSm-Light",
-            }}
-          >
-            <PublicIcon sx={{ mr: 1 }} />
-            Website
-          </Typography>
-          <Link color='text.primary' href={live} target='_blank' rel='noopener noreferrer'>
-            <Typography variant='body2'>{live}</Typography>
-          </Link>
+          {testflight ? (
+            <>
+              <Typography
+                variant='h6'
+                color='text.primary'
+                gutterBottom
+                mt={2}
+                component='div'
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  fontFamily: "GothamSSm-Light",
+                }}
+              >
+                <PhoneIcon sx={{ mr: 1 }} />
+                Request TestFlight Access
+              </Typography>
+              <Link color='text.primary' href={testflight} target='_blank' rel='noopener noreferrer'>
+                <Typography variant='body2'>Click here to request access via email</Typography>
+              </Link>
+            </>
+          ) : live ? (
+            <>
+              <Typography
+                variant='h6'
+                color='text.primary'
+                gutterBottom
+                mt={2}
+                component='div'
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  fontFamily: "GothamSSm-Light",
+                }}
+              >
+                <PublicIcon sx={{ mr: 1 }} />
+                Website
+              </Typography>
+              <Link color='text.primary' href={live} target='_blank' rel='noopener noreferrer'>
+                <Typography variant='body2'>{live}</Typography>
+              </Link>
+            </>
+          ) : null}
           <Typography
             variant='h6'
             color='text.primary'
@@ -428,7 +468,30 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
           justifyContent: "center",
         }}
       >
-        {localUrl === "" ? (
+        {testflight ? (
+          <Link
+            href={testflight}
+            target='_blank'
+            rel='noopener noreferrer'
+            underline='none'
+            sx={{
+              color: "#eeeeee",
+              "&:hover": {
+                textDecoration: "underline",
+                "& svg": {
+                  textDecoration: "none",
+                },
+              },
+            }}
+          >
+            <Stack direction='row' alignItems='center'>
+              <Typography mr={1} sx={{ fontFamily: "GothamSSm-Light" }}>
+                Request TestFlight Access
+              </Typography>
+              <LaunchIcon />
+            </Stack>
+          </Link>
+        ) : localUrl === "" ? (
           <Link
             href={live}
             target='_blank'

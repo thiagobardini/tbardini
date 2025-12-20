@@ -62,7 +62,7 @@
     "instagram": "",
     "logo": "/images/callquantic-logo.png",
     "img": "/images/callquantic.gif",
-    "video": "https://share.descript.com/embed/OYdUB79LR9C",
+    "video": "https://share.descript.com/embed/7na4WfBV2vo",
     "mermaid": "flowchart TD\n    A[📞 Customer calls<br/>regular number] --> B[☁️ Twilio]\n    B --> C[🔧 N8N Router]\n    C --> D[🔍 Search in Supabase<br/>CrewQuantic/PetQuantic]\n    D --> E{Router Decision}\n    \n    E -->|CrewQuantic<br/>Existing Client| F[🖥️ Render Server]\n    E -->|CrewQuantic<br/>New Customer| G[🤖 RetellAI Agent]\n    E -->|PetQuantic| H[🐾 Buddy Voice AI<br/>Virtual Grooming Concierge]\n    \n    F --> I[📱 CallQuantic App<br/>Human Agent]\n    G --> J[💬 AI Answers Call]\n    H --> K[📅 Buddy Books Appointment<br/>Captures Pet Info]\n    \n    I --> L[✅ Call Completed]\n    J --> L\n    K --> M{Complex Request?}\n    M -->|Yes| I\n    M -->|No| N[✅ Booking Confirmed]\n    \n    L --> O[📝 N8N Processes<br/>Transcription]\n    N --> O\n    O --> P[💾 Saves to Supabase<br/>with Sentiment Analysis]\n    P --> Q[🧠 AI Learns & Personalizes<br/>for Each Customer]",
     "techs": [
       "React Native",

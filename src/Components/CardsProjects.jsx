@@ -59,6 +59,8 @@ import StarIcon from '@mui/icons-material/Star';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import PaletteIcon from '@mui/icons-material/Palette';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const techIcons = {
   react: react,
@@ -117,6 +119,9 @@ const IconComponent = ({ iconType, tech }) => {
     "shadcn": <PaletteIcon sx={{ fontSize: 30, color: '#000000' }} />,
     zod: <VerifiedIcon sx={{ fontSize: 30, color: '#3B82F6' }} />,
     "retell ai": <VoiceIcon sx={{ fontSize: 30, color: '#FF6B6B' }} />,
+    expo: <PhoneAndroidIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    "twilio voice sdk": <VoiceIcon sx={{ fontSize: 30, color: '#F22F46' }} />,
+    "push notifications": <NotificationsIcon sx={{ fontSize: 30, color: '#FF9500' }} />,
   };
 
   return (

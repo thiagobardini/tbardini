@@ -54,6 +54,35 @@
     "dev": ["fullstack"]
   },
   {
+    "id": "callquantic",
+    "title": "CallQuantic - 2025",
+    "subtitle": "Smart Call Routing Addon for CrewQuantic & PetQuantic",
+    "description": "📞 React Native mobile app addon for CrewQuantic and PetQuantic platforms. Intelligently routes phone calls with automatic transcription and AI personalization. For PetQuantic: Buddy (Virtual Grooming Concierge) - customers can call your regular number, calls forward to Buddy automatically for 24/7 appointment booking. Buddy captures pet and owner information, answers service questions, remembers pet preferences, and sends confirmations. All conversations are transcribed in real-time with sentiment analysis, and saved to continuously improve the AI assistant, personalizing interactions for each specific client. Complex requests can transfer to human staff via the app. Built with Expo, Twilio Voice SDK, Supabase, and N8N. Features automatic call routing, real-time transcription, push notifications, and multi-product support. Currently in TestFlight beta, serving service businesses in Massachusetts and Florida.",
+    "isMainFeature": false,
+    "instagram": "",
+    "logo": "/images/callquantic-logo.png",
+    "img": "/images/callquantic.gif",
+    "video": "https://share.descript.com/embed/OYdUB79LR9C",
+    "mermaid": "flowchart TD\n    A[📞 Customer calls<br/>regular number] --> B[☁️ Twilio]\n    B --> C[🔧 N8N Router]\n    C --> D[🔍 Search in Supabase<br/>CrewQuantic/PetQuantic]\n    D --> E{Router Decision}\n    \n    E -->|CrewQuantic<br/>Existing Client| F[🖥️ Render Server]\n    E -->|CrewQuantic<br/>New Customer| G[🤖 RetellAI Agent]\n    E -->|PetQuantic| H[🐾 Buddy Voice AI<br/>Virtual Grooming Concierge]\n    \n    F --> I[📱 CallQuantic App<br/>Human Agent]\n    G --> J[💬 AI Answers Call]\n    H --> K[📅 Buddy Books Appointment<br/>Captures Pet Info]\n    \n    I --> L[✅ Call Completed]\n    J --> L\n    K --> M{Complex Request?}\n    M -->|Yes| I\n    M -->|No| N[✅ Booking Confirmed]\n    \n    L --> O[📝 N8N Processes<br/>Transcription]\n    N --> O\n    O --> P[💾 Saves to Supabase<br/>with Sentiment Analysis]\n    P --> Q[🧠 AI Learns & Personalizes<br/>for Each Customer]",
+    "techs": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Twilio Voice SDK",
+      "Supabase",
+      "N8N",
+      "Retell AI",
+      "Push Notifications"
+    ],
+    "live": "",
+    "testflight": "mailto:hello@flowquantic.ai?subject=CallQuantic%20TestFlight%20Access%20Request",
+    "localUrl": "",
+    "readme": "Addon for CrewQuantic & PetQuantic. PetQuantic: Buddy Voice AI handles 24/7 bookings, captures pet info, transfers complex requests. All calls transcribed for AI personalization.",
+    "github": "",
+    "openNewTab": false,
+    "dev": ["fullstack"]
+  },
+  {
     "id": "voice-call-analytics",
     "title": "Voice Call Analytics - 2025",
     "subtitle": "Retell AI Webhooks + Analytics Dashboard",

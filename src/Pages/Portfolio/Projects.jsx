@@ -318,9 +318,11 @@ const Projects = () => {
           logo={card.logo}
           img={card.img}
           video={card.video}
+          mermaid={card.mermaid}
           techs={card.techs}
           readme={card.readme}
           live={card.live}
+          testflight={card.testflight}
           github={card.github}
           instagram={card.instagram}
           openNewTab={card.openNewTab}

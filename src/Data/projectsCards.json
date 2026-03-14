@@ -111,30 +111,6 @@
     "dev": ["fullstack"]
   },
   {
-    "id": "pinkdog-website",
-    "title": "Pink Dog Resort Website - 2025",
-    "subtitle": "Modern Pet Resort Digital Experience",
-    "description": "🏨 A complete digital transformation for Pink Dog Pet Resort. Features a modern, responsive design with integrated booking system, service showcase, and customer testimonials. Built with performance and SEO in mind, this project demonstrates how traditional pet businesses can leverage modern web technologies.",
-    "isMainFeature": false,
-    "instagram": "",
-    "logo": "/images/pinkdog-logo.png",
-    "img": "/images/pinkdog-preview.gif",
-    "techs": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Vercel"
-    ],
-    "live": "https://pinkdog-website.vercel.app/",
-    "localUrl": "",
-    "readme": "",
-    "github": "",
-    "openNewTab": false,
-    "dev": ["fullstack"]
-  },
-  {
     "id": "3",
     "title": "GlobalLink WEB - 2024",
     "subtitle": "Automated Website Translation",

@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip, Button } from "@mui/material";
+import React, { useState, useRef, useEffect } from "react";
+import { Card, CardContent, CardMedia, Stack, Typography, Box, Chip, Tooltip, Button, Skeleton } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -62,6 +62,66 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import MouseIcon from '@mui/icons-material/Mouse';
 import DnsIcon from '@mui/icons-material/Dns';
+
+// Lazy loading image component - only loads when visible in viewport
+const LazyImage = ({ src, alt, sx, className, height, isMainFeature }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Start loading 200px before visible
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <Box ref={imgRef} sx={{ position: "relative", width: "100%", height: "100%", ...(!isMainFeature && { minHeight: height }) }}>
+      {/* Skeleton placeholder while loading */}
+      {!isLoaded && (
+        <Skeleton
+          variant="rectangular"
+          animation="wave"
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)",
+          }}
+        />
+      )}
+      {isVisible && (
+        <CardMedia
+          component="img"
+          alt={alt}
+          image={src}
+          loading="lazy"
+          className={className}
+          onLoad={() => setIsLoaded(true)}
+          sx={{
+            ...sx,
+            opacity: isLoaded ? 1 : 0,
+            transition: "opacity 0.4s ease-in-out",
+          }}
+        />
+      )}
+    </Box>
+  );
+};
 
 const techIcons = {
   react: react,
@@ -255,12 +315,11 @@ const CardsProjects = ({ id, title, description, subtitle, img, video, techs, he
                 />
               </Box>
             ) : (
-              <CardMedia
-                component='img'
+              <LazyImage
+                src={img}
                 alt={title}
-                image={img}
-                loading="eager"
                 className="featured-image"
+                isMainFeature={true}
                 sx={{
                   width: '100%',
                   height: '100%',
@@ -593,11 +652,11 @@ const CardsProjects = ({ id, title, description, subtitle, img, video, techs, he
             />
           </Box>
         ) : (
-          <CardMedia
-            component='img'
+          <LazyImage
+            src={img}
             alt={title}
-            image={img}
-            loading="eager"
+            height={height}
+            isMainFeature={false}
             sx={{
               width: "100%",
               minWidth: "273px",

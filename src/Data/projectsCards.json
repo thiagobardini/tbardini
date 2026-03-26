@@ -51,8 +51,8 @@
     ],
     "live": "https://demotodai.com/sign-in",
     "localUrl": "",
-    "readme": "https://www.sundai.club/projects/bd214a0b-0f8e-443c-87f6-691ccca047f3",
-    "github": "",
+    "readme": "",
+    "github": "https://www.sundai.club/projects/bd214a0b-0f8e-443c-87f6-691ccca047f3",
     "openNewTab": false,
     "dev": ["fullstack"]
   },

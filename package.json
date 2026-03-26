@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "dependencies": {
     "@babel/plugin-transform-private-property-in-object": "^7.24.1",
     "@emotion/react": "^11.10.6",
@@ -78,6 +79,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "baseline-browser-mapping": "^2.10.10"
   }
 }

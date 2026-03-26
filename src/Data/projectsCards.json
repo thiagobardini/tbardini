@@ -86,6 +86,30 @@
     "dev": ["fullstack"]
   },
   {
+    "id": "6",
+    "title": "Boston Heat Pump Accelerator - 2024",
+    "subtitle": "Green Energy in Boston",
+    "description": "🌆 Civic tech project at Code for Boston. Built public-facing pages for the BHPA initiative, collaborating with UX and Marketing teams. Focused on increasing heat pump access in Boston through independent, unbiased data. Integrated internationalization (i18n) for multilingual accessibility.",
+    "isMainFeature": false,
+    "instagram": "",
+    "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
+    "img": "/images/bhpaBrowserVertical.gif",
+    "techs": [
+      "ReactJS",
+      "RTK Query",
+      "Redux Toolkit",
+      "Material-UI",
+      "JavaScript",
+      "i18n"
+    ],
+    "live": "https://bhpa.vercel.app/public",
+    "localUrl": "",
+    "readme": "",
+    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
+    "openNewTab": false,
+    "dev": ["frontend"]
+  },
+  {
     "id": "callquantic",
     "title": "CallQuantic - 2025",
     "subtitle": "Smart Call Routing Addon for CrewQuantic & PetQuantic",
@@ -203,30 +227,6 @@
     "dev": ["automation"]
   },
   {
-    "id": "6",
-    "title": "Boston Heat Pump Accelerator - 2024",
-    "subtitle": "Green Energy in Boston",
-    "description": "🌆 As a Frontend Developer, I was tasked with implementing the public-facing pages, collaborating closely with a team of UX and Marketing professionals. The BHPA project is dedicated to increasing access to heat pumps in Boston, aiding in cost reduction and the shift towards low-carbon technology, all while maintaining an unbiased stance through independent funding. I have recently integrated internationalization features to enhance accessibility and user experience across various languages.",
-    "isMainFeature": false,
-    "instagram": "",
-    "logo": "https://bhpa.vercel.app/static/media/bhpa-logo300px.da4591615414d61ecfb6.gif",
-    "img": "/images/bhpaBrowserVertical.gif",
-    "techs": [
-      "ReactJS",
-      "RTK Query",
-      "Redux Toolkit",
-      "Material-UI",
-      "JavaScript",
-      "i18n"
-    ],
-    "live": "https://bhpa.vercel.app/public",
-    "localUrl": "",
-    "readme": "",
-    "github": "https://github.com/thiagobardini/urban-league-heat-pump-accelerator/",
-    "openNewTab": false,
-    "dev": ["frontend"]
-  },
-  {
     "id": "7",
     "title": "GeoDev - 2023",
     "subtitle": "Designing Digital Tools for Urban Planning and Public Policy",
@@ -253,8 +253,8 @@
   {
     "id": "8",
     "title": "Gemini AI Chatbot -  2023",
-    "subtitle": "Specialized Predictive Support for Thiago Bardini's Professional Career",
-    "description": "🤖 The Gemini AI Chatbot is a cutting-edge tool designed to provide specialized support for inquiries related to Thiago Bardini's professional career. Engineered with Gemini AI, this chatbot analyzes queries to deliver precise and relevant information efficiently. It connects to a MongoDB database to retrieve initial data and is configured to run in a Node.js environment. If a query is outside the scope of provided data, the chatbot is programmed not just to refer back to guidelines but to guide users towards obtaining the necessary assistance.",
+    "subtitle": "AI-Powered Portfolio Assistant",
+    "description": "🤖 AI chatbot integrated into the portfolio. Answers questions about my work and experience using Gemini AI with MongoDB-backed context. Built with a custom Node.js API server, Express middleware, and React frontend.",
     "isMainFeature": false,
     "instagram": "",
     "logo": "/images/gemini-ai.gif",
@@ -279,7 +279,7 @@
     "id": "9",
     "title": "Mini Market - 2022",
     "subtitle": "Your Online Grocery Store",
-    "description": "🛒 Mini Market is a modern e-commerce platform designed to demonstrate the use of Firebase Realtime Database, Stripe API, and React JS. It features real-time updates and secure payments, showcasing my skills in full-stack application development. Recently enhanced with the GlobalLink GO script for website translation, it provides a multilingual shopping experience while also serving as a platform for QA automation testing at TransPerfect.",
+    "description": "🛒 E-commerce platform with real-time inventory (Firebase), Stripe payments, and multilingual support via GlobalLink GO. Also used as internal QA automation testing target at TransPerfect.",
     "isMainFeature": false,
     "instagram": "",
     "logo": "/images/mini-market-logo.png",
@@ -302,8 +302,8 @@
   {
     "id": "10",
     "title": "My Portfolio",
-    "subtitle": "Showcasing My Dev Journey",
-    "description": "💼 My portfolio serves as a comprehensive display of my skills and projects, documenting my learning journey through various initiatives. In addition to showcasing the technologies I've worked with, it features a modern design aesthetic, aiming to create a visually engaging user experience.",
+    "subtitle": "Personal Portfolio & Technical Showcase",
+    "description": "💼 Full-stack portfolio built with React, Redux Toolkit, Three.js, and Material-UI. Features 3D animations, dark mode, AI chatbot integration, responsive design, and Vercel Analytics.",
     "isMainFeature": false,
     "instagram": "",
     "logo": "/images/myPortfolio.gif",

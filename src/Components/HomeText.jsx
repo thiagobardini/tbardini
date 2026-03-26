@@ -96,36 +96,7 @@ const HomeText = () => {
               },
             }}
           >
-            Founder & Engineer behind{" "}
-            <Box
-              component="a"
-              href="https://www.flowquantic.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                textShadow: (!darkMode) ? { 
-                  xs: '0 1px 2px rgba(0,0,0,0.1)', 
-                  md: 'none' 
-                } : 'none',
-                padding: (!darkMode) ? { xs: '2px 6px', md: 0 } : 0,
-                backgroundColor: (!darkMode) ? { 
-                  xs: 'rgba(255, 255, 255, 0.1)', 
-                  md: 'transparent' 
-                } : 'transparent',
-                borderRadius: (!darkMode) ? { xs: '6px', md: 0 } : 0,
-                '&:hover': {
-                  opacity: 0.8,
-                }
-              }}
-            >
-              FlowQuantic
-            </Box>
+            Building AI agents and vertical SaaS for service businesses
           </Typography>
         </ScrollTrigger>
 
@@ -152,7 +123,7 @@ const HomeText = () => {
               },
             }}
           >
-            Building AI-powered tools for service businesses
+            Founder and Engineer at FlowQuantic
           </Typography>
         </ScrollTrigger>
 

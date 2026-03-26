@@ -196,7 +196,7 @@ const AboutMe = () => {
                       lineHeight: 1.7,
                     }}
                   >
-                    Brazilian-born software developer and founder based in Massachusetts
+                    Building AI agents and vertical SaaS for service businesses
                   </Typography>
                 </Stack>
 
@@ -336,12 +336,11 @@ const AboutMe = () => {
                   fontSize: '1.1rem',
                 }}
               >
-                Full-stack engineer building production applications — from frontend to backend, databases, and AI integration. 
-                Working on{" "}
-                <Box 
-                  component="a" 
-                  href="https://www.flowquantic.ai/" 
-                  target="_blank" 
+                I design, build, and ship full-stack SaaS products solo, from zero to production. Multi-tenant architecture, payment infrastructure, AI agents, SMS automation, and voice AI. Currently running{" "}
+                <Box
+                  component="a"
+                  href="https://www.flowquantic.ai/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   sx={{
                     ...gradientTextStyles,
@@ -354,7 +353,7 @@ const AboutMe = () => {
                 >
                   FlowQuantic
                 </Box>
-                {" "}— a platform creating modular, AI-powered solutions for service businesses.
+                , an umbrella for AI-powered vertical SaaS serving small service businesses in production environments.
               </Typography>
             </Box>
           </ScrollTrigger>
@@ -391,7 +390,7 @@ const AboutMe = () => {
               </Typography>
 
               <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
                   <Paper
                     component="a"
                     href="https://petquantic.com/"
@@ -464,7 +463,7 @@ const AboutMe = () => {
                   </Paper>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
                   <Paper
                     component="a"
                     href="https://www.crewquantic.com/"
@@ -532,8 +531,59 @@ const AboutMe = () => {
                         lineHeight: 1.6,
                       }}
                     >
-                      Smart dashboards for field teams — scheduling, SMS automation, 
+                      Smart dashboards for field teams: scheduling, SMS automation,
                       check-ins, and payment workflows.
+                    </Typography>
+                  </Paper>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Paper
+                    component="a"
+                    href="https://demotodai.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    elevation={0}
+                    sx={{
+                      p: 3,
+                      borderRadius: 2,
+                      border: '1px solid',
+                      borderColor: darkMode
+                        ? 'rgba(102, 126, 234, 0.3)'
+                        : 'rgba(102, 126, 234, 0.2)',
+                      backgroundColor: darkMode
+                        ? 'rgba(102, 126, 234, 0.05)'
+                        : 'rgba(102, 126, 234, 0.02)',
+                      height: '100%',
+                      transition: 'all 0.3s ease',
+                      display: 'block',
+                      textDecoration: 'none',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        borderColor: '#667eea',
+                        transform: 'translateY(-4px)',
+                        boxShadow: darkMode
+                          ? '0 10px 30px rgba(102, 126, 234, 0.2)'
+                          : '0 10px 30px rgba(102, 126, 234, 0.1)',
+                      }
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      component="h3"
+                      sx={{ ...gradientTextStyles, mb: 1 }}
+                    >
+                      DemoTodAI
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: (theme) => theme.palette.text.secondary,
+                        fontFamily: "GothamSSm-Light",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      AI agent that presents and demos products live, navigating, answering questions, and guiding users interactively.
                     </Typography>
                   </Paper>
                 </Grid>
@@ -611,7 +661,7 @@ const AboutMe = () => {
                         },
                       }}
                     >
-                      • <span style={boldTextStyles}>Full-stack development</span>, <span style={boldTextStyles}>system architecture</span>, <span style={boldTextStyles}>cloud infrastructure</span>, <span style={boldTextStyles}>databases</span>, <span style={boldTextStyles}>APIs</span>, <span style={boldTextStyles}>AI/ML</span>, <span style={boldTextStyles}>payment systems</span>, and <span style={boldTextStyles}>end-to-end product delivery</span>
+                      • Building production systems with <span style={boldTextStyles}>Next.js</span>, <span style={boldTextStyles}>TypeScript</span>, <span style={boldTextStyles}>Supabase</span>, <span style={boldTextStyles}>Stripe</span>, <span style={boldTextStyles}>Twilio</span>, <span style={boldTextStyles}>AI integrations</span>, and <span style={boldTextStyles}>automation workflows</span> across web, mobile, and customer-facing SaaS
                     </Typography>
                   </ScrollTrigger>
                 </TimelineContent>
@@ -672,7 +722,7 @@ const AboutMe = () => {
                       }}
                     >
                       <Typography sx={{ pb: 1 }}>
-                        • Contributing to <span style={boldTextStyles}>open source projects</span> and <span style={boldTextStyles}>civic tech initiatives</span> that serve the community
+                        • Active contributor at <span style={boldTextStyles}>Code for Boston (BHPA)</span>, <span style={boldTextStyles}>Sundai Club</span>, and open source initiatives focused on <span style={boldTextStyles}>civic tech</span> and <span style={boldTextStyles}>real-world software</span>
                       </Typography>
                     </Box>
                   </ScrollTrigger>
@@ -730,11 +780,11 @@ const AboutMe = () => {
                       }}
                     >
                       <Typography>
-                        I combine{" "}
-                        <span style={boldTextStyles}>hands-on development</span>{" "}
-                        with <span style={boldTextStyles}>business strategy</span>{" "}
-                        to help teams grow through{" "}
-                        <span style={gradientTextStyles}>automation and efficiency</span>.
+                        When you're shipping solo,{" "}
+                        <span style={boldTextStyles}>engineering</span>,{" "}
+                        <span style={boldTextStyles}>product</span>, and{" "}
+                        <span style={boldTextStyles}>business</span>{" "}
+                        <span style={gradientTextStyles}>move together</span>.
                       </Typography>
                     </Box>
                   </ScrollTrigger>

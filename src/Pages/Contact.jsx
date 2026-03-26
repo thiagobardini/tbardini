@@ -287,8 +287,7 @@ const Contact = () => {
                       lineHeight: 1.7,
                     }}
                   >
-                    I'm always open to discussing new projects, creative ideas, 
-                    or opportunities to be part of your visions.
+                    I build AI agents and vertical SaaS for service businesses. Let's talk.
                   </Typography>
 
                   <Stack direction="row" spacing={2}>
@@ -416,9 +415,11 @@ const Contact = () => {
           sx={{
             "& > :not(style)": { m: 1 },
             display: "flex",
-            justifyContent: "space-between",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: { xs: "center", sm: "space-between" },
             alignItems: "center",
             my: 3,
+            gap: 1,
           }}
         >
           <ButtonFab
@@ -426,12 +427,13 @@ const Contact = () => {
             label="Go Back Home"
             onClick={() => window.scrollTo(0, 0)}
           />
-          
+
           <Typography
             variant="body2"
             sx={{
               color: (theme) => theme.palette.text.secondary,
               fontFamily: "GothamSSm-Light",
+              textAlign: "center",
             }}
           >
             Let's build something amazing together! 🚀

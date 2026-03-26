@@ -18,6 +18,7 @@ const ButtonFab = ({ to, label, onClick, backArrow = false }) => {
     backdropFilter: "blur(10px)",
     backgroundColor: darkMode ? "rgba(255, 255, 255, 0.05)" : "rgba(255, 255, 255, 0.95)",
     fontFamily: "GothamSSm-Light",
+    whiteSpace: "nowrap",
     fontWeight: darkMode ? 400 : 500,
     boxShadow: darkMode ? "none" : "0 2px 8px rgba(0, 0, 0, 0.1)",
     "&:hover": {

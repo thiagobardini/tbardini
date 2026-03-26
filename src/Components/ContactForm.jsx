@@ -58,20 +58,6 @@ const ContactInfo = ({ darkMode, fadeIn }) => (
       alignItems={{ xs: "flex-start", sm: "center" }}
       sx={{ mb: 1, fontFamily: "Gotham-Book" }}
     >
-      <Tooltip TransitionComponent={Zoom} title='🇺🇸 978-648-7075'>
-        <Link href='tel:978-648-7075' color='inherit' underline='none' target='_blank'>
-          <ContactIconText
-            icon={
-              <PhoneIcon
-                sx={{
-                  color: darkMode ? "#eeeeee" : "#222831",
-                  fontSize: "2rem",
-                }}
-              />
-            }
-          />
-        </Link>
-      </Tooltip>
       <Tooltip TransitionComponent={Zoom} title='📧 hello@flowquantic.ai'>
         <Link href="mailto:hello@flowquantic.ai?subject=👨🏻‍💻 Hi Thiago, I'd like to hire you" color='inherit' underline='none' target='_blank'>
           <ContactIconText

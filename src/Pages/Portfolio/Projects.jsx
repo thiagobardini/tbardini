@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { openDrawer, closeDrawer } from "../../redux/drawerSlice";
-import { Box, Container, CssBaseline, Grid, Typography, Paper, Link, Chip, Stack } from "@mui/material";
+import { Box, Container, CssBaseline, Grid, Typography, Paper, Link, Chip, Stack, Button } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HeadingTop from "../../Components/Typography/HeadingTop";
 import projectsCards from "../../Data/projectsCards.json";
 import { TypeAnimation } from "react-type-animation";
@@ -24,6 +25,8 @@ to {
 
 const Projects = () => {
   const [selectedKeyword, setSelectedKeyword] = useState("show all");
+  const INITIAL_VISIBLE = 5;
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
   const darkMode = useSelector((state) => state.theme.darkMode);
 
@@ -104,6 +107,7 @@ const Projects = () => {
 
   const handleFilterClick = (keyword) => {
     setSelectedKeyword(keyword);
+    setVisibleCount(INITIAL_VISIBLE);
   };
 
   const renderBadge = (count, keyword, selectedKeyword, label) => {
@@ -266,33 +270,81 @@ const Projects = () => {
                 ))}
 
               {/* Regular Projects - Masonry Grid */}
-              <Masonry breakpointCols={breakpointColumnsObj} className='my-masonry-grid' columnClassName='my-masonry-grid_column'>
-                {cardsToShow
-                  .filter((card) => !card.isMainFeature)
-                  .map((card, index) => (
-                    <Link key={card.id} underline='none' onClick={() => handleCardClick(card.id, card.title)}>
-                      <Box sx={{ animation: `${fadeIn} 2s`, mb: "12px" }} key={index}>
-                        <CardsProjects
-                          id={card.id}
-                          title={card.title}
-                          subtitle={card.subtitle}
-                          description={card.description}
-                          logo={card.logo}
-                          img={card.img}
-                          video={card.video}
-                          techs={card.techs}
-                          readme={card.readme}
-                          live={card.live}
-                          github={card.github}
-                          openNewTab={card.openNewTab}
-                          index={index}
-                          height={heights[index % heights.length]}
-                          isMainFeature={false}
-                        />
+              {(() => {
+                const regularCards = cardsToShow.filter((card) => !card.isMainFeature);
+                const visibleCards = regularCards.slice(0, visibleCount);
+                const hasMore = visibleCount < regularCards.length;
+
+                return (
+                  <>
+                    <Masonry breakpointCols={breakpointColumnsObj} className='my-masonry-grid' columnClassName='my-masonry-grid_column'>
+                      {visibleCards.map((card, index) => (
+                        <Link key={card.id} underline='none' onClick={() => handleCardClick(card.id, card.title)}>
+                          <Box sx={{ animation: `${fadeIn} 2s`, mb: "12px" }} key={index}>
+                            <CardsProjects
+                              id={card.id}
+                              title={card.title}
+                              subtitle={card.subtitle}
+                              description={card.description}
+                              logo={card.logo}
+                              img={card.img}
+                              video={card.video}
+                              techs={card.techs}
+                              readme={card.readme}
+                              live={card.live}
+                              github={card.github}
+                              openNewTab={card.openNewTab}
+                              index={index}
+                              height={heights[index % heights.length]}
+                              isMainFeature={false}
+                            />
+                          </Box>
+                        </Link>
+                      ))}
+                    </Masonry>
+
+                    {hasMore && (
+                      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3, mb: 1, gap: 1 }}>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: (theme) => theme.palette.text.secondary,
+                            fontFamily: "GothamSSm-Light",
+                          }}
+                        >
+                          Showing {visibleCards.length} of {regularCards.length} projects
+                        </Typography>
+                        <Button
+                          variant="outlined"
+                          endIcon={<ExpandMoreIcon />}
+                          onClick={() => setVisibleCount((prev) => prev + 6)}
+                          sx={{
+                            textTransform: "none",
+                            fontFamily: "GothamSSm-Light",
+                            borderColor: darkMode
+                              ? 'rgba(102, 126, 234, 0.3)'
+                              : 'rgba(102, 126, 234, 0.2)',
+                            color: (theme) => theme.palette.text.primary,
+                            px: 4,
+                            py: 1.2,
+                            borderRadius: 2,
+                            transition: 'all 0.3s ease',
+                            '&:hover': {
+                              borderColor: '#667eea',
+                              background: darkMode
+                                ? 'rgba(102, 126, 234, 0.1)'
+                                : 'rgba(102, 126, 234, 0.05)',
+                              transform: 'translateY(-2px)',
+                            }
+                          }}
+                        >
+                          Load More
+                        </Button>
                       </Box>
-                    </Link>
-                  ))}
-              </Masonry>
+                    )}
+                  </>
+                );
+              })()}
             </Grid>
           </Grid>
         </Paper>

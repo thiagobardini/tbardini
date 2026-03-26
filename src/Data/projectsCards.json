@@ -26,6 +26,38 @@
     "dev": ["fullstack"]
   },
   {
+    "id": "demotodai",
+    "title": "DemoTodAI - 2026",
+    "subtitle": "AI Agent for Live Demos & Presentations",
+    "description": "🤖 An AI agent that replaces the human sales engineer — it shows slides, opens real products in a browser, clicks, types, navigates, and answers audience questions in real time, all with a realistic avatar and voice. Works for any type of demo: live product walkthroughs, sales pitches, onboarding, training sessions, or interactive tutorials. Two core modes: Sales Demo (lead clicks a link, gets an instant live demo with automatic qualification) and In-App Assistant (user asks a how-to question, the AI opens the screen and does it live). Built solo from scratch with a custom engine featuring deterministic and AI-guided navigation (Stagehand), BYOK model (customers bring their own AI API keys), multi-tenant architecture, encrypted credentials, text-to-speech narration (ElevenLabs), and remote browser infrastructure on Fly.io. 24/7, any language, zero marginal cost.",
+    "isMainFeature": false,
+    "instagram": "",
+    "logo": "/images/demotodai-logo.png",
+    "img": "/images/demotodai.gif",
+    "techs": [
+      "Next.js",
+      "TypeScript",
+      "tRPC",
+      "Prisma",
+      "Supabase",
+      "Playwright",
+      "Stagehand",
+      "Claude AI",
+      "HeyGen",
+      "ElevenLabs",
+      "Fly.io",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "live": "https://demotodai.com/sign-in",
+    "localUrl": "",
+    "readme": "https://www.sundai.club/projects/bd214a0b-0f8e-443c-87f6-691ccca047f3",
+    "github": "",
+    "openNewTab": false,
+    "dev": ["fullstack"]
+  },
+
+  {
     "id": "crewquantic",
     "title": "CrewQuantic - 2025",
     "subtitle": "Smart Dashboard for Field Teams",

@@ -25,6 +25,9 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import PaletteIcon from '@mui/icons-material/Palette';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import MouseIcon from '@mui/icons-material/Mouse';
+import DnsIcon from '@mui/icons-material/Dns';
 
 import redux from "../Assets/icons/icons8-redux-an-open-source-javascript-library-for-managing-application-state-30.png";
 import javascript from "../Assets/icons/icons8-javascript-30.png";
@@ -111,6 +114,11 @@ const IconComponent = ({ iconType, tech }) => {
     expo: <PhoneAndroidIcon sx={{ fontSize: 30, color: '#000000' }} />,
     "twilio voice sdk": <VoiceIcon sx={{ fontSize: 30, color: '#F22F46' }} />,
     "push notifications": <NotificationsIcon sx={{ fontSize: 30, color: '#FF9500' }} />,
+    "stagehand": <MouseIcon sx={{ fontSize: 30, color: '#8B5CF6' }} />,
+    "claude ai": <SmartToyIcon sx={{ fontSize: 30, color: '#D97706' }} />,
+    "heygen": <VideocamIcon sx={{ fontSize: 30, color: '#00B8D9' }} />,
+    "elevenlabs": <VoiceIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    "fly.io": <DnsIcon sx={{ fontSize: 30, color: '#8B5CF6' }} />,
   };
 
   const icon = iconMap[iconType.toLowerCase()];
@@ -302,7 +310,8 @@ export default function TemporaryDrawer({ open, onClose, title, subtitle, descri
                   'framer motion', 'vercel', 'calendly api', 'vapi',
                   'real-time transcription', 'trpc', 'supabase', 'supabase postgres', 'next.js 15',
                   'zustand', 'real-time analytics', 'openai', 'drizzle orm', 'shadcn/ui', 'shadcn', 'zod', 'retell ai',
-                  'expo', 'twilio voice sdk', 'push notifications'
+                  'expo', 'twilio voice sdk', 'push notifications',
+                  'stagehand', 'claude ai', 'heygen', 'elevenlabs', 'fly.io'
                 ].includes(techKey);
 
                 if (hasIconComponent) {

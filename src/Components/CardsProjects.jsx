@@ -32,7 +32,6 @@ import mapbox from "../Assets/icons/mapbox.svg?url";
 // Default icons for missing technologies
 import PhoneIcon from '@mui/icons-material/Phone';
 import CloudIcon from '@mui/icons-material/Cloud';
-import MailIcon from '@mui/icons-material/Mail';
 import MessageIcon from '@mui/icons-material/Message';
 import StorageIcon from '@mui/icons-material/Storage';
 import CodeIcon from '@mui/icons-material/Code';
@@ -51,7 +50,6 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import TextsmsIcon from '@mui/icons-material/Textsms';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import SpaIcon from '@mui/icons-material/Spa';
 import HomeIcon from '@mui/icons-material/Home';
@@ -61,6 +59,9 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import PaletteIcon from '@mui/icons-material/Palette';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import MouseIcon from '@mui/icons-material/Mouse';
+import DnsIcon from '@mui/icons-material/Dns';
 
 const techIcons = {
   react: react,
@@ -122,6 +123,11 @@ const IconComponent = ({ iconType, tech }) => {
     expo: <PhoneAndroidIcon sx={{ fontSize: 30, color: '#000000' }} />,
     "twilio voice sdk": <VoiceIcon sx={{ fontSize: 30, color: '#F22F46' }} />,
     "push notifications": <NotificationsIcon sx={{ fontSize: 30, color: '#FF9500' }} />,
+    "stagehand": <MouseIcon sx={{ fontSize: 30, color: '#8B5CF6' }} />,
+    "claude ai": <SmartToyIcon sx={{ fontSize: 30, color: '#D97706' }} />,
+    "heygen": <VideocamIcon sx={{ fontSize: 30, color: '#00B8D9' }} />,
+    "elevenlabs": <VoiceIcon sx={{ fontSize: 30, color: '#000000' }} />,
+    "fly.io": <DnsIcon sx={{ fontSize: 30, color: '#8B5CF6' }} />,
   };
 
   return (
